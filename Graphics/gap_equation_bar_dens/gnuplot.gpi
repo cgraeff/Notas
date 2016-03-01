@@ -1,0 +1,13 @@
+set term tikz size 14cm, 9cm
+
+set out 'graph.tex'
+
+set key reverse left Left
+
+set ylabel '$f(M) = M + G_s\rho_s - 2G_{sv}\rho_s\rho^2$ (MeV)'
+set xlabel '$M$ (MeV)'
+
+plot "Gap_dens_0.107007.dat" w l t '$\rho \approx 0.1$', \
+	 "Gap_dens_0.207908.dat" w l t '$\rho \approx 0.2$', \
+	 "Gap_dens_0.308809.dat" w l t '$\rho \approx 0.3$', \
+	 0 notitle
