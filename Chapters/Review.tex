@@ -1,0 +1,37 @@
+\section{Revisão: Mecânica Quântica}
+
+Aspectos fundamentais\cite{GreinerQM}:
+\begin{itemize}
+	\item De Broglie associa a toda partícula uma \emph{onda de matéria} com comprimento de onda $\lambda = h / p$.\footnote{Quem é esse $\lambda$ se um pacote de onda é composto de várias frequências?}
+	\item A velocidade de fase é sempre maior que a velocidade da luz, portanto, não pode ser associada à velocidade da partícula. A velocidade de fase depende da frequência, logo, há dispersão\footnote{O pacote de onda se ``estica'' com o passar do tempo.}.
+	\item A velocidade da partícula é a velocidade de grupo de um pacote de onda (ver o livro. Acho que o \cite{Cohen} explica isso também, pelo que me lembro, foi mais fácil de entender.)
+	\item O ``campo-guia'' (Max Born: Führungsfeld, anteriormente Einstein ``campo-fantasma'' (Gespensterfeld)) é uma função escalar $\psi$ das coordenadas de todas as partículas e do tempo. O movimento de uma partícula é determinado somente pelas leis de conservação da energia e do momento, além das condições de contorno que dependem do experimento em questão. A probabilidade de que uma partícula seja encontrada em uma região em um certo instante é proporcional à intensidade $|\psi|^2 = \psi\psi^*$. Como $\psi$ pode ser complexa, mas a \emph{probabilidade} de encontrar a partícula tem que ser real, utilizamos o complexo conjugado. Portanto, a probabilidade de encontrar a partícula na região é dada por
+\begin{equation}
+	dW(x, y, z, t) = |\psi(x, y, z, t)|^2 dV,
+\end{equation}
+%
+onde $dV$ é o volume da região. A densidade de probabilidade espacial é então dada por
+\begin{equation}
+	w(x, y, z, t) = \frac{dW}{dt} = |\psi(x, y, z, t)|^2.
+\end{equation}
+%
+A probabilidade de encontrar a partícula em qualquer lugar é normalizada a 1:
+\begin{equation}
+	\int_{-\infty}^\infty \psi\psi^* dV = 1,
+\end{equation}
+%
+o que implica que a função $\psi$ deve ser de \emph{quadrado integrável}. Ondas planas não são de quadrado integrável, logo, para a descrição de algo como onda plana, deve-se adotar um volume finito (uma caixa de lateral $L$, por exemplo), sendo que a função $\psi$ vai a zero fora dessa região.
+	\item \textbf{Ver de onde vem a ideia de base, ortonormalidade, expansão em base, relação de completeza}
+	\item Um \emph{espaço de Hilbert} é um espaço vetorial finito ou infinito no conjunto dos complexos. Nesse espaço, um produto escalar é definido de forma a associar um número complexo a cada par de funções $\psi(x)$ e $\phi(x)$ de um conjunto de funções lineares. O produto escalar satisfaz os seguintes critérios:
+\begin{align}
+	\langle\psi|\phi\rangle &= (\langle \phi|\psi\rangle)^* \\
+	\langle\psi|a\phi_1 + b\phi_2\rangle &= a\langle\psi|\phi_1\rangle + b\langle\psi|\phi_2\rangle \\
+	\langle\psi|\psi\rangle &\geq 0 \\
+	\textrm{Se~}\langle\psi|\psi\rangle = 0,\textrm{~então} \psi(x) = 0.
+\end{align}
+	\item \textbf{Ver essa parte de funções de onda no espaço de momento.}
+	\item \textbf{Ver seção 3.4 pra frente}
+	\item \textbf{Ver a parte sobre o espaço dual no Cohen}
+	\item ``In quantum mechanics we require that all operators be self-adjoint and linear; in this case, the superposition principle holds.''
+
+\section{Revisão: Mecânica Quântica Relativistica}
