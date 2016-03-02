@@ -270,7 +270,23 @@ Portanto, ao se utilizar um método qualquer para se determinar o zero da funç�
 \section{Potenciais químicos, termodinâmico, pressão, e densidade de energia}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-As figuras abaixo mostram os resultados obtidos através das massas e densidades escalares obtidas na seção anterior, utilizando as Equações~\eqref{Eq:Potenciais_Quimicos}, \eqref{Eq:potencial_termodinamico}, \eqref{Eq:Pressao} e~\eqref{Eq:Densidade_energia}.
+As figuras abaixo mostram os resultados obtidos através das massas e densidades escalares obtidas na seção anterior, utilizando as Equações~\eqref{Eq:Potenciais_Quimicos}, \eqref{Eq:potencial_termodinamico}, \eqref{Eq:Pressao} e~\eqref{Eq:Densidade_energia}. Para a correta reprodução dos resultados para a pressão e para a densidade de energia, é essencial que o valor de $\varepsilon_0$ seja calculado. Podemos fazê-lo através de\footnote{Não sei de onde isso vem.}
+\begin{equation}\label{Eq:Def_dens_energia_vacuo}
+	\varepsilon_0 = (\varepsilon_{\rm{kin}})_0 - G_s [(\rho_s)_0]^2
+\end{equation}
+%
+onde\footnote{As somas são sobre prótons e nêutrons, mas como os resultados são idênticos, podemos só multiplicar por 2.}
+\begin{align}
+	(\varepsilon_{\rm{kin}})_0 &= \sum_i \frac{N_c}{\pi^2} (F_2(m_N,0) - F_2(m_N, \Lambda)) \label{Eq:Def_dens_energia_cin_vacuo}\\
+	(\rho_s)_0 &= \sum_i \frac{m_N}{\pi^2} (F_0(m_N, 0) - F_0(m_N, \Lambda)) \label{Eq:Def_dens_escalar_vacuo}
+\end{align}
+
+Para que as dimensões fiquem corretas
+\begin{itemize}
+	\item O segundo termo da Equação~\eqref{Eq:Def_dens_energia_vacuo} deve ser multiplicado por $\hbar c$.
+	\item O lado direito das Equações~\eqref{Eq:Def_dens_energia_cin_vacuo} e \eqref{Eq:Def_dens_escalar_vacuo} deve ser multiplicado por $(\hbar c)^{-3}$
+\end{itemize}
+
 \begin{figure*}
 	\input{Graphics/chemical_potential/graph.tex}
 	\caption{Gráfico dos potenciais químicos de próton e nêutron calculados a partir da Equação~\eqref{Eq:Potenciais_Quimicos}. Como a fração de próton é 1/2, ambos os potenciais tem o mesmo valor.}
@@ -289,3 +305,8 @@ As figuras abaixo mostram os resultados obtidos através das massas e densidades
 	\label{Fig:pressure_graph}
 \end{figure*}
 
+\begin{figure*}
+	\input{Graphics/energy_by_nucleon/graph.tex}
+	\caption{Gráfico da razão entre a densidade de energia $\varepsilon$ e a densidade $\rho$. Note que o mínimo da energia ocorre em aproximadamente \np[fm^{-3}]{0.15}, que é a densidade de saturação da matéria nuclear. Para obtermos o valor de \np[MeV]{16} por nucleon, basta subtrairmos o valor da massa do nucleon.}
+	\label{Fig:energy_by_nucleon_graph}
+\end{figure*}

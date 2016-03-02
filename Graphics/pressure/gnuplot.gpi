@@ -5,5 +5,5 @@ set out 'graph.tex'
 set xlabel '$\rho$ ($\rm{fm}^{-3}$)'
 set ylabel '$P$ ($\rm{MeV}/\rm{fm}^3$)'
 
-set yrange[275:295]
+set yrange[-2:16]
 plot "pressure.dat" w l notitle
