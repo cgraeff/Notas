@@ -1,10 +1,25 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Fase de Hadrons: eNJL}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Simetria quiral}
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Ver discussão em Ref.\cite{Vogl}
 % Vogl, U., and W. Weise. - Progress in Particle and Nuclear Physics 27 (1991): 195-272 - The Nambu and Jona-Lasinio model: its implications for hadrons and nuclei
+
+\begin{description}
+	\item[Limite quiral] No limite quiral, a massa constituinte vai a zero:
+		\begin{equation}
+			m \to 0.
+		\end{equation}
+\end{description}
+
+%%%%%%%%%%%%%%%%%%%%%%%
 \section{Termodinâmica}
+%%%%%%%%%%%%%%%%%%%%%%%
 
 Temos que $dS$ ou $dU$ -- deve ser $dU$, pois o potencial químico é a ``quantidade de energia ganha ao se inserir mais uma partícula no sistema'' -- tem um termo $\mu dN$. Vamos trabalhar com densidade bariônica, mas essa densidade é só o número de partículas $N$ dividido pelo volume (as outras variáveis também serão trabalhadas divididas pelo volume). Logo, temos $\mu d\rho$. Por isso, temos que $\mu = d\epsilon/d\rho$, onde $\epsilon$ é a densidade de energia $\epsilon = E/V$. 
 
@@ -27,11 +42,41 @@ A densidade é obtida simplesmente somando os estados ocupados. A energia é cal
 
 In thermodynamics, chemical potential, also known as partial molar free energy, is a form of potential energy that can be absorbed or released during a chemical reaction. It may also change during a phase transition. The chemical potential of a species in a mixture can be defined as the slope of the free energy of the system with respect to a change in the number of moles of just that species. Thus, it is the partial derivative of the free energy with respect to the amount of the species, all other species' concentrations in the mixture remaining constant, and at constant temperature. When pressure is constant, chemical potential is the partial molar Gibbs free energy. At chemical equilibrium or in phase equilibrium the total sum of chemical potentials is zero, as the free energy is at a minimum. \url{https://en.wikipedia.org/wiki/Chemical_potential}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Modelo de Nambu--Jona-Lasinio}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Sobre a origem do modelo\cite{Buballa}:
+\begin{quote}
+Historically, it goes back to two papers by Nambu and Jona-Lasinio in 1961 [...] to a time when QCD and even quarks were still unknown. In its original version, the NJL model was therefore a model of interacting \emph{nucleons}, and obviously, confinement [\dots] was not an issue. On the other hand, even in the pre-QCD era there were already indications for the existence of a (partially) conserved axial vector current (PCAC), i.e., chiral symmetry. Since (approximate) chiral symmetry implies (almost) massless fermions on the Lagrangian level, the problem was to find a mechanism which explains the large nucleon mass without destroying the symmetry.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Artigo: Pais, Menezes, Providência}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+It was the pioneering idea of Nambu and Jona-Lasinio that the gap in the Dirac spectrum of the nucleon\footnote{\emph{the gap in the Dirac spectrum of the nucleon}, do que se trata?} can be generated quite analogously to the energy gap of a superconductor in BCS theory, which has been developed a few years earlier. To that end they introduced a Lagrangian for a nucleon field $\psi$ with a point-like, chirally symmetric four-fermion interaction\footnote{\emph{point-like}: acho que isto está ligado ao fato de que o termo que corresponderia a um potencial é simplesmente uma constante vezes uma coisa que depende do $\psi$, não algo que saia de uma outra equação que dependa do $\psi$, como a Eq. de Klein-Gordon no modelo de Walecka para o núcleo que eu trabalhei. \emph{chirally symmetric}: imagino que seja por que não há diferenciação entre as duas quiralidaes (helicidades para uma partícula sem massa). \emph{four-fermion interaction}: não tenho ideia de como é possivel ver isso nos termos.},
+\begin{equation}\label{Eq:LagOriginalNJL}
+	\mathcal{L} = \bar{\psi}(i\slashed{\partial} - m)\psi + G\{(\bar{\psi}i\gamma_5\vec{\tau}\psi)^2\}.
+\end{equation}
+\end{quote}
+%
+Na lagrangiana acima,
+\begin{itemize}
+	\item $m$ é a massa constituinte do nucleon, que deve ser pequena devido ao fato de que se não fosse, não haveria possibilidade de haver simetria quiral. Simetria quiral implica em massa pequena.
+	\item $\vec{\tau}$ é a matriz de Pauli atuando no espaço de isospin.
+	\item $G$ é uma constante de acoplamento que possui alguma dimensão (termos diferentes tem dimensões diferentes).
+\end{itemize}
+
+Ainda temos\cite{Buballa}
+\begin{quote}
+[T]he self-energy induced by the interaction generates an effective mass $M$ which can be considerably larger than $m$ and stays large, even when $m$ is taken to zero (``chiral limit''). At the same time, there are light collective nucleon-antinucleon excitations which become massless in the chiral limit: The pion emerges as the Goldstone boson of the spontaneously broken chiral symmetry. In fact, this discovery was an important milestone on the way to the general derivation of the Goldstone theorem in the same year.\footnote{\emph{large collective excitatations}: o que é isso? \emph{Goldstone boson}: o que é isso? \emph{spontaneously broken}: o que é isso?}
+
+After the development of QCD, the NJL model was reinterpreted as a schematic quark model. At that point, of course, the lack of confinement became a problem\footnote{Se não ter confinamento é um problema para os quarks, pq temos que adicionar termos ao modelo para a fase de hadrons para poder descrevê-la adequadamente? Não deveria descrever direito pois foi para isso que o modelo foi criado? Ou adicionamos termos só para descrever adequadamente as propriedades da fase de hádrons (principalmente: qual é o papel do termo proporcional a $G_{sv}$?). Na fase de quarks, não tem importância o confinamento pois estamos a uma densidade muito alta, então eles desconfinam de qualquer forma. Devemos tratar as duas separadamente e depois descobrir onde fica a transição usando condições de Gibbs}, severely limiting the applicability of the model. On the other hand, there are many situations where chiral symmetry is the relevant feature of QCD, confinement being less important. The most prominent example is again the Goldstone nature of the pion. In this aspect the NJL model is superior to the MIT bag, which [\dots] fails to explain the low pion mass.\footnote{Qual é a relação entre ser o boson de Goldstone (?) e ter massa pequena? É por que de alguma forma ele está ligado à simetria quiral?}
+
+[\dots]
+
+After the reinterpretation of the NJL model as a quark model, many authors kept the original form of the Lagrangian Eq.~\eqref{Eq:LagOriginalNJL}, with $\psi$ now being a quark field with two flavor and three color degrees of freedom. However, this choice is not unique and we can write down many other chirally symmetric interaction terms.
+\end{quote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Artigo: Pais, Menezes, Providência; Fase de Hádrons}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Sobre o modelo\cite{Pais}:
 \begin{quote}
@@ -96,9 +141,9 @@ onde
 	\end{equation}
 	%
 	onde $i = p, n$ (no nosso caso, no artigo é $u, d, s$) e $\beta = T^{-1}$
-	\item $M_i$ é a massa constituinte do nucleon em questão (quark, no artigo).
+	\item $M_i$ é a massa efetiva do nucleon em questão (quark, no artigo).
 	\item $E_i = \sqrt{p^2 + M_i^2}$
-	\item $m_i$ no artigo são as massas (nuas?) dos quarks, e no nosso caso?\footnote{Ver isso.}
+	\item $m_i$ são as massas constituintes -- nuas, \emph{bare} --.
 \end{itemize}
 
 Se tomarmos $T \to 0$, temos que $n_{i-} \to 1$ e $n_{i+} \to 0$; Além disso, se o integrando só depende do módulo de $\vec{p}$, então (\cite{Glendenning}, p. 92)
