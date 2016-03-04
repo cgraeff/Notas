@@ -1,9 +1,0 @@
-set term tikz size 14cm, 9cm
-
-set out "graph.tex"
-
-set xlabel '$\rho$ ($\rm{fm}^{-3}$)'
-set ylabel '$\omega$ ($\rm{MeV}/\rm{fm}^{3}$)'
-
-set yrange[-295:-275]
-plot "thermodynamic_potential.dat" w l notitle

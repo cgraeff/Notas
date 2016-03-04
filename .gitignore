@@ -8,4 +8,5 @@
 *.out
 *.pdf
 *.toc
+*.swp
 .DS_Store

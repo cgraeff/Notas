@@ -292,22 +292,22 @@ Portanto, verificamos que os termos proporcionais a $G_i$ devem ser multiplicado
 A solução da Equação~\eqref{Eq:Gap} é encontrada zerando a Equação~\eqref{Eq:Gap_zero}. No entanto, essa última depende de $\rho$ e dos momentos de Fermi para próton e nêutron (o que é uma dependência indireta de $\rho$ e da fração de prótons). Assim, a forma da função pode se alterar de acordo com os valores de tais variáveis. A Figura~\ref{Fig:Gap_zero_graph} mostra curvas de $f(M)$ para diferentes valores de $\rho$.
 
 \begin{figure*}
-	\input{Graphics/gap_equation_bar_dens/graph.tex}
-	\caption{Exemplos de formas diferentes para $f(M)$ para valores diferentes de $\rho$. Os momentos de Fermi foram determinados a partir de \eqref{Eq:Mom_Fermi_a_partir_de_rho} com fração de prótons 1/2.}
+	\input{Graphics/eNJL1-Yp_0.5/graph/gap.tex}
+	\caption{Exemplos de formas diferentes para $f(M)$ para valores diferentes de $\rho$. Os momentos de Fermi foram determinados a partir de \eqref{Eq:Mom_Fermi_a_partir_de_rho} com fração de prótons 1/2. \protect\input{Graphics/eNJL1-Yp_0.5/info.tex}}
 	\label{Fig:Gap_zero_graph}
 \end{figure*}
 
 Portanto, ao se utilizar um método qualquer para se determinar o zero da função, são necessários parâmetros que tornem possível encontrar o zero da função. Como a função só tem um zero\footnote{Desprezando a solução trivial $M = 0$.}, temos uma situação mais simples, pois não há risco de que tenhamos que encontrar mais que um mínimo (se esse fosse o caso, teríamos que encontrar aquele que minimiza alguma energia\cite{Buballa}. Verificar.). Adotando o método da biseção, que é o mais simples, só precisamos de dois pontos que devem estar à esquerda e à direita do zero. Adotamos os valores \np{1.0e-3} e 1500 (em MeV), sendo o primeiro bastante próximo de zero e o segundo aparentemente se posiciona à direita do zero para vários valores de densidade. Não podemos adotar zero para o valor à esquerda pois $f(M=0) = 0$. A Fig.~\ref{Fig:mass_graph} mostra os valores de $M$ obtidos de acordo com o acima exposto, enquanto a Fig.~\ref{Fig:scalar_density_graph} mostra a curva das densidades escalares correspondentes.
 
 \begin{figure*}
-	\input{Graphics/mass_and_scalar_density/mass.tex}
-	\caption{Gráfico mostrando a massa em função da densidade bariônica para fração de prótons 1/2. Note que $M$ diminui até zero em $\rho \approx 0.35$. Nesse ponto ocorre a restauração da simetria quiral.}
+	\input{Graphics/eNJL1-Yp_0.5/graph/mass.tex}
+	\caption{Gráfico mostrando a massa em função da densidade bariônica para fração de prótons 1/2. Note que $M$ diminui até zero em $\rho \approx 0.35$. Nesse ponto ocorre a restauração da simetria quiral. \protect\input{Graphics/eNJL1-Yp_0.5/info.tex}}
 	\label{Fig:mass_graph}
 \end{figure*}
 
 \begin{figure*}
-	\input{Graphics/mass_and_scalar_density/scalar_density.tex}
-	\caption{Gráfico da densidade escalar em função da densidade bariônica para fração de prótons 1/2. O resultado mostrado nesse gráfico é obtido juntamente com os resultados mostrados na Fig.~\ref{Fig:mass_graph} através da solução da Equação~\ref{Eq:Gap_zero}.}
+	\input{Graphics/eNJL1-Yp_0.5/graph/scalar_density.tex}
+	\caption{Gráfico da densidade escalar em função da densidade bariônica para fração de prótons 1/2. O resultado mostrado nesse gráfico é obtido juntamente com os resultados mostrados na Fig.~\ref{Fig:mass_graph} através da solução da Equação~\ref{Eq:Gap_zero}. \protect\input{Graphics/eNJL1-Yp_0.5/info.tex}}
 	\label{Fig:scalar_density_graph}
 \end{figure*}
 
@@ -333,25 +333,69 @@ Para que as dimensões fiquem corretas
 \end{itemize}
 
 \begin{figure*}
-	\input{Graphics/chemical_potential/graph.tex}
-	\caption{Gráfico dos potenciais químicos de próton e nêutron calculados a partir da Equação~\eqref{Eq:Potenciais_Quimicos}. Como a fração de próton é 1/2, ambos os potenciais tem o mesmo valor.}
+	\input{Graphics/eNJL1-Yp_0.5/graph/chemical_potentials.tex}
+	\caption{Gráfico dos potenciais químicos de próton e nêutron calculados a partir da Equação~\eqref{Eq:Potenciais_Quimicos}. Como a fração de próton é 1/2, ambos os potenciais tem o mesmo valor. \protect\input{Graphics/eNJL1-Yp_0.5/info.tex}}
 	\label{Fig:chemical_potential_graph}
 \end{figure*}
 
 \begin{figure*}
-	\input{Graphics/thermodynamic_potential/graph.tex}
-	\caption{Gráfico do potencial grand canônico por unidade de volume obtido através da Equação~\eqref{Eq:potencial_termodinamico}.}
+	\input{Graphics/eNJL1-Yp_0.5/graph/thermodynamic_potential.tex}
+	\caption{Gráfico do potencial grand canônico por unidade de volume obtido através da Equação~\eqref{Eq:potencial_termodinamico}. \protect\input{Graphics/eNJL1-Yp_0.5/info.tex}}
 	\label{Fig:thermodynamic_potential_graph}
 \end{figure*}
 
 \begin{figure*}
-	\input{Graphics/pressure/graph.tex}
-	\caption{Gráfico da pressão obtido através da Equação~\eqref{Eq:Pressao}. Devido ao fato de que estamos usando $\varepsilon_o = 0$ por enquanto, a escala vertical do gráfico está deslocada no sentido positivo.}
+	\input{Graphics/eNJL1-Yp_0.5/graph/pressure.tex}
+	\caption{Gráfico da pressão obtido através da Equação~\eqref{Eq:Pressao}. Devido ao fato de que estamos usando $\varepsilon_o = 0$ por enquanto, a escala vertical do gráfico está deslocada no sentido positivo. \protect\input{Graphics/eNJL1-Yp_0.5/info.tex}}
 	\label{Fig:pressure_graph}
 \end{figure*}
 
 \begin{figure*}
-	\input{Graphics/energy_by_nucleon/graph.tex}
-	\caption{Gráfico da razão entre a densidade de energia $\varepsilon$ e a densidade $\rho$. Note que o mínimo da energia ocorre em aproximadamente \np[fm^{-3}]{0.15}, que é a densidade de saturação da matéria nuclear. Para obtermos o valor de \np[MeV]{16} por nucleon, basta subtrairmos o valor da massa do nucleon.}
+	\input{Graphics/eNJL1-Yp_0.5/graph/energy_by_nucleon.tex}
+	\caption{Gráfico da razão entre a densidade de energia $\varepsilon$ e a densidade $\rho$. Note que o mínimo da energia ocorre em aproximadamente \np[fm^{-3}]{0.15}, que é a densidade de saturação da matéria nuclear. Para obtermos o valor de \np[MeV]{16} por nucleon, basta subtrairmos o valor da massa do nucleon. \protect\input{Graphics/eNJL1-Yp_0.5/info.tex}}
 	\label{Fig:energy_by_nucleon_graph}
+\end{figure*}
+
+%%%
+
+\begin{figure*}
+	\input{Graphics/eNJL1m-Yp_0.5/graph/gap.tex}
+	\caption{Exemplos de formas diferentes para $f(M)$ para valores diferentes de $\rho$. Os momentos de Fermi foram determinados a partir de \eqref{Eq:Mom_Fermi_a_partir_de_rho} com fração de prótons 1/2. \protect\input{Graphics/eNJL1m-Yp_0.5/info.tex}}
+	\label{Fig:Gap_zero_graph_eNJL1m}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/eNJL1m-Yp_0.5/graph/mass.tex}
+	\caption{Gráfico mostrando a massa em função da densidade bariônica para fração de prótons 1/2. Note que $M$ diminui até zero em $\rho \approx 0.35$. Nesse ponto ocorre a restauração da simetria quiral. \protect\input{Graphics/eNJL1m-Yp_0.5/info.tex}}
+	\label{Fig:mass_graph_eNJL1m}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/eNJL1m-Yp_0.5/graph/scalar_density.tex}
+	\caption{Gráfico da densidade escalar em função da densidade bariônica para fração de prótons 1/2. O resultado mostrado nesse gráfico é obtido juntamente com os resultados mostrados na Fig.~\ref{Fig:mass_graph} através da solução da Equação~\ref{Eq:Gap_zero}. \protect\input{Graphics/eNJL1m-Yp_0.5/info.tex}}
+	\label{Fig:scalar_density_graph_eNJL1m}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/eNJL1m-Yp_0.5/graph/chemical_potentials.tex}
+	\caption{Gráfico dos potenciais químicos de próton e nêutron calculados a partir da Equação~\eqref{Eq:Potenciais_Quimicos}. Como a fração de próton é 1/2, ambos os potenciais tem o mesmo valor. \protect\input{Graphics/eNJL1m-Yp_0.5/info.tex}}
+	\label{Fig:chemical_potential_graph_eNJL1m}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/eNJL1m-Yp_0.5/graph/thermodynamic_potential.tex}
+	\caption{Gráfico do potencial grand canônico por unidade de volume obtido através da Equação~\eqref{Eq:potencial_termodinamico}. \protect\input{Graphics/eNJL1m-Yp_0.5/info.tex}}
+	\label{Fig:thermodynamic_potential_graph_eNJL1m}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/eNJL1m-Yp_0.5/graph/pressure.tex}
+	\caption{Gráfico da pressão obtido através da Equação~\eqref{Eq:Pressao}. Devido ao fato de que estamos usando $\varepsilon_o = 0$ por enquanto, a escala vertical do gráfico está deslocada no sentido positivo. \protect\input{Graphics/eNJL1m-Yp_0.5/info.tex}}
+	\label{Fig:pressure_graph_eNJL1m}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/eNJL1m-Yp_0.5/graph/energy_by_nucleon.tex}
+	\caption{Gráfico da razão entre a densidade de energia $\varepsilon$ e a densidade $\rho$. Note que o mínimo da energia ocorre em aproximadamente \np[fm^{-3}]{0.15}, que é a densidade de saturação da matéria nuclear. Para obtermos o valor de \np[MeV]{16} por nucleon, basta subtrairmos o valor da massa do nucleon. \protect\input{Graphics/eNJL1m-Yp_0.5/info.tex}}
+	\label{Fig:energy_by_nucleon_graph_eNJL1m}
 \end{figure*}

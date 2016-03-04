@@ -1,8 +1,0 @@
-set term tikz size 14cm, 9cm
-
-set out 'graph.tex'
-
-set ylabel '$E/A = \varepsilon/\rho$ (MeV)'
-set xlabel '$\rho$ $\rm{fm}^{-3}$'
-
-plot "energy_by_nucleon.dat" w l notitle
