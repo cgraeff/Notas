@@ -83,25 +83,32 @@ Sobre o modelo\cite{Pais}:
 The NJL model can be extended [...] to yield reasonable saturation properties of nuclear matter, the field $\psi$ being the nucleon field. An effective density dependent coupling constant is obtained if the following extended NJL (eNJL) Lagrangian density, which actually pushes chiral symmetry restoration to higher densities, is considered,
 \begin{equation}\label{Eq:Lagrangiana_eNLJ_Pais}
 \begin{split}
-	\mathcal{L} &= \bar{\psi}(i\gamma^\mu\partial_\mu)\psi + G_s[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] - G_v(\bar{\psi}\gamma^\mu\psi)^2 \\
-	&\phantom{=}- G_{sv}[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2](\bar{\psi}\gamma^\mu\psi)^2 - G_\rho[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
-	&\phantom{=}- G_{v\rho}(\bar{\psi}\gamma^\mu\psi)^2[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2].
+	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu)\psi + G_s[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] \\
+	& - G_v(\bar{\psi}\gamma^\mu\psi)^2 - G_{sv}[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2](\bar{\psi}\gamma^\mu\psi)^2 \\
+	& - G_\rho[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
+	& - G_{v\rho}(\bar{\psi}\gamma^\mu\psi)^2[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
+	& - G_{s\rho} [(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2][(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2].
 \end{split}
 \end{equation}
 \end{quote}
 
-Outras informações relevantes (ainda do artigo)\footnote{Qual é a função do termo em $G_{s\rho}$? Qual é o papel do termo em $G_v$? (Ver o que tem no Walecka).}:
+Outras informações relevantes (ainda do artigo):
 \begin{itemize}
 	\item Para a matéria nuclear, a degenerescência é $2 N_f$;
 	\item O \emph{cutoff} $\Lambda$ é tal que a massa do nucleon no vácuo seja de 939 MeV, determinada variacionalmente;
-	\item O termo proporcional $G_s$ simula uma repulsão de curto alcance entre os nucleons (chiral invariant);
+	\item O termo proporcional a $G_v$ simula uma repulsão de curto alcance quiralmente invariante entre dois nucleons;
+	\item O termo proporcional a $G_s$ simula uma repulsão de curto alcance entre os nucleons (chiral invariant)\footnote{Acredito que seja em $G_v$, pois é o que consta na última versão do artigo. De qq forma, se um é isso, o outro é o que?};
 	\item ``The term in $G_{sv}$ accounts for the density dependence of the scalar coupling. For the nuclear matter, the NJL model leads to binding, but the binding energy per particle does no have a minimum except at a rather high density where the nucleon mass is small or vanishing. The introduction of the $G_{sv}$ coupling term is required to correct this.''
-	\item O termo proporcional a $G_\rho$ (isovetor-vetor) é incluido para descrever a matéria nuclear assimétrica (em isospin); 
+	\item O termo proporcional a $G_\rho$ (isovetor-vetor) é incluido para descrever a matéria nuclear assimétrica (em isospin);
+	\item ``The terms $G_{v\rho}$ and $G_{s\rho}$ make the symmetry energy softer.''
 \end{itemize}
 
 A partir da lagrangiana \eqref{Eq:Lagrangiana_eNLJ_Pais}, é possível determinar\footnote{Como? Através de $\omega(T,\mu) = -\frac{T}{V} \ln \mathcal{Z}$?} o potencial termodinâmico\footnote{Potencial Grand-canônico, ou potencial de Landau.} por unidade de volume, dado por
 \begin{equation}\label{Eq:potencial_termodinamico}
-	\omega(\mu) = \varepsilon_{\rm{kin}} - G_s\rho_s^2 + G_v\rho^2 + G_{sv}\rho_s^2\rho^2 + G_\rho\rho_3^2 + G_{v\rho}\rho^2\rho_3^2 - \mu_p\rho_p - \mu_n\rho_n,
+\begin{split}
+	\omega(\mu) =&~ \varepsilon_{\rm{kin}} + m\rho_s - G_s\rho_s^2 + G_v\rho^2 + G_{sv}\rho_s^2\rho^2 + G_\rho\rho_3^2 \\
+	&+ G_{v\rho}\rho^2\rho_3^2 + G_{s\rho}\rho_s^2\rho_3^2 - \mu_p\rho_p - \mu_n\rho_n,
+\end{split}
 \end{equation}
 %
 onde
@@ -127,7 +134,7 @@ onde
 O termo cinético na expressão acima pode ser calculado através de (primeiro termo da Eq. (1) em \cite{PRC_68_035804_2003}, o resto é energia potencial)\footnote{Degenerescência: O 2 se refere às duas possibilidades de spin; Podemos ter um $N_f$ que representa o número de sabores.}
 \begin{align}
 	\varepsilon_{\rm{kin}} &= \langle\bar{\psi}(\vec{\gamma}\cdot\vec{p}\psi\rangle \\
-	&= - 2 N_c\sum_i \int \frac{d^3p}{(2\pi)^3}\frac{p^2 + m_i M_i}{E_i}(n_{i-}-n_{i+})\theta(\Lambda^2 - p^2),
+	&= 2 N_c\sum_i \int \frac{d^3p}{(2\pi)^3}\frac{p^2 + m_i M_i}{E_i}(n_{i-}-n_{i+})\theta(\Lambda^2 - p^2),
 \end{align}
 %
 onde
@@ -153,8 +160,8 @@ Se tomarmos $T \to 0$, temos que $n_{i-} \to 1$ e $n_{i+} \to 0$; Além disso, s
 %
 Logo, temos
 \begin{align}
-	\varepsilon &= -2 N_c \frac{1}{2\pi^2}\sum_i \int p^2 dp \frac{p^2 + m_i M_i}{\sqrt{p^2 + M_i^2}} \theta(\Lambda^2 - p^2) \\
-	&= -\frac{N_c}{\pi^2}\sum_i\left[\int \frac{p^4dp}{\sqrt{p^2 + M_i^2}}\theta(\Lambda^2 - p^2) + \int m_i M_i \frac{p^2 dp}{\sqrt{p^2 + M_i^2}}\theta(\Lambda^2 - p^2)\right]
+	\varepsilon &= 2 N_c \frac{1}{2\pi^2}\sum_i \int p^2 dp \frac{p^2 + m_i M_i}{\sqrt{p^2 + M_i^2}} \theta(\Lambda^2 - p^2) \\
+	&= \frac{N_c}{\pi^2}\sum_i\left[\int \frac{p^4dp}{\sqrt{p^2 + M_i^2}}\theta(\Lambda^2 - p^2) + \int m_i M_i \frac{p^2 dp}{\sqrt{p^2 + M_i^2}}\theta(\Lambda^2 - p^2)\right] \label{Eq:Engergia_cin_separada}
 \end{align}
 %
 Podemos utilizar as relações (\cite{Glendenning} p. 94\footnote{Na Ref. o primeiro termo da segunda expressão aparece sem o $k$ multiplicando, o que dimensionalmente está incorreto.})
@@ -165,7 +172,7 @@ Podemos utilizar as relações (\cite{Glendenning} p. 94\footnote{Na Ref. o prim
 %
 onde $\epsilon = \sqrt{k^2+m^2}$. Tomando o caso $m_i \to 0$\footnote{No prog. \texttt{eos\_enjl1-dens-assym- clean-rho-vr.f}: $\varepsilon \propto [F_2(M, k_F^i) - F_2(M, \Lambda)]$ ao invés de $\varepsilon \propto [F_2(M_i, \Lambda) - F_2(M_i, 0)]$; Isso se deve à retirada da contribuição do vácuo. Além disso, aparentemente os $M_i$ podem ser diferentes. No prog. são iguais, imagino que seja por considerarmos $m_n = m_p = m_N$.}, obtemos
 \begin{equation}\label{Eq:Energia_kin}
-	\varepsilon_{\rm{kin}} = -\frac{N_c}{\pi^2}\sum_i \Big[\underbrace{\frac{1}{8}\Big((2p^3 - 3M_i^2p)\sqrt{p^2 + M_i^2} + 3M_i^4\ln\frac{p + \sqrt{p^2 + M_i^2}}{M_i}\Big)}_{F_2(m,p)}\Big]_0^\Lambda
+	\varepsilon_{\rm{kin}} = \frac{N_c}{\pi^2}\sum_i \Big[\underbrace{\frac{1}{8}\Big((2p^3 - 3M_i^2p)\sqrt{p^2 + M_i^2} + 3M_i^4\ln\frac{p + \sqrt{p^2 + M_i^2}}{M_i}\Big)}_{F_2(m,p)}\Big]_0^\Lambda
 \end{equation}
 
 A densidade escalar $\rho_s$ é dada por\footnote{De onde vem essa expressão?}
@@ -175,29 +182,32 @@ A densidade escalar $\rho_s$ é dada por\footnote{De onde vem essa expressão?}
 %
 onde
 \begin{equation}
-	F_0(M, x) = \int_0^x \frac{dp}{\pi^2}\frac{p^2}{\sqrt{M^2 + p^2}}, \quad i = p, n.
+	F_0(M, x) = \int_0^x dp\frac{p^2}{\sqrt{M^2 + p^2}} dp.
 \end{equation}
 %
-Utilizando a Equação~\eqref{Eq:Integ_momento_quad}, podemos reescrever a equação acima como\footnote{Esse $\pi^2$ no denominador está com cara de que não deveria estar aí. A parece um $\pi^2$ no denominador na definição de $\rho_s$ em termos de $F_0(M, x)$ e se eu deixar nos dois lugares, não há raízes para a equação do Gap. Por outro lado, mesmo que eu deixe, $\rho_s$ é menor que zero!}
+Utilizando a Equação~\eqref{Eq:Integ_momento_quad}, podemos reescrever a equação acima como
 \begin{equation}
-	F_0(M, x) = \frac{1}{2\pi^2}\left[x\sqrt{x^2+M^2} - M^2 \ln \frac{x + \sqrt{x^2+M^2}}{M}\right].
+	F_0(M, x) = \frac{1}{2}\left[x\sqrt{x^2+M^2} - M^2 \ln \frac{x + \sqrt{x^2+M^2}}{M}\right].
 \end{equation}
 
-A massa\footnote{constituinte?} $M$ na equação acima é dada por\footnote{Essa equação é conhecida como \emph{Gap equation} (?).}
+A massa efetiva $M$ na equação acima é dada por\footnote{Essa equação é conhecida como \emph{gap equation}}
 \begin{equation}\label{Eq:Gap}
-	M = -2G_s\rho_s + 2G_{sv}\rho_s\rho^2,
+	M = m - 2G_s\rho_s + 2G_{sv}\rho_s\rho^2 + 2 G_{s\rho}\rho_s\rho_3^2,
 \end{equation}
 %
 com $\rho_s = \rho_s^p + \rho_s^n$. Temos, portanto, uma interdependência entre as equações. Para que seja possível solucionar tais equações, podemos definir uma função $f(M)$ de tal forma que
 \begin{equation}\label{Eq:Gap_zero}
-	f(M) = M + 2G_s\rho_s - 2G_{sv}\rho_s\rho^2.
+	f(M) = M - m + 2G_s\rho_s - 2G_{sv}\rho_s\rho^2 - 2 G_{s\rho}\rho_s\rho_3^2,.
 \end{equation}
 %
 Para solucionarmos a equação acima, basta utilizarmos uma rotina para encontrar zeros de funções, por exemplo biseção ou Newton-Raphson, encontrando o valor de $M$ para o qual $f(M) = 0$. A densidade escalar $\rho_s$ pode ser calculada através da expressão~\eqref{Eq:Dens_Escalar}\footnote{Na prática é mais fácil salvar o último valor de $\rho_s$ calculado pela rotina que tenta encontrar o zero da função $f(M)$.}.
 
 Os potenciais químicos são dados por\footnote{Como essas expressões são calculadas?}
 \begin{equation}\label{Eq:Potenciais_Quimicos}
-	\mu_i = E_{p_F}^i + 2G_v\rho + 2G_{sv}\rho\rho_s^2 \pm 2G_\rho\rho_3+2G_{v\rho}\rho_3^2\rho \pm 2G_{v\rho}\rho^2\rho_3,
+\begin{split}
+	\mu_i =&~ E_{p_F}^i + 2G_v\rho + 2G_{sv}\rho\rho_s^2 \pm 2G_\rho\rho_3+2G_{v\rho}\rho_3^2\rho \\
+	& \pm 2G_{v\rho}\rho^2\rho_3 \pm 2 G_{s\rho}\rho_3\rho_s^2,
+\end{split}
 \end{equation}
 %
 onde $i = p,n$, os sinais superiores se referem ao caso de prótons, e $E_{p_F}^i = \sqrt{M^2 + (p_F^i)^2}$.
@@ -228,7 +238,10 @@ Dessa forma, as equações discutidas acima precisam ter suas unidades checadas 
 
 \item O potencial termodinâmico (por unidade de volume) $\omega$ deve ter dimensão energia por volume (no nosso caso, $\rm{MeV}/\rm{fm}^3$):
 \begin{equation}
-	\underbrace{\omega}_{\frac{\rm{MeV}}{\rm{fm}^3}} = \underbrace{\varepsilon_{\rm{kin}}}_{\frac{\rm{MeV}}{\rm{fm}^3}} - \underbrace{G_s}_{\rm{fm}^2}\underbrace{\rho_s^2}_{\rm{fm}^{-6}} + \underbrace{G_v}_{\rm{fm}^2}\underbrace{\rho^2}_{\rm{fm}^{-6}} + \underbrace{G_{sv}}_{\rm{fm}^8}\underbrace{\rho_s^2\rho^2}_{\rm{fm}^{-12}} + \underbrace{G_\rho}_{\rm{fm}^2}\underbrace{\rho_3^2}_{\rm{fm}^{-6}} + \underbrace{G_{v\rho}}_{\rm{fm}^2}\underbrace{\rho^2\rho_3^2}_{\rm{fm}^{-12}} + \underbrace{\mu_p}_{\rm{MeV}}\underbrace{\rho_p}_{\rm{fm}^{-3}} + \underbrace{\mu_n}_{\rm{MeV}}\underbrace{\rho_n}_{\rm{fm}^{-3}}.
+\begin{split}
+	\underbrace{\omega}_{\frac{\rm{MeV}}{\rm{fm}^3}} =&~ \underbrace{\varepsilon_{\rm{kin}}}_{\frac{\rm{MeV}}{\rm{fm}^3}} +\underbrace{m}_{\rm{MeV}}\underbrace{\rho_s}_{\rm{fm}^{-3}} - \underbrace{G_s}_{\rm{fm}^2}\underbrace{\rho_s^2}_{\rm{fm}^{-6}} + \underbrace{G_v}_{\rm{fm}^2}\underbrace{\rho^2}_{\rm{fm}^{-6}} + \underbrace{G_{sv}}_{\rm{fm}^8}\underbrace{\rho_s^2\rho^2}_{\rm{fm}^{-12}} \\
+&+ \underbrace{G_\rho}_{\rm{fm}^2}\underbrace{\rho_3^2}_{\rm{fm}^{-6}} + \underbrace{G_{v\rho}}_{\rm{fm}^2}\underbrace{\rho^2\rho_3^2}_{\rm{fm}^{-12}} + \underbrace{G_{s\rho}}_{\rm{fm}^8}\underbrace{\rho_s^2\rho_3^2}_{\rm{fm}^{-12}} + \underbrace{\mu_p}_{\rm{MeV}}\underbrace{\rho_p}_{\rm{fm}^{-3}} + \underbrace{\mu_n}_{\rm{MeV}}\underbrace{\rho_n}_{\rm{fm}^{-3}}.
+\end{split}
 \end{equation}
 %
 Os termos envolvendo as constantes $G_i$ necessitam ser multiplicados por $\hbar c$, cuja dimensão é $\rm{MeV}\cdot\rm{fm}$, resultando na dimensão $\rm{MeV}/\rm{fm}^3$ para tais termos.
@@ -247,10 +260,10 @@ e podemos ver que ambas estão com todas as dimensões corretas.
 
 \item A equação para o cálculo da massa
 \begin{equation}
-	\underbrace{M}_{\rm{MeV}} = -2 \underbrace{G_s}_{\rm{fm}^2} \underbrace{\rho_s}_{\rm{fm}^{-3}} + 2 \underbrace{G_{sv}}_{\rm{fm}^8}\underbrace{\rho_s\rho^2}_{\rm{fm}^{-9}}
+	\underbrace{M}_{\rm{MeV}} = m - 2 \underbrace{G_s}_{\rm{fm}^2} \underbrace{\rho_s}_{\rm{fm}^{-3}} + 2 \underbrace{G_{sv}}_{\rm{fm}^8}\underbrace{\rho_s\rho^2}_{\rm{fm}^{-9}} + \underbrace{G_{s\rho}}_{\rm{fm}^8}\underbrace{\rho_s\rho_3^2}_{\rm{fm}^{-9}}
 \end{equation}
 %
-necessita ser multiplicada por $\hbar c$ no lado direito.
+necessita ter seus termos proporcionais a $G_i$ multiplicados por $\hbar c$.
 
 \item A equação para a densidade bariônica
 \begin{equation}
@@ -264,14 +277,15 @@ assim como a equação para a densidade escalar
 %
 onde usamos (vide Eq.~\eqref{Eq:Integ_momento_quad})
 \begin{equation}
-	F_0(m,p) = \underbrace{\int_0^x\frac{dp}{\pi^2} \frac{p^2}{\sqrt{p^2 + m^2}}}_{\rm{MeV}^2},
+	F_0(m,p) = \underbrace{\int_0^x \frac{p^2}{\sqrt{p^2 + m^2}}}_{\rm{MeV}^2} dp,
 \end{equation}
 %
 devem ser multiplicadas por $(\hbar c)^{-3}$.
 
 \item Para o potencial químico temos
 \begin{equation}
-	\underbrace{\mu_i}_{\rm{MeV}} = \underbrace{E_{p_F}^i}_{\rm{MeV}} +~2 \underbrace{G_v}_{\rm{fm}^2}\underbrace{\rho}_{\rm{fm^{-3}}} +~2 \underbrace{G_{sv}}_{\rm{fm}^8}\underbrace{\rho\rho_s^2}_{\rm{fm^{-9}}} \pm~2 \underbrace{G_\rho}_{\rm{fm}^2}\underbrace{\rho_3}_{\rm{fm^{-3}}} +~2 \underbrace{G_{v\rho}}_{\rm{fm}^8}\underbrace{\rho_3^2\rho}_{\rm{fm^{-9}}} \pm~2 \underbrace{G_{v\rho}}_{\rm{fm}^8}\underbrace{\rho^2\rho_3}_{\rm{fm^{-9}}},
+	\underbrace{\mu_i}_{\rm{MeV}} = \underbrace{E_{p_F}^i}_{\rm{MeV}} +~2 \underbrace{G_v}_{\rm{fm}^2}\underbrace{\rho}_{\rm{fm^{-3}}} +~2 \underbrace{G_{sv}}_{\rm{fm}^8}\underbrace{\rho\rho_s^2}_{\rm{fm^{-9}}} \pm~2 \underbrace{G_\rho}_{\rm{fm}^2}\underbrace{\rho_3}_{\rm{fm^{-3}}} +~2 \underbrace{G_{v\rho}}_{\rm{fm}^8}\underbrace{\rho_3^2\rho}_{\rm{fm^{-9}}} \pm~2 \underbrace{G_{v\rho}}_{\rm{fm}^8}\underbrace{\rho^2\rho_3}_{\rm{fm^{-9}}} \pm~2
+\underbrace{G_{s\rho}}_{\rm{fm}^8}\underbrace{\rho_3\rho_s^2}_{\rm{fm^{-9}}},
 \end{equation}
 %
 onde
@@ -297,7 +311,7 @@ A solução da Equação~\eqref{Eq:Gap} é encontrada zerando a Equação~\eqref
 	\label{Fig:Gap_zero_graph}
 \end{figure*}
 
-Portanto, ao se utilizar um método qualquer para se determinar o zero da função, são necessários parâmetros que tornem possível encontrar o zero da função. Como a função só tem um zero\footnote{Desprezando a solução trivial $M = 0$.}, temos uma situação mais simples, pois não há risco de que tenhamos que encontrar mais que um mínimo (se esse fosse o caso, teríamos que encontrar aquele que minimiza alguma energia\cite{Buballa}. Verificar.). Adotando o método da biseção, que é o mais simples, só precisamos de dois pontos que devem estar à esquerda e à direita do zero. Adotamos os valores \np{1.0e-3} e 1500 (em MeV), sendo o primeiro bastante próximo de zero e o segundo aparentemente se posiciona à direita do zero para vários valores de densidade. Não podemos adotar zero para o valor à esquerda pois $f(M=0) = 0$. A Fig.~\ref{Fig:mass_graph} mostra os valores de $M$ obtidos de acordo com o acima exposto, enquanto a Fig.~\ref{Fig:scalar_density_graph} mostra a curva das densidades escalares correspondentes.
+Portanto, ao se utilizar um método qualquer para se determinar o zero da função, são necessários parâmetros que tornem possível encontrar o zero da função. Como a função só tem um zero\footnote{Desprezando a solução trivial $M = 0$.}, temos uma situação mais simples, pois não há risco de que tenhamos que encontrar mais que um mínimo (se esse fosse o caso, teríamos que encontrar aquele que minimiza alguma energia\cite{Buballa}. Verificar.). Adotando o método da biseção, que é o mais simples, só precisamos de dois pontos que devem estar à esquerda e à direita do zero. Adotamos os valores \np{1.0e-3} e 1500 (em MeV), sendo o primeiro bastante próximo de zero e o segundo aparentemente se posiciona à direita do zero para vários valores de densidade. Não podemos adotar zero para o valor à esquerda pois $f(M=0) = 0$. A Fig.~\ref{Fig:mass_graph} mostra os valores de $M$ obtidos de acordo com o acima exposto, enquanto a Fig.~\ref{Fig:scalar_density_graph} mostra a curva das densidades escalares correspondentes, ambos para o caso $m = 0$.
 
 \begin{figure*}
 	\input{Graphics/eNJL1-Yp_0.5/graph/mass.tex}
@@ -311,6 +325,7 @@ Portanto, ao se utilizar um método qualquer para se determinar o zero da funç�
 	\label{Fig:scalar_density_graph}
 \end{figure*}
 
+\FloatBarrier
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Potenciais químicos, termodinâmico, pressão, e densidade de energia}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -356,7 +371,12 @@ Para que as dimensões fiquem corretas
 	\label{Fig:energy_by_nucleon_graph}
 \end{figure*}
 
-%%%
+\FloatBarrier
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Adição da massa constituinte à equação do Gap}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Utilizando a Equação~\ref{Eq:Gap} com $m \neq 0$, os resultados para a massa não vão a zero, apresentando o comportamento mostrado na Fig.~\ref{Fig:mass_graph_eNJL1m}.\footnote[][3cm]{No artigo Pais, Menezes, Providência, não há nenhuma alteração na energia cinética (Eq.~(5)), porém deveria haver o segundo termo da Eq.~\eqref{Eq:Engergia_cin_separada}, não?}
 
 \begin{figure*}
 	\input{Graphics/eNJL1m-Yp_0.5/graph/gap.tex}
