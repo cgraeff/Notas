@@ -133,7 +133,7 @@ onde
 
 O termo cinético na expressão acima pode ser calculado através de (primeiro termo da Eq. (1) em \cite{PRC_68_035804_2003}, o resto é energia potencial)\footnote{Degenerescência: O 2 se refere às duas possibilidades de spin; Podemos ter um $N_f$ que representa o número de sabores.}
 \begin{align}
-	\varepsilon_{\rm{kin}} &= \langle\bar{\psi}(\vec{\gamma}\cdot\vec{p}\psi\rangle \\
+	\varepsilon_{\rm{kin}} &= \langle\bar{\psi}(\vec{\gamma}\cdot\vec{p})\psi\rangle \\
 	&= 2 N_c\sum_i \int \frac{d^3p}{(2\pi)^3}\frac{p^2 + m_i M_i}{E_i}(n_{i-}-n_{i+})\theta(\Lambda^2 - p^2),
 \end{align}
 %
@@ -311,7 +311,7 @@ A solução da Equação~\eqref{Eq:Gap} é encontrada zerando a Equação~\eqref
 	\label{Fig:Gap_zero_graph}
 \end{figure*}
 
-Portanto, ao se utilizar um método qualquer para se determinar o zero da função, são necessários parâmetros que tornem possível encontrar o zero da função. Como a função só tem um zero\footnote{Desprezando a solução trivial $M = 0$.}, temos uma situação mais simples, pois não há risco de que tenhamos que encontrar mais que um mínimo (se esse fosse o caso, teríamos que encontrar aquele que minimiza alguma energia\cite{Buballa}. Verificar.). Adotando o método da biseção, que é o mais simples, só precisamos de dois pontos que devem estar à esquerda e à direita do zero. Adotamos os valores \np{1.0e-3} e 1500 (em MeV), sendo o primeiro bastante próximo de zero e o segundo aparentemente se posiciona à direita do zero para vários valores de densidade. Não podemos adotar zero para o valor à esquerda pois $f(M=0) = 0$. A Fig.~\ref{Fig:mass_graph} mostra os valores de $M$ obtidos de acordo com o acima exposto, enquanto a Fig.~\ref{Fig:scalar_density_graph} mostra a curva das densidades escalares correspondentes, ambos para o caso $m = 0$.
+Portanto, ao se utilizar um método qualquer para se determinar o zero da função, são necessários parâmetros que tornem possível encontrar o zero da função. Como a função só tem um zero\footnote[][1cm]{Desprezando a solução trivial $M = 0$.}, temos uma situação mais simples, pois não há risco de que tenhamos que encontrar mais que um mínimo (se esse fosse o caso, teríamos que encontrar aquele que minimiza alguma energia\cite{Buballa}. Verificar.). Adotando o método da biseção, que é o mais simples, só precisamos de dois pontos que devem estar à esquerda e à direita do zero. Adotamos os valores \np{1.0e-3} e 1500 (em MeV), sendo o primeiro bastante próximo de zero e o segundo aparentemente se posiciona à direita do zero para vários valores de densidade. Não podemos adotar zero para o valor à esquerda pois $f(M=0) = 0$. A Fig.~\ref{Fig:mass_graph} mostra os valores de $M$ obtidos de acordo com o acima exposto, enquanto a Fig.~\ref{Fig:scalar_density_graph} mostra a curva das densidades escalares correspondentes, ambos para o caso $m = 0$.
 
 \begin{figure*}
 	\input{Graphics/eNJL1-Yp_0.5/graph/mass.tex}
@@ -330,7 +330,7 @@ Portanto, ao se utilizar um método qualquer para se determinar o zero da funç�
 \section{Potenciais químicos, termodinâmico, pressão, e densidade de energia}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-As figuras abaixo mostram os resultados obtidos através das massas e densidades escalares obtidas na seção anterior, utilizando as Equações~\eqref{Eq:Potenciais_Quimicos}, \eqref{Eq:potencial_termodinamico}, \eqref{Eq:Pressao} e~\eqref{Eq:Densidade_energia}. Para a correta reprodução dos resultados para a pressão e para a densidade de energia, é essencial que o valor de $\varepsilon_0$ seja calculado. Podemos fazê-lo através de\footnote{Não sei de onde isso vem.}
+As figuras abaixo mostram os resultados obtidos através das massas e densidades escalares obtidas na seção anterior, utilizando as Equações~\eqref{Eq:Potenciais_Quimicos}, \eqref{Eq:potencial_termodinamico}, \eqref{Eq:Pressao} e~\eqref{Eq:Densidade_energia}. Para a correta reprodução dos resultados para a pressão e para a densidade de energia, é essencial que o valor de $\varepsilon_0$ seja calculado. Podemos fazê-lo através de\footnote{Não sei de onde isso vem. Tem algum outro termo nessa equação ($\propto G_{s\rho},~G_{v\rho},~\dots$? }
 \begin{equation}\label{Eq:Def_dens_energia_vacuo}
 	\varepsilon_0 = (\varepsilon_{\rm{kin}})_0 - G_s [(\rho_s)_0]^2
 \end{equation}
