@@ -393,11 +393,15 @@ Para que as dimensões fiquem corretas
 \end{figure*}
 
 \FloatBarrier
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Adição da massa constituinte à equação do Gap}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Adição da massa constituinte à equação do Gap; adição de outros termos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Utilizando a Equação~\ref{Eq:Gap} com $m \neq 0$, os resultados para a massa não vão a zero, apresentando o comportamento mostrado na Fig.~\ref{Fig:mass_graph_eNJL1m}.\footnote[][-1cm]{No artigo Pais, Menezes, Providência, não há nenhuma alteração na energia cinética (Eq.~(5)), porém deveria haver o segundo termo da Eq.~\eqref{Eq:Engergia_cin_separada}, não?}
+
+Aparentemente, o funcionamento do programa está ok até o cálculo da pressão (ela parece o que obtemos para o caso sem a massa constituinte). A adição do segundo termo à energia cinética não deu resultados promissores. Aguardar a Débora me enviar o programa utilizado para gerar os dados do artigo para que eu possa fazer uma comparação direta dos resultados e encontrar o problema.
+
+Também adicionei termos em outras equações devido ao termo proporcional a $G_{s\rho}$ que foi adicionado à lagrangiana. Esses termos não têm influência no cálculo de $\varepsilon_0$?
 
 \begin{figure*}
 	\input{Graphics/eNJL1m-Yp_0.5/graph/gap.tex}
