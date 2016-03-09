@@ -202,7 +202,7 @@ A densidade escalar $\rho_s$ é dada por\footnote{De onde vem essa expressão?}
 \end{equation}
 %
 onde
-\begin{equation}
+\begin{equation}\label{Eq:Def_F0}
 	F_0(M, x) = \int_0^x dp\frac{p^2}{\sqrt{M^2 + p^2}} dp.
 \end{equation}
 %
@@ -351,7 +351,7 @@ Portanto, ao se utilizar um método qualquer para se determinar o zero da funç�
 \section{Potenciais químicos, termodinâmico, pressão, e densidade de energia}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-As figuras abaixo mostram os resultados obtidos através das massas e densidades escalares obtidas na seção anterior, utilizando as Equações~\eqref{Eq:Potenciais_Quimicos}, \eqref{Eq:potencial_termodinamico}, \eqref{Eq:Pressao} e~\eqref{Eq:Densidade_energia}. Para a correta reprodução dos resultados para a pressão e para a densidade de energia, é essencial que o valor de $\varepsilon_0$ seja calculado. Podemos fazê-lo através de\footnote{Não sei de onde isso vem. Tem algum outro termo nessa equação ($\propto G_{s\rho},~G_{v\rho},~\dots$? }
+As figuras abaixo mostram os resultados obtidos através das massas e densidades escalares obtidas na seção anterior, utilizando as Equações~\eqref{Eq:Potenciais_Quimicos}, \eqref{Eq:potencial_termodinamico}, \eqref{Eq:Pressao} e~\eqref{Eq:Densidade_energia}. Para a correta reprodução dos resultados para a pressão e para a densidade de energia, é essencial que o valor de $\varepsilon_0$ seja calculado. Podemos fazê-lo através de\footnote{Não sei de onde isso vem. Tem algum outro termo nessa equação ($\propto G_{s\rho},~G_{v\rho},~\dots$? Aparentemente não, pois não foi adicionado ao programa feito por Helena Pais.}
 \begin{equation}\label{Eq:Def_dens_energia_vacuo}
 	\varepsilon_0 = (\varepsilon_{\rm{kin}})_0 - G_s [(\rho_s)_0]^2
 \end{equation}
@@ -397,11 +397,16 @@ Para que as dimensões fiquem corretas
 \section{Adição da massa constituinte à equação do Gap; adição de outros termos}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Utilizando a Equação~\ref{Eq:Gap} com $m \neq 0$, os resultados para a massa não vão a zero, apresentando o comportamento mostrado na Fig.~\ref{Fig:mass_graph_eNJL1m}.\footnote[][-1cm]{No artigo Pais, Menezes, Providência, não há nenhuma alteração na energia cinética (Eq.~(5)), porém deveria haver o segundo termo da Eq.~\eqref{Eq:Engergia_cin_separada}, não?}
+Utilizando a Equação~\ref{Eq:Gap} com $m \neq 0$, os resultados para a massa não vão a zero, apresentando o comportamento mostrado na Fig.~\ref{Fig:mass_graph_eNJL1m}.
 
-Aparentemente, o funcionamento do programa está ok até o cálculo da pressão (ela parece o que obtemos para o caso sem a massa constituinte). A adição do segundo termo à energia cinética não deu resultados promissores. Aguardar a Débora me enviar o programa utilizado para gerar os dados do artigo para que eu possa fazer uma comparação direta dos resultados e encontrar o problema.
+No artigo Pais, Menezes, Providência, não há nenhuma alteração na energia cinética (Eq.~(5)), o que está diferente do Artigo\cite{PRC_68_035804_2003} (deveria haver o segundo termo da Eq.~\eqref{Eq:Engergia_cin_separada}). No entanto, segundo a Débora isso se deve ao fato de que a energia é definida de maneira diferente. No cálculo da energia cinética no vácuo, devemos adicionar um termo $m (\rho_s)_0$, obtendo:
+\begin{equation}
+	\varepsilon_0 = (\varepsilon_{\rm{kin}})_0 + m (\rho_s)_0 - G_s [(\rho_s)_0]^2.
+\end{equation}
+%
+O termo adicionado a essa equação corresponde \emph{exatamente} ao segundo termo da Eq.~\eqref{Eq:Engergia_cin_separada}, o que pode ser visto utilizando a definição de $\rho_s$ e $F_0$ dadas pelas Equações~\eqref{Eq:Dens_Escalar} e~\eqref{Eq:Def_F0}\footnote{Por que isso aparece só no cálculo de $\varepsilon_0$?}. Com essas correções, os resultados estão de acordo com os contidos em Pais\cite{Pais}.
 
-Também adicionei termos em outras equações devido ao termo proporcional a $G_{s\rho}$ que foi adicionado à lagrangiana. Esses termos não têm influência no cálculo de $\varepsilon_0$?
+\vspace{1cm}
 
 \begin{figure*}
 	\input{Graphics/eNJL1m-Yp_0.5/graph/gap.tex}
