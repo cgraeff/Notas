@@ -1,13 +1,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Fase de Hadrons: eNJL}
+\chapter{eNJL}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Simetria quiral}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-Ver discussão em Ref.\cite{Vogl}
+Por que uma massa não nula implica em uma simetria quiral quebrada: Ver discussão em Ref.\cite{Vogl}
 % Vogl, U., and W. Weise. - Progress in Particle and Nuclear Physics 27 (1991): 195-272 - The Nambu and Jona-Lasinio model: its implications for hadrons and nuclei
 
 \begin{description}
@@ -16,31 +16,6 @@ Ver discussão em Ref.\cite{Vogl}
 			m \to 0.
 		\end{equation}
 \end{description}
-
-%%%%%%%%%%%%%%%%%%%%%%%
-\section{Termodinâmica}
-%%%%%%%%%%%%%%%%%%%%%%%
-
-Temos que $dS$ ou $dU$ -- deve ser $dU$, pois o potencial químico é a ``quantidade de energia ganha ao se inserir mais uma partícula no sistema'' -- tem um termo $\mu dN$. Vamos trabalhar com densidade bariônica, mas essa densidade é só o número de partículas $N$ dividido pelo volume (as outras variáveis também serão trabalhadas divididas pelo volume). Logo, temos $\mu d\rho$. Por isso, temos que $\mu = d\epsilon/d\rho$, onde $\epsilon$ é a densidade de energia $\epsilon = E/V$. 
-
-Glendenning\cite{Glendenning}:
-Degenerate ideal Fermi gas: ideal pois não tem interações entre as partículas, degenerado pois todos os estados até uma certa energia -- a energia de Fermi -- estão ocupados. Nesse caso, a soma sobre todos os estados ocupados (que são autoestados de momento, pois não há interação) deve se dar sobre o momento. Isso pode ser escrito como a integral
-\begin{equation}
-	\int_0^{k_f} \frac{d^3k}{(2\pi^3)}.
-\end{equation}
-%
-(pelo que lembro, é um cálculo realizado em um octante, contando quantos estados existem entre $p$ e $p+dp$ levando-se em conta que são ondas estacionárias em uma caixa de lado $L$. Nesse caso $k$ (que está associado ao momento) é um inteiro vezes o comprimento de onda dividido por dois. Tentar achar isso Ref [63] do Glendenning.
-
-O gás pode ser considerado degenerado se $T \ll E_F = \sqrt{k_F^2 + m^2}$.
-
-A densidade é obtida simplesmente somando os estados ocupados. A energia é calculada somando a energia de cada estado ocupado. A pressão eu não sei:
-\begin{align}
-	\rho &= \\
-	\epsilon &= \\
-	p &=
-\end{align}
-
-In thermodynamics, chemical potential, also known as partial molar free energy, is a form of potential energy that can be absorbed or released during a chemical reaction. It may also change during a phase transition. The chemical potential of a species in a mixture can be defined as the slope of the free energy of the system with respect to a change in the number of moles of just that species. Thus, it is the partial derivative of the free energy with respect to the amount of the species, all other species' concentrations in the mixture remaining constant, and at constant temperature. When pressure is constant, chemical potential is the partial molar Gibbs free energy. At chemical equilibrium or in phase equilibrium the total sum of chemical potentials is zero, as the free energy is at a minimum. \url{https://en.wikipedia.org/wiki/Chemical_potential}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Modelo de Nambu--Jona-Lasinio}
@@ -68,25 +43,19 @@ Ainda temos\cite{Buballa}
 [T]he self-energy induced by the interaction generates an effective mass $M$ which can be considerably larger than $m$ and stays large, even when $m$ is taken to zero (``chiral limit''). At the same time, there are light collective nucleon-antinucleon excitations which become massless in the chiral limit: The pion emerges as the Goldstone boson of the spontaneously broken chiral symmetry. In fact, this discovery was an important milestone on the way to the general derivation of the Goldstone theorem in the same year.\footnote{\emph{large collective excitatations}: o que é isso? \emph{Goldstone boson}: o que é isso? \emph{spontaneously broken}: o que é isso?}
 
 After the development of QCD, the NJL model was reinterpreted as a schematic quark model. At that point, of course, the lack of confinement became a problem\footnote{Se não ter confinamento é um problema para os quarks, pq temos que adicionar termos ao modelo para a fase de hadrons para poder descrevê-la adequadamente? Não deveria descrever direito pois foi para isso que o modelo foi criado? Ou adicionamos termos só para descrever adequadamente as propriedades da fase de hádrons (principalmente: qual é o papel do termo proporcional a $G_{sv}$?). Na fase de quarks, não tem importância o confinamento pois estamos a uma densidade muito alta, então eles desconfinam de qualquer forma. Devemos tratar as duas separadamente e depois descobrir onde fica a transição usando condições de Gibbs}, severely limiting the applicability of the model. On the other hand, there are many situations where chiral symmetry is the relevant feature of QCD, confinement being less important. The most prominent example is again the Goldstone nature of the pion. In this aspect the NJL model is superior to the MIT bag, which [\dots] fails to explain the low pion mass.\footnote{Qual é a relação entre ser o boson de Goldstone (?) e ter massa pequena? É por que de alguma forma ele está ligado à simetria quiral?}
-
-[\dots]
-
-After the reinterpretation of the NJL model as a quark model, many authors kept the original form of the Lagrangian Eq.~\eqref{Eq:LagOriginalNJL}, with $\psi$ now being a quark field with two flavor and three color degrees of freedom. However, this choice is not unique and \textbf{we can write down many other chirally symmetric interaction terms}.\footnote{Frisamos a possibilidade de adição de outros termos, pois isso é essencial para descrevermos a fase de hádrons. Vide Seção~\ref{Sec:Introducao_termos_lag_NJL}.}
 \end{quote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Introdução de outros à lagrangiana original}
+\subsection{Introdução de outros termos à lagrangiana original}
 \label{Sec:Introducao_termos_lag_NJL}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Acerca da introdução do termo scalar-vector: Do artigo Lee \emph{et al.}\cite{japoneses},
+A simetria quiral é uma simetria importante da QCD\cite{Koch}. Como não sabemos resolver tal teoria, é comum que se utilizem teorias alternativas, como o Modelo de Walecka, com o intuito de se obter resultados que descrevam bem os dados experimentais. O modelo de Walecka consegue descrever bem os dados experimentais, mas não possui simetria quiral. O Modelo de Nambu--Jona-Lasinio, em contrapartida, possui simetria quiral, porém em sua versão original não é capaz de descrever características importantes da QCD, como a saturação da matéria nuclear. Porém, a adição de outros termos é possível:\cite{Buballa}
 \begin{quote}
-	When dealing with symmetric nuclear matter, it is necessary to reproduce the property of nuclear saturation, as the Walecka model [15] has succeeded in describing phenomenologically the saturation property o symmetric nuclear matter without chiral symmetry, in which the nucleon is treated as a fundamental particle, not as a composite one. In the original NJL model with chiral symmetry, however, if the nucleon field is treated not as a composite but as a fundamental fermion field, it is unable to reproduce the nuclear matter saturation property. Here, it has been observed that the nuclear saturation property is well reproduced by introducing scalar-vector and isoscalar-vector\footnote{Não são usadas ambas no artigo, pelo que entendi} eight-point interaction in the original NJL model [8], the nucleon then being a fundamental fermion. Thus, it is possible to consider an NJL-type model in which the nuclear saturation property is satisfied as a possible model for nuclear matter [16-18]. For this reason, in this paper, an NJL-type model for nuclear matter with rather reasonable nuclear saturation properties is adopted.
-	[\dots]
-	[\dots] for nuclear matter, we adopt the extended NJL model with the scalar-vector eight-point interaction and treat the nucleon field as a fundamental fermion field with $N_c = 1$, in which $N_c$ is the number of colors. As for quark matter, we adopt the extended NJL model with $N_c = 3$ and treat the quark field as a fundamental fermion field.\footnote{Talvez tirar essa parte dos quarks quando houver uma seção para discutir essa fase.}
+After the reinterpretation of the NJL model as a quark model, many authors kept the original form of the Lagrangian Eq.~\eqref{Eq:LagOriginalNJL}, with $\psi$ now being a quark field with two flavor and three color degrees of freedom. However, this choice is not unique and we can write down many other chirally symmetric interaction terms.
 \end{quote}
 %
-Do artigo de Koch\cite{Koch} (Ref.~[8] na citação acima),
+Com a adição de um termo scalar-vector, é possível obter resultados adequados\cite{Koch}:
 \begin{quote}
 	In recent years\footnote{Década de 80!} a lot of progress has been made in describing the nucleus as a relativistic system [1\footnote{Serot, Walecka; Advances in Nuclear Physics 16},2]. The success of this approach is mainly due to the interplay of a large vector and scalar potential, the cancelation of which leads to the comparatively weak nuclear potential. In most models these forces are mediated by the exchange of effective scalar- and vector mesons. In the mean field approximation several data are reproduced reasonably well [1].
 	However, most models assume an explicit mass for the nucleon and hence do not posses chiral symmetry. Since chirality is an important symmetry of the strong interaction [3], one would like to incorporate this symmetry into these models. This then changes the situation drastically. Although the saturation properties of infinite nuclear matter may be fitted [4,5], these models suffer from deficiencies and problems occur onde finite systems are considered [6]. It is hence an open problem to construct an effective, chirally invariant, relativistic field theory for the nuclear interactions.
@@ -94,6 +63,16 @@ Do artigo de Koch\cite{Koch} (Ref.~[8] na citação acima),
 	[\dots]
 	[\dots] if we introduce an additional term in the lagrangian in order to change the density dependence of the binding energy, it should also influence the density dependence of the mass. A chirally invariant scalar-vector interaction term meets these requirements and [\dots] cures the binding problem.
 \end{quote}
+%
+De Lee\cite{japoneses}:
+\begin{quote}
+	When dealing with symmetric nuclear matter, it is necessary to reproduce the property of nuclear saturation, as the Walecka model [15] has succeeded in describing phenomenologically the saturation property o symmetric nuclear matter without chiral symmetry, in which the nucleon is treated as a fundamental particle, not as a composite one. In the original NJL model with chiral symmetry, however, if the nucleon field is treated not as a composite but as a fundamental fermion field, it is unable to reproduce the nuclear matter saturation property. Here, it has been observed that the nuclear saturation property is well reproduced by introducing scalar-vector and isoscalar-vector\footnote{Ambas com acoplamento $G_{sv}^i$ na lagrangiana dada pela Eq.~(2.1) do artigo.} eight-point interaction in the original NJL model [8], the nucleon then being a fundamental fermion. Thus, it is possible to consider an NJL-type model in which the nuclear saturation property is satisfied as a possible model for nuclear matter [16-18]. For this reason, in this paper, an NJL-type model for nuclear matter with rather reasonable nuclear saturation properties is adopted.
+	
+	[\dots]
+	
+	[\dots] for nuclear matter, we adopt the extended NJL model with the scalar-vector eight-point interaction and treat the nucleon field as a fundamental fermion field with $N_c = 1$, in which $N_c$ is the number of colors. As for quark matter, we adopt the extended NJL model with $N_c = 3$ and treat the quark field as a fundamental fermion field.\footnote{Talvez tirar essa parte dos quarks quando houver uma seção para discutir essa fase.}
+\end{quote}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{eNJL: Fase de Hádrons}
@@ -101,7 +80,11 @@ Do artigo de Koch\cite{Koch} (Ref.~[8] na citação acima),
 
 Sobre o modelo\cite{Pais}:
 \begin{quote}
-The NJL model can be extended [...] to yield reasonable saturation properties of nuclear matter, the field $\psi$ being the nucleon field. An effective density dependent coupling constant is obtained if the following extended NJL (eNJL) Lagrangian density, which actually pushes chiral symmetry restoration to higher densities, is considered,
+An advantage of these models is the fact that, since they satisfy chiral symmetry, the EoS is also valid at higher densities, as the ones present in the center of compact objects.
+
+[\dots]
+
+The NJL model can be extended [\dots] to yield reasonable saturation properties of nuclear matter, the field $\psi$ being the nucleon field. An effective density dependent coupling constant is obtained if the following extended NJL (eNJL) Lagrangian density, which actually pushes chiral symmetry restoration to higher densities, is considered,
 \begin{equation}\label{Eq:Lagrangiana_eNLJ_Pais}
 \begin{split}
 	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu)\psi + G_s[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] \\
@@ -199,7 +182,7 @@ onde
 	\item $m_i$ são as massas constituintes -- nuas, \emph{bare} --.
 \end{itemize}
 
-Se tomarmos $T \to 0$, temos que $n_{i-} \to 1$ e $n_{i+} \to 0$; Além disso, se o integrando só depende do módulo de $\vec{p}$, então (\cite{Glendenning}, p. 92)
+Se tomarmos $T \to 0$, temos que $n_{i-} \to 1$ e $n_{i+} \to 0$\footnote{Depende do sinal de $E - \mu$. Aparementemente isso dá $\theta(\mu-E)$}; Além disso, se o integrando só depende do módulo de $\vec{p}$, então (\cite{Glendenning}, p. 92)
 \begin{equation}
 	\int\frac{d^3p}{(2\pi)^3} \to \frac{1}{2\pi^2}\int p^2dp.
 \end{equation}
@@ -216,12 +199,12 @@ Podemos utilizar as relações (\cite{Glendenning} p. 94\footnote{Na Ref. o prim
 	\int \frac{k^2}{\sqrt{k^2 + m^2}} dk &= \frac{1}{2}\left[k\epsilon - \frac{1}{2}m^2\ln\frac{\epsilon + k}{m}\right] \label{Eq:Integ_momento_quad}
 \end{align}
 %
-onde $\epsilon = \sqrt{k^2+m^2}$. Tomando o caso $m_i \to 0$\footnote{No prog. \texttt{eos\_enjl1-dens-assym- clean-rho-vr.f}: $\varepsilon \propto [F_2(M, k_F^i) - F_2(M, \Lambda)]$ ao invés de $\varepsilon \propto [F_2(M_i, \Lambda) - F_2(M_i, 0)]$; Isso se deve à retirada da contribuição do vácuo. Além disso, aparentemente os $M_i$ podem ser diferentes. No prog. são iguais, imagino que seja por considerarmos $m_n = m_p = m_N$.}, obtemos
+onde $\epsilon = \sqrt{k^2+m^2}$. Tomando o caso $m_i \to 0$\footnote{No prog. \texttt{eos\_enjl1-dens-assym- clean-rho-vr.f}: $\varepsilon \propto [F_2(M, k_F^i) - F_2(M, \Lambda)]$ ao invés de $\varepsilon \propto [F_2(M_i, \Lambda) - F_2(M_i, 0)]$; Isso se deve à retirada da contribuição do vácuo. Vendo Lee \etal talvez seja o seguinte: $n_i^+$ não vai a zero, mas a uma função degrau que envolve o momento, de forma que entre zero e $p_F$ o resultado seja nulo. A mudança na ordem dos limites pode explicar algum sinal.}, obtemos
 \begin{equation}\label{Eq:Energia_kin}
 	\varepsilon_{\rm{kin}} = \frac{N_c}{\pi^2}\sum_i \Big[\underbrace{\frac{1}{8}\Big((2p^3 - 3M_i^2p)\sqrt{p^2 + M_i^2} + 3M_i^4\ln\frac{p + \sqrt{p^2 + M_i^2}}{M_i}\Big)}_{F_2(m,p)}\Big]_0^\Lambda
 \end{equation}
 
-A densidade escalar $\rho_s$ é dada por\footnote{De onde vem essa expressão?}
+A densidade escalar $\rho_s$ é dada por\footnote[][2cm]{De onde vem essa expressão?}
 \begin{equation}\label{Eq:Dens_Escalar}
 	\rho_s^i = \frac{M}{\pi^2}[F_0(M, p_F^i) - F_0(M, \Lambda)], \quad i = p, n,
 \end{equation}
