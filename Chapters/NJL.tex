@@ -1,18 +1,77 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{NJL: Fase de quarks}
+\chapter{NJL: Fase de quarks}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Considerando a lagrangiana do tipo NJL em SU(2) dada por
+Considerando a lagrangiana do tipo NJL em SU(2) dada por\cite{Buballa1996}
 \begin{equation}
-	\mathcal{L} = \bar{q}(i\slashed{\partial} - m)q + G_s[(\bar{q}q)^2 + (\bar{q}i\gamma_5\vec{\tau}q)^2] - G_v(\bar{q}\gamma^\mu q)^2,
+	\mathcal{L} = \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi + G_S[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] - G_V(\bar{\psi}\gamma^\mu \psi)^2,
 \end{equation}
 %
 onde
 \begin{itemize}
-	\item $(\bar{q}q)^2$ e $(\bar{q}i\gamma_5\vec{\tau}q)^2$ são os canais scalar\footnote{scalar-isoscalar} e pseudoscalar-isovector, ambos com acoplamento $G_s$;
-	\item $(\bar{q}\gamma^\mu q)^2$ é o canal vector-isoscalar. ``It is known, e.g., from Walecka model [109], that this channel is quite important at non-zero densities.'';
-	\item ``In principle we allow for further channels [\dots], which, however, do not contribute at mean-field level as long as we have only one common quark chemical potential.''
+	\item ``Here $\psi$ is a fermion field with $n_f = 2$ flavors and $n_c$ colors. It may be interpreted [\dots] as a quark field ($n_c = 3$).''
+	\item ``Apart from the bare mass $m_0$, the Lagrangian [above] is chirally symmetric.''
+	\item $(\bar{\psi}\psi)^2$ e $(\bar{\psi}i\gamma_5\vec{\tau}\psi)^2$ são os canais scalar\footnote{scalar-isoscalar} e pseudoscalar-isovector, ambos com acoplamento $G_s$;
+	\item $(\bar{\psi}\gamma^\mu \psi)^2$ é o canal vector-isoscalar. 
+	\item ``It is known, e.g., from Walecka model [109], that this channel [(vector-isoscalar)] is quite important at non-zero densities.''; ``In principle we allow for further channels [\dots], which, however, do not contribute at mean-field level as long as we have only one common quark chemical potential.''\cite{Buballa}
 \end{itemize}
+
+Obtenção do potencial termodinâmico
+\begin{quote}
+Expanding $\bar{\psi}\psi$ and $\bar{\psi}\gamma^\mu\psi$ about their thermal expectation values we can derive the mean field thermodynamic potential at temperature $T$ and chemical potential $\mu$ [11]. We restrict ourselves to the Hartree approximation. Furthermore in this paper we only consider $T=0$ and $\mu \geqslant 0$. The result for the thermodynamic potential is
+\begin{equation}
+	\omega_{\rm{MF}}(\mu; m, \mu_R) = \omega_m^{\rm{(vac)}} + \omega_m^{\rm{(med)}}(\mu_R) + \frac{(m - m_0)^2}{4G_S} - \frac{(\mu - \mu_R)^2}{4G_V},
+\end{equation}
+%
+with
+\begin{align}
+	\omega_m^{\rm{(vac)}} &= - (2n_fn_c) \int \frac{d^3p}{(2\pi)^3} E_p, \\
+	\omega_m^{\rm{(med)}}(\mu_R) &= - (2n_fn_c) \int \frac{d^3p}{(2\pi)^3}(\mu_R - E_p)\theta(p_F - p),
+\end{align}
+%
+being the vacuum part ant the medium part of the thermodynamic potential (per volume) of a free fermion with mass $m$. [\dots] The vacuum part is strongly divergent and has to be regularized. For simplicity we use a sharp cut-off $\Lambda$ in the three momentum space.\footnote{Isso significa que todas as integrais no momento serão limitadas a $\Lambda$.}
+\end{quote}
+%
+Ainda temos que
+\begin{align}
+	E_p &= \sqrt{m^2+p^2}, \\
+	p_F &= \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2)
+\end{align}
+
+Sobre parâmetros:
+\begin{quote}
+	In addition to the external\footnote{É nesse parâmetro que fazemos o \emph{loop}? Ou é uma constante?} parameter $\mu$, $\omega_{\rm{MF}}$ depends on two other parameters, the dynamical fermion mass $m$ and the renormalized chemical potential $\mu_R$, which are related to the scalar density $\langle\bar{\psi}\psi\rangle$ and the vector density $\langle\psi^\dagger\psi\rangle$ at the chemical potential $\mu$ by [11]:
+	\begin{align}
+		m &= m_0 - 2G_S\langle\bar{\psi}\psi\rangle, \\
+		\mu_R &= \mu - 2G_V\langle\psi^\dagger\psi\rangle.
+	\end{align}
+	These parameter have to be determined self-consistently by calculating $\langle\bar{\psi}\psi\rangle$ and $\langle\psi^\dagger\psi\rangle$ from $\omega_{\rm{MF}}$. It can be shown that the self-consistent solution correspond to the extrema of $\omega_{\rm{MF}}$ as a function of $m$ and $\mu_R$. This leads to a set of coupled equations for $m$ and $\mu_R$ which reads for $T = 0$ and $\mu \geqslant 0$:
+\begin{align}
+	m &= m_0 + 2G_S(2n_fn_c)\left(\int \frac{d^3p}{(2\pi)^3} \frac{m}{E_p} - \int \frac{d^3p}{(2\pi)^3}\frac{m}{E_p}\theta(p_F - p)\right), \\
+	\mu_R &= \mu - 2G_V(2n_fn_c)\int\frac{d^3p}{(2\pi)^3}\theta(p_F - p).
+\end{align}
+\end{quote}
+
+Resolvendo a equação para $\mu_R$ acima, obtemos
+\begin{align}
+	\mu_R &= \mu - 2G_V(2n_fn_c)\int\frac{d^3p}{(2\pi)^3}\theta(p_F - p) \\
+	&= \mu - \frac{2G_V(2n_fn_c)}{2\pi^2}\int_0^\Lambda p^2 \theta(p_F - p) dp \\
+	&= \mu - \frac{2G_V(n_fn_c)}{3\pi^2}p_F^3
+\end{align}
+%
+e é possível eliminar a dependência de $\omega_{\rm{MF}}$ na variável $\mu_R$, obtendo algo que depende somente de $m$ (para um dado $\mu$). Definindo então
+\begin{equation}
+	\tilde{\omega}(\mu;m) = \omega_{\rm{MF}}(\mu; m, \mu_R(\mu,m)) - \omega_{\rm{MF}}(0; m_{\rm{vac}}, 0),
+\end{equation}
+%
+é possível se obter outras grandezas através das equações\footnote{Se o \emph{loop} é em $\mu_R$, então deve ser possível escrever $\mu_R$ em função de $\rho_B$ através do momento de $p_F$, ou seja, podemos fazer um \emph{loop} em $\rho_B$.}
+\begin{align}
+	\rho_B &= \frac{1}{n_c} \langle\psi^\dagger\psi\rangle = \frac{n_f}{3\pi^2}p_F^3, \\
+	\varepsilon &= \tilde{\omega} + \mu n_c \rho_B, \\
+	p &= - \tilde{\omega},
+\end{align}
+%
+onde ``[\dots] for a given $\mu$ these formulas have to be evaluated for the values of $m$ and $\mu_R$ which minimize the thermodynamic potential.''\footnote{É necessário fazer essa minimização para descobrir quais são esses valores antes?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Programa Débora}
