@@ -50,12 +50,12 @@ Sobre parâmetros:
 \begin{quote}
 	In addition to the external\footnote{É nesse parâmetro que fazemos o \emph{loop}? Ou é uma constante?} parameter $\mu$, $\omega_{\rm{MF}}$ depends on two other parameters, the dynamical fermion mass $m$ and the renormalized chemical potential $\mu_R$, which are related to the scalar density $\langle\bar{\psi}\psi\rangle$ and the vector density $\langle\psi^\dagger\psi\rangle$ at the chemical potential $\mu$ by [11]:
 	\begin{align}
-		m &= m_0 - 2G_S\langle\bar{\psi}\psi\rangle, \\
+		m &= m_0 - 2G_S\langle\bar{\psi}\psi\rangle, \label{Eq:Eq_Gap_Buballa_1}\\
 		\mu_R &= \mu - 2G_V\langle\psi^\dagger\psi\rangle.
 	\end{align}
 	These parameter have to be determined self-consistently by calculating $\langle\bar{\psi}\psi\rangle$ and $\langle\psi^\dagger\psi\rangle$ from $\omega_{\rm{MF}}$. It can be shown that the self-consistent solution correspond to the extrema of $\omega_{\rm{MF}}$ as a function of $m$ and $\mu_R$. This leads to a set of coupled equations for $m$ and $\mu_R$ which reads for $T = 0$ and $\mu \geqslant 0$:
 \begin{align}
-	m &= m_0 + 2G_S(2n_fn_c)\left(\int \frac{d^3p}{(2\pi)^3} \frac{m}{E_p} - \int \frac{d^3p}{(2\pi)^3}\frac{m}{E_p}\theta(p_F - p)\right), \\
+	m &= m_0 + 2G_S(2n_fn_c)\left(\int \frac{d^3p}{(2\pi)^3} \frac{m}{E_p} - \int \frac{d^3p}{(2\pi)^3}\frac{m}{E_p}\theta(p_F - p)\right), \label{Eq:Eq_Gap_Buballa_2}\\
 	\mu_R &= \mu - 2G_V(2n_fn_c)\int\frac{d^3p}{(2\pi)^3}\theta(p_F - p).
 \end{align}
 \end{quote}
@@ -72,7 +72,7 @@ e é possível eliminar a dependência de $\omega_{\rm{MF}}$ na variável $\mu_R
 	\tilde{\omega}(\mu;m) = \omega_{\rm{MF}}(\mu; m, \mu_R(\mu,m)) - \omega_{\rm{MF}}(0; m_{\rm{vac}}, 0),
 \end{equation}
 %
-é possível se obter outras grandezas através das equações\footnote{Se o \emph{loop} é em $\mu_R$, então deve ser possível escrever $\mu_R$ em função de $\rho_B$ através do momento de $p_F$, ou seja, podemos fazer um \emph{loop} em $\rho_B$.}
+é possível se obter outras grandezas através das equações\footnote{Se o \emph{loop} é em $\mu_R$, então deve ser possível escrever $\mu_R$ em função de $\rho_B$ através do momento de $p_F$, ou seja, podemos fazer um \emph{loop} em $\rho_B$. De onde vem essa densidade?}
 \begin{align}
 	\rho_B &= \frac{1}{n_c} \langle\psi^\dagger\psi\rangle = \frac{n_f}{3\pi^2}p_F^3, \\
 	\varepsilon &= \tilde{\omega} + \mu n_c \rho_B, \\
@@ -81,11 +81,34 @@ e é possível eliminar a dependência de $\omega_{\rm{MF}}$ na variável $\mu_R
 %
 onde ``[\dots] for a given $\mu$ these formulas have to be evaluated for the values of $m$ and $\mu_R$ which minimize the thermodynamic potential.''\footnote{É necessário fazer essa minimização para descobrir quais são esses valores antes?}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Solução da Equação do Gap}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Comparando as expressões~\eqref{Eq:Eq_Gap_Buballa_1} e~\eqref{Eq:Eq_Gap_Buballa_2} verificamos que
+\begin{align}
+	\langle\bar{\psi}\psi\rangle &= - 2 n_f n_c \left(\int\frac{d^3p}{(2\pi)^3}\frac{m}{E_p} - \int\frac{d^3p}{(2\pi)^3} \frac{m}{E_p} \theta(p_F - p)\right) \\
+	&= - 2 n_f n_c \left(\int_0^\Lambda\frac{dp}{2\pi^2} \frac{mp^2}{E_p} - \int_0^\Lambda \frac{dp}{2\pi^2} \frac{mp^2}{E_p} \theta(p_F - p)\right)
+\end{align}
+%
+onde utilizamos a Eq.~\ref{Eq:Int_d3p_to_dp} e integramos o momento entre o valor mínimo (zero) e o valor do \emph{cutoff} $\Lambda$. As integrais podem ser realizadas utilizando a expressão~\eqref{Eq:Integ_momento_quad}, resultando em
+\begin{align}
+	\int_0^\Lambda \frac{dp}{2\pi^2} \frac{mp^2}{E_p} &= \frac{m}{2\pi} F_0(m,\Lambda)\\
+	\int_0^\Lambda \frac{dp}{2\pi^2} \frac{mp^2}{E_p} \theta(p_F - p) &= \int_0^{p_F} \frac{dp}{2\pi^2} \frac{mp^2}{E_p} = \frac{m}{2\pi} F_0(m,p_F),
+\end{align}
+%
+onde $F_0(m, p)$ é dada pela expressão~\eqref{Eq:Def_F0_integrado}. Com o auxílio dessas expressões, obtemos
+\begin{align}
+	\langle\bar{\psi}\psi\rangle &= - n_f n_c \frac{m}{\pi} (F_0(m,\Lambda) - F_0(m, p_F)) \\
+	&= n_f n_c \frac{m}{\pi} (F_0(m,p_F) - F_0(m, \Lambda)).
+\end{align}
+%
+Tal expressão é a mesma que a dada pela Eq.~\eqref{Eq:Dens_Escalar}, se utilizarmos $n_f = 1$ $n_c = 1$ (caso de hádrons)\footnote{Acredito que para os hádrons temos dois \emph{flavors}, mas na expresssão~\eqref{Eq:Dens_Escalar} temos a densidade ou para prótons, ou para nêutrons, sendo que devemos somar as densidades resultantes, o que equivaleria a usar $n_f = 2$ caso ambas as partículas estivessem sujeitas às mesmas condições.}.
 
-Calcular as equações da maneira mais simplificada possível, procurando fazer o cálculo que resulta nas integrais de $p_F$ a $\Lambda$. Começar a implementar a solução da eq. do Gap, deixar o potencial e eqs. de estado para depois.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Solução para o caso $G_V = 0$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Em especial, para o caso em que não temos a interação vetorial (o que equivale a dizer que $G_V = 0$, temos que o potencial químico renormalizado $\mu_R$ é igual ao potencial químico $\mu$. Dessa forma, podemos relacionar o potencial químico à densidade bariônica através de\footnote{Não vejo como inverter essa relação para determinar $\mu$, pois precisamos de $m$ \dots mas podemos calcular $p_F$ a partir de $\rho_B$, calcular $m$ e então $\mu_R$, ou seja, dá pra rodar em $\rho_B$, mas depois de resolver a Eq. do Gap, precisamos calcular $\mu_R$ para poder calcular $\tilde{\omega}$.}
+\begin{equation}
+	\mu = \sqrt{(3\pi^2\rho_B/n_f)^{2/3} + m^2}.
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Programa Débora}

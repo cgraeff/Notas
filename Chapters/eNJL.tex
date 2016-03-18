@@ -183,8 +183,8 @@ onde
 	\item $m_i$ são as massas constituintes -- nuas, \emph{bare} --.
 \end{itemize}
 
-Se tomarmos $T \to 0$, temos que $n_{i-} \to 1$ e $n_{i+} \to 0$\footnote{Depende do sinal de $E - \mu$. Aparementemente isso dá $\theta(\mu-E)$}; Além disso, se o integrando só depende do módulo de $\vec{p}$, então (\cite{Glendenning}, p. 92)
-\begin{equation}
+Se tomarmos $T \to 0$, temos que $n_{i-} \to 1$ e $n_{i+} \to 0$\footnote{Depende do sinal de $E - \mu$. Aparementemente isso dá $\theta(\mu-E)$}; Além disso, se o integrando só depende do módulo de $\vec{p}$, então (Glendenning\cite{Glendenning}, p. 92)
+\begin{equation}\label{Eq:Int_d3p_to_dp}
 	\int\frac{d^3p}{(2\pi)^3} \to \frac{1}{2\pi^2}\int p^2dp.
 \end{equation}
 %
@@ -194,7 +194,7 @@ Logo, temos
 	&= \frac{N_c}{\pi^2}\sum_i\left[\int \frac{p^4dp}{\sqrt{p^2 + M_i^2}}\theta(\Lambda^2 - p^2) + \int m_i M_i \frac{p^2 dp}{\sqrt{p^2 + M_i^2}}\theta(\Lambda^2 - p^2)\right] \label{Eq:Engergia_cin_separada}
 \end{align}
 %
-Podemos utilizar as relações (\cite{Glendenning} p. 94\footnote{Na Ref. o primeiro termo da segunda expressão aparece sem o $k$ multiplicando, o que dimensionalmente está incorreto.})
+Podemos utilizar as relações (Glendenning\cite{Glendenning} p. 94\footnote{Na Ref. o primeiro termo da segunda expressão aparece sem o $k$ multiplicando, o que dimensionalmente está incorreto.})
 \begin{align}
 	\int \frac{k^4}{\sqrt{k^2 + m^2}} dk &= \frac{1}{4}\left[k^3\epsilon - \frac{3}{2} m^2k\epsilon + \frac{3}{2}m^4\ln\frac{\epsilon + k}{m} \right]\\
 	\int \frac{k^2}{\sqrt{k^2 + m^2}} dk &= \frac{1}{2}\left[k\epsilon - m^2\ln\frac{\epsilon + k}{m}\right] \label{Eq:Integ_momento_quad}
@@ -216,7 +216,7 @@ onde
 \end{equation}
 %
 Utilizando a Equação~\eqref{Eq:Integ_momento_quad}, podemos reescrever a equação acima como
-\begin{equation}
+\begin{equation}\label{Eq:Def_F0_integrado}
 	F_0(M, x) = \frac{1}{2}\left[x\sqrt{x^2+M^2} - M^2 \ln \frac{x + \sqrt{x^2+M^2}}{M}\right].
 \end{equation}
 
