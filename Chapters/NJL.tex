@@ -6,13 +6,14 @@
 \section{Lagrangiana do modelo NJL}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Considerando a lagrangiana do tipo NJL em SU(2) dada por\cite{Buballa1996}
+Considerando a lagrangiana do tipo NJL em SU(2) dada por Buballa\cite{Buballa1996}
 \begin{equation}
 	\mathcal{L} = \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi + G_S[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] - G_V(\bar{\psi}\gamma^\mu \psi)^2,
 \end{equation}
 %
 onde
 \begin{itemize}
+	\item As constantes $G_S$ e $G_V$ na referência são dadas em unidades de $\rm{massa}^{-2}$. Estamos usando unidades de $\rm{fm}^2$ para tais constantes, portanto devemos multiplicar os valores contidos na referência por $(\hbar c)^2$ para manter a convenção adotada.
 	\item ``Here $\psi$ is a fermion field with $n_f = 2$ flavors and $n_c$ colors. It may be interpreted [\dots] as a quark field ($n_c = 3$).''
 	\item ``Apart from the bare mass $m_0$, the Lagrangian [above] is chirally symmetric.''
 	\item $(\bar{\psi}\psi)^2$ e $(\bar{\psi}i\gamma_5\vec{\tau}\psi)^2$ são os canais scalar\footnote{scalar-isoscalar} e pseudoscalar-isovector, ambos com acoplamento $G_s$;
@@ -43,7 +44,7 @@ being the vacuum part ant the medium part of the thermodynamic potential (per vo
 Ainda temos que
 \begin{align}
 	E_p &= \sqrt{m^2+p^2}, \\
-	p_F &= \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2)
+	p_F &= \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2) \label{Eq:Rel_pot_quim_renorm_mom_fermi}
 \end{align}
 
 Sobre parâmetros:
@@ -74,7 +75,7 @@ e é possível eliminar a dependência de $\omega_{\rm{MF}}$ na variável $\mu_R
 %
 é possível se obter outras grandezas através das equações\footnote{Se o \emph{loop} é em $\mu_R$, então deve ser possível escrever $\mu_R$ em função de $\rho_B$ através do momento de $p_F$, ou seja, podemos fazer um \emph{loop} em $\rho_B$. De onde vem essa densidade?}
 \begin{align}
-	\rho_B &= \frac{1}{n_c} \langle\psi^\dagger\psi\rangle = \frac{n_f}{3\pi^2}p_F^3, \\
+	\rho_B &= \frac{1}{n_c} \langle\psi^\dagger\psi\rangle = \frac{n_f}{3\pi^2}p_F^3, \label{Eq:Rel_Dens_Mom_Fermi_NJL}\\
 	\varepsilon &= \tilde{\omega} + \mu n_c \rho_B, \\
 	p &= - \tilde{\omega},
 \end{align}
@@ -89,14 +90,15 @@ Comparando as expressões~\eqref{Eq:Eq_Gap_Buballa_1} e~\eqref{Eq:Eq_Gap_Buballa
 %
 onde utilizamos a Eq.~\ref{Eq:Int_d3p_to_dp} e integramos o momento entre o valor mínimo (zero) e o valor do \emph{cutoff} $\Lambda$. As integrais podem ser realizadas utilizando a expressão~\eqref{Eq:Integ_momento_quad}, resultando em
 \begin{align}
-	\int_0^\Lambda \frac{dp}{2\pi^2} \frac{mp^2}{E_p} &= \frac{m}{2\pi} F_0(m,\Lambda)\\
-	\int_0^\Lambda \frac{dp}{2\pi^2} \frac{mp^2}{E_p} \theta(p_F - p) &= \int_0^{p_F} \frac{dp}{2\pi^2} \frac{mp^2}{E_p} = \frac{m}{2\pi} F_0(m,p_F),
+	\int_0^\Lambda \frac{dp}{2\pi^2} \frac{mp^2}{E_p} &= \frac{m}{2\pi^2} F_0(m,\Lambda)\\
+	\int_0^\Lambda \frac{dp}{2\pi^2} \frac{mp^2}{E_p} \theta(p_F - p) &= \int_0^{p_F} \frac{dp}{2\pi^2} \frac{mp^2}{E_p} = \frac{m}{2\pi^2} F_0(m,p_F),
 \end{align}
 %
 onde $F_0(m, p)$ é dada pela expressão~\eqref{Eq:Def_F0_integrado}. Com o auxílio dessas expressões, obtemos
 \begin{align}
-	\langle\bar{\psi}\psi\rangle &= - n_f n_c \frac{m}{\pi} (F_0(m,\Lambda) - F_0(m, p_F)) \\
-	&= n_f n_c \frac{m}{\pi} (F_0(m,p_F) - F_0(m, \Lambda)).
+	\langle\bar{\psi}\psi\rangle &= - n_f n_c \frac{m}{\pi^2} (F_0(m,\Lambda) - F_0(m, p_F)) \label{Eq:Dens_Escalar_NJL_Gv_0}\\
+	&= n_f n_c \frac{m}{\pi} (F_0(m,p_F) - F_0(m, \Lambda)), \\
+	&\equiv \rho_s.
 \end{align}
 %
 Tal expressão é a mesma que a dada pela Eq.~\eqref{Eq:Dens_Escalar}, se utilizarmos $n_f = 1$ $n_c = 1$ (caso de hádrons)\footnote{Acredito que para os hádrons temos dois \emph{flavors}, mas na expresssão~\eqref{Eq:Dens_Escalar} temos a densidade ou para prótons, ou para nêutrons, sendo que devemos somar as densidades resultantes, o que equivaleria a usar $n_f = 2$ caso ambas as partículas estivessem sujeitas às mesmas condições.}.
@@ -105,10 +107,56 @@ Tal expressão é a mesma que a dada pela Eq.~\eqref{Eq:Dens_Escalar}, se utiliz
 \section{Solução para o caso $G_V = 0$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Em especial, para o caso em que não temos a interação vetorial (o que equivale a dizer que $G_V = 0$, temos que o potencial químico renormalizado $\mu_R$ é igual ao potencial químico $\mu$. Dessa forma, podemos relacionar o potencial químico à densidade bariônica através de\footnote{Não vejo como inverter essa relação para determinar $\mu$, pois precisamos de $m$ \dots mas podemos calcular $p_F$ a partir de $\rho_B$, calcular $m$ e então $\mu_R$, ou seja, dá pra rodar em $\rho_B$, mas depois de resolver a Eq. do Gap, precisamos calcular $\mu_R$ para poder calcular $\tilde{\omega}$.}
+Em especial, para o caso em que não temos a interação vetorial (o que equivale a dizer que $G_V = 0$, temos que o potencial químico renormalizado é igual ao potencial químico:
 \begin{equation}
-	\mu = \sqrt{(3\pi^2\rho_B/n_f)^{2/3} + m^2}.
+	\mu_R = \mu.
 \end{equation}
+%
+Dessa forma, podemos solucionar a Eq.~\eqref{Eq:Eq_Gap_Buballa_1} se calcularmos o momento de Fermi através da expressão~\eqref{Eq:Rel_Dens_Mom_Fermi_NJL}, obtendo\footnote{Para calcular a densidade escalar, basta sabermos os valores de $p_F$ e de $\Lambda$.}
+\begin{equation}
+	p_F = \sqrt[3]{\frac{3\pi^2\rho_B}{n_f}}.
+\end{equation}
+
+Ao solucionarmos a Eq.~\eqref{Eq:Eq_Gap_Buballa_1}, obteremos o valor de $m$, porém não é possível determinar o valor de $\mu_R$.
+\begin{figure*}
+	\input{Graphics/Rel_pot_quim_mom_fermi/graph.tex}
+	\caption{Gráfico da relação~\eqref{Eq:Rel_pot_quim_renorm_mom_fermi} para $m = 100$.}
+\end{figure*}
+Caso $\mu_R^2 > m^2$, temos uma relação simples para $\mu_R$:
+\begin{equation}
+	\mu_R = \sqrt{p_F^2 + m^2}, \quad \textrm{se}~ \mu_R^2 > m^2.
+\end{equation}
+%
+No entanto, para qualquer valor de $\mu_R^2$ menor que $m^2$, não é possível inverter a relação~\eqref{Eq:Rel_pot_quim_renorm_mom_fermi}: todo valor de $\mu_R$ tal que $\mu_R^2 < m^2$ está associado a $p_F = 0$, e não é possível determinar uma inversa pois o elemento $0$ dos valores de $p_F$ levaria a diversos elementos dos valores de $\mu_R$ e, portanto, a relação inversa para $\mu_R^2 < m^2$ não é uma função em tal intervalo.\footnote{Uma interpretação para isso é a de que existe um valor mínimo $\mu_R = m$ para o potencial químico renormalizado.}
+
+Por outro lado, utilizando as Equações~\eqref{Eq:Rel_Dens_Mom_Fermi_NJL} e~\eqref{Eq:Rel_pot_quim_renorm_mom_fermi} podemos escrever
+\begin{equation}
+	\sqrt[3]{\frac{3\pi^2}{n_f} \rho_B} = \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2),
+\end{equation}
+%
+onde $\theta(\mu_R^2 - m^2)$ garante que o lado direito seja estritamente positivo, ou seja
+\begin{equation}
+	\rho_B > 0,
+\end{equation}
+%
+o que é perfeitamente razoável. Consequentemente temos que a expressão para $\mu_R$ é dada por
+\begin{equation}
+	\mu_R = \sqrt{p_F^2 + m^2}.
+\end{equation}
+%
+Isto significa que, se rodarmos em $\mu_R$, temos que $p_F$ é zero para $\mu_R^2 < m^2$, o que resulta no mesmo valor para $m$ (resolvendo a Eq.~\eqref{Eq:Eq_Gap_Buballa_1}) para qualquer valor de $\mu_R$ em tal intervalo. Se acontecer o mesmo com o potencial termodinâmico\footnote{Ver se é esse o caso.} $\tilde{\omega}$, não tem problema algum, pois estaríamos calculando ``o mesmo ponto'' para as equações de estado.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Análise Dimensional}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Assim como no caso eNJL, assumimos que
+\begin{itemize}
+	\item $[\rho_s] = [\rho_B] = \rm{fm}^{-3}$
+	\item $[E] = [p] = [m] = [\mu] = \rm{Mev}$
+\end{itemize}
+%
+assim a expressão~\eqref{Eq:Dens_Escalar_NJL_Gv_0} deve ser multiplicada por $(\hbar c)^{-3}$ de forma que as dimensões fiquem corretas. Além disso, na Eq.~\eqref{Eq:Eq_Gap_Buballa_1} devemos multiplicar o termo proporcional a $G_S$ por $\hbar c$ de forma a obter a dimensão correta (MeV) para que possamos somar com a massa.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Programa Débora}

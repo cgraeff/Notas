@@ -1,0 +1,17 @@
+set term tikz size 14cm, 9cm
+
+set out 'graph.tex'
+
+set xlabel '$\mu_R$'
+set ylabel '$p_F$'
+
+set key reverse Left left
+
+set samples 1001
+
+f(x) = x > 100.0? sqrt(x**2.0 - 100.0**2.0) : 0
+
+set xrange[0:500]
+set yrange[-50:500]
+
+plot f(x) w l lw 3 t '$p_F = \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2), m = 100$', 0 notitle
