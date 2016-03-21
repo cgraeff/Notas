@@ -28,14 +28,14 @@ onde
 Obtenção do potencial termodinâmico
 \begin{quote}
 Expanding $\bar{\psi}\psi$ and $\bar{\psi}\gamma^\mu\psi$ about their thermal expectation values we can derive the mean field thermodynamic potential at temperature $T$ and chemical potential $\mu$ [11]. We restrict ourselves to the Hartree approximation. Furthermore in this paper we only consider $T=0$ and $\mu \geqslant 0$. The result for the thermodynamic potential is
-\begin{equation}
+\begin{equation}\label{Eq:Def_pot_termo}
 	\omega_{\rm{MF}}(\mu; m, \mu_R) = \omega_m^{\rm{(vac)}} + \omega_m^{\rm{(med)}}(\mu_R) + \frac{(m - m_0)^2}{4G_S} - \frac{(\mu - \mu_R)^2}{4G_V},
 \end{equation}
 %
 with
 \begin{align}
 	\omega_m^{\rm{(vac)}} &= - (2n_fn_c) \int \frac{d^3p}{(2\pi)^3} E_p, \\
-	\omega_m^{\rm{(med)}}(\mu_R) &= - (2n_fn_c) \int \frac{d^3p}{(2\pi)^3}(\mu_R - E_p)\theta(p_F - p),
+	\omega_m^{\rm{(med)}}(\mu_R) &= - (2n_fn_c) \int \frac{d^3p}{(2\pi)^3}(\mu_R - E_p)\theta(p_F - p), \label{Eq:Def_omega_med}
 \end{align}
 %
 being the vacuum part ant the medium part of the thermodynamic potential (per volume) of a free fermion with mass $m$. [\dots] The vacuum part is strongly divergent and has to be regularized. For simplicity we use a sharp cut-off $\Lambda$ in the three momentum space.\footnote{Isso significa que todas as integrais no momento serão limitadas a $\Lambda$.}
@@ -146,6 +146,58 @@ o que é perfeitamente razoável. Consequentemente temos que a expressão para $
 %
 Isto significa que, se rodarmos em $\mu_R$, temos que $p_F$ é zero para $\mu_R^2 < m^2$, o que resulta no mesmo valor para $m$ (resolvendo a Eq.~\eqref{Eq:Eq_Gap_Buballa_1}) para qualquer valor de $\mu_R$ em tal intervalo. Se acontecer o mesmo com o potencial termodinâmico\footnote{Ver se é esse o caso.} $\tilde{\omega}$, não tem problema algum, pois estaríamos calculando ``o mesmo ponto'' para as equações de estado.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Potencial termodinâmico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Para calcular as grandezas em que estamos interessados ($p$, $\varepsilon$), precisamos calcular $\tilde{\omega}$. Para calcular tal grandeza, precisamos calcular o valor de $m_{\rm{vac}}$. Esse valor é dado de forma que\cite{Buballa1996}
+\begin{quote}
+	$m_{\rm{vac}}$ is the dynamical mass which minimizes the thermodynamic potential of the vacuum.
+\end{quote}
+%
+isto é\footnote{ou acredito que seja}, $m_{\rm{vac}}$ deve minimizar o potencial definido pela Eq.~\ref{Eq:Def_pot_termo} para o caso do vácuo\footnote{No Report do Buballa, também há a menção a minimizar o potencial termodinâmico, porém não há o termo $\omega_m^{\rm{med}}$. Acredito que devido à função degrau, esse termo seja zero na forma que temos aqui.}. Podemos determinar o valor que minimiza o potencial tomando a derivada em relação a $m$ e igualando-a a zero:
+\begin{equation}
+	\frac{d}{dm} \omega(\mu = 0; m, \mu_R = 0) = \frac{d}{dm}\left[\omega_m^{\rm{(vac)}} + \omega_m^{\rm{(med)}}(\mu_R) + \frac{(m - m_0)^2}{4G_S} \right] = 0.
+\end{equation}
+%
+Como $\mu_R = 0$ e $E = sqrt{p^2+m^2}$, da expressão~\eqref{Eq:Def_omega_med} temos que o segundo termo é nulo (por $\mu_R$ ser zero e pelo fato de que a função degrau será zero, pois $p_F$ é zero se $\mu_R$, Eq.~\eqref{Eq:Rel_pot_quim_renorm_mom_fermi}).
+
+O primeiro termo pode ser calculado através da fórmula de Leibniz
+\begin{equation}
+\begin{split}
+	\frac{d}{dx} \left(\int_{a(x)}^{b(x)} f(x,t) dt\right) =&~ f(x, b(x))b'(x) - f(x, a(x))a'(x) \\
+	&+ \int_{a(x)}^{b(x)}\frac{\partial}{\partial x}f(x,t) dt
+\end{split}
+\end{equation}
+%
+resultando em
+\begin{align}
+	\frac{d}{dm}\omega_m^{\rm{(vac)}} &= -2 n_f n_c\frac{d}{dm}\int \frac{d^3p}{(2\pi)^3 \sqrt{p^2 + m^2}} \\
+	&= - \frac{n_f n_c}{\pi^2} \int \frac{\partial}{\partial m} p^2\sqrt{p^2+m^2} dp \\
+	&= - \frac{n_f n_c}{\pi^2} \int \frac{mp^2}{\sqrt{p^2+m^2}} dp \\
+	&= - \frac{n_f n_c}{\pi^2} \;m [F_0(m, p) - F_0(m,0)]
+\end{align}
+%
+onde usamos as relações~\eqref{Eq:Int_d3p_to_dp} e \eqref{Eq:Def_F0},~\eqref{Eq:Def_F0_integrado}.
+
+Finalmente, o terceiro termo é dado por
+\begin{equation}
+	\frac{d}{dm} \frac{(m - m_0)^2}{4G_S} = \frac{2 (m - m_0)}{4G_S} = \frac{m - m_0}{2G_S}.
+\end{equation}
+%
+Consequentemente,
+\begin{align}
+	\frac{d}{dm} \omega(\mu = 0; m, \mu_R = 0) &= - \frac{n_f n_c}{\pi^2} \;m [F_0(m, p) - F_0(m,0)] + \frac{m - m_0}{2G_S} \\
+	&= 0.
+\end{align}
+%
+multiplicando por $2G_S$, obtemos uma equação equivalente:
+\begin{equation}
+	m - m_0 - 2G_S\frac{n_f n_c}{\pi^2} \;m [F_0(m, p) - F_0(m,0)] = 0.
+\end{equation}
+%
+Devemos resolver tal equação através de um método para encontrar zeros de função, tal como é feito para a equação do gap.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Análise Dimensional}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -157,6 +209,16 @@ Assim como no caso eNJL, assumimos que
 \end{itemize}
 %
 assim a expressão~\eqref{Eq:Dens_Escalar_NJL_Gv_0} deve ser multiplicada por $(\hbar c)^{-3}$ de forma que as dimensões fiquem corretas. Além disso, na Eq.~\eqref{Eq:Eq_Gap_Buballa_1} devemos multiplicar o termo proporcional a $G_S$ por $\hbar c$ de forma a obter a dimensão correta (MeV) para que possamos somar com a massa.
+
+Para encontrar $m_{\rm{vac}}$, precisamos resolver
+\begin{equation}
+	m - m_0 - 2G_S\frac{n_f n_c}{\pi^2} \;m [F_0(m, p) - F_0(m,0)] = 0.
+\end{equation}
+%
+Como $[m] = [m_0] = \rm{MeV}$, o último termo também deve estar em MeV. A dimensão de $F_0$ é $\rm{MeV}^2$, enquanto $[G_S] = \rm{fm}^2$, o que resulta -- levando em conta que o termo contém um $m$ no numerador -- em $\rm{MeV}^3\cdot\rm{fm}^2$. Para corrigir a dimensão, devemos multiplicar tal termo por $(\hbar c)^{-2}$:
+\begin{equation}
+	m - m_0 - 2G_S\frac{n_f n_c}{\pi^2} \;m [F_0(m, p) - F_0(m,0)] \cdot (\hbar c)^{-2} = 0.
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Programa Débora}
