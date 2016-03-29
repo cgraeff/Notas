@@ -209,28 +209,25 @@ Devemos resolver tal equação através de um método para encontrar zeros de fu
 \subsection{Determinação de $\tilde{\omega}$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Para que possamos calcular os valores da pressão $p$ e da energia $\varepsilon$ através das Equações~\eqref{Eq:Energia_omega_tilde} e~\eqref{Eq:Pressao_omega_tilde}, necessitamos de $\tilde{\omega}$. Utilizando as Equações~\eqref{Eq:Def_omega_tilde}, \eqref{Eq:Def_omega_vac}, e~\eqref{Eq:Def_omega_med}, temos:
 \begin{fullwidth}
+
+Para que possamos calcular os valores da pressão $p$ e da energia $\varepsilon$ através das Equações~\eqref{Eq:Energia_omega_tilde} e~\eqref{Eq:Pressao_omega_tilde}, necessitamos de $\tilde{\omega}$. Utilizando as Equações~\eqref{Eq:Def_omega_tilde}, \eqref{Eq:Def_omega_vac}, e~\eqref{Eq:Def_omega_med}, temos:
 \begin{equation}
 \begin{split}
 \tilde{\omega} =&~ \left\{-2 n_f n_c \left[\int\frac{d^3p}{(2\pi)^3} E_p + \int\frac{d^3p}{(2\pi)^3}(\mu_R - E_p)\theta(p_F - p)\right] + \frac{(m-m_0)^2}{4G_S}\right\} \\
 &-\left\{-2 n_f n_c \left[\int\frac{d^3p}{(2\pi)^3}E_p|_{m=m_{\rm{vac}}} + \int\frac{d^3p}{(2\pi)^3}(\underbrace{\mu_R}_{0} - E_p|_{m = m_{\rm{vac}}}) \theta(p_F - p)\right] + \frac{(m_{\rm{vac}} - m_0)^2}{4G_S}\right\}
 \end{split}
 \end{equation}
-\end{fullwidth}
 %
 Utilizando a expressão~\eqref{Eq:Int_d3p_to_dp}, podemos reescrever tal expressão como (separando a integral de $\mu_R$ e explicitando os limites)
-\begin{fullwidth}
 \begin{equation}
 \begin{split}
 \tilde{\omega} =&~ \left\{- \frac{n_f n_c}{\pi^2} \left[\int_0^\Lambda p^2E_p \; dp - \int_0^\Lambda p^2 E_p \theta(p_F - p)\;dp + \int_0^\Lambda p^2 \mu_R \theta(p_F - p)\;dp \right] + \frac{(m-m_0)^2}{4G_S}\right\} \\
 &-\left\{- \frac{n_f n_c}{\pi^2} \left[\int_0^\Lambda p^2 E_p|_{m=m_{\rm{vac}}} \; dp - \int_0^\Lambda p^2 E_p|_{m = m_{\rm{vac}}} \theta(p_F - p) \; dp\right] + \frac{(m_{\rm{vac}} - m_0)^2}{4G_S}\right\}
 \end{split}
 \end{equation}
-\end{fullwidth}
 
 Na expressão acima, verificamos a existência de dois pares de integrais idênticas --~a menos de uma função degrau $\theta$~-- sendo que estamos calculando a diferença entre elas. Tal resultado será, claramente, zero. Isso não será verdade, no entanto, para $p_F > p$, pois nesse caso a integral que contém a função degrau será zerada. O efeito líquido disso é o de calcularmos somente a integral sem a função $\theta$, porém no intervalo $[p_F, \Lambda]$. Assim,
-\begin{fullwidth}
 \begin{equation}
 \begin{split}
 \tilde{\omega} =&~ \left\{- \frac{n_f n_c}{\pi^2} \left[\int_{p_F}^\Lambda p^2E_p \; dp + \int_0^\Lambda p^2 \mu_R \theta(p_F - p)\;dp \right] + \frac{(m-m_0)^2}{4G_S}\right\} \\
@@ -259,7 +256,7 @@ Portanto,
 
 Utilizando a definição de $E_p$, Equação~\eqref{Eq:Def_E}, podemos calcular a integral utilizando
 \begin{align}
-	\int k^2 \sqrt{k^2 + m^2} \;dk &= \frac{1}{4}\left[k^2 E^3 - \frac{1}{2} m^2 k E - \frac{1}{2} m^4\ln\left(\frac{k+E}{m}\right)\right] \\
+	\int k^2 \sqrt{k^2 + m^2} \;dk &= \frac{1}{4}\left[k E^3 - \frac{1}{2} m^2 k E - \frac{1}{2} m^4\ln\left(\frac{k+E}{m}\right)\right] \\
 	&\equiv F_E(m, k),
 \end{align}
 %
@@ -273,11 +270,23 @@ onde $E = \sqrt{k^2 + m^2}$, o que nos leva a
 %
 onde usamos a Equação~\eqref{Eq:Rel_Dens_Mom_Fermi_NJL} para escrever o termo envolvendo a densidade bariônica $\rho_B$.
 
-
 O resultado  para $\omega_{\rm{MF}}(0;m_{\rm{vac}},0)$ utilizando o valor obtido através da Eq.~\eqref{Eq:Calculo_m_vac} será uma constante, o que pode ser entendido verificando que a expressão para o potencial termodinâmico nessas condições é calculada a partir de constantes:
 \begin{equation}
-	\omega_{\rm{MF}}(0;m_{\rm{vac}},0) = \frac{n_f n_c}{\pi^2}\left[F_E(m_{\rm{vac}}, \Lambda) - F_E(m_{\rm{vac}}, p_F)\right] + G_S(\rho_s|_{m=m_{\rm{vac}}})^2.
+	\omega_{\rm{MF}}(0;m_{\rm{vac}},0) = -\frac{n_f n_c}{\pi^2}\left[F_E(m_{\rm{vac}}, \Lambda) - F_E(m_{\rm{vac}}, p_F)\right] + G_S(\rho_s|_{m=m_{\rm{vac}}})^2.
 \end{equation}
+
+A expressão acima difere do programa que a Débora me passou como referência. Em tal programa, o potencial termodinâmico tem uma forma análoga ao caso eNJL:
+\begin{align}
+	\varepsilon &= \tilde{\omega} + n_c\mu\rho_B = \varepsilon_{\rm{kin}} + m_0\rho_s - 2G_S\rho_s^2 \\
+	\varepsilon_{\rm{kin}} &= -\frac{n_c}{\pi^2} [F_2(m, \Lambda) - F_2(m, p_F)]
+\end{align}
+%
+onde, como na Equação~\eqref{Eq:Energia_kin},
+\begin{equation}
+	F_2(m, p) = \frac{1}{8}\Big((2p^3 - 3M_i^2p)\sqrt{p^2 + M_i^2} + 3M_i^4\ln\frac{p + \sqrt{p^2 + M_i^2}}{M_i}\Big).
+\end{equation}
+%
+Isso se deve ao fato de que a densidade de energia pode ser calculada a partir do potencial termodinâmico através de mais que uma relação. Possivelmente essa esteja relacionada à derivada do potencial termodinâmico em relação à temperatura, ou ao inverso da temperatura. Ver Avancini~\cite{Avancini2004} e~\cite{Avancini2006}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Análise Dimensional}
@@ -301,13 +310,3 @@ Como $[m] = [m_0] = \rm{MeV}$, o último termo também deve estar em MeV. A dime
 	m - m_0 - 2G_S\frac{n_f n_c}{\pi^2} \;m [F_0(m, \Lambda) - F_0(m,0)] \cdot (\hbar c)^{-2} = 0.
 \end{equation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Programa Débora}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{itemize}
-	\item Roda variando o potencial químico $\mu$. É igual em ambos os quarks?
-	\item Usa $g = 3/\pi^2$
-	\item $\rho_s$ é igual ao caso para hádrons
-	\item $p_F^2 = \mu^2 - M^2$; Essa equação aparece no Buballa.
-\end{itemize}
