@@ -261,7 +261,7 @@ Utilizando a definição de $E_p$, Equação~\eqref{Eq:Def_E}, podemos calcular 
 \end{align}
 %
 onde $E = \sqrt{k^2 + m^2}$, o que nos leva a
-\begin{equation}
+\begin{equation}\label{Eq:Pot_termodinamico_1}
 \begin{split}
 \tilde{\omega} =&~ \left\{- \frac{n_f n_c}{\pi^2} [F_E(m,\Lambda) - F_E(m, p_F)] - n_c\mu_R \rho_B + G_S\rho_s^2\right\} \\
 &-\left\{- \frac{n_f n_c}{\pi^2} [F_E(m_{\rm{vac}}, \Lambda) - F_E(m_{\rm{vac}}, p_F)] + G_S(\rho_s|_{m = m_{\rm{vac}}})^2\right\},
@@ -276,10 +276,15 @@ O resultado  para $\omega_{\rm{MF}}(0;m_{\rm{vac}},0)$ utilizando o valor obtido
 \end{equation}
 
 A expressão acima difere do programa que a Débora me passou como referência. Em tal programa, o potencial termodinâmico tem uma forma análoga ao caso eNJL:
+\begin{subequations}\label{Eq:Pot_termodinamico_2}
 \begin{align}
 	\varepsilon &= \tilde{\omega} + n_c\mu\rho_B = \varepsilon_{\rm{kin}} + m_0\rho_s - 2G_S\rho_s^2 \\
-	\varepsilon_{\rm{kin}} &= -\frac{n_c}{\pi^2} [F_2(m, \Lambda) - F_2(m, p_F)]
+	\varepsilon_0 &= \tilde{\omega}_0 + n_c\mu\rho_B = \varepsilon_{\rm{kin}}^0 + m_0\rho_0^s - 2G_S(\rho_0^s)^2 \\
+	\varepsilon_{\rm{kin}} &= -\frac{n_c}{\pi^2} [F_2(m, \Lambda) - F_2(m, p_F)] \\
+	\varepsilon_{\rm{kin}}^0 &= -\frac{n_c}{\pi^2} [F_2(m, \Lambda) - F_2(m, 0)] \\
+	\rho_0^s &= \rho_s|_{m = m_{\rm{vac}}}
 \end{align}
+\end{subequations}
 %
 onde, como na Equação~\eqref{Eq:Energia_kin},
 \begin{equation}
@@ -295,10 +300,35 @@ Isso se deve ao fato de que a densidade de energia pode ser calculada a partir d
 Assim como no caso eNJL, assumimos que
 \begin{itemize}
 	\item $[\rho_s] = [\rho_B] = \rm{fm}^{-3}$
-	\item $[E] = [p] = [m] = [\mu] = \rm{Mev}$
+	\item $[E] = [p] = [m] = [\mu] = p_F = \Lambda = \mu_R = \rm{Mev}$.
 \end{itemize}
 %
-assim a expressão~\eqref{Eq:Dens_Escalar_NJL_Gv_0} deve ser multiplicada por $(\hbar c)^{-3}$ de forma que as dimensões fiquem corretas. Além disso, na Eq.~\eqref{Eq:Eq_Gap_Buballa_1} devemos multiplicar o termo proporcional a $G_S$ por $\hbar c$ de forma a obter a dimensão correta (MeV) para que possamos somar com a massa.
+Verificando as dimensões na lagrangiana, temos
+\begin{equation}
+	\underbrace{\mathcal{L}}_{\mathcal{\rm{MeV}/\rm{fm}^3}} = \underbrace{\bar{\psi}}_{\rm{fm}^{3/2}}(i\gamma^\mu\underbrace{\partial_\mu}_{\rm{fm}^{-1}} - \underbrace{m_0}_{\rm{MeV}})\underbrace{\psi}_{\rm{fm}^{3/2}} + G_S [ \underbrace{(\bar{\psi}\psi)^2}_{\rm{fm}^{-6}} + \underbrace{(\bar{\psi}i\gamma_5\vec{\tau}\psi)^2}_{\rm{fm}^{-6}}].
+\end{equation}
+%
+A constante $G_S$ tem dimensão de inverso de massa$^{-2}$ em Buballa\cite{Buballa1996}, porém adotamos que 
+\begin{equation}
+	[G_S] = \rm{fm}^{2}
+\end{equation}
+%
+para que tenhamos uma dimensão igual ao caso eNJL. Assim o valor de $G_S$ da referência deve ser ajustado de acordo com
+\begin{equation}
+	\underbrace{G_S}_{\textrm{Buballa}} \cdot (\hbar c)^2 = \underbrace{G_S}_{\textrm{prog.}}.
+\end{equation}
+%
+Além disso, para que dimensão da densidade lagrangiana seja adequada, temos
+\begin{equation}
+	\mathcal{L} = \bar{\psi}(\hbar c \cdot i\gamma^\mu\partial_\mu - m_0)\psi + \hbar c \cdot G_S[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2].
+\end{equation}
+%
+A relação entre a densidade bariônica e o momento de Fermi também precisa ter sua dimensão corrigida:
+\begin{equation}
+	\rho_B = (\hbar c)^{-3} \cdot \frac{n_f}{3\pi^2}p_F^3.
+\end{equation}
+
+Temos também que para que a expressão~\eqref{Eq:Dens_Escalar_NJL_Gv_0} para a densidade escalar tenha as dimensões corretas, devemos multiplicá-la por $(\hbar c)^{-3}$. Além disso, na Eq.~\eqref{Eq:Eq_Gap_Buballa_1} devemos multiplicar o termo proporcional a $G_S$ por $\hbar c$ de forma a obter a dimensão correta (MeV) para que possamos somar com a massa.
 
 Para encontrar $m_{\rm{vac}}$, precisamos resolver
 \begin{equation}
@@ -310,3 +340,85 @@ Como $[m] = [m_0] = \rm{MeV}$, o último termo também deve estar em MeV. A dime
 	m - m_0 - 2G_S\frac{n_f n_c}{\pi^2} \;m [F_0(m, \Lambda) - F_0(m,0)] \cdot (\hbar c)^{-2} = 0.
 \end{equation}
 
+Para o cálculo do potencial termodinâmico, segundo a Equação~\ref{Eq:Pot_termodinamico_1}, temos que
+\begin{align}
+	[F_E] &= \left[\int_0^\Lambda p^2\sqrt{p^2+m^2} \;dp\right] = \rm{MeV}^2, \\
+	[\omega] &= \rm{MeV}/\rm{fm}^3,
+\end{align}
+%
+logo,
+\begin{align}
+	\tilde{\omega} &= \left\{- (\hbar c)^{-3} \cdot [F_E(m, \Lambda) - F_E(m, p_F)] - n_fn_c\mu_R\rho_B + (\hbar c) \cdot G_S\rho_S^2\right\} - \omega_0 \\
+	\omega_0 &= - (\hbar c)^{-3} \cdot [F_E(m_{\rm{vac}}, \Lambda) - F_E(m_{\rm{vac}}, p_F)] - n_fn_c\mu_R\rho_B + (\hbar c) \cdot G_S(\rho_S|_{m = m_{\rm{vac}}})^2
+\end{align}
+
+Para o cálculo do potencial termodinâmico através das expressões~\eqref{Eq:Pot_termodinamico_2}, temos
+\begin{subequations}
+\begin{align}
+	\varepsilon &= \tilde{\omega} + n_c\mu\rho_B = \varepsilon_{\rm{kin}} + m_0\rho_s - (\hbar c) \cdot 2G_S\rho_s^2 - \varepsilon_0\\
+	\varepsilon_0 &= \tilde{\omega}_0 + n_c\mu\rho_B = \varepsilon_{\rm{kin}}^0 + m_0\rho_0^s - (\hbar c) \cdot 2G_S(\rho_0^s)^2 \\
+	\varepsilon_{\rm{kin}} &= -(\hbar c)^{-3} \cdot \frac{n_c}{\pi^2} [F_2(m, \Lambda) - F_2(m, p_F)] \\
+	\varepsilon_{\rm{kin}}^0 &= -(\hbar c)^{-3} \cdot \frac{n_c}{\pi^2} [F_2(m, \Lambda) - F_2(m, 0)]
+\end{align}
+\end{subequations}
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Resultados}
+%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure*}
+	\input{Graphics/NJL-Buballa_Set_1/graph/fermi_momentum.tex}
+	\caption{Gráfico do momento de Fermi $p_F$. \protect\input{Graphics/NJL-Buballa_Set_1/info.tex}}
+	\label{Fig:fermi_momentum_NJL-Buballa_Set_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/NJL-Buballa_Set_1/graph/vacuum_mass_equation.tex}
+	\caption{Gráfico da equação cuja raíz determina o valor de $m_{\rm{vac}}$. \protect\input{Graphics/NJL-Buballa_Set_1/info.tex}}
+	\label{Fig:vacuum_mass_equation_NJL-Buballa_Set_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/NJL-Buballa_Set_1/graph/gap.tex}
+	\caption{Gráfico da equação cuja raíz determina o valor de $m$ (``Equação do gap zerada''). \protect\input{Graphics/NJL-Buballa_Set_1/info.tex}}
+	\label{Fig:gap_NJL-Buballa_Set_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/NJL-Buballa_Set_1/graph/vacuum_mass_equation.tex}
+	\caption{Gráfico da mass $m$ em função da densidade bariônica $\rho_B$. \protect\input{Graphics/NJL-Buballa_Set_1/info.tex}}
+	\label{Fig:mass_NJL-Buballa_Set_1}
+\end{figure*}
+
+
+\begin{figure*}
+	\input{Graphics/NJL-Buballa_Set_1/graph/scalar_density.tex}
+	\caption{Gráfico da densidade escalar. \protect\input{Graphics/NJL-Buballa_Set_1/info.tex}}
+	\label{Fig:scalar_density_NJL-Buballa_Set_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/NJL-Buballa_Set_1/graph/chemical_potential.tex}
+	\caption{Gráfico do potencial químico. \protect\input{Graphics/NJL-Buballa_Set_1/info.tex}}
+	\label{Fig:chemical_potential_NJL-Buballa_Set_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/NJL-Buballa_Set_1/graph/thermodynamic_potential.tex}
+	\caption{Gráfico do potencial termodinâmico $\tilde{\omega}$. \protect\input{Graphics/NJL-Buballa_Set_1/info.tex}}
+	\label{Fig:thermodynamic_potential_NJL-Buballa_Set_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/NJL-Buballa_Set_1/graph/pressure.tex}
+	\caption{Gráfico da pressão. \protect\input{Graphics/NJL-Buballa_Set_1/info.tex}}
+	\label{Fig:pressure_NJL-Buballa_Set_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/NJL-Buballa_Set_1/graph/energy_density_per_particle.tex}
+	\caption{Gráfico da razão entre a densidade de energia $\varepsilon$ e a densidade bariônica $\rho_B$ (energia por partícula). \protect\input{Graphics/NJL-Buballa_Set_1/info.tex}}
+	\label{Fig:energy_density_per_particle_NJL-Buballa_Set_1}
+\end{figure*}
+
+\FloatBarrier
