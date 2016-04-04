@@ -61,7 +61,7 @@ set out 'graph/gap.tex'
 
 set key reverse left Left
 
-set ylabel '$f(M) = M + G_s\rho_s - 2G_{sv}\rho_s\rho^2$ (MeV)'
+set ylabel '$f(M) = M - m + G_s\rho_s - 2G_{sv}\rho_s\rho^2 + \dots$ (MeV)'
 set xlabel '$M$ (MeV)'
 
 plot "data/gap_dens_0.dat" w l t '$\rho_{\rm{min}}$', \
