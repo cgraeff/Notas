@@ -366,6 +366,20 @@ Para o cálculo do potencial termodinâmico através das expressões~\eqref{Eq:P
 \section{Resultados}
 %%%%%%%%%%%%%%%%%%%%
 
+Os resultados abaixo aparentemente estão adequados até a determinação da massa, densidade escalar. Consigo reproduzir o valor da massa $m_{\rm{vac}}$ do Buballa~\cite{Buballa1996}, e os gráficos da massa efetiva e da densidade escalar se comportam de acordo com as expectativas (são parecidos com o caso de hádrons, quando $m_0 \neq 0$ a massa são vai a zero, e a densidade escalar tende a verticalizar próximo do valor da densidade máxima no caso $m_0 = 0$.).
+
+No entanto, tudo o que é calculado após o potencial termodinâmico (incluindo o próprio potencial) estão estranhos. O valor de $\omega_0$ é muito grande e negativo, crescendo de maneira aproximadamente linear. O valor do próprio potencial não resulta em algo similar ao caso de hádrons. A energia por partícula está com uma escala estranha também, sem falar que o gráfico está muito estranho, com um mínimo local, um máximo e depois desanda a baixar.
+
+Em tese, o que deveria ser revisto é o próprio potencial termodinâmico. Em primeiro lugar, ele não reproduz a Figura 1 do Buballa\cite{Buballa1996}. Isso seria o mínimo. De qualquer forma, o cálculo do Buballa varia $\mu_R$, acredito. Então fica até difícil de comparar. Portanto, como primeiro passo, o programa tem que passar a calcular usando o potencial químico (ou o que for), como no Buballa.
+
+Na Figura~\ref{Fig:pot_term_analysys_NJL-Buballa_Set_1} mostramos o potencial termodinâmico calculado para $\mu = \mu_r = p_F = \rho_B = 0$, variando $m$ arbitrariamente. O resultado é exatamente igual ao apresentado no Buballa. No entanto, para $\mu \neq 0$, os resultados não conferem. Aparentemente, o cálculo do potencial termodinâmico não funciona direito pois a variação é muito maior do que deveria (o comportamento geral do cálculo parece correto, mas deveria ser menos sensível à variação do parâmetro). Testei com o sem o potencial termodinâmico do vácuo e o resultado na variação do valor do potencial para $m \to 0$ entre os casos $\mu = 0$ e $\mu = 350$ MeV é mais ou menos o mesmo (vi no gráfico, não verifiquei o valor numericamente, só estimei), então o problema deve estar no cálculo do termo que não é o vácuo.
+
+\begin{figure*}
+	\input{Graphics/NJL-Buballa_Set_1/graph/therm_pot_analysis.tex}
+	\caption{Gráfico do potencial termodinâmico $\tilde{\omega}$ obtido variando $m$ arbitrariamente, para o valor $\mu = \mu_R = 0$. \protect\input{Graphics/NJL-Buballa_Set_1/info.tex}}
+	\label{Fig:pot_term_analysys_NJL-Buballa_Set_1}
+\end{figure*}
+
 \begin{figure*}
 	\input{Graphics/NJL-Buballa_Set_1/graph/fermi_momentum.tex}
 	\caption{Gráfico do momento de Fermi $p_F$. \protect\input{Graphics/NJL-Buballa_Set_1/info.tex}}

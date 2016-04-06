@@ -86,3 +86,11 @@ set ylabel '$F(m) = m - m_0 + 2G_S\rho_s$ (MeV)'
 set xlabel '$m$ (MeV)'
 
 plot "data/vacuum_mass_equation.dat" w l notitle, 0 notitle
+
+#
+
+set out 'graph/therm_pot_analysis.tex'
+set ylabel '$\tilde{\omega} (\rm{MeV}/\rm{fm}^3)$'
+set xlabel '$m$ (MeV)'
+
+plot "therm1.dat"
