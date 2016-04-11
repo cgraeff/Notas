@@ -366,19 +366,40 @@ Para o cálculo do potencial termodinâmico através das expressões~\eqref{Eq:P
 \section{Resultados}
 %%%%%%%%%%%%%%%%%%%%
 
-Os resultados abaixo aparentemente estão adequados até a determinação da massa, densidade escalar. Consigo reproduzir o valor da massa $m_{\rm{vac}}$ do Buballa~\cite{Buballa1996}, e os gráficos da massa efetiva e da densidade escalar se comportam de acordo com as expectativas (são parecidos com o caso de hádrons, quando $m_0 \neq 0$ a massa são vai a zero, e a densidade escalar tende a verticalizar próximo do valor da densidade máxima no caso $m_0 = 0$.).
+Os resultados abaixo aparentemente estão adequados até a determinação da massa, densidade escalar. Consigo reproduzir\footnote{Exceto o do Set 1, que dá \np[MeV]{311.4}.} o valor da massa $m_{\rm{vac}}$ do Buballa~\cite{Buballa1996}, e os gráficos da massa efetiva e da densidade escalar se comportam de acordo com as expectativas (são parecidos com o caso de hádrons, quando $m_0 \neq 0$ a massa são vai a zero, e a densidade escalar tende a verticalizar próximo do valor da densidade máxima no caso $m_0 = 0$.).
 
-No entanto, tudo o que é calculado após o potencial termodinâmico (incluindo o próprio potencial) estão estranhos. O valor de $\omega_0$ é muito grande e negativo, crescendo de maneira aproximadamente linear. O valor do próprio potencial não resulta em algo similar ao caso de hádrons. A energia por partícula está com uma escala estranha também, sem falar que o gráfico está muito estranho, com um mínimo local, um máximo e depois desanda a baixar.
+No entanto, tudo o que é calculado após o potencial termodinâmico (incluindo o próprio potencial) estão estranhos. Podemos dividir os resultados a partir desse ponto em dois casos
+\begin{description}
+	\item[Potencial de acordo com Buballa] Nesse caso, o valor de $\omega_0$ é muito grande e negativo, crescendo de maneira aproximadamente linear. O valor do próprio potencial não resulta em algo similar ao caso de hádrons. A energia por partícula está com uma escala estranha também, sem falar que o gráfico está muito estranho, com um mínimo local, um máximo e depois desanda a baixar.
 
-Em tese, o que deveria ser revisto é o próprio potencial termodinâmico. Em primeiro lugar, ele não reproduz a Figura 1 do Buballa\cite{Buballa1996}. Isso seria o mínimo. De qualquer forma, o cálculo do Buballa varia $\mu_R$, acredito. Então fica até difícil de comparar. Portanto, como primeiro passo, o programa tem que passar a calcular usando o potencial químico (ou o que for), como no Buballa.
+Na Figura~\ref{Fig:pot_term_analysys_NJL-Buballa_Set_1} mostramos o potencial termodinâmico calculado para $\mu = \mu_r = p_F = \rho_B = 0$, variando $m$ arbitrariamente. O resultado é exatamente igual ao apresentado no Buballa. No entanto, para $\mu \neq 0$, os resultados não conferem. Aparentemente, o cálculo do potencial termodinâmico não funciona direito pois a variação é muito maior do que deveria (o comportamento geral do cálculo parece correto, mas deveria ser menos sensível à variação do parâmetro -- o problema parece estar relacionado a um momento de Fermi diferente de zero). Na figura fica claro que a partir do valor em que $m > \mu_R$, temos $p_F = 0$ e a curva coincide com o caso $\mu_R = p_F = 0$.\footnote{Talvez seja um problema do cálculo do momento de Fermi. Qual é o valor que ele deve ter? Talvez esteja muito alto, ou baixo.}
 
-Na Figura~\ref{Fig:pot_term_analysys_NJL-Buballa_Set_1} mostramos o potencial termodinâmico calculado para $\mu = \mu_r = p_F = \rho_B = 0$, variando $m$ arbitrariamente. O resultado é exatamente igual ao apresentado no Buballa. No entanto, para $\mu \neq 0$, os resultados não conferem. Aparentemente, o cálculo do potencial termodinâmico não funciona direito pois a variação é muito maior do que deveria (o comportamento geral do cálculo parece correto, mas deveria ser menos sensível à variação do parâmetro). Testei com o sem o potencial termodinâmico do vácuo e o resultado na variação do valor do potencial para $m \to 0$ entre os casos $\mu = 0$ e $\mu = 350$ MeV é mais ou menos o mesmo (vi no gráfico, não verifiquei o valor numericamente, só estimei), então o problema deve estar no cálculo do termo que não é o vácuo.\footnote{Na verdade pode ser também, tinha um termo multiplicado por zero para testes. De qq forma, o negócio só tá funcionando direito pra zero.}
+	\item[Cálculo de acordo com o prog. em Fortran] Nesse caso o cálculo dá bons resultados, porém -- além de eu não saber a origem das expressões -- a primeira leitura que fiz das expressões não bateu com o resultado. Para que eu chegasse ao mesmo valor obtido pelo programa em Fortran, tive que tirar o 2 que multiplicava o termo $G_S \rho_S^2$. Além disso, tirei no vácuo o termo envolvendo $\mu_R$\footnote{Pensando bem, não sei por que o inseri, no potencial do vácuo nas expressões do Buballa também não há tal termo.}. O próprio potencial termodinâmico eu calculei a partir das expressões para a energia, assumindo que $\tilde{\omega} = \varepsilon - \mu_R N_c \rho_B$.
+	
+	Apesar de reproduzir os resultados e eles serem coerentes com aquilo que eu esperava, os resultados não são bons para valores baixos de densidade\footnote{A Débora mencionou que havia um problema com o cálculo em $\rho_B$, por isso o programa em Fortran executa o cálculo variando $\mu_R$, talvez seja isso?}. De qualquer forma, os dados que seguem foram calculados segundo as expressões desse segundo caso, isto é, as expressões do programa em Fortran com as alterações mencionadas acima. Ainda assim, os resultados para o Set 1 do Buballa são estranhos.
+	
+	Os gráficos de energia e pressão foram confrontados com o resultado do cálculo em Fortran e ambas reproduzem bem os resultados obtidos. A versão em Fortran, no entanto, não dá resultados para densidades inferiores a \np[MeV/fm^3]{0.3}.
+\end{description}   
 
 \begin{figure*}
-	\input{Graphics/NJL-Buballa_Set_1/graph/therm_pot_analysis.tex}
-	\caption{Gráfico do potencial termodinâmico $\tilde{\omega}$ obtido variando $m$ arbitrariamente, para o valor $\mu = \mu_R = 0$. \protect\input{Graphics/NJL-Buballa_Set_1/info.tex}}
+	\input{Graphics/Therm_pot_analysis/graph/therm_pot_analysis.tex}
+	\caption{Gráfico do potencial termodinâmico $\tilde{\omega}$ obtido variando $m$ arbitrariamente, para o valor $\mu = \mu_R = 0$. \protect\input{Graphics/Therm_pot_analysis/info.tex}}
 	\label{Fig:pot_term_analysys_NJL-Buballa_Set_1}
 \end{figure*}
+
+\begin{figure*}
+	\input{Graphics/Comp_C_F/graph/energy_density_per_particle.tex}
+	\caption{Gráfico comparando os resultados da energia por partícula com o programa em Fortran com o em programa em C. \protect\input{Graphics/Comp_C_F/info.tex}}
+	\label{Fig:energy_Comp_C_F}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/Comp_C_F/graph/pressure.tex}
+	\caption{Gráfico comparando os resultados da pressão com o programa em Fortran com o em programa em C. \protect\input{Graphics/Comp_C_F/info.tex}}
+	\label{Fig:pressure_Comp_C_F}
+\end{figure*}
+
+%%%
 
 \begin{figure*}
 	\input{Graphics/NJL-Buballa_Set_1/graph/fermi_momentum.tex}
@@ -435,4 +456,60 @@ Na Figura~\ref{Fig:pot_term_analysys_NJL-Buballa_Set_1} mostramos o potencial te
 	\label{Fig:energy_density_per_particle_NJL-Buballa_Set_1}
 \end{figure*}
 
+%%%
+
+\begin{figure*}
+	\input{Graphics/NJL-D_1/graph/fermi_momentum.tex}
+	\caption{Gráfico do momento de Fermi $p_F$. \protect\input{Graphics/NJL-D_1/info.tex}}
+	\label{Fig:fermi_momentum_NJL-D_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/NJL-D_1/graph/vacuum_mass_equation.tex}
+	\caption{Gráfico da equação cuja raíz determina o valor de $m_{\rm{vac}}$. \protect\input{Graphics/NJL-D_1/info.tex}}
+	\label{Fig:vacuum_mass_equation_NJL-D_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/NJL-D_1/graph/gap.tex}
+	\caption{Gráfico da equação cuja raíz determina o valor de $m$ (``Equação do gap zerada''). \protect\input{Graphics/NJL-D_1/info.tex}}
+	\label{Fig:gap_NJL-D_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/NJL-D_1/graph/vacuum_mass_equation.tex}
+	\caption{Gráfico da mass $m$ em função da densidade bariônica $\rho_B$. \protect\input{Graphics/NJL-D_1/info.tex}}
+	\label{Fig:mass_NJL-D_1}
+\end{figure*}
+
+
+\begin{figure*}
+	\input{Graphics/NJL-D_1/graph/scalar_density.tex}
+	\caption{Gráfico da densidade escalar. \protect\input{Graphics/NJL-D_1/info.tex}}
+	\label{Fig:scalar_density_NJL-D_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/NJL-D_1/graph/chemical_potential.tex}
+	\caption{Gráfico do potencial químico. \protect\input{Graphics/NJL-D_1/info.tex}}
+	\label{Fig:chemical_potential_NJL-D_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/NJL-D_1/graph/thermodynamic_potential.tex}
+	\caption{Gráfico do potencial termodinâmico $\tilde{\omega}$. \protect\input{Graphics/NJL-D_1/info.tex}}
+	\label{Fig:thermodynamic_potential_NJL-D_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/NJL-D_1/graph/pressure.tex}
+	\caption{Gráfico da pressão. \protect\input{Graphics/NJL-D_1/info.tex}}
+	\label{Fig:pressure_NJL-D_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{Graphics/NJL-D_1/graph/energy_density_per_particle.tex}
+	\caption{Gráfico da razão entre a densidade de energia $\varepsilon$ e a densidade bariônica $\rho_B$ (energia por partícula). \protect\input{Graphics/NJL-D_1/info.tex}}
+	\label{Fig:energy_density_per_particle_NJL-D_1}
+\end{figure*}
 \FloatBarrier
