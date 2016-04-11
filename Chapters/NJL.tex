@@ -381,6 +381,17 @@ Na Figura~\ref{Fig:pot_term_analysys_NJL-Buballa_Set_1} mostramos o potencial te
 	Os gráficos de energia e pressão foram confrontados com o resultado do cálculo em Fortran e ambas reproduzem bem os resultados obtidos. A versão em Fortran, no entanto, não dá resultados para densidades inferiores a \np[MeV/fm^3]{0.3}.
 \end{description}   
 
+Como próximos passos, destacam-se
+\begin{itemize}
+	\item Descobrir de onde as expressões usadas no código em Fortran vêm. Dessa forma eu posso verificar todos os detalhes e saber se há alguma explicação para as alterações que eu tive que fazer para poder fazer funcionar. Além disso, fico com mais confiança no que estou fazendo.
+	\item Verificar se os resultados para o Set 1 do Buballa faz algum sentido. Pra mim aquilo está muito estranho, mas pode ser que seja assim mesmo por algum motivo.
+	\item Verificar por que não funciona o método de cálculo apresentado no Buballa.
+	\item Implementar uma função para evoluir as variáveis, permitindo que escolhamos qual vai ser a variável para o laço no programa.
+	\item Adicionar os termos proporcionais a $G_V$; Como fica a história do $\mu_R$ nesse caso? Seria possível utilizar $\rho_B$ como variável de laço nesse caso, ou fica restrito a $\mu_R$?
+\end{itemize}
+
+%%%
+
 \begin{figure*}
 	\input{Graphics/Therm_pot_analysis/graph/therm_pot_analysis.tex}
 	\caption{Gráfico do potencial termodinâmico $\tilde{\omega}$ obtido variando $m$ arbitrariamente, para o valor $\mu = \mu_R = 0$. \protect\input{Graphics/Therm_pot_analysis/info.tex}}
