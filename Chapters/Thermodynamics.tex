@@ -1,0 +1,10 @@
+\chapter{Termodinâmica}
+
+\begin{tikzpicture}[place/.style={circle,draw=blue!50,fill=blue!20,thick}]
+\node[place] (QCD) {};
+\node[place] (sec) [below=of QCD, label=right:test] {};
+\node[place] (thi) [below left=of sec] {};
+\node[place] (for) [below right=of sec] {};
+
+\draw [->] (QCD) to node[anchor=east] {Lab} (sec);
+\end{tikzpicture}
