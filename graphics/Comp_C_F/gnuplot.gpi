@@ -1,5 +1,7 @@
 set term tikz size 14cm, 9cm
 
+#
+
 set out 'graph/energy_density_per_particle.tex'
 
 set xlabel '$\rho_B (\rm{MeV}/\rm{fm}^3)$'
@@ -7,6 +9,8 @@ set ylabel '$\varepsilon / \rho_B (\rm{MeV}$)'
 
 plot "data/fort.26" u 1:4 w l t 'Fortran', \
 	 "data/energy_density_per_particle.dat" w l t 'C'
+
+#
 
 set out 'graph/pressure.tex'
 
