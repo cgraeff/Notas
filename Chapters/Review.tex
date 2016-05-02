@@ -226,11 +226,36 @@ This article is the text of an invited talk given at the 25th Anniversary Meetin
 \section{Termodinâmica}
 %%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ensamble Grand Canônico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Função partição:
+\begin{equation}
+	Z(\mu, T, V) = \Tr \exp\left[-\beta(H-\mu\hat{N})\right]
+\end{equation}
+
+Potencial termodinâmico por unidade de volume:
+\begin{equation}
+	\Omega(\mu, T) = -\frac{-\Tr\ln Z}{V} = -P(\mu,T)
+\end{equation}
+
+\begin{equation}
+	Vd\Omega = -S dT - PdV - Nd\mu
+\end{equation}
+
+\begin{align}
+	\frac{S}{V} &= \left(\frac{\partial P}{\partial T}\right)_\mu \\
+	\frac{N}{V} &= \left(\frac{\partial P}{\partial\mu}\right)_T
+\end{align}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quantum Statistics}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Referências}
+%%%%%%%%%%%%%%%%%%%%%%%%
+[Joseph_I._Kapusta,_Charles_Gale]_Finite-temperatu(BookZZ.org).pdf, tudo num lugar só.
 Greiner, Neise, Stöcker:
 \begin{itemize}
 	\item Descrição de como calcular propriedades termodinâmicas a partir da mecânica quântica. Não achei fácil de entender, porém descreve o que é interessante, então pelo menos dá pra saber sobre o que procurar;
@@ -241,6 +266,28 @@ Greiner, Neise, Stöcker:
     \end{itemize}
     \item Melhor descrição ever do operador de permutação e a consequente existência de funções pares e ímpares na permuta de partículas;
 \end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Matriz densidade}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Statistical density matrix\footnote{Assumindo convenção de soma em índices repetidos.}
+\begin{equation}
+	\hat{\rho} = \exp\left[-\beta(H-\mu_i\hat{N}_i)\right]
+\end{equation}
+
+Dado operador $\hat{A}$, o observável é calculado através de
+\begin{equation}
+	A = \mean{\hat{A}} = \frac{\Tr \hat{A}\hat{\rho}}{\Tr \hat{\rho}}
+\end{equation}
+
+\begin{align}
+	Z(V, T, \mu_1, \mu_2, \dots) &= \Tr \hat{\rho} \\
+	P &= \frac{\partial(T\ln Z)}{\partial V} \\
+	N_i &= \frac{\partial (T \ln Z)}{\partial \mu_i} \\
+	S &= \frac{\partial (T \ln Z)}{\partial T} \\
+	E &= - PV + TS + \mu_i N_i
+\end{align}
 
 
 Reorganizar o conteúdo abaixo

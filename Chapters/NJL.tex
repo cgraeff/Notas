@@ -2,9 +2,15 @@
 \chapter{NJL: Fase de quarks}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Lagrangiana do modelo NJL}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Origem do modelo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Trazer informações sobre a origem do modelo para esta seção.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Lagrangiana do modelo NJL em SU(2)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Considerando a lagrangiana do tipo NJL em SU(2) dada por Buballa\cite{Buballa1996}
 \begin{equation}
@@ -275,7 +281,7 @@ O resultado  para $\omega_{\rm{MF}}(0;m_{\rm{vac}},0)$ utilizando o valor obtido
 	\omega_{\rm{MF}}(0;m_{\rm{vac}},0) = -\frac{n_f n_c}{\pi^2}\left[F_E(m_{\rm{vac}}, \Lambda) - F_E(m_{\rm{vac}}, p_F)\right] + G_S(\rho_s|_{m=m_{\rm{vac}}})^2.
 \end{equation}
 
-A expressão acima difere do programa que a Débora me passou como referência. Em tal programa, o potencial termodinâmico tem uma forma análoga ao caso eNJL:
+A expressão acima difere do programa que a Débora me passou como referência. Em tal programa, o potencial termodinâmico tem uma forma análoga ao caso eNJL:\footnote{Nas contas da Débora, parece que isso se deve a um termo que pode ser separado em duas partes. Se for separado, imagino que saia uma integral $\dp p^4/E$ e um $\rho_s$, mas não tenho certeza.}
 \begin{subequations}\label{Eq:Pot_termodinamico_2}
 \begin{align}
 	\varepsilon &= \tilde{\omega} + n_c\mu\rho_B = \varepsilon_{\rm{kin}} + m_0\rho_s - 2G_S\rho_s^2 \\
@@ -385,7 +391,7 @@ Como próximos passos, destacam-se
 \begin{itemize}
 	\item Descobrir de onde as expressões usadas no código em Fortran vêm. Dessa forma eu posso verificar todos os detalhes e saber se há alguma explicação para as alterações que eu tive que fazer para poder fazer funcionar. Além disso, fico com mais confiança no que estou fazendo.
 	\item Verificar se os resultados para o Set 1 do Buballa faz algum sentido. Pra mim aquilo está muito estranho, mas pode ser que seja assim mesmo por algum motivo.
-	\item Verificar por que não funciona o método de cálculo apresentado no Buballa.
+	\item Verificar por que não funciona o método de cálculo apresentado no Buballa.\footnote{Pelo que vi no Buballa (2005), as integrais não são de $p_F$ a $\Lambda$, mas de zero a $\Lambda$. Isso obviamente dá uma diferença, inclusive tendo a ver com o momento de Fermi, que era o que estava dando errado (a partir de um certo valor dava certo o gráfico por causa de uma função degrau, mas sempre funcionava se $p_F = 0$; veja que tem boa possibilidade de ser isso mesmo)}
 	\item Implementar uma função para evoluir as variáveis, permitindo que escolhamos qual vai ser a variável para o laço no programa.
 	\item Adicionar os termos proporcionais a $G_V$; Como fica a história do $\mu_R$ nesse caso? Seria possível utilizar $\rho_B$ como variável de laço nesse caso, ou fica restrito a $\mu_R$?
 \end{itemize}
