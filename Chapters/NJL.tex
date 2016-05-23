@@ -1,6 +1,10 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{NJL: Fase de quarks}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Modelo de Nambu--Jona-Lasinio (NJL)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{fullwidth}\it
+Sinopse: Nossos heróis criam um modelo para desvendar o diagrama de fases da QCD, contornando os terríveis problemas causados pelo horrível vilão Expoente Imaginário. Será que eles vão conseguir? Descubra (ou não) nas contas alucinantes que se desdobram nas próximas seções!
+\end{fullwidth}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Origem do modelo}
@@ -299,240 +303,255 @@ onde, como na Equação~\eqref{Eq:Energia_kin},
 %
 Isso se deve ao fato de que a densidade de energia pode ser calculada a partir do potencial termodinâmico através de mais que uma relação. Possivelmente essa esteja relacionada à derivada do potencial termodinâmico em relação à temperatura, ou ao inverso da temperatura. Ver Avancini~\cite{Avancini2004} e~\cite{Avancini2006}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Análise Dimensional}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Assim como no caso eNJL, assumimos que
-\begin{itemize}
-	\item $[\rho_s] = [\rho_B] = \rm{fm}^{-3}$
-	\item $[E] = [p] = [m] = [\mu] = p_F = \Lambda = \mu_R = \rm{Mev}$.
-\end{itemize}
-%
-Verificando as dimensões na lagrangiana, temos
-\begin{equation}
-	\underbrace{\mathcal{L}}_{\mathcal{\rm{MeV}/\rm{fm}^3}} = \underbrace{\bar{\psi}}_{\rm{fm}^{3/2}}(i\gamma^\mu\underbrace{\partial_\mu}_{\rm{fm}^{-1}} - \underbrace{m_0}_{\rm{MeV}})\underbrace{\psi}_{\rm{fm}^{3/2}} + G_S [ \underbrace{(\bar{\psi}\psi)^2}_{\rm{fm}^{-6}} + \underbrace{(\bar{\psi}i\gamma_5\vec{\tau}\psi)^2}_{\rm{fm}^{-6}}].
-\end{equation}
-%
-A constante $G_S$ tem dimensão de inverso de massa$^{-2}$ em Buballa\cite{Buballa1996}, porém adotamos que 
-\begin{equation}
-	[G_S] = \rm{fm}^{2}
-\end{equation}
-%
-para que tenhamos uma dimensão igual ao caso eNJL. Assim o valor de $G_S$ da referência deve ser ajustado de acordo com
-\begin{equation}
-	\underbrace{G_S}_{\textrm{Buballa}} \cdot (\hbar c)^2 = \underbrace{G_S}_{\textrm{prog.}}.
-\end{equation}
-%
-Além disso, para que dimensão da densidade lagrangiana seja adequada, temos
-\begin{equation}
-	\mathcal{L} = \bar{\psi}(\hbar c \cdot i\gamma^\mu\partial_\mu - m_0)\psi + \hbar c \cdot G_S[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2].
-\end{equation}
-%
-A relação entre a densidade bariônica e o momento de Fermi também precisa ter sua dimensão corrigida:
-\begin{equation}
-	\rho_B = (\hbar c)^{-3} \cdot \frac{n_f}{3\pi^2}p_F^3.
-\end{equation}
 
-Temos também que para que a expressão~\eqref{Eq:Dens_Escalar_NJL_Gv_0} para a densidade escalar tenha as dimensões corretas, devemos multiplicá-la por $(\hbar c)^{-3}$. Além disso, na Eq.~\eqref{Eq:Eq_Gap_Buballa_1} devemos multiplicar o termo proporcional a $G_S$ por $\hbar c$ de forma a obter a dimensão correta (MeV) para que possamos somar com a massa.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{eNJL}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Para encontrar $m_{\rm{vac}}$, precisamos resolver
-\begin{equation}
-	m - m_0 - 2G_S\frac{n_f n_c}{\pi^2} \;m [F_0(m, \Lambda) - F_0(m,0)] = 0.
-\end{equation}
-%
-Como $[m] = [m_0] = \rm{MeV}$, o último termo também deve estar em MeV. A dimensão de $F_0$ é $\rm{MeV}^2$, enquanto $[G_S] = \rm{fm}^2$, o que resulta -- levando em conta que o termo contém um $m$ no numerador -- em $\rm{MeV}^3\cdot\rm{fm}^2$. Para corrigir a dimensão, devemos multiplicar tal termo por $(\hbar c)^{-2}$:
-\begin{equation}
-	m - m_0 - 2G_S\frac{n_f n_c}{\pi^2} \;m [F_0(m, \Lambda) - F_0(m,0)] \cdot (\hbar c)^{-2} = 0.
-\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Simetria quiral}
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Para o cálculo do potencial termodinâmico, segundo a Equação~\ref{Eq:Pot_termodinamico_1}, temos que
-\begin{align}
-	[F_E] &= \left[\int_0^\Lambda p^2\sqrt{p^2+m^2} \;dp\right] = \rm{MeV}^2, \\
-	[\omega] &= \rm{MeV}/\rm{fm}^3,
-\end{align}
-%
-logo,
-\begin{align}
-	\tilde{\omega} &= \left\{- (\hbar c)^{-3} \cdot [F_E(m, \Lambda) - F_E(m, p_F)] - n_fn_c\mu_R\rho_B + (\hbar c) \cdot G_S\rho_S^2\right\} - \omega_0 \\
-	\omega_0 &= - (\hbar c)^{-3} \cdot [F_E(m_{\rm{vac}}, \Lambda) - F_E(m_{\rm{vac}}, p_F)] - n_fn_c\mu_R\rho_B + (\hbar c) \cdot G_S(\rho_S|_{m = m_{\rm{vac}}})^2
-\end{align}
+Por que uma massa não nula implica em uma simetria quiral quebrada: Ver discussão em Ref.\cite{Vogl}
+% Vogl, U., and W. Weise. - Progress in Particle and Nuclear Physics 27 (1991): 195-272 - The Nambu and Jona-Lasinio model: its implications for hadrons and nuclei
 
-Para o cálculo do potencial termodinâmico através das expressões~\eqref{Eq:Pot_termodinamico_2}, temos
-\begin{subequations}
-\begin{align}
-	\varepsilon &= \tilde{\omega} + n_c\mu\rho_B = \varepsilon_{\rm{kin}} + m_0\rho_s - (\hbar c) \cdot 2G_S\rho_s^2 - \varepsilon_0\\
-	\varepsilon_0 &= \tilde{\omega}_0 + n_c\mu\rho_B = \varepsilon_{\rm{kin}}^0 + m_0\rho_0^s - (\hbar c) \cdot 2G_S(\rho_0^s)^2 \\
-	\varepsilon_{\rm{kin}} &= -(\hbar c)^{-3} \cdot \frac{n_c}{\pi^2} [F_2(m, \Lambda) - F_2(m, p_F)] \\
-	\varepsilon_{\rm{kin}}^0 &= -(\hbar c)^{-3} \cdot \frac{n_c}{\pi^2} [F_2(m, \Lambda) - F_2(m, 0)]
-\end{align}
-\end{subequations}
-
-%%%%%%%%%%%%%%%%%%%%
-\section{Resultados}
-%%%%%%%%%%%%%%%%%%%%
-
-Os resultados abaixo aparentemente estão adequados até a determinação da massa, densidade escalar. Consigo reproduzir\footnote{Exceto o do Set 1, que dá \np[MeV]{311.4}.} o valor da massa $m_{\rm{vac}}$ do Buballa~\cite{Buballa1996}, e os gráficos da massa efetiva e da densidade escalar se comportam de acordo com as expectativas (são parecidos com o caso de hádrons, quando $m_0 \neq 0$ a massa são vai a zero, e a densidade escalar tende a verticalizar próximo do valor da densidade máxima no caso $m_0 = 0$.).
-
-No entanto, tudo o que é calculado após o potencial termodinâmico (incluindo o próprio potencial) estão estranhos. Podemos dividir os resultados a partir desse ponto em dois casos
 \begin{description}
-	\item[Potencial de acordo com Buballa] Nesse caso, o valor de $\omega_0$ é muito grande e negativo, crescendo de maneira aproximadamente linear. O valor do próprio potencial não resulta em algo similar ao caso de hádrons. A energia por partícula está com uma escala estranha também, sem falar que o gráfico está muito estranho, com um mínimo local, um máximo e depois desanda a baixar.
+	\item[Limite quiral] No limite quiral, a massa constituinte vai a zero:
+		\begin{equation}
+			m \to 0.
+		\end{equation}
+\end{description}
 
-Na Figura~\ref{Fig:pot_term_analysys_NJL-Buballa_Set_1} mostramos o potencial termodinâmico calculado para $\mu = \mu_r = p_F = \rho_B = 0$, variando $m$ arbitrariamente. O resultado é exatamente igual ao apresentado no Buballa. No entanto, para $\mu \neq 0$, os resultados não conferem. Aparentemente, o cálculo do potencial termodinâmico não funciona direito pois a variação é muito maior do que deveria (o comportamento geral do cálculo parece correto, mas deveria ser menos sensível à variação do parâmetro -- o problema parece estar relacionado a um momento de Fermi diferente de zero). Na figura fica claro que a partir do valor em que $m > \mu_R$, temos $p_F = 0$ e a curva coincide com o caso $\mu_R = p_F = 0$.\footnote{Talvez seja um problema do cálculo do momento de Fermi. Qual é o valor que ele deve ter? Talvez esteja muito alto, ou baixo.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Modelo de Nambu--Jona-Lasinio}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	\item[Cálculo de acordo com o prog. em Fortran] Nesse caso o cálculo dá bons resultados, porém -- além de eu não saber a origem das expressões -- a primeira leitura que fiz das expressões não bateu com o resultado. Para que eu chegasse ao mesmo valor obtido pelo programa em Fortran, tive que tirar o 2 que multiplicava o termo $G_S \rho_S^2$. Além disso, tirei no vácuo o termo envolvendo $\mu_R$\footnote{Pensando bem, não sei por que o inseri, no potencial do vácuo nas expressões do Buballa também não há tal termo.}. O próprio potencial termodinâmico eu calculei a partir das expressões para a energia, assumindo que $\tilde{\omega} = \varepsilon - \mu_R N_c \rho_B$.
-	
-	Apesar de reproduzir os resultados e eles serem coerentes com aquilo que eu esperava, os resultados não são bons para valores baixos de densidade\footnote{A Débora mencionou que havia um problema com o cálculo em $\rho_B$, por isso o programa em Fortran executa o cálculo variando $\mu_R$, talvez seja isso?}. De qualquer forma, os dados que seguem foram calculados segundo as expressões desse segundo caso, isto é, as expressões do programa em Fortran com as alterações mencionadas acima. Ainda assim, os resultados para o Set 1 do Buballa são estranhos.
-	
-	Os gráficos de energia e pressão foram confrontados com o resultado do cálculo em Fortran e ambas reproduzem bem os resultados obtidos. A versão em Fortran, no entanto, não dá resultados para densidades inferiores a \np[MeV/fm^3]{0.3}.
-\end{description}   
+Sobre a origem do modelo\cite{Buballa}:
+\begin{quote}
+Historically, it goes back to two papers by Nambu and Jona-Lasinio in 1961 [...] to a time when QCD and even quarks were still unknown. In its original version, the NJL model was therefore a model of interacting \emph{nucleons}, and obviously, confinement [\dots] was not an issue. On the other hand, even in the pre-QCD era there were already indications for the existence of a (partially) conserved axial vector current (PCAC), i.e., chiral symmetry. Since (approximate) chiral symmetry implies (almost) massless fermions on the Lagrangian level, the problem was to find a mechanism which explains the large nucleon mass without destroying the symmetry.
 
-Como próximos passos, destacam-se
+It was the pioneering idea of Nambu and Jona-Lasinio that the gap in the Dirac spectrum of the nucleon\footnote{\emph{the gap in the Dirac spectrum of the nucleon}, do que se trata?} can be generated quite analogously to the energy gap of a superconductor in BCS theory, which has been developed a few years earlier. To that end they introduced a Lagrangian for a nucleon field $\psi$ with a point-like, chirally symmetric four-fermion interaction\footnote{\emph{point-like}: acho que isto está ligado ao fato de que o termo que corresponderia a um potencial é simplesmente uma constante vezes uma coisa que depende do $\psi$, não algo que saia de uma outra equação que dependa do $\psi$, como a Eq. de Klein-Gordon no modelo de Walecka para o núcleo que eu trabalhei. \emph{chirally symmetric}: imagino que seja por que não há diferenciação entre as duas quiralidaes (helicidades para uma partícula sem massa). \emph{four-fermion interaction}: não tenho ideia de como é possivel ver isso nos termos.},
+\begin{equation}\label{Eq:LagOriginalNJL}
+	\mathcal{L} = \bar{\psi}(i\slashed{\partial} - m)\psi + G\{(\bar{\psi}i\gamma_5\vec{\tau}\psi)^2\}.
+\end{equation}
+\end{quote}
+%
+Na lagrangiana acima,
 \begin{itemize}
-	\item Descobrir de onde as expressões usadas no código em Fortran vêm. Dessa forma eu posso verificar todos os detalhes e saber se há alguma explicação para as alterações que eu tive que fazer para poder fazer funcionar. Além disso, fico com mais confiança no que estou fazendo.
-	\item Verificar se os resultados para o Set 1 do Buballa faz algum sentido. Pra mim aquilo está muito estranho, mas pode ser que seja assim mesmo por algum motivo.
-	\item Verificar por que não funciona o método de cálculo apresentado no Buballa.\footnote{Pelo que vi no Buballa (2005), as integrais não são de $p_F$ a $\Lambda$, mas de zero a $\Lambda$. Isso obviamente dá uma diferença, inclusive tendo a ver com o momento de Fermi, que era o que estava dando errado (a partir de um certo valor dava certo o gráfico por causa de uma função degrau, mas sempre funcionava se $p_F = 0$; veja que tem boa possibilidade de ser isso mesmo. Por outro lado, o cálculo da Débora vai de $p_F$ a $\Lambda$)}
-	\item Implementar uma função para evoluir as variáveis, permitindo que escolhamos qual vai ser a variável para o laço no programa.
-	\item Adicionar os termos proporcionais a $G_V$; Como fica a história do $\mu_R$ nesse caso? Seria possível utilizar $\rho_B$ como variável de laço nesse caso, ou fica restrito a $\mu_R$?
+	\item $m$ é a massa constituinte do nucleon, que deve ser pequena devido ao fato de que se não fosse, não haveria possibilidade de haver simetria quiral. Simetria quiral implica em massa pequena.
+	\item $\vec{\tau}$ é a matriz de Pauli atuando no espaço de isospin.
+	\item $G$ é uma constante de acoplamento que possui alguma dimensão (termos diferentes tem dimensões diferentes).
 \end{itemize}
 
-%%%
+Ainda temos\cite{Buballa}
+\begin{quote}
+[T]he self-energy induced by the interaction generates an effective mass $M$ which can be considerably larger than $m$ and stays large, even when $m$ is taken to zero (``chiral limit''). At the same time, there are light collective nucleon-antinucleon excitations which become massless in the chiral limit: The pion emerges as the Goldstone boson of the spontaneously broken chiral symmetry. In fact, this discovery was an important milestone on the way to the general derivation of the Goldstone theorem in the same year.\footnote{\emph{large collective excitatations}: o que é isso? \emph{Goldstone boson}: o que é isso? \emph{spontaneously broken}: o que é isso?}
 
-\begin{figure*}
-	\input{graphics/Therm_pot_analysis/graph/therm_pot_analysis.tex}
-	\caption{Gráfico do potencial termodinâmico $\tilde{\omega}$ obtido variando $m$ arbitrariamente, para o valor $\mu = \mu_R = 0$. \protect\input{graphics/Therm_pot_analysis/info.tex}}
-	\label{Fig:pot_term_analysys_NJL-Buballa_Set_1}
-\end{figure*}
+After the development of QCD, the NJL model was reinterpreted as a schematic quark model. At that point, of course, the lack of confinement became a problem\footnote{Se não ter confinamento é um problema para os quarks, pq temos que adicionar termos ao modelo para a fase de hadrons para poder descrevê-la adequadamente? Não deveria descrever direito pois foi para isso que o modelo foi criado? Ou adicionamos termos só para descrever adequadamente as propriedades da fase de hádrons (principalmente: qual é o papel do termo proporcional a $G_{sv}$?). Na fase de quarks, não tem importância o confinamento pois estamos a uma densidade muito alta, então eles desconfinam de qualquer forma. Devemos tratar as duas separadamente e depois descobrir onde fica a transição usando condições de Gibbs}, severely limiting the applicability of the model. On the other hand, there are many situations where chiral symmetry is the relevant feature of QCD, confinement being less important. The most prominent example is again the Goldstone nature of the pion. In this aspect the NJL model is superior to the MIT bag, which [\dots] fails to explain the low pion mass.\footnote{Qual é a relação entre ser o boson de Goldstone (?) e ter massa pequena? É por que de alguma forma ele está ligado à simetria quiral?}
+\end{quote}
 
-\begin{figure*}
-	\includegraphics[width=0.45\textwidth]{graphics/Therm_pot_analysis/Pot_buballa.png}
-	\caption{Gráfico do potencial termodinâmico $\tilde{\omega}$ obtido variando $m$ arbitrariamente, para o valor $\mu = 0$.}
-	\label{Fig:pot_term_analysys_Buballa_NJL-Buballa_Set_1}
-\end{figure*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Introdução de outros termos à lagrangiana original}
+\label{Sec:Introducao_termos_lag_NJL}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure*}
-	\input{graphics/Comp_C_F/graph/energy_density_per_particle.tex}
-	\caption{Gráfico comparando os resultados da energia por partícula com o programa em Fortran com o em programa em C. \protect\input{graphics/Comp_C_F/info.tex}}
-	\label{Fig:energy_Comp_C_F}
-\end{figure*}
-
-\begin{figure*}
-	\input{graphics/Comp_C_F/graph/pressure.tex}
-	\caption{Gráfico comparando os resultados da pressão com o programa em Fortran com o em programa em C. \protect\input{graphics/Comp_C_F/info.tex}}
-	\label{Fig:pressure_Comp_C_F}
-\end{figure*}
-
-%%%
-
-\begin{figure*}
-	\input{graphics/NJL-Buballa_Set_1/graph/fermi_momentum.tex}
-	\caption{Gráfico do momento de Fermi $p_F$. \protect\input{graphics/NJL-Buballa_Set_1/info.tex}}
-	\label{Fig:fermi_momentum_NJL-Buballa_Set_1}
-\end{figure*}
-
-\begin{figure*}
-	\input{graphics/NJL-Buballa_Set_1/graph/vacuum_mass_equation.tex}
-	\caption{Gráfico da equação cuja raíz determina o valor de $m_{\rm{vac}}$. \protect\input{graphics/NJL-Buballa_Set_1/info.tex}}
-	\label{Fig:vacuum_mass_equation_NJL-Buballa_Set_1}
-\end{figure*}
-
-\begin{figure*}
-	\input{graphics/NJL-Buballa_Set_1/graph/gap.tex}
-	\caption{Gráfico da equação cuja raíz determina o valor de $m$ (``Equação do gap zerada''). \protect\input{graphics/NJL-Buballa_Set_1/info.tex}}
-	\label{Fig:gap_NJL-Buballa_Set_1}
-\end{figure*}
-
-\begin{figure*}
-	\input{graphics/NJL-Buballa_Set_1/graph/vacuum_mass_equation.tex}
-	\caption{Gráfico da mass $m$ em função da densidade bariônica $\rho_B$. \protect\input{graphics/NJL-Buballa_Set_1/info.tex}}
-	\label{Fig:mass_NJL-Buballa_Set_1}
-\end{figure*}
+A simetria quiral é uma simetria importante da QCD\cite{Koch}. Como não sabemos resolver tal teoria, é comum que se utilizem teorias alternativas, como o Modelo de Walecka, com o intuito de se obter resultados que descrevam bem os dados experimentais. O modelo de Walecka consegue descrever bem os dados experimentais, mas não possui simetria quiral. O Modelo de Nambu--Jona-Lasinio, em contrapartida, possui simetria quiral, porém em sua versão original não é capaz de descrever características importantes da QCD, como a saturação da matéria nuclear. Porém, a adição de outros termos é possível:\cite{Buballa}
+\begin{quote}
+After the reinterpretation of the NJL model as a quark model, many authors kept the original form of the Lagrangian Eq.~\eqref{Eq:LagOriginalNJL}, with $\psi$ now being a quark field with two flavor and three color degrees of freedom. However, this choice is not unique and we can write down many other chirally symmetric interaction terms.
+\end{quote}
+%
+Com a adição de um termo scalar-vector, é possível obter resultados adequados\cite{Koch}:
+\begin{quote}
+	In recent years\footnote{Década de 80!} a lot of progress has been made in describing the nucleus as a relativistic system [1\footnote{Serot, Walecka; Advances in Nuclear Physics 16},2]. The success of this approach is mainly due to the interplay of a large vector and scalar potential, the cancelation of which leads to the comparatively weak nuclear potential. In most models these forces are mediated by the exchange of effective scalar- and vector mesons. In the mean field approximation several data are reproduced reasonably well [1].
+	However, most models assume an explicit mass for the nucleon and hence do not posses chiral symmetry. Since chirality is an important symmetry of the strong interaction [3], one would like to incorporate this symmetry into these models. This then changes the situation drastically. Although the saturation properties of infinite nuclear matter may be fitted [4,5], these models suffer from deficiencies and problems occur onde finite systems are considered [6]. It is hence an open problem to construct an effective, chirally invariant, relativistic field theory for the nuclear interactions.
+	In this letter we present a novel approach by considering a chirally invariant model, which contains only fermionic degrees of freedom. Although it is well known that the nucleon-nucleon interaction is due to meson exchange, we believe it is interesting to construct an effective field theory without explicit mesonic degrees of freedom. [\dots]
+	[\dots]
+	[\dots] if we introduce an additional term in the lagrangian in order to change the density dependence of the binding energy, it should also influence the density dependence of the mass. A chirally invariant scalar-vector interaction term meets these requirements and [\dots] cures the binding problem.
+\end{quote}
+%
+De Lee\cite{japoneses}:
+\begin{quote}
+	When dealing with symmetric nuclear matter, it is necessary to reproduce the property of nuclear saturation, as the Walecka model [15] has succeeded in describing phenomenologically the saturation property o symmetric nuclear matter without chiral symmetry, in which the nucleon is treated as a fundamental particle, not as a composite one. In the original NJL model with chiral symmetry, however, if the nucleon field is treated not as a composite but as a fundamental fermion field, it is unable to reproduce the nuclear matter saturation property. Here, it has been observed that the nuclear saturation property is well reproduced by introducing scalar-vector and isoscalar-vector\footnote{Ambas com acoplamento $G_{sv}^i$ na lagrangiana dada pela Eq.~(2.1) do artigo.} eight-point interaction in the original NJL model [8], the nucleon then being a fundamental fermion. Thus, it is possible to consider an NJL-type model in which the nuclear saturation property is satisfied as a possible model for nuclear matter [16-18]. For this reason, in this paper, an NJL-type model for nuclear matter with rather reasonable nuclear saturation properties is adopted.
+	
+	[\dots]
+	
+	[\dots] for nuclear matter, we adopt the extended NJL model with the scalar-vector eight-point interaction and treat the nucleon field as a fundamental fermion field with $N_c = 1$, in which $N_c$ is the number of colors. As for quark matter, we adopt the extended NJL model with $N_c = 3$ and treat the quark field as a fundamental fermion field.\footnote{Talvez tirar essa parte dos quarks quando houver uma seção para discutir essa fase.}
+\end{quote}
 
 
-\begin{figure*}
-	\input{graphics/NJL-Buballa_Set_1/graph/scalar_density.tex}
-	\caption{Gráfico da densidade escalar. \protect\input{graphics/NJL-Buballa_Set_1/info.tex}}
-	\label{Fig:scalar_density_NJL-Buballa_Set_1}
-\end{figure*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{eNJL: Fase de Hádrons}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure*}
-	\input{graphics/NJL-Buballa_Set_1/graph/chemical_potential.tex}
-	\caption{Gráfico do potencial químico. \protect\input{graphics/NJL-Buballa_Set_1/info.tex}}
-	\label{Fig:chemical_potential_NJL-Buballa_Set_1}
-\end{figure*}
+Sobre o modelo\cite{Pais}:
+\begin{quote}
+An advantage of these models is the fact that, since they satisfy chiral symmetry, the EoS is also valid at higher densities, as the ones present in the center of compact objects.
 
-\begin{figure*}
-	\input{graphics/NJL-Buballa_Set_1/graph/thermodynamic_potential.tex}
-	\caption{Gráfico do potencial termodinâmico $\tilde{\omega}$. \protect\input{graphics/NJL-Buballa_Set_1/info.tex}}
-	\label{Fig:thermodynamic_potential_NJL-Buballa_Set_1}
-\end{figure*}
+[\dots]
 
-\begin{figure*}
-	\input{graphics/NJL-Buballa_Set_1/graph/pressure.tex}
-	\caption{Gráfico da pressão. \protect\input{graphics/NJL-Buballa_Set_1/info.tex}}
-	\label{Fig:pressure_NJL-Buballa_Set_1}
-\end{figure*}
+The NJL model can be extended [\dots] to yield reasonable saturation properties of nuclear matter, the field $\psi$ being the nucleon field. An effective density dependent coupling constant is obtained if the following extended NJL (eNJL) Lagrangian density, which actually pushes chiral symmetry restoration to higher densities, is considered,
+\begin{equation}\label{Eq:Lagrangiana_eNLJ_Pais}
+\begin{split}
+	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu)\psi + G_s[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] \\
+	& - G_v(\bar{\psi}\gamma^\mu\psi)^2 - G_{sv}[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2](\bar{\psi}\gamma^\mu\psi)^2 \\
+	& - G_\rho[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
+	& - G_{v\rho}(\bar{\psi}\gamma^\mu\psi)^2[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
+	& - G_{s\rho} [(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2][(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2].
+\end{split}
+\end{equation}
+\end{quote}
 
-\begin{figure*}
-	\input{graphics/NJL-Buballa_Set_1/graph/energy_density_per_particle.tex}
-	\caption{Gráfico da razão entre a densidade de energia $\varepsilon$ e a densidade bariônica $\rho_B$ (energia por partícula). \protect\input{graphics/NJL-Buballa_Set_1/info.tex}}
-	\label{Fig:energy_density_per_particle_NJL-Buballa_Set_1}
-\end{figure*}
+Outras informações relevantes (ainda do artigo):
+\begin{itemize}
+	\item Para a matéria nuclear, a degenerescência é $2 N_f$;
+	\item O \emph{cutoff} $\Lambda$ é tal que a massa do nucleon no vácuo seja de 939 MeV, determinada variacionalmente;
+	\item O termo proporcional a $G_v$ simula uma repulsão de curto alcance quiralmente invariante entre dois nucleons;
+	\item O termo proporcional a $G_s$ simula uma repulsão de curto alcance entre os nucleons (chiral invariant)\footnote{Acredito que seja em $G_v$, pois é o que consta na última versão do artigo. De qq forma, se um é isso, o outro é o que?};
+	\item ``The term in $G_{sv}$ accounts for the density dependence of the scalar coupling. For the nuclear matter, the NJL model leads to binding, but the binding energy per particle does no have a minimum except at a rather high density where the nucleon mass is small or vanishing. The introduction of the $G_{sv}$ coupling term is required to correct this.''
+	\item O termo proporcional a $G_\rho$ (isovetor-vetor) é incluido para descrever a matéria nuclear assimétrica (em isospin);
+	\item ``The terms $G_{v\rho}$ and $G_{s\rho}$ make the symmetry energy softer.''
+	\item Os valores dos parâmetros são dados na Tab.~\ref{Tab:Parametros_eNJL} (em Tsue~\cite{japoneses} há uma discussão de como obter parametrizações para o caso em que existem os parâmetros $G_s$, $G_v$, e $G_{sv}$).
+\end{itemize}
 
-%%%
+\begin{table*}
+\begin{tabular}{lcccccccc}
+\toprule
+Model & $G_s$ ($\rm{fm}^2$) & $G_v$ ($\rm{fm}^2$) & $G_{sv}$ ($\rm{fm}^8$) & $G_\rho$ ($\rm{fm}^2$) & $G_{v\rho}$ ($\rm{fm}^8$) & $G_{s\rho}$ ($\rm{fm}^8$) & $\Lambda$ (MeV) & $m$ (MeV) \\
+\midrule
+eNJL1 & 4.855 & 4.65 & -6.583 & 0.5876 & 0 & 0 & 388.189 & 0 \\
+eNJL1$\omega\rho$1 & 4.855 & 4.65 & -6.583 & 0.5976 & -1 & 0 & 388.189 & 0 \\
+eNJL1$\omega\rho$2 & 4.855 & 4.65 & -6.583 & 0.6476 & -6 & 0 & 388.189 & 0 \\
+eNJL2 & 3.8 & 3.8 & -4.228 & 0.6313 & 0 & 0 & 422.384 & 0 \\
+eNJL2$\omega\rho$1 & 3.8 & 3.8 & -4.228 & 0.6413 & -1 & 0 & 422.384 & 0 \\
+eNJL3 & 1.93 & 3.0 & -1.8 & 0.65 & 0 & 0 & 534.815 & 0 \\
+eNJL3$\sigma\rho$1 & 1.93 & 3.0 & -1.8 & 0.0269 & 0 & 0.5 & 534.815 & 0 \\
+eNJL1m & 1.3833 & 1.781 & -2.943 & 0.7 & 0 & 0 & 478.248 & 450 \\
+eNJL1m$\sigma\rho$1 & 1.3833 & 1.781 & -2.943 & 0.0739 & 0 & 1 & 478.248 & 450 \\
+eNJL2m & 1.078 & 1.955 & -2.74 & 0.75 & 0 & 0 & 502.466 & 450 \\
+eNJL2m$\sigma\rho$1 & 1.078 & 1.955 & -2.74 & -0.1114 & 0 & 1 & 502.466 & 450 \\
+\bottomrule
+\end{tabular}
+\caption{Conjuntos de parâmetros para a lagrangiana~\eqref{Eq:Lagrangiana_eNLJ_Pais}. \label{Tab:Parametros_eNJL}}
+\end{table*}
 
-\begin{figure*}
-	\input{graphics/NJL-D_1/graph/fermi_momentum.tex}
-	\caption{Gráfico do momento de Fermi $p_F$. \protect\input{graphics/NJL-D_1/info.tex}}
-	\label{Fig:fermi_momentum_NJL-D_1}
-\end{figure*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Equações de estado} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure*}
-	\input{graphics/NJL-D_1/graph/vacuum_mass_equation.tex}
-	\caption{Gráfico da equação cuja raíz determina o valor de $m_{\rm{vac}}$. \protect\input{graphics/NJL-D_1/info.tex}}
-	\label{Fig:vacuum_mass_equation_NJL-D_1}
-\end{figure*}
+A partir da lagrangiana \eqref{Eq:Lagrangiana_eNLJ_Pais}, é possível determinar  o potencial termodinâmico\footnote{Potencial Grand-canônico, ou potencial de Landau.} por unidade de volume, dado por (em Tsue~\cite{japoneses}, o potencial é \emph{definido} como $\omega = \langle\langle \mathcal{H}^{MF}\rangle\rangle - \mu\langle\langle\mathcal{N}\rangle\rangle - \frac{1}{\beta}\langle\langle\mathcal{S}\rangle\rangle$\footnote{Os termos $\langle\langle \cdot \rangle\rangle$ são a Hamiltoniana de campo médio, a densidade bariônica, e algo que pode ser a entropia (eu acho). Isso tem que sair de alguma coisa da termodinâmica, tipo $\omega (T, m) = (T/V) \ln Z$, como poderia ser \emph{definido}?}, o que se traduz em uma expressão similar a essa que segue)
+\begin{equation}\label{Eq:potencial_termodinamico}
+\begin{split}
+	\omega(\mu) =&~ \varepsilon_{\rm{kin}} + m\rho_s - G_s\rho_s^2 + G_v\rho^2 + G_{sv}\rho_s^2\rho^2 + G_\rho\rho_3^2 \\
+	&+ G_{v\rho}\rho^2\rho_3^2 + G_{s\rho}\rho_s^2\rho_3^2 - \mu_p\rho_p - \mu_n\rho_n,
+\end{split}
+\end{equation}
+%
+onde
+\begin{itemize}
+	\item $\rho$ é a densidade bariônica, dada pela soma das densidades de nêutron e próton\footnote[][-1cm]{São densidades numéricas de partículas, ou seja, representam o número de partículas por unidade de volume.}:
+	\begin{equation}
+		\rho = \rho_p + \rho_n.
+	\end{equation}
 
-\begin{figure*}
-	\input{graphics/NJL-D_1/graph/gap.tex}
-	\caption{Gráfico da equação cuja raíz determina o valor de $m$ (``Equação do gap zerada''). \protect\input{graphics/NJL-D_1/info.tex}}
-	\label{Fig:gap_NJL-D_1}
-\end{figure*}
+	\item As densidades bariônicas de próton e nêutron são dadas por (alguma indicação de onde isso sai é dada em Tsue~\cite{japoneses} (resumidamente: QFT)):\footnote{Explicar, explicar o momento de Fermi.}
+	\begin{equation}
+		\rho_i = \int_0^{k_F^i}\frac{dp}{\pi^2}p^2; \qquad i = p,n; \quad k_F^i = \textrm{momento de Fermi},
+	\end{equation}
+	%
+	ou, caso $\rho_i$ sejam conhecidos
+	\begin{equation}\label{Eq:Mom_Fermi_a_partir_de_rho}
+		p_F^i = \sqrt[3]{3\pi^2\rho_i}.
+	\end{equation}
+	
+	\item $\mu_p$ e $\mu_n$ representam os potenciais químicos de próton e nêutron, respectivamente.
+\end{itemize}
 
-\begin{figure*}
-	\input{graphics/NJL-D_1/graph/vacuum_mass_equation.tex}
-	\caption{Gráfico da mass $m$ em função da densidade bariônica $\rho_B$. \protect\input{graphics/NJL-D_1/info.tex}}
-	\label{Fig:mass_NJL-D_1}
-\end{figure*}
+O termo cinético na expressão acima pode ser calculado através de (primeiro termo da Eq. (1) em \cite{PRC_68_035804_2003}, o resto é energia potencial; Indicação de onde isso sai é dada em Tsue~\cite{japoneses}.)\footnote{Degenerescência: O 2 se refere às duas possibilidades de spin; Podemos ter um $N_f$ que representa o número de sabores.}
+\begin{align}
+	\varepsilon_{\rm{kin}} &= \langle\bar{\psi}(\vec{\gamma}\cdot\vec{p})\psi\rangle \\
+	&= 2 N_c\sum_i \int \frac{d^3p}{(2\pi)^3}\frac{p^2 + m_i M_i}{E_i}(n_{i-}-n_{i+})\theta(\Lambda^2 - p^2),
+\end{align}
+%
+onde
+\begin{itemize}
+	\item A soma se dá sobre as espécies de partículas;
+	\item $N_c$ representa o número de cores\footnote{No nosso caso, 1?};
+	\item $\theta$ é a função degrau, $\Lambda$ é o \emph{cutoff};
+	\item $n_{i\pm}$ são as funções de distribuição de Fermi para estados de energia positiva e negativa (respectivamente), dados por
+	\begin{equation}
+		n_{i\pm} = \frac{1}{1 + \exp(\pm[\beta(E_i\mp\mu_i)])}
+	\end{equation}
+	%
+	onde $i = p, n$ (no nosso caso, no artigo é $u, d, s$) e $\beta = T^{-1}$
+	\item $M_i$ é a massa efetiva do nucleon em questão (quark, no artigo).
+	\item $E_i = \sqrt{p^2 + M_i^2}$
+	\item $m_i$ são as massas constituintes -- nuas, \emph{bare} --.
+\end{itemize}
 
+Se tomarmos $T \to 0$, temos que $n_{i-} \to 1$ e $n_{i+} \to 0$\footnote{Depende do sinal de $E - \mu$. Aparementemente isso dá $\theta(\mu-E)$}; Além disso, se o integrando só depende do módulo de $\vec{p}$, então (Glendenning\cite{Glendenning}, p. 92)
+\begin{equation}\label{Eq:Int_d3p_to_dp}
+	\int\frac{d^3p}{(2\pi)^3} \to \frac{1}{2\pi^2}\int p^2dp.
+\end{equation}
+%
+Logo, temos
+\begin{align}
+	\varepsilon &= 2 N_c \frac{1}{2\pi^2}\sum_i \int p^2 dp \frac{p^2 + m_i M_i}{\sqrt{p^2 + M_i^2}} \theta(\Lambda^2 - p^2) \\
+	&= \frac{N_c}{\pi^2}\sum_i\left[\int \frac{p^4dp}{\sqrt{p^2 + M_i^2}}\theta(\Lambda^2 - p^2) + \int m_i M_i \frac{p^2 dp}{\sqrt{p^2 + M_i^2}}\theta(\Lambda^2 - p^2)\right] \label{Eq:Engergia_cin_separada}
+\end{align}
+%
+Podemos utilizar as relações (Glendenning\cite{Glendenning} p. 94\footnote{Na Ref. o primeiro termo da segunda expressão aparece sem o $k$ multiplicando, o que dimensionalmente está incorreto.})
+\begin{align}
+	\int \frac{k^4}{\sqrt{k^2 + m^2}} dk &= \frac{1}{4}\left[k^3\epsilon - \frac{3}{2} m^2k\epsilon + \frac{3}{2}m^4\ln\frac{\epsilon + k}{m} \right]\\
+	\int \frac{k^2}{\sqrt{k^2 + m^2}} dk &= \frac{1}{2}\left[k\epsilon - m^2\ln\frac{\epsilon + k}{m}\right] \label{Eq:Integ_momento_quad}
+\end{align}
+%
+onde $\epsilon = \sqrt{k^2+m^2}$. Tomando o caso $m_i \to 0$\footnote{No prog. \texttt{eos\_enjl1-dens-assym- clean-rho-vr.f}: $\varepsilon \propto [F_2(M, k_F^i) - F_2(M, \Lambda)]$ ao invés de $\varepsilon \propto [F_2(M_i, \Lambda) - F_2(M_i, 0)]$; Isso se deve à retirada da contribuição do vácuo. Vendo Lee \etal talvez seja o seguinte: $n_i^+$ não vai a zero, mas a uma função degrau que envolve o momento, de forma que entre zero e $p_F$ o resultado seja nulo. A mudança na ordem dos limites pode explicar algum sinal.}, obtemos
+\begin{equation}\label{Eq:Energia_kin}
+	\varepsilon_{\rm{kin}} = \frac{N_c}{\pi^2}\sum_i \Big[\underbrace{\frac{1}{8}\Big((2p^3 - 3M_i^2p)\sqrt{p^2 + M_i^2} + 3M_i^4\ln\frac{p + \sqrt{p^2 + M_i^2}}{M_i}\Big)}_{F_2(m,p)}\Big]_0^\Lambda
+\end{equation}
 
-\begin{figure*}
-	\input{graphics/NJL-D_1/graph/scalar_density.tex}
-	\caption{Gráfico da densidade escalar. \protect\input{graphics/NJL-D_1/info.tex}}
-	\label{Fig:scalar_density_NJL-D_1}
-\end{figure*}
+A densidade escalar $\rho_s$ é dada por (a origem é indicada em Tsue~\cite{japoneses})
+\begin{equation}\label{Eq:Dens_Escalar}
+	\rho_s^i = \frac{M}{\pi^2}[F_0(M, p_F^i) - F_0(M, \Lambda)], \quad i = p, n,
+\end{equation}
+%
+onde
+\begin{equation}\label{Eq:Def_F0}
+	F_0(M, x) = \int_0^x dp\frac{p^2}{\sqrt{M^2 + p^2}} dp.
+\end{equation}
+%
+Utilizando a Equação~\eqref{Eq:Integ_momento_quad}, podemos reescrever a equação acima como
+\begin{equation}\label{Eq:Def_F0_integrado}
+	F_0(M, x) = \frac{1}{2}\left[x\sqrt{x^2+M^2} - M^2 \ln \frac{x + \sqrt{x^2+M^2}}{M}\right].
+\end{equation}
 
-\begin{figure*}
-	\input{graphics/NJL-D_1/graph/chemical_potential.tex}
-	\caption{Gráfico do potencial químico. \protect\input{graphics/NJL-D_1/info.tex}}
-	\label{Fig:chemical_potential_NJL-D_1}
-\end{figure*}
+A massa efetiva $M$ na equação acima é dada por\footnote{Essa equação é conhecida como \emph{gap equation}}
+\begin{equation}\label{Eq:Gap}
+	M = m - 2G_s\rho_s + 2G_{sv}\rho_s\rho^2 + 2 G_{s\rho}\rho_s\rho_3^2,
+\end{equation}
+%
+com $\rho_s = \rho_s^p + \rho_s^n$. Temos, portanto, uma interdependência entre as equações. Para que seja possível solucionar tais equações, podemos definir uma função $f(M)$ de tal forma que
+\begin{equation}\label{Eq:Gap_zero}
+	f(M) = M - m + 2G_s\rho_s - 2G_{sv}\rho_s\rho^2 - 2 G_{s\rho}\rho_s\rho_3^2,.
+\end{equation}
+%
+Para solucionarmos a equação acima, basta utilizarmos uma rotina para encontrar zeros de funções, por exemplo biseção ou Newton-Raphson, encontrando o valor de $M$ para o qual $f(M) = 0$. A densidade escalar $\rho_s$ pode ser calculada através da expressão~\eqref{Eq:Dens_Escalar}.
 
-\begin{figure*}
-	\input{graphics/NJL-D_1/graph/thermodynamic_potential.tex}
-	\caption{Gráfico do potencial termodinâmico $\tilde{\omega}$. \protect\input{graphics/NJL-D_1/info.tex}}
-	\label{Fig:thermodynamic_potential_NJL-D_1}
-\end{figure*}
+Os potenciais químicos são dados por\footnote{Como essas expressões são calculadas?}
+\begin{equation}\label{Eq:Potenciais_Quimicos}
+\begin{split}
+	\mu_i =&~ E_{p_F}^i + 2G_v\rho + 2G_{sv}\rho\rho_s^2 \pm 2G_\rho\rho_3+2G_{v\rho}\rho_3^2\rho \\
+	& \pm 2G_{v\rho}\rho^2\rho_3 \pm 2 G_{s\rho}\rho_3\rho_s^2,
+\end{split}
+\end{equation}
+%
+onde $i = p,n$, os sinais superiores se referem ao caso de prótons, e $E_{p_F}^i = \sqrt{M^2 + (p_F^i)^2}$.
 
-\begin{figure*}
-	\input{graphics/NJL-D_1/graph/pressure.tex}
-	\caption{Gráfico da pressão. \protect\input{graphics/NJL-D_1/info.tex}}
-	\label{Fig:pressure_NJL-D_1}
-\end{figure*}
+As equações de estado para pressão $P$ e densidade de energia $\varepsilon$ são dadas por\footnote{Como são calculadas?}
+\begin{align}
+	P &= -\omega(\mu) + \epsilon_0 \label{Eq:Pressao}\\
+	\varepsilon &= -P + \mu_p\rho_p + \mu_n\rho_n. \label{Eq:Densidade_energia}
+\end{align}
 
-\begin{figure*}
-	\input{graphics/NJL-D_1/graph/energy_density_per_particle.tex}
-	\caption{Gráfico da razão entre a densidade de energia $\varepsilon$ e a densidade bariônica $\rho_B$ (energia por partícula). \protect\input{graphics/NJL-D_1/info.tex}}
-	\label{Fig:energy_density_per_particle_NJL-D_1}
-\end{figure*}
-\FloatBarrier
