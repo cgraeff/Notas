@@ -1,11 +1,14 @@
+%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Implementação}
+%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{fullwidth}
+\begin{fullwidth}\it
 Detalhes sobre a implementação do modelo e resultados obtidos. Aqui os resultados se referem aos produtos dos cálculos, não a resultados interessantes em si. A ideia é mostrar que as rotinas funcionam direito e calculam o que precisamos.
 \end{fullwidth}
 
-
-\section{NJL}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fase de quarks: NJL}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Análise Dimensional}
@@ -76,9 +79,9 @@ Para o cálculo do potencial termodinâmico através das expressões~\eqref{Eq:P
 \end{align}
 \end{subequations}
 
-%%%%%%%%%%%%%%%%%%%%
-\section{Resultados}
-%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Resultados}
+%%%%%%%%%%%%%%%%%%%%%%%
 
 Os resultados abaixo aparentemente estão adequados até a determinação da massa, densidade escalar. Consigo reproduzir\footnote{Exceto o do Set 1, que dá \np[MeV]{311.4}.} o valor da massa $m_{\rm{vac}}$ do Buballa~\cite{Buballa1996}, e os gráficos da massa efetiva e da densidade escalar se comportam de acordo com as expectativas (são parecidos com o caso de hádrons, quando $m_0 \neq 0$ a massa são vai a zero, e a densidade escalar tende a verticalizar próximo do valor da densidade máxima no caso $m_0 = 0$.).
 
@@ -129,6 +132,8 @@ Como próximos passos, destacam-se
 	\caption{Gráfico comparando os resultados da pressão com o programa em Fortran com o em programa em C. \protect\input{graphics/Comp_C_F/info.tex}}
 	\label{Fig:pressure_Comp_C_F}
 \end{figure*}
+
+\FloatBarrier
 
 %%%
 
@@ -186,6 +191,8 @@ Como próximos passos, destacam-se
 	\caption{Gráfico da razão entre a densidade de energia $\varepsilon$ e a densidade bariônica $\rho_B$ (energia por partícula). \protect\input{graphics/NJL-Buballa_Set_1/info.tex}}
 	\label{Fig:energy_density_per_particle_NJL-Buballa_Set_1}
 \end{figure*}
+
+\FloatBarrier
 
 %%%
 
@@ -247,13 +254,13 @@ Como próximos passos, destacam-se
 \FloatBarrier
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{eNJL}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fase de hádrons: eNJL}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Análise dimensional}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Análise dimensional}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Devido ao fato de que $\hbar = c = 1$, adimensionais, e que não carregamos quaisquer unidades, é comum que algumas equações tenham dimensões discrepantes entre os membros esquerdo e direito, ou mesmo entre termos de um mesmo membro. Podemos acertar as dimensões multiplicando por potências de $\hbar c$. Nas unidades usuais em Física Nuclear, temos que $\hbar c = 197.326\rm{MeV}\cdot\rm{fm}$. Logo, todas as grandezas têm dimensões que envolvem MeV ou fm, ou uma combinação de ambos\sidenote{Note que de qualquer forma as unidades são atípicas, pois --~por exemplo~-- a unidade de massa é o eV, que na realidade tem dimensão de energia. Isso pode ser explicado através de $E^2 = p^2 c^2 + m^2 c^4$, onde assumimos que $c = 1$, adimensional.}:
 
@@ -332,9 +339,9 @@ Portanto, verificamos que os termos proporcionais a $G_i$ devem ser multiplicado
 \end{itemize}
 \end{fullwidth}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Solução da equação para $M$, $\rho_s$}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Solução da equação para $M$, $\rho_s$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 A solução da Equação~\eqref{Eq:Gap} é encontrada zerando a Equação~\eqref{Eq:Gap_zero}. No entanto, essa última depende de $\rho$ e dos momentos de Fermi para próton e nêutron (o que é uma dependência indireta de $\rho$ e da fração de prótons). Assim, a forma da função pode se alterar de acordo com os valores de tais variáveis. A Figura~\ref{Fig:Gap_zero_graph} mostra curvas de $f(M)$ para diferentes valores de $\rho$.
 
@@ -359,9 +366,9 @@ Portanto, ao se utilizar um método qualquer para se determinar o zero da funç�
 \end{figure*}
 
 \FloatBarrier
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Potenciais químicos, termodinâmico, pressão, e densidade de energia}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Potenciais químicos, termodinâmico, pressão, e densidade de energia}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 As figuras abaixo mostram os resultados obtidos através das massas e densidades escalares obtidas na seção anterior, utilizando as Equações~\eqref{Eq:Potenciais_Quimicos}, \eqref{Eq:potencial_termodinamico}, \eqref{Eq:Pressao} e~\eqref{Eq:Densidade_energia}. Para a correta reprodução dos resultados para a pressão e para a densidade de energia, é essencial que o valor de $\varepsilon_0$ seja calculado. Podemos fazê-lo através de\footnote{Não sei de onde isso vem. Tem algum outro termo nessa equação ($\propto G_{s\rho},~G_{v\rho},~\dots$? Aparentemente não, pois não foi adicionado ao programa feito por Helena Pais.}
 \begin{equation}\label{Eq:Def_dens_energia_vacuo}
@@ -405,9 +412,9 @@ Para que as dimensões fiquem corretas
 \end{figure*}
 
 \FloatBarrier
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Adição da massa constituinte à equação do Gap; adição de outros termos}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Adição da massa constituinte à equação do Gap; adição de outros termos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Utilizando a Equação~\ref{Eq:Gap} com $m \neq 0$, os resultados para a massa não vão a zero, apresentando o comportamento mostrado na Fig.~\ref{Fig:mass_graph_eNJL1m}.
 
@@ -444,6 +451,8 @@ O termo adicionado a essa equação corresponde \emph{exatamente} ao segundo ter
 	\label{Fig:chemical_potential_graph_eNJL1m}
 \end{figure*}
 
+\FloatBarrier
+
 \begin{figure*}
 	\input{graphics/eNJL1m-Yp_0.5/graph/thermodynamic_potential.tex}
 	\caption{Gráfico do potencial grand canônico por unidade de volume obtido através da Equação~\eqref{Eq:potencial_termodinamico}. \protect\input{graphics/eNJL1m-Yp_0.5/info.tex}}
@@ -463,3 +472,16 @@ O termo adicionado a essa equação corresponde \emph{exatamente} ao segundo ter
 \end{figure*}
 
 \FloatBarrier
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Próximas ações}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{itemize}
+	\item escrever a sinopse;
+	\item Ver se a maneira como eu calculo as coisas está coerente (estou rodando na densidade, não no potencial químico)
+	\item Ver com a Débora se os resultados que eu obtive até agora estão coerentes (NJL);
+\end{itemize}

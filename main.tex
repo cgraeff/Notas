@@ -4,8 +4,44 @@
 \input{Preamble/Formatting}
 \input{Preamble/Commands}
 
+\titleformat{\chapter}
+  [display]% shape
+  {\relax\ifthenelse{\NOT\boolean{@tufte@symmetric}}{\begin{fullwidth}}{}}% format applied to label+text
+  {\itshape\huge Capítulo~\thechapter:}% label
+  {1em}% horizontal separation between label and title body
+  {\huge\rmfamily\itshape}% before the title body
+  [\ifthenelse{\NOT\boolean{@tufte@symmetric}}{\end{fullwidth}}{}]% after the title body
+  
+\makeatletter% since we're using commands with @ in their name
+\let\origappendix\appendix% save a copy of the original meaning of \appendix
+\renewcommand{\appendix}{%
+  \origappendix% do all the original \appendix stuff
+  \titlecontents{chapter}%
+    [0em] % distance from left margin
+    {\vspace{1.5\baselineskip}\begin{fullwidth}\LARGE\rmfamily\itshape} % above (global formatting of entry)
+    {\hspace*{0em}\appendixname~\thecontentslabel: } % before w/label (label = ``2'')
+    {\hspace*{0em}} % before w/o label
+    {\rmfamily\upshape\qquad\thecontentspage} % filler + page (leaders and page num)
+    [\end{fullwidth}] % after
+  \titleformat{\chapter}%
+    [display]% shape
+    {\relax\ifthenelse{\NOT\boolean{@tufte@symmetric}}{\begin{fullwidth}}{}}% format applied to label+text
+    {\itshape\huge Apêndice~\thechapter:}% label
+    {0pt}% horizontal separation between label and title body
+    {\huge\rmfamily\itshape}% before the title body
+    [\ifthenelse{\NOT\boolean{@tufte@symmetric}}{\end{fullwidth}}{}]% after the title body
+  \setcounter{secnumdepth}{0}% ``number'' the appendices
+  \renewcommand{\thefigure}{\@arabic\c@figure}% define \thefigure to use only the figure number (1), not A.1
+  \renewcommand{\thetable}{\@arabic\c@table}%
+  %
+  % Add any other special appendix-related code here.
+  %
+}
+\makeatother% restore the special meaning of @
+
+  
 % Book metadata
-\title{Notas de estudo: Pós-doutorado 2016-2017}
+\title[Notas de estudo pós-doutorado]{Notas de estudo pós-doutorado: O diagrama de fases da QCD a partir de modelos hadrônicos e de quarks}
 \author[Clebson Graeff]{Clebson Abati Graeff}
 \publisher{UFSC/UTFPR}
 
@@ -20,6 +56,9 @@
 \input{Chapters/NJL}
 \input{Chapters/Thermodynamics}
 \input{Chapters/Implementation}
+
+\appendix
+
 \input{Chapters/Review}
 
 \backmatter
