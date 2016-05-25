@@ -1,0 +1,39 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Termodinâmica}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{tikzpicture}[place/.style={circle,draw=blue!50,fill=blue!20,thick}]
+%\node[place] (QCD) {};
+%\node[place] (sec) [below=of QCD, label=right:test] {};
+%\node[place] (thi) [below left=of sec] {};
+%\node[place] (for) [below right=of sec] {};
+%
+%\draw [->] (QCD) to node[anchor=east] {Lab} (sec);
+%\end{tikzpicture}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\section{Termodinâmica}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ensamble Grand Canônico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Função partição:
+\begin{equation}
+	Z(\mu, T, V) = \Tr \exp\left[-\beta(H-\mu\hat{N})\right]
+\end{equation}
+
+Potencial termodinâmico por unidade de volume:
+\begin{equation}
+	\Omega(\mu, T) = -\frac{-\Tr\ln Z}{V} = -P(\mu,T)
+\end{equation}
+
+\begin{equation}
+	Vd\Omega = -S dT - PdV - Nd\mu
+\end{equation}
+
+\begin{align}
+	\frac{S}{V} &= \left(\frac{\partial P}{\partial T}\right)_\mu \\
+	\frac{N}{V} &= \left(\frac{\partial P}{\partial\mu}\right)_T
+\end{align}

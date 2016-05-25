@@ -1,0 +1,147 @@
+\chapter{Quantum Statistics}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Quantum Statistics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Referências}
+%%%%%%%%%%%%%%%%%%%%%%%%
+Joseph I. Kapusta, Charles Gale: Finite-temperature \dots, tudo num lugar só.
+Greiner, Neise, Stöcker:
+\begin{itemize}
+	\item Descrição de como calcular propriedades termodinâmicas a partir da mecânica quântica. Não achei fácil de entender, porém descreve o que é interessante, então pelo menos dá pra saber sobre o que procurar;
+	\begin{itemize}
+            \item Operador densidade de estados;
+            \item Função partição a partir da hamiltoniana;
+            \item Cálculo do valor esperado de operadores;
+    \end{itemize}
+    \item Melhor descrição ever do operador de permutação e a consequente existência de funções pares e ímpares na permuta de partículas;
+    \item Descreve o que fazer quando temos partículas que podem ser criadas e destruídas: não podemos tratar o número de partículas como uma constante. Porém, como as partículas e anti-partículas são sempre criadas concomitantemente, podemos tratar a diferença entre as populações de ambas as partículas como constantes.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Matriz densidade}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Statistical density matrix\footnote{Assumindo convenção de soma em índices repetidos.}
+\begin{equation}
+	\hat{\rho} = \exp\left[-\beta(H-\mu_i\hat{N}_i)\right]
+\end{equation}
+
+Dado operador $\hat{A}$, o observável é calculado através de
+\begin{equation}
+	A = \mean{\hat{A}} = \frac{\Tr \hat{A}\hat{\rho}}{\Tr \hat{\rho}}
+\end{equation}
+
+\begin{align}
+	Z(V, T, \mu_1, \mu_2, \dots) &= \Tr \hat{\rho} \\
+	P &= \frac{\partial(T\ln Z)}{\partial V} \\
+	N_i &= \frac{\partial (T \ln Z)}{\partial \mu_i} \\
+	S &= \frac{\partial (T \ln Z)}{\partial T} \\
+	E &= - PV + TS + \mu_i N_i
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Valor esperado de um operador no estado fundamental de um sistema de muitas partículas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Se conhecemos a hamiltoniana de um sistema e o seu valor esperado para o estado de uma partícula, podemos calcular o valor esperado de um operador no estado fundamental de um sistema de muitas partículas\cite{Glendenning}:\footnote{A descrição é um pouco específica, mas de uma maneira geral acho que isso é válido.}
+
+\begin{equation}
+	\mean{\bar\psi\Gamma\psi} = \sum_{\kappa} \int \frac{d^3k}{(2\pi)^3} (\bar\psi\Gamma\psi)_{\vec{k},\kappa} \theta(\mu - e(k).
+\end{equation}
+
+Temos nesta expressão uma soma em todos os spins e isospins (no caso de nucleons) e uma ``soma'' de todos os valores de momento de todos os estados ocupados (a integral é em todos os valores de momento, mas a função degrau é zero se a energia do estado é maior que a energia do estado ocupado de mais alta energia) do valor do operador no estado de uma partícula [o $(\bar\psi\Gamma\psi)_{\vec{k},\kappa}$]. Tal expressão não é útil a não ser que saibamos calcular o valor esperado no estado de uma partícula. No entanto,
+\begin{equation}
+	\frac{\partial}{\partial \zeta}(\psi^\dagger H_D\psi)_{\vec{k},\kappa} = (\psi^\dagger \frac{\partial H_D}{\partial \zeta} \psi)_{\vec{k},\kappa},
+\end{equation}
+%
+então se ao derivarmos a hamiltoniana em relação a uma variável qualquer obtemos um operador que nos interessa, podemos calcular seu valor sabendo a relação acima e
+\begin{equation}
+	(\psi^\dagger H_D\psi)_{\vec{k},\kappa} = K_0(\vec{k}) = E(\vec{k}) + g_\omega \omega_0.
+\end{equation}
+
+Acredito que para adicionarmos a temperatura, basta substituir a função degrau pela diferença entre as distribuições de Fermi-Dirac de partículas e anti-partículas.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Equações de estado}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Por que determinamos as equações de estado?}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Pois é, por quê? Sei que elas são usadas para se determinar as propriedades de estrelas, mas como?
+
+Outra coisa é a determinação do diagrama de fases. Quando as duas fazes coexistem, as condições de Gibbs são respeitadas (mesmo potencial químico, densidade de energia, pressão), então dá pra determinar para que valores das grandezas temos as duas fazes, determinando a linha de coexistência. Explorar melhor isso aqui.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Determinação das equações de estado}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Existem\footnote{Aparentemente.} duas maneiras diferentes, porém equivalentes, de se determinar as equações de estado. Uma delas envolve o cálculo do potencial termodinâmico por unidade de volume. A partir dele, podemos calcular as demais quantidades. Outra possibilidade é o cálculo através das componentes do tensor momento-energia.
+
+Porém,
+\begin{itemize}
+	\item Não sei fazer nenhum dos dois jeitos;
+	\item Como se parte da lagrangiana e se chega nas equações de estado?
+	\item Qual é o papel da massa efetiva? Entendo que exista uma auto-energia associada à partícula, porém não entendo exatamente por quê ela é o que importa, qual o motivo de se resolver a equação do gap, de onde a equação do gap vem? Pensando logicamente, se existe uma componente de massa devido à auto-energia, a massa efetiva da partícula é maior, e -- de um ponto de vista termo-estatístico --, isso deve influênciar a energia cinética da partícula (pelo menos). O que deve trazer algum resultado importante para a função partição através da hamiltoniana. Mas por que se usa o conceito de massa efetiva ao invés de se resolver diretamente? É uma comparação da equação/hamiltoniana/lagrangiana com um caso em que não tenha um potencial escalar? Talvez seja feito assim por que é o caso de matéria infinita e, efetivamente, seja como diminuir uma constante da massa, só um jeito mais fácil de fazer as coisas.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Determinação das equações de estado através do tensor momento-energia}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+As equações de estado são dadas através dos elementos do tensor momento-energia $T^{\mu\nu}$:\cite{Glendenning, Glendenning1983}\footnote{Na real não vejo o que isso tem a ver com o tensor; Acho que $\gamma_ik_i = \vec{\gamma}\cdot\vec{k}$.}
+
+\begin{align}
+	\varepsilon &= -\mean{\mathcal{L}} + \mean{\bar\psi\gamma_0k_0\psi}
+	p &= \mean{\mathcal{L}} + \frac{1}{3} \mean{\bar\psi\gamma_ik_i\psi}
+\end{align}
+
+Acredito que é dessa forma que a Débora faz o cálculo das equações de estado (apesar de que ela usa $\varepsilon = \mean{T_{00}}$ e $p = \sum_i \rho_i \mu_i - \varepsilon$ (ou) $p = (1/3) \mean{T_{ii}}$). Não sei como se calculam tais termos. Eles resultam em coisas do tipo $\bra{q}\vec{\alpha}\cdot\vec{p}\ket{q} = N_c N_f \int \frac{d^3p}{(2\pi)^3}\frac{p^2}{E}$, $\bra{q}\vec{\alpha}\cdot\vec{p} + \beta m^*\ket{q} = N_c N_f \int \frac{d^3p}{(2\pi)^3}E$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Reorganizar o conteúdo abaixo
+
+Temos que $dS$ ou $dU$ -- deve ser $dU$, pois o potencial químico é a ``quantidade de energia ganha ao se inserir mais uma partícula no sistema'' -- tem um termo $\mu dN$. Vamos trabalhar com densidade bariônica, mas essa densidade é só o número de partículas $N$ dividido pelo volume (as outras variáveis também serão trabalhadas divididas pelo volume). Logo, temos $\mu d\rho$. Por isso, temos que $\mu = d\epsilon/d\rho$, onde $\epsilon$ é a densidade de energia $\epsilon = E/V$. 
+
+Glendenning\cite{Glendenning}:
+Degenerate ideal Fermi gas: ideal pois não tem interações entre as partículas, degenerado pois todos os estados até uma certa energia -- a energia de Fermi -- estão ocupados. Nesse caso, a soma sobre todos os estados ocupados (que são autoestados de momento, pois não há interação) deve se dar sobre o momento. Isso pode ser escrito como a integral
+\begin{equation}
+	\int_0^{k_f} \frac{d^3k}{(2\pi^3)}.
+\end{equation}
+%
+(pelo que lembro, é um cálculo realizado em um octante, contando quantos estados existem entre $p$ e $p+dp$ levando-se em conta que são ondas estacionárias em uma caixa de lado $L$. Nesse caso $k$ (que está associado ao momento) é um inteiro vezes o comprimento de onda dividido por dois. Tentar achar isso Ref [63] do Glendenning.
+
+O gás pode ser considerado degenerado se $T \ll E_F = \sqrt{k_F^2 + m^2}$.
+
+A densidade é obtida simplesmente somando os estados ocupados. A energia é calculada somando a energia de cada estado ocupado. A pressão eu não sei:
+\begin{align}
+	\rho &= \\
+	\epsilon &= \\
+	p &=
+\end{align}
+
+\begin{quote}
+In thermodynamics, chemical potential, also known as partial molar free energy, is a form of potential energy that can be absorbed or released during a chemical reaction. It may also change during a phase transition. The chemical potential of a species in a mixture can be defined as the slope of the free energy of the system with respect to a change in the number of moles of just that species. Thus, it is the partial derivative of the free energy with respect to the amount of the species, all other species' concentrations in the mixture remaining constant, and at constant temperature. When pressure is constant, chemical potential is the partial molar Gibbs free energy. At chemical equilibrium or in phase equilibrium the total sum of chemical potentials is zero, as the free energy is at a minimum. \footnote{\url{https://en.wikipedia.org/wiki/Chemical_potential}}
+\end{quote}
+
+%%%%%%%%%%%%%%%%%%%%%%
+\section{Gás de Fermi}
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\{Energia, momento, temperatura\} de Fermi}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Wikipedia\footnote{\url{https://en.wikipedia.org/wiki/Fermi_energy}}:
+\begin{quote}
+In quantum mechanics, a group of particles known as fermions (for example, electrons, protons and neutrons) obey the Pauli exclusion principle. This states that two fermions cannot occupy the same quantum state. Since an idealized non-interacting Fermi gas can be analyzed in terms of single-particle stationary states, we can thus say that two fermions cannot occupy the same stationary state. These stationary states will typically be distinct in energy. To find the ground state of the whole system, we start with an empty system, and add particles one at a time, consecutively filling up the unoccupied stationary states with the lowest energy. When all the particles have been put in, the Fermi energy is the kinetic energy of the highest occupied state.
+
+[\dots]
+
+
+\end{quote}
