@@ -3,8 +3,24 @@
 %%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{fullwidth}\it
-Detalhes sobre a implementação do modelo e resultados obtidos. Aqui os resultados se referem aos produtos dos cálculos, não a resultados interessantes em si. A ideia é mostrar que as rotinas funcionam direito e calculam o que precisamos.
+Detalhes sobre a implementação do modelo e resultados obtidos. Aqui os resultados se referem aos produtos dos cálculos, não a resultados interessantes em si. A ideia é mostrar que as rotinas funcionam direito e calculam o que precisamos. Tratamos o caso NJL, seguido do caso eNJL.
 \end{fullwidth}
+
+%%%%%%%%%%%%%%%%%%%
+\section{Dimensões}
+%%%%%%%%%%%%%%%%%%%
+
+Devido ao fato de que $\hbar = c = 1$, adimensionais, e que não carregamos quaisquer unidades, é comum que algumas equações tenham dimensões discrepantes entre os membros esquerdo e direito, ou mesmo entre termos de um mesmo membro. Podemos acertar as dimensões multiplicando por potências de $\hbar c$. Nas unidades usuais em Física Nuclear, temos que $\hbar c = \np[MeV\cdot fm]{197.326}$. Logo, todas as grandezas têm dimensões que envolvem MeV ou fm, ou uma combinação de ambos\sidenote{Note que de qualquer forma as unidades são atípicas, pois --~por exemplo~-- a unidade de massa é o eV, que na realidade tem dimensão de energia. Isso pode ser explicado através de $E^2 = p^2 c^2 + m^2 c^4$, onde assumimos que $c = 1$, adimensional.}:
+
+\begin{itemize}
+	\item Como $E^2 = p^2c^2 + m^2c^4$, temos $[E] = [m] = [p]$;
+	\item Como $\rho = \bar{\psi}\gamma^0\psi$ é o número de partículas por unidade de volume, temos que $[\rho] = \rm{fm}^{-3}$
+	\item O item acima implica que $[\psi] = \rm{fm}^{-3/2}$. Consequentemente, $[\rho_s] = [\bar{\psi}\psi] = \rm{fm}^{-3}$. 
+	\item Como o potencial químico esta relacionado à variação de energia ao se adicionar ou retirar partículas do sistema, sua unidade é a de energia (MeV).
+	\item O potencial termodinâmico $\omega$ é o potencial grande-canônico\footnote{Potencial de Landau} $\Omega$ por unidade de volume, portanto tem dimensão de energia por unidade de volume ($\rm{MeV}\cdot\rm{fm}^{-3}$), assim como a densidade de energia $\varepsilon$ e a pressão $P$.
+\end{itemize}
+%
+Dessa forma, as equações discutidas nos capítulos anteriores precisam ter suas unidades checadas e --~quando necessário~-- corrigidas, de forma a ficarem consistentes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fase de quarks: NJL}
@@ -14,12 +30,6 @@ Detalhes sobre a implementação do modelo e resultados obtidos. Aqui os resulta
 \subsection{Análise Dimensional}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Assim como no caso eNJL, assumimos que
-\begin{itemize}
-	\item $[\rho_s] = [\rho_B] = \rm{fm}^{-3}$
-	\item $[E] = [p] = [m] = [\mu] = p_F = \Lambda = \mu_R = \rm{Mev}$.
-\end{itemize}
-%
 Verificando as dimensões na lagrangiana, temos
 \begin{equation}
 	\underbrace{\mathcal{L}}_{\mathcal{\rm{MeV}/\rm{fm}^3}} = \underbrace{\bar{\psi}}_{\rm{fm}^{3/2}}(i\gamma^\mu\underbrace{\partial_\mu}_{\rm{fm}^{-1}} - \underbrace{m_0}_{\rm{MeV}})\underbrace{\psi}_{\rm{fm}^{3/2}} + G_S [ \underbrace{(\bar{\psi}\psi)^2}_{\rm{fm}^{-6}} + \underbrace{(\bar{\psi}i\gamma_5\vec{\tau}\psi)^2}_{\rm{fm}^{-6}}].
@@ -30,7 +40,7 @@ A constante $G_S$ tem dimensão de inverso de massa$^{-2}$ em Buballa\cite{Bubal
 	[G_S] = \rm{fm}^{2}
 \end{equation}
 %
-para que tenhamos uma dimensão igual ao caso eNJL. Assim o valor de $G_S$ da referência deve ser ajustado de acordo com
+para que tenhamos uma dimensão igual ao caso eNJL em Pais\cite{Pais}. Assim o valor de $G_S$ da referência deve ser ajustado de acordo com
 \begin{equation}
 	\underbrace{G_S}_{\textrm{Buballa}} \cdot (\hbar c)^2 = \underbrace{G_S}_{\textrm{prog.}}.
 \end{equation}
@@ -97,15 +107,6 @@ Na Figura~\ref{Fig:pot_term_analysys_NJL-Buballa_Set_1} mostramos o potencial te
 	
 	Os gráficos de energia e pressão foram confrontados com o resultado do cálculo em Fortran e ambas reproduzem bem os resultados obtidos. A versão em Fortran, no entanto, não dá resultados para densidades inferiores a \np[MeV/fm^3]{0.3}.
 \end{description}   
-
-Como próximos passos, destacam-se
-\begin{itemize}
-	\item Descobrir de onde as expressões usadas no código em Fortran vêm. Dessa forma eu posso verificar todos os detalhes e saber se há alguma explicação para as alterações que eu tive que fazer para poder fazer funcionar. Além disso, fico com mais confiança no que estou fazendo.
-	\item Verificar se os resultados para o Set 1 do Buballa faz algum sentido. Pra mim aquilo está muito estranho, mas pode ser que seja assim mesmo por algum motivo.
-	\item Verificar por que não funciona o método de cálculo apresentado no Buballa.\footnote{Pelo que vi no Buballa (2005), as integrais não são de $p_F$ a $\Lambda$, mas de zero a $\Lambda$. Isso obviamente dá uma diferença, inclusive tendo a ver com o momento de Fermi, que era o que estava dando errado (a partir de um certo valor dava certo o gráfico por causa de uma função degrau, mas sempre funcionava se $p_F = 0$; veja que tem boa possibilidade de ser isso mesmo. Por outro lado, o cálculo da Débora vai de $p_F$ a $\Lambda$)}
-	\item Implementar uma função para evoluir as variáveis, permitindo que escolhamos qual vai ser a variável para o laço no programa.
-	\item Adicionar os termos proporcionais a $G_V$; Como fica a história do $\mu_R$ nesse caso? Seria possível utilizar $\rho_B$ como variável de laço nesse caso, ou fica restrito a $\mu_R$?
-\end{itemize}
 
 %%%
 
@@ -262,17 +263,7 @@ Como próximos passos, destacam-se
 \subsection{Análise dimensional}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Devido ao fato de que $\hbar = c = 1$, adimensionais, e que não carregamos quaisquer unidades, é comum que algumas equações tenham dimensões discrepantes entre os membros esquerdo e direito, ou mesmo entre termos de um mesmo membro. Podemos acertar as dimensões multiplicando por potências de $\hbar c$. Nas unidades usuais em Física Nuclear, temos que $\hbar c = 197.326\rm{MeV}\cdot\rm{fm}$. Logo, todas as grandezas têm dimensões que envolvem MeV ou fm, ou uma combinação de ambos\sidenote{Note que de qualquer forma as unidades são atípicas, pois --~por exemplo~-- a unidade de massa é o eV, que na realidade tem dimensão de energia. Isso pode ser explicado através de $E^2 = p^2 c^2 + m^2 c^4$, onde assumimos que $c = 1$, adimensional.}:
-
-\begin{itemize}
-	\item Como $E^2 = p^2c^2 + m^2c^4$, temos $[E] = [m] = [p]$;
-	\item Como $\rho = \bar{\psi}\gamma^0\psi$ é o número de partículas por unidade de volume, temos que $[\rho] = \rm{fm}^{-3}$
-	\item O item acima implica que $[\psi] = \rm{fm}^{-3/2}$. Consequentemente, $[\rho_s] = [\bar{\psi}\psi] = \rm{fm}^{-3}$. 
-	\item Como o potencial químico esta relacionado à variação de energia ao se adicionar ou retirar partículas do sistema, sua unidade é a de energia (MeV).
-	\item O potencial termodinâmico $\omega$ é o potencial grande-canônico $\Omega$\footnote{Potencial de Landau} por unidade de volume, portanto tem dimensão de energia por unidade de volume ($\rm{MeV}\cdot\rm{fm}^{-3}$), assim como a densidade de energia $\varepsilon$ e a pressão $P$.
-\end{itemize}
-
-Dessa forma, as equações discutidas acima precisam ter suas unidades checadas e --~quando necessário~-- corrigidas, de forma a ficarem consistentes. Temos então:
+Temos então:
 \begin{fullwidth}
 \begin{itemize}
 
@@ -476,12 +467,20 @@ O termo adicionado a essa equação corresponde \emph{exatamente} ao segundo ter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Próximas ações}
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{itemize}
-	\item escrever a sinopse;
+	\item NJL:
+		\begin{itemize}
+			\item Descobrir de onde as expressões usadas no código em Fortran vêm. Dessa forma eu posso verificar todos os detalhes e saber se há alguma explicação para as alterações que eu tive que fazer para poder fazer funcionar. Além disso, fico com mais confiança no que estou fazendo.
+			\item Verificar se os resultados para o Set 1 do Buballa faz algum sentido. Pra mim aquilo está muito estranho, mas pode ser que seja assim mesmo por algum motivo.
+			\item Verificar por que não funciona o método de cálculo apresentado no Buballa.\footnote{Pelo que vi no Buballa (2005), as integrais não são de $p_F$ a $\Lambda$, mas de zero a $\Lambda$. Isso obviamente dá uma diferença, inclusive tendo a ver com o momento de Fermi, que era o que estava dando errado (a partir de um certo valor dava certo o gráfico por causa de uma função degrau, mas sempre funcionava se $p_F = 0$; veja que tem boa possibilidade de ser isso mesmo. Por outro lado, o cálculo da Débora vai de $p_F$ a $\Lambda$)}
+			\item Implementar uma função para evoluir as variáveis, permitindo que escolhamos qual vai ser a variável para o laço no programa.
+			\item Adicionar os termos proporcionais a $G_V$; Como fica a história do $\mu_R$ nesse caso? Seria possível utilizar $\rho_B$ como variável de laço nesse caso, ou fica restrito a $\mu_R$?
+		\end{itemize}
 	\item Ver se a maneira como eu calculo as coisas está coerente (estou rodando na densidade, não no potencial químico)
 	\item Ver com a Débora se os resultados que eu obtive até agora estão coerentes (NJL);
 \end{itemize}
