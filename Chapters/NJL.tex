@@ -3,12 +3,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{fullwidth}\it
-Sinopse: Nossos heróis criam um modelo para desvendar o diagrama de fases da QCD, contornando os terríveis problemas causados pelo horrível vilão Expoente Imaginário. Será que eles vão conseguir? Descubra (ou não) nas contas alucinantes que se desdobram nas próximas seções!
+Discutimos a origem e motivação do modelo NJL, bem como sua expressão e propriedades. Discutimos posteriormente a extensão de tal modelo, bem como as razões para essas modificações.
 \end{fullwidth}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Origem do modelo}
-%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Motivação e origem do modelo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Sobre a origem do modelo\cite{Buballa}:
 \begin{quote}
@@ -35,9 +35,11 @@ After the development of QCD, the NJL model was reinterpreted as a schematic qua
 \end{quote}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Simetria quiral}
-%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Características do modelo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Simetria quiral, Extensibilidade;
 
 Por que uma massa não nula implica em uma simetria quiral quebrada: Ver discussão em Ref.\cite{Vogl}
 % Vogl, U., and W. Weise. - Progress in Particle and Nuclear Physics 27 (1991): 195-272 - The Nambu and Jona-Lasinio model: its implications for hadrons and nuclei
@@ -68,11 +70,29 @@ onde
 	\item ``It is known, e.g., from Walecka model [109], that this channel [(vector-isoscalar)] is quite important at non-zero densities.''; ``In principle we allow for further channels [\dots], which, however, do not contribute at mean-field level as long as we have only one common quark chemical potential.''\cite{Buballa}
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Equação do gap}
+%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{eNJL}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A equação do gap tem a ver com a auto-energia, de alguma forma. Como há interação, existe uma massa efetiva, mas não sei como isso funciona. Não sei como sai da lagrangiana e se chega na expressão para $M$ ($m^*$), não consigo nem ter uma vaga ideia do que está sendo feito nas contas da Débora. Não sei se a adição de um termo vetorial (caso NJL) ou outros termos (eNJL) têm algum efeito na equação do gap.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Lagrangiana NJL em SU(3)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Apresentar e discutir a lagrangiana em SU(3).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sucessos e insucessos do modelo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Só sei que não descreve a saturação da matéria de nucleons.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fase de hádrons: extended NJL (eNJL)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+O modelo NJL não é capaz de descrever a energia de saturação para a matéria de nucleons, e por isso não podemos utilizar tal modelo para a fase de hádrons. No entanto, com a adição de termos adequados, é possível obter resultados adequados. Discutiremos tais termos nas seções subsequentes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Introdução de outros termos à lagrangiana original}
@@ -103,9 +123,9 @@ De Lee\cite{japoneses}:
 \end{quote}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{eNJL: Fase de Hádrons}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Lagrangiana do modelo eNJL em SU(2)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Sobre o modelo\cite{Pais}:
 \begin{quote}
@@ -158,124 +178,11 @@ eNJL2m$\sigma\rho$1 & 1.078 & 1.955 & -2.74 & -0.1114 & 0 & 1 & 502.466 & 450 \\
 \caption{Conjuntos de parâmetros para a lagrangiana~\eqref{Eq:Lagrangiana_eNLJ_Pais}. \label{Tab:Parametros_eNJL}}
 \end{table*}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Equações de estado} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Lagrangiana eNJL em SU(3)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-A partir da lagrangiana \eqref{Eq:Lagrangiana_eNLJ_Pais}, é possível determinar  o potencial termodinâmico\footnote{Potencial Grand-canônico, ou potencial de Landau.} por unidade de volume, dado por (em Tsue~\cite{japoneses}, o potencial é \emph{definido} como $\omega = \langle\langle \mathcal{H}^{MF}\rangle\rangle - \mu\langle\langle\mathcal{N}\rangle\rangle - \frac{1}{\beta}\langle\langle\mathcal{S}\rangle\rangle$\footnote{Os termos $\langle\langle \cdot \rangle\rangle$ são a Hamiltoniana de campo médio, a densidade bariônica, e algo que pode ser a entropia (eu acho). Isso tem que sair de alguma coisa da termodinâmica, tipo $\omega (T, m) = (T/V) \ln Z$, como poderia ser \emph{definido}?}, o que se traduz em uma expressão similar a essa que segue)
-\begin{equation}\label{Eq:potencial_termodinamico}
-\begin{split}
-	\omega(\mu) =&~ \varepsilon_{\rm{kin}} + m\rho_s - G_s\rho_s^2 + G_v\rho^2 + G_{sv}\rho_s^2\rho^2 + G_\rho\rho_3^2 \\
-	&+ G_{v\rho}\rho^2\rho_3^2 + G_{s\rho}\rho_s^2\rho_3^2 - \mu_p\rho_p - \mu_n\rho_n,
-\end{split}
-\end{equation}
-%
-onde
-\begin{itemize}
-	\item $\rho$ é a densidade bariônica, dada pela soma das densidades de nêutron e próton\footnote[][-1cm]{São densidades numéricas de partículas, ou seja, representam o número de partículas por unidade de volume.}:
-	\begin{equation}
-		\rho = \rho_p + \rho_n.
-	\end{equation}
-
-	\item As densidades bariônicas de próton e nêutron são dadas por (alguma indicação de onde isso sai é dada em Tsue~\cite{japoneses} (resumidamente: QFT)):\footnote{Explicar, explicar o momento de Fermi.}
-	\begin{equation}
-		\rho_i = \int_0^{k_F^i}\frac{dp}{\pi^2}p^2; \qquad i = p,n; \quad k_F^i = \textrm{momento de Fermi},
-	\end{equation}
-	%
-	ou, caso $\rho_i$ sejam conhecidos
-	\begin{equation}\label{Eq:Mom_Fermi_a_partir_de_rho}
-		p_F^i = \sqrt[3]{3\pi^2\rho_i}.
-	\end{equation}
-	
-	\item $\mu_p$ e $\mu_n$ representam os potenciais químicos de próton e nêutron, respectivamente.
-\end{itemize}
-
-O termo cinético na expressão acima pode ser calculado através de (primeiro termo da Eq. (1) em \cite{PRC_68_035804_2003}, o resto é energia potencial; Indicação de onde isso sai é dada em Tsue~\cite{japoneses}.)\footnote{Degenerescência: O 2 se refere às duas possibilidades de spin; Podemos ter um $N_f$ que representa o número de sabores.}
-\begin{align}
-	\varepsilon_{\rm{kin}} &= \langle\bar{\psi}(\vec{\gamma}\cdot\vec{p})\psi\rangle \\
-	&= 2 N_c\sum_i \int \frac{d^3p}{(2\pi)^3}\frac{p^2 + m_i M_i}{E_i}(n_{i-}-n_{i+})\theta(\Lambda^2 - p^2),
-\end{align}
-%
-onde
-\begin{itemize}
-	\item A soma se dá sobre as espécies de partículas;
-	\item $N_c$ representa o número de cores\footnote{No nosso caso, 1?};
-	\item $\theta$ é a função degrau, $\Lambda$ é o \emph{cutoff};
-	\item $n_{i\pm}$ são as funções de distribuição de Fermi para estados de energia positiva e negativa (respectivamente), dados por
-	\begin{equation}
-		n_{i\pm} = \frac{1}{1 + \exp(\pm[\beta(E_i\mp\mu_i)])}
-	\end{equation}
-	%
-	onde $i = p, n$ (no nosso caso, no artigo é $u, d, s$) e $\beta = T^{-1}$
-	\item $M_i$ é a massa efetiva do nucleon em questão (quark, no artigo).
-	\item $E_i = \sqrt{p^2 + M_i^2}$
-	\item $m_i$ são as massas constituintes -- nuas, \emph{bare} --.
-\end{itemize}
-
-Se tomarmos $T \to 0$, temos que $n_{i-} \to 1$ e $n_{i+} \to 0$\footnote{Depende do sinal de $E - \mu$. Aparementemente isso dá $\theta(\mu-E)$}; Além disso, se o integrando só depende do módulo de $\vec{p}$, então (Glendenning\cite{Glendenning}, p. 92)
-\begin{equation}\label{Eq:Int_d3p_to_dp}
-	\int\frac{d^3p}{(2\pi)^3} \to \frac{1}{2\pi^2}\int p^2dp.
-\end{equation}
-%
-Logo, temos
-\begin{align}
-	\varepsilon &= 2 N_c \frac{1}{2\pi^2}\sum_i \int p^2 dp \frac{p^2 + m_i M_i}{\sqrt{p^2 + M_i^2}} \theta(\Lambda^2 - p^2) \\
-	&= \frac{N_c}{\pi^2}\sum_i\left[\int \frac{p^4dp}{\sqrt{p^2 + M_i^2}}\theta(\Lambda^2 - p^2) + \int m_i M_i \frac{p^2 dp}{\sqrt{p^2 + M_i^2}}\theta(\Lambda^2 - p^2)\right] \label{Eq:Engergia_cin_separada}
-\end{align}
-%
-Podemos utilizar as relações (Glendenning\cite{Glendenning} p. 94\footnote{Na Ref. o primeiro termo da segunda expressão aparece sem o $k$ multiplicando, o que dimensionalmente está incorreto.})
-\begin{align}
-	\int \frac{k^4}{\sqrt{k^2 + m^2}} dk &= \frac{1}{4}\left[k^3\epsilon - \frac{3}{2} m^2k\epsilon + \frac{3}{2}m^4\ln\frac{\epsilon + k}{m} \right]\\
-	\int \frac{k^2}{\sqrt{k^2 + m^2}} dk &= \frac{1}{2}\left[k\epsilon - m^2\ln\frac{\epsilon + k}{m}\right] \label{Eq:Integ_momento_quad}
-\end{align}
-%
-onde $\epsilon = \sqrt{k^2+m^2}$. Tomando o caso $m_i \to 0$\footnote{No prog. \texttt{eos\_enjl1-dens-assym- clean-rho-vr.f}: $\varepsilon \propto [F_2(M, k_F^i) - F_2(M, \Lambda)]$ ao invés de $\varepsilon \propto [F_2(M_i, \Lambda) - F_2(M_i, 0)]$; Isso se deve à retirada da contribuição do vácuo. Vendo Lee \etal talvez seja o seguinte: $n_i^+$ não vai a zero, mas a uma função degrau que envolve o momento, de forma que entre zero e $p_F$ o resultado seja nulo. A mudança na ordem dos limites pode explicar algum sinal.}, obtemos
-\begin{equation}\label{Eq:Energia_kin}
-	\varepsilon_{\rm{kin}} = \frac{N_c}{\pi^2}\sum_i \Big[\underbrace{\frac{1}{8}\Big((2p^3 - 3M_i^2p)\sqrt{p^2 + M_i^2} + 3M_i^4\ln\frac{p + \sqrt{p^2 + M_i^2}}{M_i}\Big)}_{F_2(m,p)}\Big]_0^\Lambda
-\end{equation}
-
-A densidade escalar $\rho_s$ é dada por (a origem é indicada em Tsue~\cite{japoneses})
-\begin{equation}\label{Eq:Dens_Escalar}
-	\rho_s^i = \frac{M}{\pi^2}[F_0(M, p_F^i) - F_0(M, \Lambda)], \quad i = p, n,
-\end{equation}
-%
-onde
-\begin{equation}\label{Eq:Def_F0}
-	F_0(M, x) = \int_0^x dp\frac{p^2}{\sqrt{M^2 + p^2}} dp.
-\end{equation}
-%
-Utilizando a Equação~\eqref{Eq:Integ_momento_quad}, podemos reescrever a equação acima como
-\begin{equation}\label{Eq:Def_F0_integrado}
-	F_0(M, x) = \frac{1}{2}\left[x\sqrt{x^2+M^2} - M^2 \ln \frac{x + \sqrt{x^2+M^2}}{M}\right].
-\end{equation}
-
-A massa efetiva $M$ na equação acima é dada por\footnote{Essa equação é conhecida como \emph{gap equation}}
-\begin{equation}\label{Eq:Gap}
-	M = m - 2G_s\rho_s + 2G_{sv}\rho_s\rho^2 + 2 G_{s\rho}\rho_s\rho_3^2,
-\end{equation}
-%
-com $\rho_s = \rho_s^p + \rho_s^n$. Temos, portanto, uma interdependência entre as equações. Para que seja possível solucionar tais equações, podemos definir uma função $f(M)$ de tal forma que
-\begin{equation}\label{Eq:Gap_zero}
-	f(M) = M - m + 2G_s\rho_s - 2G_{sv}\rho_s\rho^2 - 2 G_{s\rho}\rho_s\rho_3^2,.
-\end{equation}
-%
-Para solucionarmos a equação acima, basta utilizarmos uma rotina para encontrar zeros de funções, por exemplo biseção ou Newton-Raphson, encontrando o valor de $M$ para o qual $f(M) = 0$. A densidade escalar $\rho_s$ pode ser calculada através da expressão~\eqref{Eq:Dens_Escalar}.
-
-Os potenciais químicos são dados por\footnote{Como essas expressões são calculadas?}
-\begin{equation}\label{Eq:Potenciais_Quimicos}
-\begin{split}
-	\mu_i =&~ E_{p_F}^i + 2G_v\rho + 2G_{sv}\rho\rho_s^2 \pm 2G_\rho\rho_3+2G_{v\rho}\rho_3^2\rho \\
-	& \pm 2G_{v\rho}\rho^2\rho_3 \pm 2 G_{s\rho}\rho_3\rho_s^2,
-\end{split}
-\end{equation}
-%
-onde $i = p,n$, os sinais superiores se referem ao caso de prótons, e $E_{p_F}^i = \sqrt{M^2 + (p_F^i)^2}$.
-
-As equações de estado para pressão $P$ e densidade de energia $\varepsilon$ são dadas por\footnote{Como são calculadas?}
-\begin{align}
-	P &= -\omega(\mu) + \epsilon_0 \label{Eq:Pressao}\\
-	\varepsilon &= -P + \mu_p\rho_p + \mu_n\rho_n. \label{Eq:Densidade_energia}
-\end{align}
+Apresentar e discutir a lagrangiana em SU(3).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -286,16 +193,21 @@ As equações de estado para pressão $P$ e densidade de energia $\varepsilon$ s
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{itemize}
-	\item Organizar o capítulo:
+	\item Discutir:
 		\begin{itemize}
 			\item Motivação e origens do modelo;
-			\item Histórico?
-			\item O modelo, com discussão do que cada coisa é na lagrangiana;
+			\item O modelo, com discussão do que cada coisa é na lagrangiana; Copiar tabela de parâmetros do Buballa;
+			\item Equação do Gap, auto-energia.
 			\item Características do modelo (e.g. simetria quiral, extensibilidade);
 			\item Sucessos e insucessos do modelo;
 			\item Extensão eNJL: Motivação;
 			\item Extensão eNJL: termos adicionais comentados;
 			\item Extensão eNJL: Sucessos da versão extendida;
+		\end{itemize}
+	\item Problemas:
+		\begin{itemize}
+			\item Não sei encontrar a Eq. do gap, ou o que ela significa;
+			\item A adição de mais termos faz alguma diferença na equação do gap?
 		\end{itemize}
 \end{itemize}
 
