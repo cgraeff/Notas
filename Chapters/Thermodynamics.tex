@@ -6,17 +6,55 @@
 Neste capítulo deduzimos as equações de estado a partir das densidades lagrangianas apresentadas no capítulo anterior.
 \end{fullwidth}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Obtenção do tensor momento-energia}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+\section{Introdução}
+%%%%%%%%%%%%%%%%%%%%
 
+Como estamos interessados na obtenção da linha de coexistência de fases no diagrama de fases da QCD segundo o modelo NJL+eNJL e vamos utilizar as condições de Gibbs --~isto é, assumimos que na coexistência de fases temos igualdade de $\varepsilon$, $p$, $\mu$ em ambas as fases~--, precisamos determinar as expressões para essas grandezas.
 
+A determinação pode ser feita de três maneiras:\footnote{Pelo que entendi, pelo menos.}
+\begin{itemize}
+	\item Através do tensor momento energia:\footnote{Nesses dois primeiros casos como se determinam $\mu$ e $M$? Como se adiciona a temperatura?}
+		\begin{align}
+			\varepsilon &= \mean{T_{00}} \\
+			p &= \frac{1}{3} \mean{T_{ii}}
+		\end{align}
+	\item Através da Lagrangiana\cite{Glendenning}, que é um método similar ao anterior:
+		\begin{align}
+			\varepsilon &= -\mean{\mathcal{L}} + \mean{\bar{\psi}\gamma_0 k_0 \psi} \\
+			p &= \frac{1}{3} \mean{\bar{\psi}\gamma_i k_i \psi}
+		\end{align}
+	\item Através da Termodinâmica:
+		\begin{align}
+			\omega(T, \mu) &= -\frac{T}{V}\ln \mathcal{Z} \\
+			\mathcal{Z} &= \Tr\exp\left(-\frac{1}{T}\int d^3x (\mathcal{H} - \mu\mathcal{N})\right) \\
+			p &= -\omega \\
+			\varepsilon &= -p +Ts + \mu, 
+		\end{align}
+		onde $\tilde{\mu}$ e $M$ são determinados exigindo que $\partial \omega / \partial M = \partial \omega / \partial \tilde{\mu} = 0$.
+\end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Potencial termodinâmico}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+A questão é que eu não sei fazer de nenhum dos três jeitos.
 
-Obtenção do potencial termodinâmico
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fase de quarks: NJL}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Solução através do tensor momento-energia}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Discutir aqui a solução através do tensor momento energia. Tem aquela discussão do Glendenning sobre o valor esperado de um operador no estado de muitas partículas, deveria aparecer antes dessa seção (mas não sei fazer aquilo especificamente para esse caso).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Solução através da lagrangiana}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Solução através do potencial termodinâmico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Obtenção\footnote{Não sei como fazer pra obter tudo isso. Até uma expansão tem no meio de tudo isso.} do potencial termodinâmico (Buballa\cite{Buballa1996}):
 \begin{quote}
 Expanding $\bar{\psi}\psi$ and $\bar{\psi}\gamma^\mu\psi$ about their thermal expectation values we can derive the mean field thermodynamic potential at temperature $T$ and chemical potential $\mu$ [11]. We restrict ourselves to the Hartree approximation. Furthermore in this paper we only consider $T=0$ and $\mu \geqslant 0$. The result for the thermodynamic potential is
 \begin{equation}\label{Eq:Def_pot_termo}
@@ -420,9 +458,35 @@ As equações de estado para pressão $P$ e densidade de energia $\varepsilon$ s
 		\end{itemize}
 	\item Reproduzir cálculos de $p$ e $\varepsilon$ para NJL:
 		\begin{itemize}
-			\item Tentar seguir o que a Débora fez antes;
+			\item Tentar seguir o que a Débora fez antes (solução pelo tensor);
+				\begin{itemize}
+					\item Calcular o tensor;
+					\item Calcular $\mean{T_{00}}$
+					\item Calcular $\mean{T_{ii}}$
+					\item Calcular dens. energia, pressão
+					\item Determinar a eq do gap
+					\item Det. $\mu$
+					\item Como adicionar $T$?
+					\item Por que precisamos calcular $\varepsilon_0$ e diminuir? (fazemos isso em $p$ tb?)
+				\end{itemize}
 			\item Verificar o cálculo dos termos $\bra{q}\alpha\cdot p\ket{q}$ e $\bra{q}\beta m^*\ket{q}$ no Walecka;
+				\begin{itemize}
+					\item Rep. cálculo de $\mean{\bar\psi\gamma_0 k_0\psi}$
+					\item Rep. cálculo de $\mean{\bar\psi\gamma_i k_i\psi}$
+					\item Calcular $\mean{\mathcal{L}}$
+					\item Calcular $\varepsilon$, $p$
+					\item Como adicionar $T$?
+					\item Precisa calcular $\varepsilon_0$ e diminuir?
+				\end{itemize}
 			\item Ver o cálculo a partir do potencial termodinâmico (ver Tese do James, tem a parte cinética pelo menos);
+				\begin{itemize}
+					\item Ler Asawa & Yazaki, Nuclear Physics A504 1989 668-684;
+					\item Determinar Hamiltoniana;
+					\item Determinar função partição;
+					\item Determinar potencial termodinâmico;
+					\item Determinar dens. de energia, pressão;
+					\item O pot. quim. e a massa efetiva são determinadas a partir das eq. do gap e a para o pot quim. efetivo, não precisa calcular depois (pelo que entendi)
+				\end{itemize}
 		\end{itemize}
 	\item Ver se a ideia de rodar na densidade está implementada da maneira correta;
 \end{itemize}
