@@ -10,7 +10,7 @@ set ylabel '$\tilde{\omega} (\rm{MeV}/\rm{fm}^3)$'
 set xlabel '$m$ (MeV)'
 
 set xrange[0:600]
-set yrange[-150:150]
+set yrange[-75:150]
 plot "therm_0.dat" w l t '$\mu_R = 0$', \
 	 "therm_100.dat" w l lw 2 t '$\mu_R = 100 (\rm{MeV})$', \
 	 "therm_200.dat" w l lw 2 t '$\mu_R = 200 (\rm{MeV})$', \
