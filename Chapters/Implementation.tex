@@ -116,21 +116,14 @@ Para o cálculo do potencial termodinâmico através das expressões~\eqref{Eq:P
 \subsection{Resultados}
 %%%%%%%%%%%%%%%%%%%%%%%
 
-Os resultados abaixo aparentemente estão adequados até a determinação da massa, densidade escalar. Consigo reproduzir\footnote{Exceto o do Set 1, que dá \np[MeV]{311.4}.} o valor da massa $m_{\rm{vac}}$ do Buballa~\cite{Buballa1996}, e os gráficos da massa efetiva e da densidade escalar se comportam de acordo com as expectativas (são parecidos com o caso de hádrons, quando $m_0 \neq 0$ a massa são vai a zero, e a densidade escalar tende a verticalizar próximo do valor da densidade máxima no caso $m_0 = 0$.).
+Consigo reproduzir\footnote{Exceto o do Set 1, que dá \np[MeV]{311.4}.} o valor da massa $m_{\rm{vac}}$ do Buballa~\cite{Buballa1996}, e os gráficos da massa efetiva e da densidade escalar se comportam de acordo com as expectativas (são parecidos com o caso de hádrons, quando $m_0 \neq 0$ a massa são vai a zero, e a densidade escalar tende a verticalizar próximo do valor da densidade máxima no caso $m_0 = 0$.).
 
-No entanto, tudo o que é calculado após o potencial termodinâmico (incluindo o próprio potencial) estão estranhos. Podemos dividir os resultados a partir desse ponto em dois casos
-\begin{description}
-	\item[Potencial de acordo com Buballa] Nesse caso, o valor de $\omega_0$ é muito grande e negativo, crescendo de maneira aproximadamente linear. O valor do próprio potencial não resulta em algo similar ao caso de hádrons. A energia por partícula está com uma escala estranha também, sem falar que o gráfico está muito estranho, com um mínimo local, um máximo e depois desanda a baixar.
-
-Na Figura~\ref{Fig:pot_term_analysys_NJL-Buballa_Set_1} mostramos o potencial termodinâmico calculado para $\mu = \mu_r = p_F = \rho_B = 0$, variando $m$ arbitrariamente. O resultado é exatamente igual ao apresentado no Buballa. No entanto, para $\mu \neq 0$, os resultados não conferem. Aparentemente, o cálculo do potencial termodinâmico não funciona direito pois a variação é muito maior do que deveria (o comportamento geral do cálculo parece correto, mas deveria ser menos sensível à variação do parâmetro -- o problema parece estar relacionado a um momento de Fermi diferente de zero). Na figura fica claro que a partir do valor em que $m > \mu_R$, temos $p_F = 0$ e a curva coincide com o caso $\mu_R = p_F = 0$.\footnote{Talvez seja um problema do cálculo do momento de Fermi. Qual é o valor que ele deve ter? Talvez esteja muito alto, ou baixo.}
-
-	\item[Cálculo de acordo com o prog. em Fortran] Nesse caso o cálculo dá bons resultados, porém -- além de eu não saber a origem das expressões -- a primeira leitura que fiz das expressões não bateu com o resultado. Para que eu chegasse ao mesmo valor obtido pelo programa em Fortran, tive que tirar o 2 que multiplicava o termo $G_S \rho_S^2$. Além disso, tirei no vácuo o termo envolvendo $\mu_R$\footnote{Pensando bem, não sei por que o inseri, no potencial do vácuo nas expressões do Buballa também não há tal termo.}. O próprio potencial termodinâmico eu calculei a partir das expressões para a energia, assumindo que $\tilde{\omega} = \varepsilon - \mu_R N_c \rho_B$.
+Na Figura~\ref{Fig:pot_term_analysys_NJL-Buballa_Set_1} mostramos o potencial termodinâmico calculado para $\mu = \mu_r = p_F = \rho_B = 0$, variando $m$ arbitrariamente. O resultado é exatamente igual ao apresentado no Buballa. Ao reproduzir o cálculo em Fortran obtenho bons resultados (Figuras \ref{Fig:energy_Comp_C_F} e \ref{Fig:pressure_Comp_C_F}), porém a primeira leitura que fiz das expressões não bateu com o resultado. Para que eu chegasse ao mesmo valor obtido pelo programa em Fortran, tive que tirar o 2 que multiplicava o termo $G_S \rho_S^2$. Além disso, tirei no vácuo o termo envolvendo $\mu_R$\footnote{Pensando bem, não sei por que o inseri, no potencial do vácuo nas expressões do Buballa também não há tal termo.}. O próprio potencial termodinâmico eu calculei a partir das expressões para a energia, assumindo que $\tilde{\omega} = \varepsilon - \mu_R N_c \rho_B$.
 	
-	Apesar de reproduzir os resultados e eles serem coerentes com aquilo que eu esperava, os resultados não são bons para valores baixos de densidade\footnote{A Débora mencionou que havia um problema com o cálculo em $\rho_B$, por isso o programa em Fortran executa o cálculo variando $\mu_R$, talvez seja isso?}. De qualquer forma, os dados que seguem foram calculados segundo as expressões desse segundo caso, isto é, as expressões do programa em Fortran com as alterações mencionadas acima. Ainda assim, os resultados para o Set 1 do Buballa são estranhos.
-	
-	Os gráficos de energia e pressão foram confrontados com o resultado do cálculo em Fortran e ambas reproduzem bem os resultados obtidos. A versão em Fortran, no entanto, não dá resultados para densidades inferiores a \np[MeV/fm^3]{0.3}.
-\end{description}   
+Apesar de reproduzir os resultados e eles serem coerentes com aquilo que eu esperava, os resultados não são bons para valores baixos de densidade\footnote{A Débora mencionou que havia um problema com o cálculo em $\rho_B$, por isso o programa em Fortran executa o cálculo variando $\mu_R$, talvez seja isso?}. De qualquer forma, os dados que seguem foram calculados segundo as expressões desse segundo caso, isto é, as expressões do programa em Fortran com as alterações mencionadas acima. 
 
+Apesar de inicialmente eu ter feito uma interpretação errada do cálculo utilizando o potencial termodinâmico como em Buballa\cite{Buballa1996}, com a interpretação correta temos resultados adequados para a parametrização D$_1$. Apesar disso, os resultados para o Set 1 do Buballa são estranhos.
+ 
 %%%
 
 \begin{figure*}
@@ -148,13 +141,13 @@ Na Figura~\ref{Fig:pot_term_analysys_NJL-Buballa_Set_1} mostramos o potencial te
 
 \begin{figure*}
 	\input{graphics/Comp_C_F/graph/energy_density_per_particle.tex}
-	\caption{Gráfico comparando os resultados da energia por partícula com o programa em Fortran com o em programa em C. \protect\input{graphics/Comp_C_F/info.tex}}
+	\caption{Gráfico comparando os resultados da energia por partícula com o programa em Fortran com o em programa em C. As linhas estão sobrepostas, indicando que o cálculo funciona. \protect\input{graphics/Comp_C_F/info.tex}}
 	\label{Fig:energy_Comp_C_F}
 \end{figure*}
 
 \begin{figure*}
 	\input{graphics/Comp_C_F/graph/pressure.tex}
-	\caption{Gráfico comparando os resultados da pressão com o programa em Fortran com o em programa em C. \protect\input{graphics/Comp_C_F/info.tex}}
+	\caption{Gráfico comparando os resultados da pressão com o programa em Fortran com o em programa em C. As linhas estão sobrepostas, indicando que o cálculo funciona. \protect\input{graphics/Comp_C_F/info.tex}}
 	\label{Fig:pressure_Comp_C_F}
 \end{figure*}
 

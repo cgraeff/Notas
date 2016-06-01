@@ -44,17 +44,96 @@ A questão é que eu não sei fazer de nenhum dos três jeitos.
 \subsection{Solução através do tensor momento-energia}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Discutir aqui a solução através do tensor momento energia. Tem aquela discussão do Glendenning sobre o valor esperado de um operador no estado de muitas partículas, deveria aparecer antes dessa seção (mas não sei fazer aquilo especificamente para esse caso).
+Pelo que entendi, nesse método precisamos:
+\begin{itemize}
+	\item Calcular o tensor energia-momento a partir da lagrangiana;
+	\item Calcular os valores esperados $\mean{T_{00}}$ e $\mean{T{ii}}$. Para isso teremos que calcular uma expressão do tipo $\mean{\psi^\dagger \vec{\alpha}\cdot\vec{p} + \beta m^*\psi}$;
+	\item Essa expressão deve se separar em duas partes para a energia: $\mean{\psi^\dagger\vec{\alpha}\cdot\vec{p}\psi}$ e $m^*\mean{\psi^\dagger\psi}$. A primeira dá a parte cinética, a segunda é $m^* \rho_s$ ($\beta \equiv \gamma_0$). Como $\mean{\bar{q}q} = -(M - m)/(2G)$ (Buballa report), temos $m = m_0 - 2G_S\rho_s$ e substituindo no lugar do $m$, obtemos $m_0\rho_s - 2G_S\rho_s^2$. Então acho que obtemos no final das contas $\varepsilon = \varepsilon_{kin} + m_0\rho_s - 2G_S\rho_s^2$.
+\end{itemize}
+
+Devido a invariância translacional da lagrangiana, é possível mostrar\footnote{Referência. Melhor, fazer num apêndice. Pensando melhor, não estou vendo nada de interessante nisso. Por que anotei isso? Preciso mostrar que $\varepsilon$ e $p$ podem ser calculadas através de $\mean{T_{00}}$ e $\mean{T_{ii}}$.} (através do teorema de Noether) que existe um tensor tal que:
+\begin{align}
+	T^{\mu\nu} &= \frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi_i)}\partial^\nu\phi_i - \eta^{\mu\nu}\mathcal{L} \\
+	\partial_\mu T^{\mu\nu} &= 0,
+\end{align}
+%
+onde a segunda equação é uma equação de continuidade. Integrando em uma superfície de forma que não haja corrente a atravessando, temos quatro cargas conservadas.
+
+Como o momento canônico é dado por 
+\begin{equation}
+	\pi(x) = \frac{\partial \mathcal{L}}{\partial(\partial_0 \phi)}
+\end{equation}
+%
+e
+\begin{align}
+	\mathcal{H} &= \int_V d\vec{r} T^{00} \\
+	P^k &= \int_V d\vec{r} T^{0k}; \quad k= 1,2,3
+\end{align}
+
+Portanto, dada a invariância por translação, temos que a energia e o momento linear se conservam. Podemos definir o invariante
+\begin{align}
+	P_\mu P^\mu &= E^2 - \vec{P}^2 = M^2, \\
+	P^\mu &= (E, \vec{P}).
+\end{align}
+ 
+Valor esperado de um operador no estado fundamental de um sistema de muitos nucleons\footnote{Também fazer uma explicação melhorzinha e colocar em um apêndice.}. Dado um operador $\Gamma$, temos que o valor esperado no estado fundamental de muitas partículas pode ser calculado através de
+\begin{equation}
+	\mean{\bar\psi\Gamma\psi} = \sum_\kappa \int \frac{d\vec{k}}{(2\pi)^3} (\bar\psi\Gamma\psi)_{\vec{k}\kappa} \theta[\mu-e(k)],
+\end{equation}
+%
+Temos nesta expressão uma soma dos valores esperados do operador nos estados de uma partícula --~representado por $(\bar\psi\Gamma\psi)_{\vec{k}\kappa}$ acima~--em todos os estados ocupados: são varridos os índices de spins e isospin (no caso de nucleons), bem como em todos os valores de momento\footnote{Como o índice é contínuo, a soma é uma integral. A integral é em todos os valores de momento (de zero ao infinito), mas a função $\theta$ é zero se a energia do estado é maior que a energia do estado ocupado de mais alta energia, isto é, é maior que a energia de Fermi.}. 
+
+Tal expressão não é útil, a não ser que saibamos como calcular $(\bar\psi\Gamma\psi)_{\vec{k}\kappa}$. No entanto,
+\begin{equation}
+	\frac{\partial}{\partial \zeta} (\psi^\dagger H_D\psi)_{\vec{k}\kappa} = (\psi^\dagger\frac{\partial H_D}{\partial\zeta}\psi)_{\vec{k}\kappa}
+\end{equation}
+%
+e
+\begin{equation}
+	(\psi^\dagger H_D\psi)_{\vec{k}\kappa} = \underbrace{E(\vec{k}) + g_\omega\omega_0}_{K_0(\vec{k})}.
+\end{equation}
+%
+Portanto,
+\begin{equation}
+	(\psi^\dagger\frac{\partial H_D}{\partial\zeta}\psi)_{\vec{k}\kappa} = \frac{\partial}{\partial\zeta}K(\vec{k}).
+\end{equation}
+%
+Assim, se conhecemos $H_D$, podemos usar suas derivadas para conseguir o operador em que estamos interessados à esquerda, enquanto podemos calcular seu valor com a expressão à direita.\footnote{Fazer os cálculos para $\mean{\bar\psi\gamma_0k_0\psi}$ e $\mean{\bar\psi\vec{\gamma}\cdot\vec{k}\psi}$ utilizando esse método, seguindo o Glendenning.}
+
+No programa que a Débora me passou como referência, o potencial termodinâmico tem uma forma análoga ao caso eNJL:
+\begin{subequations}\label{Eq:Pot_termodinamico_2}
+\begin{align}
+	\varepsilon &= \tilde{\omega} + n_c\mu\rho_B = \varepsilon_{\rm{kin}} + m_0\rho_s - 2G_S\rho_s^2 \\
+	\varepsilon_0 &= \tilde{\omega}_0 + n_c\mu\rho_B = \varepsilon_{\rm{kin}}^0 + m_0\rho_0^s - 2G_S(\rho_0^s)^2 \\
+	\varepsilon_{\rm{kin}} &= -\frac{n_c}{\pi^2} [F_2(m, \Lambda) - F_2(m, p_F)] \\
+	\varepsilon_{\rm{kin}}^0 &= -\frac{n_c}{\pi^2} [F_2(m, \Lambda) - F_2(m, 0)] \\
+	\rho_0^s &= \rho_s|_{m = m_{\rm{vac}}}
+\end{align}
+\end{subequations}
+%
+onde, como na Equação~\eqref{Eq:Energia_kin},
+\begin{equation}
+	F_2(m, p) = \frac{1}{8}\Big((2p^3 - 3M_i^2p)\sqrt{p^2 + M_i^2} + 3M_i^4\ln\frac{p + \sqrt{p^2 + M_i^2}}{M_i}\Big).
+\end{equation}
+%
+Isso se deve ao fato de que a densidade de energia pode ser calculada a partir do potencial termodinâmico através de mais que uma relação. Possivelmente essa esteja relacionada à derivada do potencial termodinâmico em relação à temperatura, ou ao inverso da temperatura. Ver Avancini~\cite{Avancini2004} e~\cite{Avancini2006}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Solução através da lagrangiana}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+As equações de estado são dadas através da lagrangiana através de\cite{Glendenning1983}:
+\begin{align}
+	\varepsilon &= -\mean{\mathcal{L}} + \mean{\bar\psi\gamma_0k_0\psi} \\
+	p &= \mean{\mathcal{L}} + \frac{1}{3} \mean{\bar\psi\vec{\gamma}\cdot\vec{k}\psi}.
+\end{align}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Solução através do potencial termodinâmico}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Obtenção\footnote{Não sei como fazer pra obter tudo isso. Até uma expansão tem no meio de tudo isso.} do potencial termodinâmico (Buballa\cite{Buballa1996}):
+Sair da lagrangiana e obter a expressão abaixo.\cite{Asakawa1989}.
+
 \begin{quote}
 Expanding $\bar{\psi}\psi$ and $\bar{\psi}\gamma^\mu\psi$ about their thermal expectation values we can derive the mean field thermodynamic potential at temperature $T$ and chemical potential $\mu$ [11]. We restrict ourselves to the Hartree approximation. Furthermore in this paper we only consider $T=0$ and $\mu \geqslant 0$. The result for the thermodynamic potential is
 \begin{equation}\label{Eq:Def_pot_termo}
@@ -73,10 +152,10 @@ being the vacuum part ant the medium part of the thermodynamic potential (per vo
 Ainda temos que
 \begin{align}
 	E_p &= \sqrt{m^2+p^2}, \label{Eq:Def_E}\\
-	p_F &= \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2) \label{Eq:Rel_pot_quim_renorm_mom_fermi}
+	p_F &= \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2), \label{Eq:Rel_pot_quim_renorm_mom_fermi}
 \end{align}
-
-Sobre parâmetros:
+%
+onde temos para $\mu_R$:
 \begin{quote}
 	In addition to the external\footnote{É nesse parâmetro que fazemos o \emph{loop}? Ou é uma constante?} parameter $\mu$, $\omega_{\rm{MF}}$ depends on two other parameters, the dynamical fermion mass $m$ and the renormalized chemical potential $\mu_R$, which are related to the scalar density $\langle\bar{\psi}\psi\rangle$ and the vector density $\langle\psi^\dagger\psi\rangle$ at the chemical potential $\mu$ by [11]:
 	\begin{align}
@@ -94,15 +173,19 @@ Resolvendo a equação para $\mu_R$ acima, obtemos
 \begin{align}
 	\mu_R &= \mu - 2G_V(2n_fn_c)\int\frac{d^3p}{(2\pi)^3}\theta(p_F - p) \\
 	&= \mu - \frac{2G_V(2n_fn_c)}{2\pi^2}\int_0^\Lambda p^2 \theta(p_F - p) dp \\
-	&= \mu - \frac{2G_V(n_fn_c)}{3\pi^2}p_F^3
+	&= \mu - \frac{2G_V(n_fn_c)}{3\pi^2}p_F^3 \label{Eq:Expr_pot_quim_renorm}
 \end{align}
 %
-e é possível eliminar a dependência de $\omega_{\rm{MF}}$ na variável $\mu_R$, obtendo algo que depende somente de $m$ (para um dado $\mu$). Definindo então
+e é possível eliminar a dependência de $\omega_{\rm{MF}}$ na variável $\mu_R$, obtendo algo que depende somente de $m$ (para um dado $\mu$).
+
+Definindo então o potencial termodinâmico ``renormalizado''\footnote{Eu estou chamando assim para diferenciar do $\omega$.} $\tilde\omega$:
 \begin{equation}\label{Eq:Def_omega_tilde}
 	\tilde{\omega}(\mu;m) = \omega_{\rm{MF}}(\mu; m, \mu_R(\mu,m)) - \omega_{\rm{MF}}(0; m_{\rm{vac}}, 0),
 \end{equation}
 %
-é possível se obter outras grandezas através das equações\footnote{Se o \emph{loop} é em $\mu_R$, então deve ser possível escrever $\mu_R$ em função de $\rho_B$ através do momento de $p_F$, ou seja, podemos fazer um \emph{loop} em $\rho_B$. De onde vem essa densidade?}
+onde calculamos o valor de $\omega_{\rm{MF}}$ para $\mu = \mu_R = 0$ (o que implica\footnote{Isso pode ser visto na expressão \eqref{Eq:Expr_pot_quim_renorm} ou na expressão \eqref{Eq:Rel_pot_quim_renorm_mom_fermi}} em $p_F = 0$), obtendo uma constante que será diminuída do potencial, resultando em um potencial $\tilde\omega$ nulo quando $m = m_{\rm{vac}}$, $\mu = 0$. A obtenção de $m_{\rm{vac}}$ será discutida adiante.
+
+É possível se obter outras grandezas através das equações\footnote{Obter essas expressões.}
 \begin{align}
 	\rho_B &= \frac{1}{n_c} \langle\psi^\dagger\psi\rangle = \frac{n_f}{3\pi^2}p_F^3, \label{Eq:Rel_Dens_Mom_Fermi_NJL}\\
 	\varepsilon &= \tilde{\omega} + \mu n_c \rho_B, \label{Eq:Energia_omega_tilde}\\
@@ -111,7 +194,13 @@ e é possível eliminar a dependência de $\omega_{\rm{MF}}$ na variável $\mu_R
 %
 onde ``[\dots] for a given $\mu$ these formulas have to be evaluated for the values of $m$ and $\mu_R$ which minimize the thermodynamic potential.''\footnote{É necessário fazer essa minimização para descobrir quais são esses valores antes?}
 
-Comparando as expressões~\eqref{Eq:Eq_Gap_Buballa_1} e~\eqref{Eq:Eq_Gap_Buballa_2} verificamos que
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Equação do gap}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Precisamos resolver a Equação~\eqref{Eq:Eq_Gap_Buballa_1} para determinar a massa efetiva $m$ de maneira auto-consistente. Para $T=0$ e $\mu \geqslant 0$, $\mean{\bar\psi\psi}$ pode ser calculada a partir de $\omega_{\rm{MF}}$, resultando em ~\eqref{Eq:Eq_Gap_Buballa_2}.
+
+Resolvendo as integrais, temos
 \begin{align}
 	\langle\bar{\psi}\psi\rangle &= - 2 n_f n_c \left(\int\frac{d^3p}{(2\pi)^3}\frac{m}{E_p} - \int\frac{d^3p}{(2\pi)^3} \frac{m}{E_p} \theta(p_F - p)\right) \\
 	&= - 2 n_f n_c \left(\int_0^\Lambda\frac{dp}{2\pi^2} \frac{mp^2}{E_p} - \int_0^\Lambda \frac{dp}{2\pi^2} \frac{mp^2}{E_p} \theta(p_F - p)\right)
@@ -130,57 +219,21 @@ onde $F_0(m, p)$ é dada pela expressão~\eqref{Eq:Def_F0_integrado}. Com o aux�
 	&\equiv \rho_s.
 \end{align}
 %
-Tal expressão é a mesma que a dada pela Eq.~\eqref{Eq:Dens_Escalar}, se utilizarmos $n_f = 1$ $n_c = 1$ (caso de hádrons)\footnote{Acredito que para os hádrons temos dois \emph{flavors}, mas na expresssão~\eqref{Eq:Dens_Escalar} temos a densidade ou para prótons, ou para nêutrons, sendo que devemos somar as densidades resultantes, o que equivaleria a usar $n_f = 2$ caso ambas as partículas estivessem sujeitas às mesmas condições.}. Portanto, precisamos resolver a seguinte equação\footnote{Equação do Gap}
+Portanto, precisamos resolver a seguinte equação\footnote{Equação do Gap}
 \begin{equation}\label{Eq:Eq_Gap_NJL}
 m = m_0 - 2 G_S\rho_s.
 \end{equation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Solução para o caso $G_V = 0$}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Em especial, para o caso em que não temos a interação vetorial (o que equivale a dizer que $G_V = 0$, temos que o potencial químico renormalizado é igual ao potencial químico:
+%
+Para isso, basta reescrevermos a expressão acima como
 \begin{equation}
-	\mu_R = \mu.
+	m - m_0 + 2 G_S\rho_s = 0
 \end{equation}
 %
-Dessa forma, podemos solucionar a Eq.~\eqref{Eq:Eq_Gap_Buballa_1} se calcularmos o momento de Fermi através da expressão~\eqref{Eq:Rel_Dens_Mom_Fermi_NJL}, obtendo\footnote{Para calcular a densidade escalar, basta sabermos os valores de $p_F$ e de $\Lambda$.}
-\begin{equation}
-	p_F = \sqrt[3]{\frac{3\pi^2\rho_B}{n_f}}.
-\end{equation}
+e utilizar um método para encontrar zeros de funções, variando $m$ em uma janela de valores que contenha o valor adequado da massa efetiva (entre algo próximo de zero e \np[GeV]{1}, por exemplo). Note que o valor de $\rho_s$ depende de $m$ e deve ser calculado para cada ``chute'' de $m$.
 
-Ao solucionarmos a Eq.~\eqref{Eq:Eq_Gap_Buballa_1}, obteremos o valor de $m$, porém não é possível determinar o valor de $\mu_R$.
-\begin{figure*}
-	\input{graphics/Rel_pot_quim_mom_fermi/graph.tex}
-	\caption{Gráfico da relação~\eqref{Eq:Rel_pot_quim_renorm_mom_fermi} para $m = 100$.}
-\end{figure*}
-Caso $\mu_R^2 > m^2$, temos uma relação simples para $\mu_R$:
-\begin{equation}
-	\mu_R = \sqrt{p_F^2 + m^2}, \quad \textrm{se}~ \mu_R^2 > m^2.
-\end{equation}
-%
-No entanto, para qualquer valor de $\mu_R^2$ menor que $m^2$, não é possível inverter a relação~\eqref{Eq:Rel_pot_quim_renorm_mom_fermi}: todo valor de $\mu_R$ tal que $\mu_R^2 < m^2$ está associado a $p_F = 0$, e não é possível determinar uma inversa pois o elemento $0$ dos valores de $p_F$ levaria a diversos elementos dos valores de $\mu_R$ e, portanto, a relação inversa para $\mu_R^2 < m^2$ não é uma função em tal intervalo.\footnote{Uma interpretação para isso é a de que existe um valor mínimo $\mu_R = m$ para o potencial químico renormalizado.}
-
-Por outro lado, utilizando as Equações~\eqref{Eq:Rel_Dens_Mom_Fermi_NJL} e~\eqref{Eq:Rel_pot_quim_renorm_mom_fermi} podemos escrever
-\begin{equation}
-	\sqrt[3]{\frac{3\pi^2}{n_f} \rho_B} = \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2),
-\end{equation}
-%
-onde $\theta(\mu_R^2 - m^2)$ garante que o lado direito seja estritamente positivo, ou seja
-\begin{equation}
-	\rho_B > 0,
-\end{equation}
-%
-o que é perfeitamente razoável. Consequentemente temos que a expressão para $\mu_R$ é dada por
-\begin{equation}
-	\mu_R = \sqrt{p_F^2 + m^2}.
-\end{equation}
-%
-Isto significa que, se rodarmos em $\mu_R$, temos que $p_F$ é zero para $\mu_R^2 < m^2$, o que resulta no mesmo valor para $m$ (resolvendo a Eq.~\eqref{Eq:Eq_Gap_Buballa_1}) para qualquer valor de $\mu_R$ em tal intervalo. Se acontecer o mesmo com o potencial termodinâmico\footnote{Ver se é esse o caso.} $\tilde{\omega}$, não tem problema algum, pois estaríamos calculando ``o mesmo ponto'' para as equações de estado.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Potencial termodinâmico}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Massa no vácuo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Para calcular as grandezas em que estamos interessados ($p$, $\varepsilon$), precisamos calcular $\tilde{\omega}$. Para calcular tal grandeza, precisamos calcular o valor de $m_{\rm{vac}}$, Eq.~\eqref{Eq:Def_omega_tilde}. Esse valor é dado de forma que\cite{Buballa1996}
 \begin{quote}
@@ -238,94 +291,97 @@ Devemos resolver tal equação através de um método para encontrar zeros de fu
 \subsection{Determinação de $\tilde{\omega}$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{fullwidth}
-
-Para que possamos calcular os valores da pressão $p$ e da energia $\varepsilon$ através das Equações~\eqref{Eq:Energia_omega_tilde} e~\eqref{Eq:Pressao_omega_tilde}, necessitamos de $\tilde{\omega}$. Utilizando as Equações~\eqref{Eq:Def_omega_tilde}, \eqref{Eq:Def_omega_vac}, e~\eqref{Eq:Def_omega_med}, temos:
+Uma vez calculados os valores de $m$, $m_{\rm{vac}}$ e $\mu_R$, precisamos calcular $\tilde\omega$ através de $\omega_{\rm{MF}}$. Temos, através das Equações~\eqref{Eq:Def_omega_tilde}, \eqref{Eq:Def_omega_vac}, e~\eqref{Eq:Def_omega_med}, que:
 \begin{equation}
 \begin{split}
-\tilde{\omega} =&~ \left\{-2 n_f n_c \left[\int\frac{d^3p}{(2\pi)^3} E_p + \int\frac{d^3p}{(2\pi)^3}(\mu_R - E_p)\theta(p_F - p)\right] + \frac{(m-m_0)^2}{4G_S}\right\} \\
-&-\left\{-2 n_f n_c \left[\int\frac{d^3p}{(2\pi)^3}E_p|_{m=m_{\rm{vac}}} + \int\frac{d^3p}{(2\pi)^3}(\underbrace{\mu_R}_{0} - E_p|_{m = m_{\rm{vac}}}) \theta(p_F - p)\right] + \frac{(m_{\rm{vac}} - m_0)^2}{4G_S}\right\}
+\omega_{\rm{MF}} =&~ -2 n_f n_c \left[\int\frac{d^3p}{(2\pi)^3} E_p + \int\frac{d^3p}{(2\pi)^3}(\mu_R - E_p)\theta(p_F - p)\right] \\
+&~+ \frac{(m-m_0)^2}{4G_S}
 \end{split}
 \end{equation}
 %
 Utilizando a expressão~\eqref{Eq:Int_d3p_to_dp}, podemos reescrever tal expressão como (separando a integral de $\mu_R$ e explicitando os limites)
 \begin{equation}
 \begin{split}
-\tilde{\omega} =&~ \left\{- \frac{n_f n_c}{\pi^2} \left[\int_0^\Lambda p^2E_p \; dp - \int_0^\Lambda p^2 E_p \theta(p_F - p)\;dp + \int_0^\Lambda p^2 \mu_R \theta(p_F - p)\;dp \right] + \frac{(m-m_0)^2}{4G_S}\right\} \\
-&-\left\{- \frac{n_f n_c}{\pi^2} \left[\int_0^\Lambda p^2 E_p|_{m=m_{\rm{vac}}} \; dp - \int_0^\Lambda p^2 E_p|_{m = m_{\rm{vac}}} \theta(p_F - p) \; dp\right] + \frac{(m_{\rm{vac}} - m_0)^2}{4G_S}\right\}
+\omega_{\rm{MF}} =&~ - \frac{n_f n_c}{\pi^2} \Big[\int_0^\Lambda p^2E_p \; dp - \int_0^\Lambda p^2 E_p \theta(p_F - p)\;dp \\
+&~\phantom{- \frac{n_f n_c}{\pi^2} \Big[} + \int_0^\Lambda p^2 \mu_R \theta(p_F - p)\;dp \Big] + \frac{(m-m_0)^2}{4G_S}
 \end{split}
 \end{equation}
 
-Na expressão acima, verificamos a existência de dois pares de integrais idênticas --~a menos de uma função degrau $\theta$~-- sendo que estamos calculando a diferença entre elas. Tal resultado será, claramente, zero. Isso não será verdade, no entanto, para $p_F > p$, pois nesse caso a integral que contém a função degrau será zerada. O efeito líquido disso é o de calcularmos somente a integral sem a função $\theta$, porém no intervalo $[p_F, \Lambda]$. Assim,
+Na expressão acima, verificamos a existência de duas integrais idênticas --~a menos de uma função degrau $\theta$~-- sendo que estamos calculando a diferença entre elas. Tal resultado será zero, exceto para $p_F > p$, pois nesse caso a integral que contém a função degrau será zerada. O efeito líquido disso é o de calcularmos somente a integral sem a função $\theta$, porém no intervalo $[p_F, \Lambda]$. Assim,
 \begin{equation}
 \begin{split}
-\tilde{\omega} =&~ \left\{- \frac{n_f n_c}{\pi^2} \left[\int_{p_F}^\Lambda p^2E_p \; dp + \int_0^\Lambda p^2 \mu_R \theta(p_F - p)\;dp \right] + \frac{(m-m_0)^2}{4G_S}\right\} \\
-&-\left\{- \frac{n_f n_c}{\pi^2} \left[\int_{p_F}^\Lambda p^2 E_p|_{m=m_{\rm{vac}}} \; dp \right] + \frac{(m_{\rm{vac}} - m_0)^2}{4G_S}\right\}
+\omega_{\rm{MF}} =&~ - \frac{n_f n_c}{\pi^2} \left[\int_{p_F}^\Lambda p^2E_p \; dp + \int_0^\Lambda p^2 \mu_R \theta(p_F - p)\;dp \right] \\
+&~ + \frac{(m-m_0)^2}{4G_S} \\
 \end{split}
 \end{equation}
-\end{fullwidth}
 %
-Utilizando a Equação~\eqref{Eq:Eq_Gap_NJL}, podemos escrever
-\begin{equation}
-	\frac{(m - m_0)^2}{4G_S} = G_S \rho_s^2
-\end{equation}
-%
-e como $\mu_R$ não depende do momento $p$,
+Como $\mu_R$ não depende do momento $p$, temos
 \begin{equation}
 	\int_0^\Lambda \mu_R \theta(p_F - p) \; dp = \mu_R \int_{0}^{p_F} \; dp = \mu_R\frac{p_F^3}{3}.
 \end{equation}
 %
 Portanto,
 \begin{equation}
-\begin{split}
-\tilde{\omega} =&~ \left\{- \frac{n_f n_c}{\pi^2} \left[\int_{p_F}^\Lambda p^2E_p \; dp \right] - \frac{n_f n_c}{\pi^2} \frac{p_F^3}{3} + G_S\rho_s^2\right\} \\
-&-\left\{- \frac{n_f n_c}{\pi^2} \left[\int_{p_F}^\Lambda p^2 E_p|_{m=m_{\rm{vac}}} \; dp \right] + G_S(\rho_s|_{m = m_{\rm{vac}}})^2\right\}.
-\end{split}
+\omega_{\rm{MF}} = - \frac{n_f n_c}{\pi^2} \left[\int_{p_F}^\Lambda p^2E_p \; dp + \mu_R \frac{p_F^3}{3} \right] + \frac{(m-m_0)^2}{4G_S}.
 \end{equation}
 
-Utilizando a definição de $E_p$, Equação~\eqref{Eq:Def_E}, podemos calcular a integral utilizando
-\begin{align}
-	\int k^2 \sqrt{k^2 + m^2} \;dk &= \frac{1}{4}\left[k E^3 - \frac{1}{2} m^2 k E - \frac{1}{2} m^4\ln\left(\frac{k+E}{m}\right)\right] \\
-	&\equiv F_E(m, k),
-\end{align}
-%
-onde $E = \sqrt{k^2 + m^2}$, o que nos leva a
+Utilizando a definição de $E_p$, Equação~\eqref{Eq:Def_E}, podemos calcular a integral utilizando a expressão \eqref{Eq:Def_F_E}, o que nos leva a
 \begin{equation}\label{Eq:Pot_termodinamico_1}
-\begin{split}
-\tilde{\omega} =&~ \left\{- \frac{n_f n_c}{\pi^2} [F_E(m,\Lambda) - F_E(m, p_F)] - n_c\mu_R \rho_B + G_S\rho_s^2\right\} \\
-&-\left\{- \frac{n_f n_c}{\pi^2} [F_E(m_{\rm{vac}}, \Lambda) - F_E(m_{\rm{vac}}, p_F)] + G_S(\rho_s|_{m = m_{\rm{vac}}})^2\right\},
-\end{split}
-\end{equation}
-%
-onde usamos a Equação~\eqref{Eq:Rel_Dens_Mom_Fermi_NJL} para escrever o termo envolvendo a densidade bariônica $\rho_B$.
-
-O resultado  para $\omega_{\rm{MF}}(0;m_{\rm{vac}},0)$ utilizando o valor obtido através da Eq.~\eqref{Eq:Calculo_m_vac} será uma constante, o que pode ser entendido verificando que a expressão para o potencial termodinâmico nessas condições é calculada a partir de constantes:
-\begin{equation}
-	\omega_{\rm{MF}}(0;m_{\rm{vac}},0) = -\frac{n_f n_c}{\pi^2}\left[F_E(m_{\rm{vac}}, \Lambda) - F_E(m_{\rm{vac}}, p_F)\right] + G_S(\rho_s|_{m=m_{\rm{vac}}})^2.
+\omega_{\rm{MF}} = - \frac{n_f n_c}{\pi^2} \left[[F_E(m,\Lambda) - F_E(m, p_F)] + \mu_R \frac{p_F^3}{3} \right] + \frac{(m-m_0)^2}{4G_S}.
 \end{equation}
 
-A expressão acima difere do programa que a Débora me passou como referência. Em tal programa, o potencial termodinâmico tem uma forma análoga ao caso eNJL:\footnote{Nas contas da Débora, parece que isso se deve a um termo que pode ser separado em duas partes. Se for separado, imagino que saia uma integral $\int dp p^4/E$ e um $\rho_s$, mas não tenho certeza.}
-\begin{subequations}\label{Eq:Pot_termodinamico_2}
-\begin{align}
-	\varepsilon &= \tilde{\omega} + n_c\mu\rho_B = \varepsilon_{\rm{kin}} + m_0\rho_s - 2G_S\rho_s^2 \\
-	\varepsilon_0 &= \tilde{\omega}_0 + n_c\mu\rho_B = \varepsilon_{\rm{kin}}^0 + m_0\rho_0^s - 2G_S(\rho_0^s)^2 \\
-	\varepsilon_{\rm{kin}} &= -\frac{n_c}{\pi^2} [F_2(m, \Lambda) - F_2(m, p_F)] \\
-	\varepsilon_{\rm{kin}}^0 &= -\frac{n_c}{\pi^2} [F_2(m, \Lambda) - F_2(m, 0)] \\
-	\rho_0^s &= \rho_s|_{m = m_{\rm{vac}}}
-\end{align}
-\end{subequations}
-%
-onde, como na Equação~\eqref{Eq:Energia_kin},
-\begin{equation}
-	F_2(m, p) = \frac{1}{8}\Big((2p^3 - 3M_i^2p)\sqrt{p^2 + M_i^2} + 3M_i^4\ln\frac{p + \sqrt{p^2 + M_i^2}}{M_i}\Big).
+O resultado  para $\omega_{\rm{MF}}(0;m_{\rm{vac}},0)$ utilizando o valor para $m_{\rm{vac}}$ obtido através da Eq.~\eqref{Eq:Calculo_m_vac} será uma constante, o que pode ser entendido verificando que a expressão para o potencial termodinâmico nessas condições é calculada a partir de constantes. Além disso, como $\mu = \mu_R = 0$, temos que $p_F = 0$:
+\begin{equation}\label{Eq:Pot_termodinamico_1_vacuo}
+\omega_{\rm{MF}}(0;m_{\rm{vac}},0) = - \frac{n_f n_c}{\pi^2}[F_E(m_{\rm{vac}},\Lambda) - F_E(m_{\rm{vac}}, 0)] + \frac{(m-m_0)^2}{4G_S}.
 \end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Solução para o caso $G_V = 0$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Isso se deve ao fato de que a densidade de energia pode ser calculada a partir do potencial termodinâmico através de mais que uma relação. Possivelmente essa esteja relacionada à derivada do potencial termodinâmico em relação à temperatura, ou ao inverso da temperatura. Ver Avancini~\cite{Avancini2004} e~\cite{Avancini2006}.
+%Em especial, para o caso em que não temos a interação vetorial (o que equivale a dizer que $G_V = 0$, temos que o potencial químico renormalizado é igual ao potencial químico:
+%\begin{equation}
+%	\mu_R = \mu.
+%\end{equation}
+%
+%Dessa forma, podemos solucionar a Eq.~\eqref{Eq:Eq_Gap_Buballa_1} se calcularmos o momento de Fermi através da expressão~\eqref{Eq:Rel_Dens_Mom_Fermi_NJL}, obtendo\footnote{Para calcular a densidade escalar, basta sabermos os valores de $p_F$ e de $\Lambda$.}
+%\begin{equation}
+%	p_F = \sqrt[3]{\frac{3\pi^2\rho_B}{n_f}}.
+%\end{equation}
+%
+%Ao solucionarmos a Eq.~\eqref{Eq:Eq_Gap_Buballa_1}, obteremos o valor de $m$, porém não é possível determinar o valor de $\mu_R$.
+%\begin{figure*}
+%	\input{graphics/Rel_pot_quim_mom_fermi/graph.tex}
+%	\caption{Gráfico da relação~\eqref{Eq:Rel_pot_quim_renorm_mom_fermi} para $m = 100$.}
+%\end{figure*}
+%Caso $\mu_R^2 > m^2$, temos uma relação simples para $\mu_R$:
+%\begin{equation}
+%	\mu_R = \sqrt{p_F^2 + m^2}, \quad \textrm{se}~ \mu_R^2 > m^2.
+%\end{equation}
+%
+%No entanto, para qualquer valor de $\mu_R^2$ menor que $m^2$, não é possível inverter a relação~\eqref{Eq:Rel_pot_quim_renorm_mom_fermi}: todo valor de $\mu_R$ tal que $\mu_R^2 < m^2$ está associado a $p_F = 0$, e não é possível determinar uma inversa pois o elemento $0$ dos valores de $p_F$ levaria a diversos elementos dos valores de $\mu_R$ e, portanto, a relação inversa para $\mu_R^2 < m^2$ não é uma função em tal intervalo.\footnote{Uma interpretação para isso é a de que existe um valor mínimo $\mu_R = m$ para o potencial químico renormalizado.}
 
+%Por outro lado, utilizando as Equações~\eqref{Eq:Rel_Dens_Mom_Fermi_NJL} e~\eqref{Eq:Rel_pot_quim_renorm_mom_fermi} podemos escrever
+%\begin{equation}
+%	\sqrt[3]{\frac{3\pi^2}{n_f} \rho_B} = \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2),
+%\end{equation}
+%
+%onde $\theta(\mu_R^2 - m^2)$ garante que o lado direito seja estritamente positivo, ou seja
+%\begin{equation}
+%	\rho_B > 0,
+%\end{equation}
+%
+%o que é perfeitamente razoável. Consequentemente temos que a expressão para $\mu_R$ é dada por
+%\begin{equation}
+%	\mu_R = \sqrt{p_F^2 + m^2}.
+%\end{equation}
+%
+%Isto significa que, se rodarmos em $\mu_R$, temos que $p_F$ é zero para $\mu_R^2 < m^2$, o que resulta no mesmo valor para $m$ (resolvendo a Eq.~\eqref{Eq:Eq_Gap_Buballa_1}) para qualquer valor de $\mu_R$ em tal intervalo. Se acontecer o mesmo com o potencial termodinâmico\footnote{Ver se é esse o caso.} $\tilde{\omega}$, não tem problema algum, pois estaríamos calculando ``o mesmo ponto'' para as equações de estado.
+%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Equações de estado} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Fase de hádrons: eNJL} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 A partir da lagrangiana \eqref{Eq:Lagrangiana_eNLJ_Pais}, é possível determinar  o potencial termodinâmico\footnote{Potencial Grand-canônico, ou potencial de Landau.} por unidade de volume, dado por (em Tsue~\cite{japoneses}, o potencial é \emph{definido} como $\omega = \langle\langle \mathcal{H}^{MF}\rangle\rangle - \mu\langle\langle\mathcal{N}\rangle\rangle - \frac{1}{\beta}\langle\langle\mathcal{S}\rangle\rangle$\footnote{Os termos $\langle\langle \cdot \rangle\rangle$ são a Hamiltoniana de campo médio, a densidade bariônica, e algo que pode ser a entropia (eu acho). Isso tem que sair de alguma coisa da termodinâmica, tipo $\omega (T, m) = (T/V) \ln Z$, como poderia ser \emph{definido}?}, o que se traduz em uma expressão similar a essa que segue)
 \begin{equation}\label{Eq:potencial_termodinamico}
@@ -445,6 +501,20 @@ As equações de estado para pressão $P$ e densidade de energia $\varepsilon$ s
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%
+\section{Apêndice}
+%%%%%%%%%%%%%%%%%%
+
+Colocar expressões usadas no capítulo aqui, pra não poluir o texto.
+
+trazer: Eq.~\ref{Eq:Int_d3p_to_dp}, \eqref{Eq:Integ_momento_quad}, \eqref{Eq:Def_F0_integrado}
+
+Com $E = \sqrt{k^2 + m^2}$, 
+\begin{align} \label{Eq:Def_F_E}
+	\int k^2 \sqrt{k^2 + m^2} \;dk &= \frac{1}{4}\left[k E^3 - \frac{1}{2} m^2 k E - \frac{1}{2} m^4\ln\left(\frac{k+E}{m}\right)\right] \\
+	&\equiv F_E(m, k),
+\end{align}
+
 %%%%%%%%%%%%%%%%%%%%%%%%
 \section{Próximas ações}
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -480,8 +550,8 @@ As equações de estado para pressão $P$ e densidade de energia $\varepsilon$ s
 				\end{itemize}
 			\item Ver o cálculo a partir do potencial termodinâmico (ver Tese do James, tem a parte cinética pelo menos);
 				\begin{itemize}
-					\item Ler Asawa \& Yazaki, Nuclear Physics A504 1989 668-684;
-					\item Alterar notas para refletir interpretação correta do cálculo de $\tilde{\omega}$;
+					\item[\checkmark] Alterar notas para refletir interpretação correta do cálculo de $\tilde{\omega}$;
+					\item Ler Asakawa \& Yazaki, Nuclear Physics A504 1989 668-684;
 					\item Determinar Hamiltoniana;
 					\item Determinar função partição;
 					\item Determinar potencial termodinâmico;
