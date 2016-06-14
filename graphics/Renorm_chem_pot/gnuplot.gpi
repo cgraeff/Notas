@@ -1,0 +1,9 @@
+set term tikz
+
+set ylabel '$\mu_R$ (MeV)'
+set xlabel '$m$ (MeV)'
+
+set out 'renorm_chem_pot.tex'
+plot "renormalized_chemical_potential_1.dat" w l t '$\mu = 430$ (MeV)', \
+	 "renormalized_chemical_potential_2.dat" w l t '$\mu = 440$ (MeV)', \
+	 "renormalized_chemical_potential_3.dat" w l t '$\mu = 444.3$ (MeV)'

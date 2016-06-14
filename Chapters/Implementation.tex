@@ -30,7 +30,7 @@ Dessa forma, as equações discutidas nos capítulos anteriores precisam ter sua
 \subsection{Algoritmo}
 %%%%%%%%%%%%%%%%%%%%%%
 
-Como podemos definir as variáveis de loop? Em geral o loop é na densidade, ou no potencial químico, mas existem equações para essas duas variáveis. De alguma forma as equações são invertidas, e poderíamos --~em tese~-- ter possibilidades diferentes de escolha. Poderíamos até rodar no momento de Fermi, pelo que entendi. Quais são as razões para as escolhas que são feitas.
+Como podemos definir as variáveis de loop? Em geral o loop é na densidade, ou no potencial químico, mas existem equações para essas duas variáveis. De alguma forma as equações são invertidas, e poderíamos --~em tese~-- ter possibilidades diferentes de escolha. Poderíamos até rodar no momento de Fermi, pelo que entendi. Quais são as razões para as escolhas que são feitas?\footnote{Pelo que entendi, rodar variando a densidade é a escolha mais natural.}
 
 Uma vez definida a variável de laço e as expressões para as demais variáveis que dependem unicamente dela, a solução do problema consiste em determinar:
 \begin{enumerate}
@@ -97,10 +97,9 @@ Para o cálculo do potencial termodinâmico, segundo a Equação~\ref{Eq:Pot_ter
 \end{align}
 %
 logo,
-\begin{align}
-	\tilde{\omega} &= \left\{- (\hbar c)^{-3} \cdot [F_E(m, \Lambda) - F_E(m, p_F)] - n_fn_c\mu_R\rho_B + (\hbar c) \cdot G_S\rho_S^2\right\} - \omega_0 \\
-	\omega_0 &= - (\hbar c)^{-3} \cdot [F_E(m_{\rm{vac}}, \Lambda) - F_E(m_{\rm{vac}}, p_F)] - n_fn_c\mu_R\rho_B + (\hbar c) \cdot G_S(\rho_S|_{m = m_{\rm{vac}}})^2
-\end{align}
+\begin{equation}
+	\omega_{\rm{MF}} = \left\{- (\hbar c)^{-3} \cdot [F_E(m, \Lambda) - F_E(m, p_F)] - n_fn_c\mu_R\rho_B + (\hbar c) \cdot G_S\rho_S^2\right\}
+\end{equation}
 
 Para o cálculo do potencial termodinâmico através das expressões~\eqref{Eq:Pot_termodinamico_2}, temos
 \begin{subequations}
@@ -118,11 +117,30 @@ Para o cálculo do potencial termodinâmico através das expressões~\eqref{Eq:P
 
 Consigo reproduzir\footnote{Exceto o do Set 1, que dá \np[MeV]{311.4}.} o valor da massa $m_{\rm{vac}}$ do Buballa~\cite{Buballa1996}, e os gráficos da massa efetiva e da densidade escalar se comportam de acordo com as expectativas (são parecidos com o caso de hádrons, quando $m_0 \neq 0$ a massa são vai a zero, e a densidade escalar tende a verticalizar próximo do valor da densidade máxima no caso $m_0 = 0$.).
 
-Na Figura~\ref{Fig:pot_term_analysys_NJL-Buballa_Set_1} mostramos o potencial termodinâmico calculado para $\mu = \mu_r = p_F = \rho_B = 0$, variando $m$ arbitrariamente. O resultado é exatamente igual ao apresentado no Buballa. Ao reproduzir o cálculo em Fortran obtenho bons resultados (Figuras \ref{Fig:energy_Comp_C_F} e \ref{Fig:pressure_Comp_C_F}), porém a primeira leitura que fiz das expressões não bateu com o resultado. Para que eu chegasse ao mesmo valor obtido pelo programa em Fortran, tive que tirar o 2 que multiplicava o termo $G_S \rho_S^2$. Além disso, tirei no vácuo o termo envolvendo $\mu_R$\footnote{Pensando bem, não sei por que o inseri, no potencial do vácuo nas expressões do Buballa também não há tal termo.}. O próprio potencial termodinâmico eu calculei a partir das expressões para a energia, assumindo que $\tilde{\omega} = \varepsilon - \mu_R N_c \rho_B$.
+Na Figura~\ref{Fig:pot_term_analysys_NJL-Buballa_Set_1} mostramos o potencial termodinâmico calculado para $\mu = \mu_r = p_F = \rho_B = 0$, variando $m$ arbitrariamente. O resultado é exatamente igual ao apresentado no Buballa. Também consigo reproduzir um gráfico similar que está no Report.
+
+Ao adicionar termos em $G_V$, no entanto, não consigo reproduzir a Figura 2.8 (direita) do Report. Para poder variar o potencial termodinâmico com a massa $m$, preciso determinar o valor de $\mu_R$, sendo que $\mu$ é dado como um parâmetro. Podemos escrever a equação para $\mu_R$ como uma equação de gap:
+\begin{equation}\label{Eq:Renorm_chem_pot_auto_1}
+	\mu_R = \mu - \frac{2G_V n_fn_c}{3\pi^2}p_F^3,
+\end{equation}
+%
+porém, temos que
+\begin{equation}\label{Eq:Renorm_chem_pot_auto_2}
+	p_F = \sqrt{\mu_R - m^2} \theta(\mu_R^2 - m^2).
+\end{equation}
+%
+Temos que resolver as equações acima auto-consistentemente, isto é, devemos achar o zero da função
+\begin{equation}
+	f(\mu_R) = \mu_R - \mu + \frac{2G_V n_fn_c}{3\pi^2} \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2).
+\end{equation}
+%
+Os resultados obtidos podem ser vistos na Fig.~\ref{Fig:Renorm_chem_pot} para $\mu \neq 0$. Para $\mu = 0$, a única solução possível é $\mu_R = 0$, já que nesse caso temos que a função é estritamente positiva (veja que o argumento da raíz é real, o que é garantido pela função degrau; devido a isso, o argumento é estritamente positivo). O gráfico do potencial obtido pode ser visto na Fig.~\ref{Fig:Fig2.8RBubR_repro}. O caso $\mu = 0$ confere com a referência, os demais são excessivamente negativos e não apresentam o mínimo local esperado. No entanto, se o termo em $G_V$ for adicionado com o sinal trocado (com um sinal negativo), os resultados são extremamente próximos (Fig.~\ref{Fig:Fig2.8RBubR_repro_s}).
+
+Ao reproduzir o cálculo em Fortran obtenho bons resultados (Figuras \ref{Fig:energy_Comp_C_F} e \ref{Fig:pressure_Comp_C_F}), porém a primeira leitura que fiz das expressões não bateu com o resultado. Para que eu chegasse ao mesmo valor obtido pelo programa em Fortran, tive que tirar o 2 que multiplicava o termo $G_S \rho_S^2$. Além disso, tirei no vácuo o termo envolvendo $\mu_R$\footnote{Pensando bem, não sei por que o inseri, no potencial do vácuo nas expressões do Buballa também não há tal termo.}. O próprio potencial termodinâmico eu calculei a partir das expressões para a energia, assumindo que $\tilde{\omega} = \varepsilon - \mu_R N_c \rho_B$.
 	
 Apesar de reproduzir os resultados e eles serem coerentes com aquilo que eu esperava, os resultados não são bons para valores baixos de densidade\footnote{A Débora mencionou que havia um problema com o cálculo em $\rho_B$, por isso o programa em Fortran executa o cálculo variando $\mu_R$, talvez seja isso?}. De qualquer forma, os dados que seguem foram calculados segundo as expressões desse segundo caso, isto é, as expressões do programa em Fortran com as alterações mencionadas acima. 
 
-Apesar de inicialmente eu ter feito uma interpretação errada do cálculo utilizando o potencial termodinâmico como em Buballa\cite{Buballa1996}, com a interpretação correta temos resultados adequados para a parametrização D$_1$. Apesar disso, os resultados para o Set 1 do Buballa são estranhos.
+Apesar de inicialmente eu ter feito uma interpretação errada do cálculo utilizando o potencial termodinâmico como em Buballa\cite{Buballa1996}, com a interpretação correta temos resultados adequados para a parametrização D$_1$. Podemos destacar a 
  
 %%%
 
@@ -137,6 +155,24 @@ Apesar de inicialmente eu ter feito uma interpretação errada do cálculo utili
 	\includegraphics[width=0.45\textwidth]{graphics/Therm_pot_analysis/Pot_buballa.png}
 	\caption{Gráfico do potencial termodinâmico $\tilde{\omega}$ obtido variando $m$ arbitrariamente, para o valor $\mu = 0$.}
 	\label{Fig:pot_term_analysys_Buballa_NJL-Buballa_Set_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Renorm_chem_pot/renorm_chem_pot.tex}
+	\caption{Gráfico de $\mu_R$ obtido autoconsistentemente a partir das Equações~\eqref{Eq:Renorm_chem_pot_auto_1} e~\eqref{Eq:Renorm_chem_pot_auto_2} para diversos valores de $\mu$ e variando-se $m$. \protect\input{graphics/Renorm_chem_pot/info.tex}}
+	\label{Fig:Renorm_chem_pot}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Fig2.8RBubR/Fig2.8RBubR.tex}
+	\caption{Gráfico de $\tilde\omega$ obtido para o caso $G_V \neq 0$, variando-se $m$. \protect\input{graphics/Fig2.8RBubR/info.tex}}
+	\label{Fig:Fig2.8RBubR_repro}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Fig2.8RBubR/Fig2.8RBubR_s.tex}
+	\caption{Gráfico de $\tilde\omega$ obtido para o caso $G_V \neq 0$, variando-se $m$. Nesta figura o termo em $G_V$ foi adicionado com o sinal trocado (negativo). \protect\input{graphics/Fig2.8RBubR/info.tex}}
+	\label{Fig:Fig2.8RBubR_repro_s}
 \end{figure*}
 
 \begin{figure*}
@@ -504,7 +540,10 @@ NJL:
 			\item[\checkmark] Reescrever prog. para que $\omega_{MF}$ seja calculado com potenciais químicos como entrada; Calcular o caso do vácuo com a mesma função;
 			\item Atualizar notas com caso $G_V \neq 0$;
 			\item[\checkmark] Programar caso $G_V \neq 0$;
-			\item Testar caso $G_V \neq 0$;
+			\item[\checkmark] Testar caso $G_V \neq 0$;
+				\begin{itemize}
+					\item Só funciona com o termo em $G_V$ no potencial termodinâmico com o sinal trocado (negativo). Onde está o problema? No cálculo do potencial termodinâmico (artigos), na implementação, é uma coincidência?
+				\end{itemize}
 		\end{itemize}
 	\item Dúvidas:
 		\begin{itemize}

@@ -160,7 +160,7 @@ onde temos para $\mu_R$:
 	In addition to the external\footnote{É nesse parâmetro que fazemos o \emph{loop}? Ou é uma constante?} parameter $\mu$, $\omega_{\rm{MF}}$ depends on two other parameters, the dynamical fermion mass $m$ and the renormalized chemical potential $\mu_R$, which are related to the scalar density $\langle\bar{\psi}\psi\rangle$ and the vector density $\langle\psi^\dagger\psi\rangle$ at the chemical potential $\mu$ by [11]:
 	\begin{align}
 		m &= m_0 - 2G_S\langle\bar{\psi}\psi\rangle, \label{Eq:Eq_Gap_Buballa_1}\\
-		\mu_R &= \mu - 2G_V\langle\psi^\dagger\psi\rangle.
+		\mu_R &= \mu - 2G_V\langle\psi^\dagger\psi\rangle. \label{Eq:Eq_Gap_Pot_Quim_Renorm}
 	\end{align}
 	These parameter have to be determined self-consistently by calculating $\langle\bar{\psi}\psi\rangle$ and $\langle\psi^\dagger\psi\rangle$ from $\omega_{\rm{MF}}$. It can be shown that the self-consistent solution correspond to the extrema of $\omega_{\rm{MF}}$ as a function of $m$ and $\mu_R$. This leads to a set of coupled equations for $m$ and $\mu_R$ which reads for $T = 0$ and $\mu \geqslant 0$:
 \begin{align}
@@ -287,12 +287,23 @@ multiplicando por $2G_S$, obtemos uma equação equivalente:
 %
 Devemos resolver tal equação através de um método para encontrar zeros de função, tal como é feito para a equação do gap.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Determinação de $\tilde{\omega}$}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Determinação de $\tilde{\omega}$ para o caso $G_V = 0$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Se ignorarmos o termo em $G_V$, temos que 
+\begin{equation}
+	\mu_R = \mu
+\end{equation}
+%
+e também que o termo $(\mu-\mu_r)^2/ 4G_V$ não contribui no potencial termodinâmico. Se escolhermos efetuar o cálculo variando $\rho_B$ arbitrariamente, podemos calcular as demais variáveis através de
+\begin{align}
+	p_F &= \sqrt[3]{3 \pi^2 \rho_B / N_f} \\
+	\mu_R &= \sqrt{p_F^2 + m^2}
+\end{align}
 
 Uma vez calculados os valores de $m$, $m_{\rm{vac}}$ e $\mu_R$, precisamos calcular $\tilde\omega$ através de $\omega_{\rm{MF}}$. Temos, através das Equações~\eqref{Eq:Def_omega_tilde}, \eqref{Eq:Def_omega_vac}, e~\eqref{Eq:Def_omega_med}, que:
-\begin{equation}
+\begin{equation}\label{Eq:Pot_term_MF_sem_G_V}
 \begin{split}
 \omega_{\rm{MF}} =&~ -2 n_f n_c \left[\int\frac{d^3p}{(2\pi)^3} E_p + \int\frac{d^3p}{(2\pi)^3}(\mu_R - E_p)\theta(p_F - p)\right] \\
 &~+ \frac{(m-m_0)^2}{4G_S}
@@ -335,9 +346,30 @@ O resultado  para $\omega_{\rm{MF}}(0;m_{\rm{vac}},0)$ utilizando o valor para $
 \omega_{\rm{MF}}(0;m_{\rm{vac}},0) = - \frac{n_f n_c}{\pi^2}[F_E(m_{\rm{vac}},\Lambda) - F_E(m_{\rm{vac}}, 0)] + \frac{(m-m_0)^2}{4G_S}.
 \end{equation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Solução para o caso $G_V = 0$}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Determinação de $\tilde\omega$ para o caso $G_V \neq 0$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Para o caso $G_V \neq 0$, adicionamos o termo 
+\begin{equation}
+	(\mu-\mu_R)^2 / 4G_V
+\end{equation}
+%
+à Equação~\eqref{Eq:Pot_term_MF_sem_G_V}, o que resulta em 
+\begin{equation}\label{Eq:Pot_termodinamico_1_G_V_neq_0}
+\begin{split}
+\omega_{\rm{MF}} =&~ - \frac{n_f n_c}{\pi^2} \left[[F_E(m,\Lambda) - F_E(m, p_F)] + \mu_R \frac{p_F^3}{3} \right] \\
+&+ \frac{(m-m_0)^2}{4G_S} - \frac{(\mu - \mu_R)^2}{4G_V}.
+\end{split}
+\end{equation}
+%
+onde $\mu$ pode ser calculado invertendo a relação~\eqref{Eq:Eq_Gap_Pot_Quim_Renorm}, obtendo-se
+\begin{equation}
+	\mu = \mu_R + \frac{2G_V N_fN_c}{3\pi^2} \cdot \frac{1}{(\hbar c)^2} \cdot p_F^3.
+\end{equation}
+%
+O potencial termodinâmico no vácuo ($\omega_{\rm{MF}}(0; m_{\rm{vac}}, 0)$) não é afetado pelo termo em $G_V$, o que pode ser visto da Equação~\eqref{Eq:Pot_termodinamico_1_G_V_neq_0} ao se tomar $\mu = \mu_R = 0$.
+
 %
 %Em especial, para o caso em que não temos a interação vetorial (o que equivale a dizer que $G_V = 0$, temos que o potencial químico renormalizado é igual ao potencial químico:
 %\begin{equation}
@@ -380,7 +412,7 @@ O resultado  para $\omega_{\rm{MF}}(0;m_{\rm{vac}},0)$ utilizando o valor para $
 %
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Fase de hádrons: eNJL} 
+\section{Fase de hádrons: eNJL} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 A partir da lagrangiana \eqref{Eq:Lagrangiana_eNLJ_Pais}, é possível determinar  o potencial termodinâmico\footnote{Potencial Grand-canônico, ou potencial de Landau.} por unidade de volume, dado por (em Tsue~\cite{japoneses}, o potencial é \emph{definido} como $\omega = \langle\langle \mathcal{H}^{MF}\rangle\rangle - \mu\langle\langle\mathcal{N}\rangle\rangle - \frac{1}{\beta}\langle\langle\mathcal{S}\rangle\rangle$\footnote{Os termos $\langle\langle \cdot \rangle\rangle$ são a Hamiltoniana de campo médio, a densidade bariônica, e algo que pode ser a entropia (eu acho). Isso tem que sair de alguma coisa da termodinâmica, tipo $\omega (T, m) = (T/V) \ln Z$, como poderia ser \emph{definido}?}, o que se traduz em uma expressão similar a essa que segue)
@@ -561,6 +593,6 @@ Com $E = \sqrt{k^2 + m^2}$,
 		\end{itemize}
 	\item Dúvidas:
 		\begin{itemize}
-			\item Em Buballa\cite{Buballa1996}, $\mu$ é um ``parâmetro externo''. Que parâmetro é esse? Como ele é determinado? (Achei que fosse a partir do potencial termodinâmico, mas o potencial termodinâmico é calculado a partir dele! Só tem equação para o potencial químico efetivo $\mu_R$.)\footnote{É pra ser algo que se calcula do potencial termodinâmico, de alguma maneira ele tem que sair daí.}
+			\item Em Buballa\cite{Buballa1996}, $\mu$ é um ``parâmetro externo''. Que parâmetro é esse? Como ele é determinado? (Achei que fosse a partir do potencial termodinâmico, mas o potencial termodinâmico é calculado a partir dele! Só tem equação para o potencial químico efetivo $\mu_R$.)\footnote{Parece ser um parâmetro que vem dos dados experimentais de decaimento e \emph{branching ratio} do píon.}
 		\end{itemize}
 \end{itemize}

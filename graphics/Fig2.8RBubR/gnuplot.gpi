@@ -1,0 +1,19 @@
+set term tikz
+
+set out 'Fig2.8RBubR.tex'
+
+set ylabel '$\tilde\omega$ (MeV)'
+set xlabel '$m$ (MeV)'
+set yrange[-200:200]
+plot "Fig2.8R_BuballaR_0.dat" w l t '$\mu = 0$ (MeV)', \
+	 "Fig2.8R_BuballaR_1.dat" w l t '$\mu = 430$ (MeV)', \
+	 "Fig2.8R_BuballaR_2.dat" w l t '$\mu = 440$ (MeV)', \
+	 "Fig2.8R_BuballaR_3.dat" w l t '$\mu = 444.3$ (MeV)'
+
+set out 'Fig2.8RBubR_s.tex'
+
+set yrange[-20:10]
+plot "Fig2.8R_BuballaR_0_s.dat" w l t '$\mu = 0$ (MeV)', \
+	 "Fig2.8R_BuballaR_1_s.dat" w l t '$\mu = 430$ (MeV)', \
+	 "Fig2.8R_BuballaR_2_s.dat" w l t '$\mu = 440$ (MeV)', \
+	 "Fig2.8R_BuballaR_3_s.dat" w l t '$\mu = 444.3$ (MeV)', \
