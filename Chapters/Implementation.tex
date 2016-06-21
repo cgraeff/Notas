@@ -545,8 +545,14 @@ NJL:
 					\item Só funciona com o termo em $G_V$ no potencial termodinâmico com o sinal trocado (negativo). Onde está o problema? No cálculo do potencial termodinâmico (artigos), na implementação, é uma coincidência?
 				\end{itemize}
 		\end{itemize}
-	\item Dúvidas:
+	\item Adição de temperatura:
 		\begin{itemize}
-			\item Como fica a adição de temperatura para tudo isso?
+			\item[\checkmark] Implementação
+			\item No cálculo das iterações, temos que a matriz jacobiana é singular pois $f_2(m, \mu_R) = \rho_B - \alpha\int_0^\infty p^2 (n_p - \bar{n}_p) dp$ tem uma variação desprezível ao variarmos $m$, $\mu_R$.
+			\item Mesmo que seja possível fazer esse cálculo com mais precisão, ou uma maracutaia numérica, ainda temos a possibilidade de que não existam raízes comuns às duas equações. Digo isso por que ao se fazer os mapas com curvas de nível, aparentemente em alguns casos não há interseção entre as curvas de nível de cada caso. Talvez seja por que os mapas tem uma resolução baixa, mas em alguns casos, parecia que as curvas eram muito distantes. De qualquer forma, não podemos descartar a possibilidade de que estejam ocorrendo problemas devido aos pequenos valores de $f_2(m,\mu_R)$.
+			\item Como integrar a solução para $T \neq 0$ à solução para $T = 0$ no programa?
+			\item Adicionar mapas aos resultados (preferencialmente em alta resolução e depois que tudo estiver funcionando OK);
 		\end{itemize}
+	\item Atualizar README.md
+	\item Implementar testes para reproduzir as figuras 2.9, 2.10 e 2.12 do Buballa Report
 \end{itemize}
