@@ -134,7 +134,7 @@ Temos que resolver as equações acima auto-consistentemente, isto é, devemos a
 	f(\mu_R) = \mu_R - \mu + \frac{2G_V n_fn_c}{3\pi^2} \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2).
 \end{equation}
 %
-Os resultados obtidos podem ser vistos na Fig.~\ref{Fig:Renorm_chem_pot} para $\mu \neq 0$. Para $\mu = 0$, a única solução possível é $\mu_R = 0$, já que nesse caso temos que a função é estritamente positiva (veja que o argumento da raíz é real, o que é garantido pela função degrau; devido a isso, o argumento é estritamente positivo). O gráfico do potencial obtido pode ser visto na Fig.~\ref{Fig:Fig2.8RBubR_repro}. O caso $\mu = 0$ confere com a referência, os demais são excessivamente negativos e não apresentam o mínimo local esperado. No entanto, se o termo em $G_V$ for adicionado com o sinal trocado (com um sinal negativo), os resultados são extremamente próximos (Fig.~\ref{Fig:Fig2.8RBubR_repro_s}).
+Os resultados obtidos podem ser vistos na Fig.~\ref{Fig:Renorm_chem_pot} para $\mu \neq 0$. Para $\mu = 0$, a única solução possível é $\mu_R = 0$, já que nesse caso temos que a função é estritamente positiva (veja que o argumento da raíz é real, o que é garantido pela função degrau; devido a isso, o argumento é estritamente positivo). O gráfico do potencial obtido pode ser visto na Fig.~\ref{Fig:Fig2.8RBubR_repro}. O caso $\mu = 0$ confere com a referência, os demais são excessivamente negativos e não apresentam o mínimo local esperado. No entanto, se o termo em $G_V$ for adicionado com o sinal trocado\footnote{A Débora lembra de ter encontrado esse tipo de problema também.} (com um sinal negativo), os resultados são extremamente próximos (Fig.~\ref{Fig:Fig2.8RBubR_repro_s}).
 
 Ao reproduzir o cálculo em Fortran obtenho bons resultados (Figuras \ref{Fig:energy_Comp_C_F} e \ref{Fig:pressure_Comp_C_F}), porém a primeira leitura que fiz das expressões não bateu com o resultado. Para que eu chegasse ao mesmo valor obtido pelo programa em Fortran, tive que tirar o 2 que multiplicava o termo $G_S \rho_S^2$. Além disso, tirei no vácuo o termo envolvendo $\mu_R$\footnote{Pensando bem, não sei por que o inseri, no potencial do vácuo nas expressões do Buballa também não há tal termo.}. O próprio potencial termodinâmico eu calculei a partir das expressões para a energia, assumindo que $\tilde{\omega} = \varepsilon - \mu_R N_c \rho_B$.
 	
@@ -550,9 +550,15 @@ NJL:
 			\item[\checkmark] Implementação
 			\item No cálculo das iterações, temos que a matriz jacobiana é singular pois $f_2(m, \mu_R) = \rho_B - \alpha\int_0^\infty p^2 (n_p - \bar{n}_p) dp$ tem uma variação desprezível ao variarmos $m$, $\mu_R$.
 			\item Mesmo que seja possível fazer esse cálculo com mais precisão, ou uma maracutaia numérica, ainda temos a possibilidade de que não existam raízes comuns às duas equações. Digo isso por que ao se fazer os mapas com curvas de nível, aparentemente em alguns casos não há interseção entre as curvas de nível de cada caso. Talvez seja por que os mapas tem uma resolução baixa, mas em alguns casos, parecia que as curvas eram muito distantes. De qualquer forma, não podemos descartar a possibilidade de que estejam ocorrendo problemas devido aos pequenos valores de $f_2(m,\mu_R)$.
+			\item Verificar integrais com os programas da Débora;
+			\item Implementar cálculo do potencial termodinâmico para o caso $T \neq 0$;
 			\item Como integrar a solução para $T \neq 0$ à solução para $T = 0$ no programa?
 			\item Adicionar mapas aos resultados (preferencialmente em alta resolução e depois que tudo estiver funcionando OK);
 		\end{itemize}
 	\item Atualizar README.md
 	\item Implementar testes para reproduzir as figuras 2.9, 2.10 e 2.12 do Buballa Report
+	\item Colocar as tabelas de parâmetros para NJL e eNJL neste capítulo; A do NJL tem que pegar dos artigos, do eNJL está em algum dos capítulos.
+	\item Renomear as funções \texttt{Zeroed*} para \texttt{PolynomialFunctionOf*}, já que esse é o nome certo das equações dessa forma, no contexto de \emph{root finding}. \footnote{Every polynomial $P$ in $x$ corresponds to a function, $f(x) = P$ (where the occurrences of $x$ in $P$ are interpreted as the argument of $f$), called the polynomial function of $P$; the equation in $x$ setting $f(x) = 0$ is the polynomial equation corresponding to $P$.}
+	\item As funções \texttt{WriteZeroedGapEquation}, \texttt{WriteVacuumMassEquation} e \texttt{WriteZeroedRenormalizedChemicalPotentialEquation} são só pra teste. Extinguí-las e adicionar o conteúdo diretamente à seção de testes.
+	\item Fix-me: Remover primeira parte do \texttt{if} no potencial químico pois ela não faz nada; Substituir por != 0 (em Reproduce Fig. 2.8 (right) from  M. Buballa, Physics Reports 407 (2005) 205-376)
 \end{itemize}

@@ -346,30 +346,6 @@ O resultado  para $\omega_{\rm{MF}}(0;m_{\rm{vac}},0)$ utilizando o valor para $
 \omega_{\rm{MF}}(0;m_{\rm{vac}},0) = - \frac{n_f n_c}{\pi^2}[F_E(m_{\rm{vac}},\Lambda) - F_E(m_{\rm{vac}}, 0)] + \frac{(m-m_0)^2}{4G_S}.
 \end{equation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Determinação de $\tilde\omega$ para o caso $G_V \neq 0$}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Para o caso $G_V \neq 0$, adicionamos o termo 
-\begin{equation}
-	(\mu-\mu_R)^2 / 4G_V
-\end{equation}
-%
-à Equação~\eqref{Eq:Pot_term_MF_sem_G_V}, o que resulta em 
-\begin{equation}\label{Eq:Pot_termodinamico_1_G_V_neq_0}
-\begin{split}
-\omega_{\rm{MF}} =&~ - \frac{n_f n_c}{\pi^2} \left[[F_E(m,\Lambda) - F_E(m, p_F)] + \mu_R \frac{p_F^3}{3} \right] \\
-&+ \frac{(m-m_0)^2}{4G_S} - \frac{(\mu - \mu_R)^2}{4G_V}.
-\end{split}
-\end{equation}
-%
-onde $\mu$ pode ser calculado invertendo a relação~\eqref{Eq:Eq_Gap_Pot_Quim_Renorm}, obtendo-se
-\begin{equation}
-	\mu = \mu_R + \frac{2G_V N_fN_c}{3\pi^2} \cdot \frac{1}{(\hbar c)^2} \cdot p_F^3.
-\end{equation}
-%
-O potencial termodinâmico no vácuo ($\omega_{\rm{MF}}(0; m_{\rm{vac}}, 0)$) não é afetado pelo termo em $G_V$, o que pode ser visto da Equação~\eqref{Eq:Pot_termodinamico_1_G_V_neq_0} ao se tomar $\mu = \mu_R = 0$.
-
 %
 %Em especial, para o caso em que não temos a interação vetorial (o que equivale a dizer que $G_V = 0$, temos que o potencial químico renormalizado é igual ao potencial químico:
 %\begin{equation}
@@ -411,9 +387,81 @@ O potencial termodinâmico no vácuo ($\omega_{\rm{MF}}(0; m_{\rm{vac}}, 0)$) n�
 %Isto significa que, se rodarmos em $\mu_R$, temos que $p_F$ é zero para $\mu_R^2 < m^2$, o que resulta no mesmo valor para $m$ (resolvendo a Eq.~\eqref{Eq:Eq_Gap_Buballa_1}) para qualquer valor de $\mu_R$ em tal intervalo. Se acontecer o mesmo com o potencial termodinâmico\footnote{Ver se é esse o caso.} $\tilde{\omega}$, não tem problema algum, pois estaríamos calculando ``o mesmo ponto'' para as equações de estado.
 %
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Determinação de $\tilde\omega$ para o caso $G_V \neq 0$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Para o caso $G_V \neq 0$, adicionamos o termo 
+\begin{equation}
+	(\mu-\mu_R)^2 / 4G_V
+\end{equation}
+%
+à Equação~\eqref{Eq:Pot_term_MF_sem_G_V}, o que resulta em 
+\begin{equation}\label{Eq:Pot_termodinamico_1_G_V_neq_0}
+\begin{split}
+\omega_{\rm{MF}} =&~ - \frac{n_f n_c}{\pi^2} \left[[F_E(m,\Lambda) - F_E(m, p_F)] + \mu_R \frac{p_F^3}{3} \right] \\
+&+ \frac{(m-m_0)^2}{4G_S} - \frac{(\mu - \mu_R)^2}{4G_V}.
+\end{split}
+\end{equation}
+%
+onde $\mu$ pode ser calculado invertendo a relação~\eqref{Eq:Eq_Gap_Pot_Quim_Renorm}, obtendo-se
+\begin{equation}
+	\mu = \mu_R + \frac{2G_V N_fN_c}{3\pi^2} \cdot \frac{1}{(\hbar c)^2} \cdot p_F^3.
+\end{equation}
+%
+O potencial termodinâmico no vácuo ($\omega_{\rm{MF}}(0; m_{\rm{vac}}, 0)$) não é afetado pelo termo em $G_V$, o que pode ser visto da Equação~\eqref{Eq:Pot_termodinamico_1_G_V_neq_0} ao se tomar $\mu = \mu_R = 0$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Escolha da variável de loop}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+De uma forma geral, podemos escolher variar $\rho_B$ ou $\mu$ ao resolver o problema numericamente. Basicamente o que temos é uma solução de um sistema para um valor específico de densidade ou de potencial químico (não estamos calculando uma função da densidade, por exemplo, mas sim resolvendo o sistema para um valor específico de densidade). Como $\mu$ e $\rho$ estão ligados através das equações
+\begin{subequations}
+\begin{equation}\label{Eqs:sist_m_mu_t_finito}
+	\mu_R = \mu - 4 n_f n_c G_V \int\frac{d^3}{(2\pi)^3}(n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)
+\end{equation}
+%
+e
+\begin{equation}
+	\rho_B = \frac{n(T,\mu_R)}{3} = 2 n_f n_c \int\frac{d^3}{(2\pi)^3}(n_p(T, \mu_R) - \bar{n}_p(T, \mu_R),
+\end{equation}
+\end{subequations}
+%
+já que estão ligados individualmente a $\mu_R$, podemos escolher um dos dois como variável e calcular o outro\footnote{Isso assume que ambos estão ligados de maneira única. Em Buballa (2005) -- p. 235, após a Eq. 2.56 -- diz que a função é estritamente crescente, o que garante isso.}. No cálculo do potencial termodinâmico, uma das variáveis pode ser então eliminada. Em geral se escolhe $\mu$ para ser variado, pelo que tenho percebido\footnote{Mas como comecei variando $\rho_B$, vou insistir. De qualquer forma, pelo menos para $T = 0$ é mais fácil.}.
+
+Em especial, para o caso $T = 0$, temos ao variarmos $\rho_B$ a seguinte sequência de cálculo:
+\begin{align}
+	\rho_B &= \textrm{escolhido arbitrariamente} \\
+	p_F &= \sqrt[3]{3 \pi^2 \rho_B / n_f} \label{Eq:mom_fermi_rho_bar}\\
+	\mu_R &= \sqrt{p^2 + m^2} \\
+	\mu &= \mu_R + \frac{2 G_V n_f n_c}{3\pi^2(\hbar c)^2} p_F^3.
+\end{align}
+%
+uma vez conhecidos\footnote{As expressões nas referências que estou usando costumam usar essas três variáveis.} $\mu$, $\mu_R$ e $p_F$, podemos calcular o potencial termodinâmico e --~a partir dele~-- obtemos a densidade de energia e a pressão.
+
+Se escolhermos variar $\mu$, temos uma tarefa um pouco mais complexa\footnote{Na realidade isso vem das Equações~\eqref{Eqs:sist_m_mu_t_finito}, sendo que a simplificação se dá ao rodar em $\rho_B$, não que esse caso seja especialmente complexo.}, pois as variáveis $\mu_R$ e $p_F$ estão acopladas:
+\begin{align}
+	\mu_R &= \mu - \frac{2 G_V n_f n_c}{3\pi^2} p_F^3 \\
+	p_F & = \sqrt{\mu_R^2 - m^2} \theta(\mu_R^2 - m^2). \label{Eq:mom_fermi_de_mu_m}
+\end{align}
+%
+Temos então que
+\begin{equation}
+	\mu_R = \begin{cases} \mu, \quad\textrm{se}~\mu_R^2 < m^2 \\ \mu - \frac{2 G_V n_f n_c}{3\pi^2} (\mu_R^2 - m^2)^{3/2} \theta(\mu_R^2 - m^2), \quad\textrm{se}~\mu_R^2 > m^2.\end{cases}
+\end{equation}
+%
+Podemos englobar os dois casos escrevendo a equação polinomial
+\begin{equation}
+	f(\mu_R) = \mu_R - \mu - \frac{2 G_V n_f n_c}{3\pi^2} (\mu_R^2 - m^2)^{3/2}) \theta(\mu_R^2 - m^2) = 0,
+\end{equation}
+%
+que pode ser resolvida ao se achar a raíz utilizando um algoritmo como biseção ou método de Newton\footnote{Pode parecer estranho a função degrau em $\mu_R$, que é o que estamos tentando calcular, mas como os algoritmos chutam valores para essa variável, podemos compará-los a $m$ e determinar o valor da função.}. Assim que encontramos o valor de $\mu_R$, podemos calcular $p_F$ e a densidade\footnote{Não aparece diretamente nas expressões que vi, mas é interessante como variável de saída dos cálculos.} $\rho_B$ através das expressões~\eqref{Eq:mom_fermi_de_mu_m} e~\eqref{Eq:mom_fermi_rho_bar}.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fase de hádrons: eNJL} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 A partir da lagrangiana \eqref{Eq:Lagrangiana_eNLJ_Pais}, é possível determinar  o potencial termodinâmico\footnote{Potencial Grand-canônico, ou potencial de Landau.} por unidade de volume, dado por (em Tsue~\cite{japoneses}, o potencial é \emph{definido} como $\omega = \langle\langle \mathcal{H}^{MF}\rangle\rangle - \mu\langle\langle\mathcal{N}\rangle\rangle - \frac{1}{\beta}\langle\langle\mathcal{S}\rangle\rangle$\footnote{Os termos $\langle\langle \cdot \rangle\rangle$ são a Hamiltoniana de campo médio, a densidade bariônica, e algo que pode ser a entropia (eu acho). Isso tem que sair de alguma coisa da termodinâmica, tipo $\omega (T, m) = (T/V) \ln Z$, como poderia ser \emph{definido}?}, o que se traduz em uma expressão similar a essa que segue)
 \begin{equation}\label{Eq:potencial_termodinamico}
@@ -566,7 +614,7 @@ Com $E = \sqrt{k^2 + m^2}$,
 					\item Calcular $\mean{T_{00}}$
 					\item Calcular $\mean{T_{ii}}$
 					\item Calcular dens. energia, pressão
-					\item Determinar a eq do gap
+					\item Determinar a eq do gap, potencial químico renormalizado
 					\item Det. $\mu$
 					\item Como adicionar $T$?
 					\item Por que precisamos calcular $\varepsilon_0$ e diminuir? (fazemos isso em $p$ tb?)
@@ -579,15 +627,20 @@ Com $E = \sqrt{k^2 + m^2}$,
 					\item Calcular $\varepsilon$, $p$
 					\item Como adicionar $T$?
 					\item Precisa calcular $\varepsilon_0$ e diminuir?
+					\item Determinar a eq do gap, potencial químico renormalizado
 				\end{itemize}
 			\item Ver o cálculo a partir do potencial termodinâmico (ver Tese do James, tem a parte cinética pelo menos);
 				\begin{itemize}
 					\item[\checkmark] Alterar notas para refletir interpretação correta do cálculo de $\tilde{\omega}$;
-					\item Ler Asakawa \& Yazaki, Nuclear Physics A504 1989 668-684;
+					\item[\checkmark] Ler Asakawa \& Yazaki, Nuclear Physics A504 1989 668-684;
+						\begin{itemize}
+							\item ``é possível se mostrar que'' a solução auto-consistente (gap, $\mu_r$, $\rho_B$, $\rho_s$) dá extremos de $\omega$; devemos escolher a solução auto-consistente que minimiza $\omega$. Atualmente não estou minimizando nada pois nos casos que tratei só há uma solução.
+						\end{itemize}
 					\item Determinar Hamiltoniana;
 					\item Determinar função partição;
 					\item Determinar potencial termodinâmico;
 					\item Determinar dens. de energia, pressão;
+					\item Determinar a eq do gap, potencial químico renormalizado
 					\item O pot. quim. e a massa efetiva são determinadas a partir das eq. do gap e a para o pot quim. efetivo, não precisa calcular depois (pelo que entendi)
 				\end{itemize}
 		\end{itemize}
@@ -595,5 +648,10 @@ Com $E = \sqrt{k^2 + m^2}$,
 		\begin{itemize}
 			\item Em Buballa\cite{Buballa1996}, $\mu$ é um ``parâmetro externo''. Que parâmetro é esse? Como ele é determinado? (Achei que fosse a partir do potencial termodinâmico, mas o potencial termodinâmico é calculado a partir dele! Só tem equação para o potencial químico efetivo $\mu_R$.)\footnote{Parece ser um parâmetro que vem dos dados experimentais de decaimento e \emph{branching ratio} do píon.}
 		\end{itemize}
-	\item Atualizar as notas com informações para o caso $T \neq 0$.
+	\item Cálculo para $T \neq 0$
+		\begin{itemize}
+			\item Atualizar as notas com informações para o caso $T \neq 0$: Eq. oriundas do Buballa\cite{Buballa} (gap, $\mu_R$, $\rho_B = n/3 = \dots$, $\omega$);
+			\item Ver relação entre $\omega$ no caso $T \neq 0$ e no caso $T = 0$; Incluir resultados nas notas;
+			\item Inverter ordem, colocar caso $T \neq 0$ antes, o caso $T = 0$ é só um caso especial.
+		\end{itemize}
 \end{itemize}
