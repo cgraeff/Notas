@@ -563,4 +563,11 @@ NJL:
 	\item criar função para abrir arquivos, criar o caminho quando necessário e checkar se o arquivo foi aberto. Dar mensagens de erro adequadas.
 	\item Fix-me: Remover primeira parte do \texttt{if} no potencial químico pois ela não faz nada; Substituir por != 0 (em Reproduce Fig. 2.8 (right) from  M. Buballa, Physics Reports 407 (2005) 205-376)
 	\item ver se tem como declarar os parâmetros em "sub-structs", assim fica mais fácil reusar algum grupo se necessário, além de que fica mais interessante algo como \texttt{parameters.model.cutoff}, \texttt{parameters.distribution-integrals.foo}, ...
+	\item Fix treatment of temperature, it should be a variable, not a parameter.
+	\item Fix all \texttt{FIXME}s
+	\item Fazer um esquema de log que imprima na tela e salve em um arquivo (opcionalmente) (com opção para não imprimir na tela -q e para salvar o arquivo -l)?
+	\item Mover parâmetros específicos para o cálculo da entropia para \texttt{struct parameters}.
+	\item reorganizar scripts para fazer gráficos. Temos que levar em conta que existem duas possibilidades agora: $T = 0$ e $T \neq 0$. Além disso, temos os testes e os resultados regulares.
+	\item fazer função para calcular $\mu$ a partir de $\mu_R$
+	\item Reprodução da Fig. 2.7 (esq) do Buballa (Rep.) fica um pouco ``jagged'', cheia de degraus. Em primeira instância, deveria ser uma questão de aumentar a precisão do cálculo, mas no caso das integrais de distribuição de Fermi-Dirac, estou no limite da precisão do \texttt{double}. Talvez se separar as integrais melhorasse um pouco, mas não tenho certeza. De qualquer forma, o resultado fecha certo com a referência, então isso significa que o cálculo da equação do Gap para a massa está funcionando (fora os degraus, produz o que se esperava). Além disso, o caso é meio crítico\footnote{Pensando bem, haveria razão para crer que $\rho_B \neq 0$, o que implica em $\mu_R \neq zero$, daria melhores resultados? Acho que não, e certamente, de alguma forma, as integrais envolvendo a distribuição de Fermi-Dirac estão tendo problemas numéricos para poder apresentar os degraus. Provavelmente temos valores pequenos nessa região.}, para $\rho_B = 0$. 
 \end{itemize}
