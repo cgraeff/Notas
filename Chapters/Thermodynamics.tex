@@ -412,7 +412,7 @@ onde $\mu$ pode ser calculado invertendo a relação~\eqref{Eq:Eq_Gap_Pot_Quim_R
 O potencial termodinâmico no vácuo ($\omega_{\rm{MF}}(0; m_{\rm{vac}}, 0)$) não é afetado pelo termo em $G_V$, o que pode ser visto da Equação~\eqref{Eq:Pot_termodinamico_1_G_V_neq_0} ao se tomar $\mu = \mu_R = 0$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Escolha da variável de loop}
+\section{Solução para $T \neq 0$Escolha da variável de loop}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 De uma forma geral, podemos escolher variar $\rho_B$ ou $\mu$ ao resolver o problema numericamente. Basicamente o que temos é uma solução de um sistema para um valor específico de densidade ou de potencial químico (não estamos calculando uma função da densidade, por exemplo, mas sim resolvendo o sistema para um valor específico de densidade). Como $\mu$ e $\rho$ estão ligados através das equações
@@ -428,36 +428,6 @@ e
 \end{subequations}
 %
 já que estão ligados individualmente a $\mu_R$, podemos escolher um dos dois como variável e calcular o outro\footnote{Isso assume que ambos estão ligados de maneira única. Em Buballa (2005) -- p. 235, após a Eq. 2.56 -- diz que a função é estritamente crescente, o que garante isso.}. No cálculo do potencial termodinâmico, uma das variáveis pode ser então eliminada. Em geral se escolhe $\mu$ para ser variado, pelo que tenho percebido\footnote{Mas como comecei variando $\rho_B$, vou insistir. De qualquer forma, pelo menos para $T = 0$ é mais fácil.}.
-
-Em especial, para o caso $T = 0$, temos ao variarmos $\rho_B$ a seguinte sequência de cálculo:
-\begin{align}
-	\rho_B &= \textrm{escolhido arbitrariamente} \\
-	p_F &= \sqrt[3]{3 \pi^2 \rho_B / n_f} \label{Eq:mom_fermi_rho_bar}\\
-	\mu_R &= \sqrt{p^2 + m^2} \\
-	\mu &= \mu_R + \frac{2 G_V n_f n_c}{3\pi^2(\hbar c)^2} p_F^3.
-\end{align}
-%
-uma vez conhecidos\footnote{As expressões nas referências que estou usando costumam usar essas três variáveis.} $\mu$, $\mu_R$ e $p_F$, podemos calcular o potencial termodinâmico e --~a partir dele~-- obtemos a densidade de energia e a pressão.
-
-Se escolhermos variar $\mu$, temos uma tarefa um pouco mais complexa\footnote{Na realidade isso vem das Equações~\eqref{Eqs:sist_m_mu_t_finito}, sendo que a simplificação se dá ao rodar em $\rho_B$, não que esse caso seja especialmente complexo.}, pois as variáveis $\mu_R$ e $p_F$ estão acopladas:
-\begin{align}
-	\mu_R &= \mu - \frac{2 G_V n_f n_c}{3\pi^2} p_F^3 \\
-	p_F & = \sqrt{\mu_R^2 - m^2} \theta(\mu_R^2 - m^2). \label{Eq:mom_fermi_de_mu_m}
-\end{align}
-%
-Temos então que
-\begin{equation}
-	\mu_R = \begin{cases} \mu, \quad\textrm{se}~\mu_R^2 < m^2 \\ \mu - \frac{2 G_V n_f n_c}{3\pi^2} (\mu_R^2 - m^2)^{3/2} \theta(\mu_R^2 - m^2), \quad\textrm{se}~\mu_R^2 > m^2.\end{cases}
-\end{equation}
-%
-Podemos englobar os dois casos escrevendo a equação polinomial
-\begin{equation}
-	f(\mu_R) = \mu_R - \mu - \frac{2 G_V n_f n_c}{3\pi^2} (\mu_R^2 - m^2)^{3/2}) \theta(\mu_R^2 - m^2) = 0,
-\end{equation}
-%
-que pode ser resolvida ao se achar a raíz utilizando um algoritmo como biseção ou método de Newton\footnote{Pode parecer estranho a função degrau em $\mu_R$, que é o que estamos tentando calcular, mas como os algoritmos chutam valores para essa variável, podemos compará-los a $m$ e determinar o valor da função.}. Assim que encontramos o valor de $\mu_R$, podemos calcular $p_F$ e a densidade\footnote{Não aparece diretamente nas expressões que vi, mas é interessante como variável de saída dos cálculos.} $\rho_B$ através das expressões~\eqref{Eq:mom_fermi_de_mu_m} e~\eqref{Eq:mom_fermi_rho_bar}.
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fase de hádrons: eNJL} 
