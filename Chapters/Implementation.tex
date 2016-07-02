@@ -34,7 +34,7 @@ A escolha das variáveis de \emph{loop} é uma questão de conveniência. Em esp
 \begin{align}
 	\rho_B &= \textrm{escolhido arbitrariamente} \\
 	p_F &= \sqrt[3]{3 \pi^2 \rho_B / n_f} \label{Eq:mom_fermi_rho_bar}\\
-	\mu_R &= \sqrt{p^2 + m^2} \\
+	\mu_R &= \sqrt{p_F^2 + m^2} \label{Eq:pot_quim_renorm_loop_dens_bar}\\
 	\mu &= \mu_R + \frac{2 G_V n_f n_c}{3\pi^2(\hbar c)^2} p_F^3.
 \end{align}
 %
@@ -68,11 +68,15 @@ Uma vez definida a variável de laço e as expressões para as demais variáveis
 			\lim_{T \to 0} \int_o^\infty p^2 (n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) \;dp = \theta(p_F - p).
 		\end{equation}
 		Podemos determinar o valor de $p_F$ de acordo com a expressão~\eqref{Eq:mom_fermi_rho_bar}.
-	\item[Potencial químico:] O potencial químico pode ser calculado de acordo com a expressão~\eqref{Eq:mom_fermi_de_mu_m} acima.
+	\item[Potencial químico:] O potencial químico pode ser calculado de acordo com a expressão~\eqref{Eq:pot_quim_renorm_loop_dens_bar} acima.
 	\item[A massa efetiva e a densidade escalar:] Precisamos solucionar a equação~\eqref{gap}. A solução deve ser encontrada utilizando-se um algoritmo para encontrar zeros de função. Veja a próxima seção para mais detalhes;
 	\item[O potencial termodinâmico:] Uma vez determinados os valores de $\mu$, $\mu_R$ e $m$, podemos determinar o valor do potencial termodinâmico através da expressão~\eqref{pot_term_T_zero}. Para isso, no entanto, devemos calcular
 		\begin{description}
-			\item[Valor mínimo do potencial termodinâmico:] Nenhuma grandeza é alterada ao se somar uma constante no potencial termodinâmico\footnote{Segundo o Buballa, eu tentei calcular $\varepsilon/\rho$ e tive problemas sem essa constante.}. Vamos nos valer desse fato para que o valor mínimo do potencial seja zero quando $T = \mu = 0$, definindo tal potencial com um ``potencial regularizado'' $\tilde\omega$. Para isso, no entanto, devemos calcular o valor da massa que minimiza o potencial termodinâmico;
+			\item[Valor mínimo do potencial termodinâmico:] Nenhuma grandeza é alterada ao se somar uma constante no potencial termodinâmico\footnote{Segundo o Buballa, eu tentei calcular $\varepsilon/\rho$ e tive problemas sem essa constante.}. Vamos nos valer desse fato para que o valor mínimo do potencial seja zero quando $T = \mu = 0$, definindo tal potencial com um ``potencial regularizado'' $\tilde\omega$:
+							\begin{equation}
+					\tilde\omega = \omega(\mu;m,\mu_R) - \omega(0;m_{\rm{vac}},0).
+				\end{equation}
+				Para isso, no entanto, devemos calcular o valor de massa $m_{\rm{vac}}$ que minimiza o potencial termodinâmico;
 			\item[Determinação da massa no vácuo:] Para que possamos determinar o potencial termodinâmico $\tilde\omega$ adequadamente, precisamos determinar o valor de massa que minimiza o potencial $\omega$. Isso resulta na equação \ref{mvac_gap} que --~novamente~--deve ser resolvida utilizando-se um algoritmo para determinar zeros de funções; Veja a próxima seção para mais detalhes. Uma vez determinado o valor de $m_{\rm{vac}}$, podemos determinar $\tilde\omega$.
 		\end{description}	
 		Como o valor de $m_{\rm{vac}}$ e o valor de $\tilde\omega$ são constantes (não dependem de $\rho_B$, direta ou indiretamente), podemos determinar tais valores antes mesmo de iniciarmos o \emph{loop} em $\rho_B$, armazenando os valores e utilizando-os quando necessário.
@@ -82,11 +86,22 @@ Uma vez definida a variável de laço e as expressões para as demais variáveis
 Uma vez determinadas a massa no vácuo e a massa efetiva, a obtenção das demais grandezas é simples, uma vez conhecidas as suas expressões. Vamos discutir a determinação dos dois primeiros itens na seção a seguir. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Solução auto-consistente da equações}
+\subsection{Solução auto-consistente de equações}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Discutir a solução da equação do gap e 
-Tanto a determinação da massa no vácuo, quanto a da massa efetiva são feitas através de um algoritmo para determinar zeros de funções.\footnote{Passar mais detalhes para cá. Na real, pensando bem, não sei nem o que falar, é muito simples no caso unidimensional. Talvez discutir a escolha dos valores dos limites inferior e superior.}
+As Equações~\eqref{gap}, \eqref{gap_mu_r} e~\eqref{mvac_gap} são expressões para a determinação de uma variável que envolvem na expressão de cálculo a própria variável --~isto é, são equações trancendentais~--. Podemos resolver tais equações utilizando um algoritmo para determinar zeros de funções, bastando para isso definir uma função $f$ cujos zeros devemos encontrar. No caso da Equação~\eqref{gap}, por exemplo, temos\footnote{A integral tem forma fechada, porém vamos utilizar a forma com a integral para tornar a expressão mais simples nessa discussão.}
+\begin{equation}
+	m = m_0 - \alpha\int_0^\Lambda \frac{m}{\sqrt{p^2 + m^2}} p^2 dp,
+\end{equation}
+%
+onde $\alpha$ é um conjunto de constantes. Podemos definir a função $f$ como
+\begin{equation}
+	f(m) = m - m_0 + \alpha\int_0^\Lambda \frac{m}{\sqrt{p^2 + m^2}} p^2 dp.
+\end{equation}
+%
+Ao determinarmos a raíz da expressão acima --~isto é, o valor de $m$ para o qual $f(m) = 0$~--, temos a solução da equação original. Numericamente esse problema pode ser resolvido de maneira bastante simples: dados dois valores $m_{min}$ e $m_{max}$ que definam um intervalo que contém uma raíz\footnote{O intervalo contém uma raíz se os sinais de $f(m_{min})$ e $f(m_{max})$ diferem.}, podemos diminuir a largura do intervalo de maneira que possamos utilizar como raíz o valor $m \approx m_{min} \approx m_{max}$. Podemos diminuir o intervalo arbitrariamente, até que $f(m)$ seja suficientemente próxima de zero. Os intervalos de $m$, $m_{rm{vac}}$ ou $\mu_R$ podem ser tomados como \np[MeV]{0,1} (proximo ao valor mínimo) e \np[MeV]{1000}, pois os valores máximos de tais grandezas é se encontra no intervalo de aproximadamente \np[MeV]{300} a \np[MeV]{450}.
+
+Apesar de o método descrito acima ser viável, ele não é eficiente. Existem algoritmos cuja convergência é bastante mais rápida do que uma diminuição progressiva do intervalo. Além disso, em casos em que existam mais raízes, principalmente em números pares, a determinação das raízes pode ser complexa. No caso das equações que necessitamos resolver para o presente problema, no entanto, exite somente uma raíz, excluindo-se a solução trivial\footnote{É trivial verificar que zero é uma solução.}. A eficiência não é um problema, por isso utilizamos o método da biseção\footnote{Divide o intervalo em dois e verifica qual deles contém a raíz, repetindo o processo sucessivamente. Outros métodos geralmente são mais eficientes, mas podem ter problemas de convergência que não ocorrem com o método da biseção.}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Análise Dimensional}
@@ -177,31 +192,9 @@ Os resultados obtidos podem ser vistos na Fig.~\ref{Fig:Renorm_chem_pot} para $\
 
 Ao reproduzir o cálculo em Fortran obtenho bons resultados (Figuras \ref{Fig:energy_Comp_C_F} e \ref{Fig:pressure_Comp_C_F}), porém a primeira leitura que fiz das expressões não bateu com o resultado. Para que eu chegasse ao mesmo valor obtido pelo programa em Fortran, tive que tirar o 2 que multiplicava o termo $G_S \rho_S^2$. Além disso, tirei no vácuo o termo envolvendo $\mu_R$\footnote{Pensando bem, não sei por que o inseri, no potencial do vácuo nas expressões do Buballa também não há tal termo.}. O próprio potencial termodinâmico eu calculei a partir das expressões para a energia, assumindo que $\tilde{\omega} = \varepsilon - \mu_R N_c \rho_B$.
 	
-Apesar de reproduzir os resultados e eles serem coerentes com aquilo que eu esperava, os resultados não são bons para valores baixos de densidade\footnote{A Débora mencionou que havia um problema com o cálculo em $\rho_B$, por isso o programa em Fortran executa o cálculo variando $\mu_R$, talvez seja isso? P.S.: Se eu me referia à curva com concavidade voltada para baixo que aparece no início de alguns gráficos, como em $\varepsilo/rho$, pelo que entendi do Buballa é isso mesmo.}. De qualquer forma, os dados que seguem foram calculados segundo as expressões desse segundo caso, isto é, as expressões do programa em Fortran com as alterações mencionadas acima. 
+Apesar de reproduzir os resultados e eles serem coerentes com aquilo que eu esperava, os resultados não são bons para valores baixos de densidade\footnote{A Débora mencionou que havia um problema com o cálculo em $\rho_B$, por isso o programa em Fortran executa o cálculo variando $\mu_R$, talvez seja isso? P.S.: Se eu me referia à curva com concavidade voltada para baixo que aparece no início de alguns gráficos, como em $\varepsilon/rho$, pelo que entendi do Buballa é isso mesmo.}. De qualquer forma, os dados que seguem foram calculados segundo as expressões desse segundo caso, isto é, as expressões do programa em Fortran com as alterações mencionadas acima. 
 
 Apesar de inicialmente eu ter feito uma interpretação errada do cálculo utilizando o potencial termodinâmico como em Buballa\cite{Buballa1996}, com a interpretação correta temos resultados adequados para a parametrização D$_1$.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Fase de quarks: NJL, $T \neq 0$}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Algoritmo}
-%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Raízes de equações unidimensionais}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Análise Dimensional}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Resultados $T \neq 0$}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Reprodução da Fig. 2.7 (esq) do Buballa (Rep.) fica um pouco ``jagged'', cheia de degraus. Em primeira instância, deveria ser uma questão de aumentar a precisão do cálculo, mas no caso das integrais de distribuição de Fermi-Dirac, estou no limite da precisão do \texttt{double}. Talvez se separar as integrais melhorasse um pouco, mas não tenho certeza. De qualquer forma, o resultado fecha certo com a referência, então isso significa que o cálculo da equação do Gap para a massa está funcionando (fora os degraus, produz o que se esperava). Além disso, o caso é meio crítico\footnote{Pensando bem, haveria razão para crer que $\rho_B \neq 0$, o que implica em $\mu_R \neq zero$, daria melhores resultados? Acho que não, e certamente, de alguma forma, as integrais envolvendo a distribuição de Fermi-Dirac estão tendo problemas numéricos para poder apresentar os degraus. Provavelmente temos valores pequenos nessa região.}, para $\rho_B = 0$. 
 
 %%%
 
@@ -368,10 +361,66 @@ Reprodução da Fig. 2.7 (esq) do Buballa (Rep.) fica um pouco ``jagged'', cheia
 
 \FloatBarrier
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fase de quarks: NJL, $T \neq 0$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Fase de hádrons: eNJL}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Algoritmo}
+%%%%%%%%%%%%%%%%%%%%%%
+
+Novamente, a escolha da variável de \emph{loop} é questão de conveniência. Como discutido no Capítulo~\ref{Chap:Termo}, as expressões~\eqref{gap}, \eqref{gap_mu_r} e~\eqref{gap_rho} devem ser resolvidas de maneira a determinar valores de $m$ e $\mu_R$ simultaneamente. Isso pode ser feito utilizando as Equações~\eqref{gap} e~\eqref{gap_mu_r} --~fornecendo como entrada os valores de $T$ e $\mu$~--, ou utilizando as Equações~\eqref{gap} e~\eqref{gap_rho} --~fornecendo os valores de $T$ e $\rho_B$~--. Como seguimos este último caso ao tomar $T = 0$, escolhemos manter a mesma convenção.
+
+Uma vez conhecidos os valores de $\mu_R$ e $m$, a determinação de $\mu$ é simples de se obter a partir da Equação~\eqref{gap_mu_r}. Podemos observar ainda que a integral nessa expressão pode ser escrita a partir da Equação~\eqref{gap_rho} como:
+\begin{equation}
+	\int \frac{d^3p}{(2\pi)^3}(n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) = \frac{3}{2} \frac{\rho_B}{n_f n_c}.
+\end{equation}
+%
+Utilizando a expressão acima em \eqref{gap_mu_r} obtemos para o potencial químico
+\begin{equation}\label{Eq:pot_quim_loop_bar_dens}
+	\mu = \mu_R + 2 n_c G_v \rho_B.
+\end{equation}
+
+A solução no caso $T \neq 0$ é bastante similar ao caso $T = 0$: 
+\begin{description}
+	\item[Temperatura:] Determinamos os valores de temperatura arbitrariamente;
+	\item[Densidade bariônica \rho_B:] Os valores de densidade também são determinados arbitrariamente\footnote{No caso $T = 0$, definimos o momento de Fermi a partir da densidade, através da Equação~\eqref{gap_rho} no limite $T \to 0$. Como não estamos trabalhando nesse limite, não temos valores para o momento de Fermi $p_F$.}.
+	\item[Massa efetiva e potencial químico:] Solucionamos as Equações~\eqref{gap} e~\eqref{gap_rho} simultaneamente, utilizando uma rotina para determinar zeros de funções de várias variáveis. Veja detalhes na próxima seção.
+	\item[Potencial químico:] Uma vez determinado o potencial químico renormalizado $\mu_R$, podemor determinar o valor do potencial químico $\mu$ através da Equação~\eqref{Eq:pot_quim_loop_bar_dens}.
+	\item[Potencial termodinâmico:] Com os valores de $m$, $\mu_R$ e $\mu$ --~além de $T$~-- podemos determinar o valor do potencial termodinâmico $\omega$ através da Equação~\ref{Eq:Pot_term_NJL_T_finito}. Mais uma vez, desejamos que o valor mínimo do potencial seja nulo:
+		\begin{description}
+			\item[Valor mínimo do potencial termodinâmico:] Novamente, definimos um potencial termodinâmico regularizado $\tilde\omega$, sendo que seu valor para $T = \mu = 0$ é zero no ponto de mínimo:
+				\begin{equation}
+					\tilde\omega = \omega(T,\mu;m,\mu_R) - \omega(0,0;m_{\rm{vac}},0).
+				\end{equation}
+			\item[Determinação da massa no vácuo:] Como tomamos $T = 0$, o valor de $m_{\rm{vac}}$ deve ser determinado da mesma maneira que no caso anterior, através da Equação~\eqref{mvac_gap}.
+		\end{description}
+		Como o valor de $m_{\rm{vac}}$ e o valor de $\tilde\omega$ são constantes (não dependem de $\rho_B$, direta ou indiretamente), podemos determinar tais valores antes mesmo de iniciarmos o \emph{loop} em $\rho_B$, armazenando os valores e utilizando-os quando necessário.
+	\item[Entropia:] A entropia pode ser calculada a partir da derivada do potencial termodinâmico em relação à temperatura. Tal cálculo está contido na Seção~\ref{Sec:Entropia}, sendo que a expressão resultante é a Equação~\eqref{Eq:Entropia}.
+	\item[Pressão e a energia] Finalmente, podemos calcular a pressão e a energia através das expressões~\eqref{Exp_pressao_T} e~\eqref{Exp_energia_T};
+\end{description}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Raízes de equações unidimensionais}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Análise Dimensional}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Resultados $T \neq 0$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Reprodução da Fig. 2.7 (esq) do Buballa (Rep.) fica um pouco ``jagged'', cheia de degraus. Em primeira instância, deveria ser uma questão de aumentar a precisão do cálculo, mas no caso das integrais de distribuição de Fermi-Dirac, estou no limite da precisão do \texttt{double}. Talvez se separar as integrais melhorasse um pouco, mas não tenho certeza. De qualquer forma, o resultado fecha certo com a referência, então isso significa que o cálculo da equação do Gap para a massa está funcionando (fora os degraus, produz o que se esperava). Além disso, o caso é meio crítico\footnote{Pensando bem, haveria razão para crer que $\rho_B \neq 0$, o que implica em $\mu_R \neq zero$, daria melhores resultados? Acho que não, e certamente, de alguma forma, as integrais envolvendo a distribuição de Fermi-Dirac estão tendo problemas numéricos para poder apresentar os degraus. Provavelmente temos valores pequenos nessa região.}, para $\rho_B = 0$. 
+
+% inserir figuras aqui
+
+\FloatBarrier
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fase de hádrons: eNJL, $T = 0$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%
 \subsection{Algoritmo}
@@ -623,6 +672,7 @@ NJL:
 		\end{itemize}
 	\item fazer função para calcular $\mu$ a partir de $\mu_R$
 	\item Reprodução da Fig. 2.7 (esq) do Buballa (Rep.) fica um pouco ``jagged'', cheia de degraus; Verificar.
+	\item Review da discussão de resultados.
 \end{itemize}
 
 eNJL:
