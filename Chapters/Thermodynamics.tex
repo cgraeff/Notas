@@ -37,13 +37,15 @@ A determinação pode ser feita de três maneiras:\footnote{Pelo que entendi, pe
 
 A questão é que eu não sei fazer de nenhum dos três jeitos.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Fase de quarks: NJL}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Obtenção da equações de estado}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Solução através do tensor momento-energia}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Nas próximas três seções, discutimos\footnote{Discutir da maneira mais genérica possível, já que podemos usar um método ou outro para cada fase e também existes os casos SU(2) e SU(3). Se for necessário particularizar para um caso ou outro, devemos fazer ao discutir a fase/grupo específica na seção apropriada.} meios equivalentes de se obter as equações de estado. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Tensor momento-energia}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Pelo que entendi, nesse método precisamos:
 \begin{itemize}
@@ -119,9 +121,9 @@ onde, como na Equação~\eqref{Eq:Energia_kin},
 %
 Isso se deve ao fato de que a densidade de energia pode ser calculada a partir do potencial termodinâmico através de mais que uma relação. Possivelmente essa esteja relacionada à derivada do potencial termodinâmico em relação à temperatura, ou ao inverso da temperatura. Ver Avancini~\cite{Avancini2004} e~\cite{Avancini2006}.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Solução através da lagrangiana}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Lagrangiana}
+%%%%%%%%%%%%%%%%%%%%%%%%
 
 As equações de estado são dadas através da lagrangiana através de\cite{Glendenning1983}:
 \begin{align}
@@ -129,11 +131,97 @@ As equações de estado são dadas através da lagrangiana através de\cite{Glen
 	p &= \mean{\mathcal{L}} + \frac{1}{3} \mean{\bar\psi\vec{\gamma}\cdot\vec{k}\psi}.
 \end{align}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Solução através do potencial termodinâmico}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Potencial termodinâmico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Sair da lagrangiana e obter a expressão abaixo.\cite{Asakawa1989}.
+Sair da lagrangiana e obter a expressão para o potencial termodinâmico.\cite{Asakawa1989}.
+\begin{align}
+	\omega(T, \mu) &= -\frac{T}{V} \ln\mathcal{Z} \\
+	&= -\frac{T}{V} \ln\Tr\exp\left(-\frac{1}{T} \int d^3 x(\mathcal{H} - \mu q^\dagger q)\right. \label{Eq:Pot_term_from_Hamiltonian}
+\end{align}
+
+Isso precisa constar nessa seção:
+\begin{align}\label{Eq:Def_m_mu_r}
+	m &= m_0 - 2 G_s \phi \\
+	\mu_R &= \mu - 2 G_v n.
+\end{align}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fase de quarks: NJL, SU(2)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+De Buballa\cite{Buballa}\footnote{As variáveis foram alteradas para refletir a notação utilizada neste texto.}:
+\begin{quote}
+	[\dots] apart from constant (i.e., field independent) terms, which give trivial contributions to the r.h.s. of Eq.~[\eqref{Eq:Pot_term_from_Hamiltonian}], the problem is equivalent to a system o non-interacting particles with mass $m$ at chemical potential $\mu_R$. Hence, the mean-field thermodynamic potencial takes the form
+	\begin{equation}
+		\omega(T, \mu; m, \mu_r) = \omega_M(T, \mu_R) + \frac{(m - m_0)^2}{4G_s} - \frac{(\mu - \mu_R)^2}{4G_v} + \textrm{const.},
+	\end{equation}
+	%
+	with the free Fermi-gas contribution
+	\begin{equation}
+		\omega_M(T, \mu_R) = -T \sum_n \int \frac{d^3p}{(2\pi)^3} \Tr\ln\left(\frac{1}{T}S^{-1}(i\omega_n,\vec{p})\right).
+	\end{equation}
+	%
+	[\dots]
+	The further evaluation of $\omega_M$ can be found in textbooks. [\dots] One finally gets
+	\begin{equation}\label{Eq:Pot_Termo_Temp_Finita}
+	\begin{split}
+		\omega_M(T, \mu_R) = -2 n_f n_c \int \frac{d^3p}{(2\pi)^3} \{E_p &+ T\ln(1+e^{-(E_p-\mu_R)/T} \\
+		&+ T\ln(1 + e^{-(E_p+\mu_R})/T)\}.
+	\end{split}
+	\end{equation}
+\end{quote}
+%
+onde $E_p = \sqrt{p^2 + m^2}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Equações auto-consistentes para a massa e para o potencial químico renormalizado}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+De Buballa\cite{Buballa}:
+\begin{quote}
+	Until this point, the result for $\omega$ depends on $m$ and $\mu_R$, i.e., on our choice of\footnote{Isso ainda não sei o que é, nem está definido no texto ($n$ parece o número de quarks, $\phi$ deve estar ligado à densidade escalar). Deve aparecer ao obter o potencial termodinâmico.} $\phi$ and $n$. On the other hand, in a thermodynamically consistent treatment, $\phi$ and $n$ should follow from $\omega$ as
+	\begin{align}\label{Eq:Condicoes_phi_n}
+		\phi &= \frac{\partial \omega}{\partial m_0} \\
+		n &= -\frac{\partial \omega}{\partial \mu}.
+	\end{align}
+	Writing $m = m(m_0, T, \mu)$ e $\mu_R = \mu_R(m_0, T, \mu)$ and applying the chain rule we get from Eq.~[\eqref{Eq:Pot_Termo_Temp_Finita}]
+	\begin{align}
+		\frac{\partial \omega}{\partial m_0} &= \phi + \frac{\delta\omega}{\delta m}\frac{\partial m}{\partial m_0} + \frac{\delta \omega}{\delta\mu_R}\frac{\partial\mu_R}{\partial m_0} \\
+		\frac{\partial\omega}{\partial \mu} &= -n + \frac{\delta \omega}{\delta m}\frac{\partial m}{\partial \mu} + \frac{\delta\omega}{\delta\mu_R}\frac{\partial\mu_R}{\partial\mu},
+	\end{align}
+	%
+	where we have used Eq.~[\eqref{Eq:Def_m_mu_r}] to replace the \emph{explicit} derivatives by $\phi$ and $-n$, respectively. Thus, to be consistent with Eq.~[\eqref{Eq:Condicoes_phi_n}] the \emph{implicit} contributions have to vanish. This is obviously fulfilled if
+	\begin{equation}
+		\frac{\delta\omega}{\delta m} = \frac{\delta \omega}{\delta\mu_R} = 0,
+	\end{equation}
+	i.e., the stationary points of $\omega$ with respect to $m$ and $\mu_R$ are automatically thermodynamic consistent. Explicitly, one gets:
+	\begin{align}
+		\frac{\delta\omega}{\delta m} &= \frac{m-m_0}{2G_s} - 2 n_f n_c \int \frac{d^3p}{(2\pi)^3} \frac{m}{E_p} (1 - n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) = 0 \\
+		\frac{\delta\omega}{\delta \mu_R} &= \frac{\mu - \mu_R}{2G_v} - 2 n_f n_c \int \frac{d^3p}{(2\pi)^3} (n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) = 0.
+	\end{align}
+	This is a coupled set of self-consistent equations for $m$ and $\mu_R$, [for the case] $G_v \neq 0$. [\dots] If there is more than one solution, the stable one is the solution which corresponds to the lowest value of $\omega$.
+\end{quote}
+
+Podemos reescrever as equações acima como
+\begin{align}
+	m = m_0 + \dots\label{gap} \\
+	\mu_R = \mu + \dots \label{gap_mu_r},
+\end{align}
+%
+que juntamente com a equação para a densidade bariônica
+\begin{equation}
+	\rho_B = n_c n(T, \mu_R) = \dots
+\end{equation}
+%
+formam um conjunto de equações acopladas que devem ser resolvidas \dots
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fase de quarks: NJL, SU(2), temperatura zero}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Discutir a particularização para $T = 0$ neste ponto.}
 
 \begin{quote}
 Expanding $\bar{\psi}\psi$ and $\bar{\psi}\gamma^\mu\psi$ about their thermal expectation values we can derive the mean field thermodynamic potential at temperature $T$ and chemical potential $\mu$ [11]. We restrict ourselves to the Hartree approximation. Furthermore in this paper we only consider $T=0$ and $\mu \geqslant 0$. The result for the thermodynamic potential is
@@ -412,9 +500,9 @@ onde $\mu$ pode ser calculado invertendo a relação~\eqref{Eq:Eq_Gap_Pot_Quim_R
 %
 O potencial termodinâmico no vácuo ($\omega_{\rm{MF}}(0; m_{\rm{vac}}, 0)$) não é afetado pelo termo em $G_V$, o que pode ser visto da Equação~\eqref{Eq:Pot_termodinamico_1_G_V_neq_0} ao se tomar $\mu = \mu_R = 0$.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Solução para $T \neq 0$Escolha da variável de loop}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fase de Hádrons: NJL, SU(2), temperatura finita}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 De uma forma geral, podemos escolher variar $\rho_B$ ou $\mu$ ao resolver o problema numericamente. Basicamente o que temos é uma solução de um sistema para um valor específico de densidade ou de potencial químico (não estamos calculando uma função da densidade, por exemplo, mas sim resolvendo o sistema para um valor específico de densidade). Como $\mu$ e $\rho$ estão ligados através das equações
 \begin{subequations}
@@ -621,7 +709,7 @@ Com $E = \sqrt{k^2 + m^2}$,
 		\end{itemize}
 	\item Cálculo para $T = 0$
 		\begin{itemize}
-			\item Obter as expressões utilizadas no loop em $\rho_$ para o caso $T = 0$ ($p_F$, $\mu_r$, $\mu$);
+			\item Obter as expressões utilizadas no loop em $\rho_B$ para o caso $T = 0$ ($p_F$, $\mu_r$, $\mu$);
 			\item deixar as integrais aqui, realizar as integrações angulares e explicitar os limites de zero ao \emph{cutoff};
 		\end{itemize}
 	\item Cálculo para $T \neq 0$

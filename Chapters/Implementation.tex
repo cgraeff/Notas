@@ -22,9 +22,9 @@ Devido ao fato de que $\hbar = c = 1$, adimensionais, e que não carregamos quai
 %
 Dessa forma, as equações discutidas nos capítulos anteriores precisam ter suas unidades checadas e --~quando necessário~-- corrigidas, de forma a ficarem consistentes.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Fase de quarks: NJL, $T = 0$}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fase de quarks: NJL, SU(2), temperatura zero}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%
 \subsection{Algoritmo}
@@ -89,7 +89,7 @@ Uma vez determinadas a massa no vácuo e a massa efetiva, a obtenção das demai
 \subsection{Solução auto-consistente de equações}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-As Equações~\eqref{gap}, \eqref{gap_mu_r} e~\eqref{mvac_gap} são expressões para a determinação de uma variável que envolvem na expressão de cálculo a própria variável --~isto é, são equações trancendentais~--. Podemos resolver tais equações utilizando um algoritmo para determinar zeros de funções, bastando para isso definir uma função $f$ cujos zeros devemos encontrar. No caso da Equação~\eqref{gap}, por exemplo, temos\footnote{A integral tem forma fechada, porém vamos utilizar a forma com a integral para tornar a expressão mais simples nessa discussão.}
+As Equações~\eqref{gap}, \eqref{gap_mu_r} e~\eqref{mvac_gap} são expressões para a determinação de uma variável que envolvem na expressão de cálculo a própria variável --~isto é, são equações trancendentais~--. Podemos resolver tais equações utilizando um algoritmo para determinar zeros de funções\cite{NumericalRecipes}, bastando para isso definir uma função $f$ cujos zeros devemos encontrar. No caso da Equação~\eqref{gap}, por exemplo, temos\footnote{A integral tem forma fechada, porém vamos utilizar a forma com a integral para tornar a expressão mais simples nessa discussão.}
 \begin{equation}
 	m = m_0 - \alpha\int_0^\Lambda \frac{m}{\sqrt{p^2 + m^2}} p^2 dp,
 \end{equation}
@@ -361,9 +361,9 @@ Apesar de inicialmente eu ter feito uma interpretação errada do cálculo utili
 
 \FloatBarrier
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Fase de quarks: NJL, $T \neq 0$}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fase de quarks: NJL, SU(2), temperatura finita}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%
 \subsection{Algoritmo}
@@ -384,7 +384,7 @@ Utilizando a expressão acima em \eqref{gap_mu_r} obtemos para o potencial quím
 A solução no caso $T \neq 0$ é bastante similar ao caso $T = 0$: 
 \begin{description}
 	\item[Temperatura:] Determinamos os valores de temperatura arbitrariamente;
-	\item[Densidade bariônica \rho_B:] Os valores de densidade também são determinados arbitrariamente\footnote{No caso $T = 0$, definimos o momento de Fermi a partir da densidade, através da Equação~\eqref{gap_rho} no limite $T \to 0$. Como não estamos trabalhando nesse limite, não temos valores para o momento de Fermi $p_F$.}.
+	\item[Densidade bariônica $\rho_B$:] Os valores de densidade também são determinados arbitrariamente\footnote{No caso $T = 0$, definimos o momento de Fermi a partir da densidade, através da Equação~\eqref{gap_rho} no limite $T \to 0$. Como não estamos trabalhando nesse limite, não temos valores para o momento de Fermi $p_F$.}.
 	\item[Massa efetiva e potencial químico:] Solucionamos as Equações~\eqref{gap} e~\eqref{gap_rho} simultaneamente, utilizando uma rotina para determinar zeros de funções de várias variáveis. Veja detalhes na próxima seção.
 	\item[Potencial químico:] Uma vez determinado o potencial químico renormalizado $\mu_R$, podemor determinar o valor do potencial químico $\mu$ através da Equação~\eqref{Eq:pot_quim_loop_bar_dens}.
 	\item[Potencial termodinâmico:] Com os valores de $m$, $\mu_R$ e $\mu$ --~além de $T$~-- podemos determinar o valor do potencial termodinâmico $\omega$ através da Equação~\ref{Eq:Pot_term_NJL_T_finito}. Mais uma vez, desejamos que o valor mínimo do potencial seja nulo:
@@ -400,9 +400,25 @@ A solução no caso $T \neq 0$ é bastante similar ao caso $T = 0$:
 	\item[Pressão e a energia] Finalmente, podemos calcular a pressão e a energia através das expressões~\eqref{Exp_pressao_T} e~\eqref{Exp_energia_T};
 \end{description}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Raízes de equações unidimensionais}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Raízes de equações bidimensionais}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+No caso com $T \neq 0$ --~seja utilizando um \emph{loop} na densidade bariônica $\rho_B$, seja no potencial químico $\mu$~-- precisamos determinar o zero de duas funções de duas variáveis simultaneamente. Como escolhemos o \emph{loop} na densidade bariônica, escrevemos --~a partir das Equações~\eqref{gap} e~\eqref{gap_rho}~-- as seguintes funções:
+\begin{align}
+	f_1(m, \mu_R) &= m - m_0 + \alpha\int_0^\Lambda \frac{m}{E} (1 - n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) p^2\;dp \\
+	f_2(\rho_B, \mu_R) &= n_c\rho_B - \beta \int_0^\Lambda (n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) p^2\;dp,
+\end{align}
+%
+onde $\alpha$ e $\beta$ são constantes. Devemos, portanto, encontrar os valores de $m$ e $\mu_R$ de forma que $f_1$ e $f_2$ sejam nulas simultaneamente.
+
+Encontrar esses pontos não é simples, pois para cada uma das funções existe um conjunto de pontos que satisfaz a condição, sendo que a interseção entre as curvas é o zero que buscamos. Podem também existir diversas interseções para as curvas de cada equação (o sistema admite mais que uma solução), ou mesmo nenhuma interseção (o sistema não admite solução).
+
+Numericamente, encontrar uma solução implica em determinar valores para as variáveis de forma que ambas as funções estejam tão perto de zero quanto for necessário. Isso dá origem à possibilidade de falsas raízes: as curvas dos zeros de cada função se aproximam o suficiente para que os valores das funções sejam menores do que a tolerância imposta, porém na realidade não há interseção. Devido a este tipo de problema, em geral é importante se conhecer detalhes do problema em particular, visando facilitar a solução.
+
+Uma ferramenta interessante é justamente mapear as regiões do espaço de fase $\mu_r \times m$ em que as funções são menores que a tolerância imposta. Ao elaborarmos um gráfico de tais pontos, podemos ver claramente quais as regiões em que há interseção. Os valores das raízes assim obtidas não serão muito precisos\footnote{Mesmo com esse artifício, existe também a possibilidade de que as raízes aparentes sejam falsas, caso as regiões apenas ``se toquem''.} Para obtermos valores melhores, devemos ``polir'' as raízes utilizando algum método apropriado. Tais métodos são generalizações do método de Newton\cite{NumericalRecipes}, utilizando as derivadas parciais das funções\footnote{Esses métodos são multidimensionais, isto é, podem ser utilizados para sistemas com $n$ funções e $n$ incógnitas. Também é comum que as derivadas parciais sejam calculadas numericamente utilizando diferenças finitas.} $f_1$ e $f_2$ em relação às variáveis $m$ e $\mu_R$ para determinar a direção que se aproxima do zero. Para utilizá-los, devemos iniciar com um ``chute'' para os valores das variáveis, que serão então ``polidos'': o algoritmo utilizará as derivadas para determinar em que direção no espaço de fases devemos seguir para que o valor das raízes melhore, aceitando os valores das variáveis quando a tolerância imposta for atingida. Utilizando o mapeamento descrito acima, podemos varrer o mapa dos pontos do espaço de fases que zeram as funções a procura de regiões onde temos proximidade entre as curvas. Tais pontos podem ser utilizados como ``chutes'' iniciais.
+
+No caso específico do presente problema, temos somente uma interseção entre as curvas, que são contínuas. Dessa forma, ao elaborarmos o mapa, podemos variar os valores de $m$ e $\mu_R$ de forma que e esta variável esteja no \emph{loop} mais interno. Isso garante que os pontos estarão ordenados em ordem crescente de $m$. Eliminamos a possível multiplicidade dos pontos fazendo a média nos valores de $\mu_R$ para cada valor de $m$. Agora basta percorrer os valores de $m$ à procura da menor distância entre os valores de $\mu_R$ de cada curva. Tal ponto será o valor estimado da posição da raíz que deverá ser passado para a rotina que deverá ``polir'' o valor até que ele esteja dentro da tolerância desejada.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Análise Dimensional}
@@ -418,9 +434,9 @@ Reprodução da Fig. 2.7 (esq) do Buballa (Rep.) fica um pouco ``jagged'', cheia
 
 \FloatBarrier
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Fase de hádrons: eNJL, $T = 0$}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fase de hádrons: eNJL, SU(2), temperatura zero}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%
 \subsection{Algoritmo}
