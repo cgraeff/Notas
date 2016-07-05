@@ -138,10 +138,14 @@ As equações de estado são dadas através da lagrangiana através de\cite{Glen
 Sair da lagrangiana e obter a expressão para o potencial termodinâmico.\cite{Asakawa1989}.
 \begin{align}
 	\omega(T, \mu) &= -\frac{T}{V} \ln\mathcal{Z} \\
-	&= -\frac{T}{V} \ln\Tr\exp\left(-\frac{1}{T} \int d^3 x(\mathcal{H} - \mu q^\dagger q)\right. \label{Eq:Pot_term_from_Hamiltonian}
+	&= -\frac{T}{V} \ln\Tr\exp\left(-\frac{1}{T} \int d^3 x(\mathcal{H} - \mu q^\dagger q)\right). \label{Eq:Pot_term_from_Hamiltonian}
 \end{align}
 
 Isso precisa constar nessa seção:
+\begin{align}
+	n_p(T, \mu) &= \frac{1}{1+\exp((E_p - \mu)/T)} \\
+	\bar{n}_p(T, \mu) &= \frac{1}{1 + \exp((E_p + \mu)/T)}
+\end{align}
 \begin{align}\label{Eq:Def_m_mu_r}
 	m &= m_0 - 2 G_s \phi \\
 	\mu_R &= \mu - 2 G_v n.
@@ -153,7 +157,7 @@ Isso precisa constar nessa seção:
 De Buballa\cite{Buballa}\footnote{As variáveis foram alteradas para refletir a notação utilizada neste texto.}:
 \begin{quote}
 	[\dots] apart from constant (i.e., field independent) terms, which give trivial contributions to the r.h.s. of Eq.~[\eqref{Eq:Pot_term_from_Hamiltonian}], the problem is equivalent to a system o non-interacting particles with mass $m$ at chemical potential $\mu_R$. Hence, the mean-field thermodynamic potencial takes the form
-	\begin{equation}
+	\begin{equation}\label{Eq:Pot_Termo_Temp_Finita}
 		\omega(T, \mu; m, \mu_r) = \omega_M(T, \mu_R) + \frac{(m - m_0)^2}{4G_s} - \frac{(\mu - \mu_R)^2}{4G_v} + \textrm{const.},
 	\end{equation}
 	%
@@ -164,7 +168,7 @@ De Buballa\cite{Buballa}\footnote{As variáveis foram alteradas para refletir a 
 	%
 	[\dots]
 	The further evaluation of $\omega_M$ can be found in textbooks. [\dots] One finally gets
-	\begin{equation}\label{Eq:Pot_Termo_Temp_Finita}
+	\begin{equation}
 	\begin{split}
 		\omega_M(T, \mu_R) = -2 n_f n_c \int \frac{d^3p}{(2\pi)^3} \{E_p &+ T\ln(1+e^{-(E_p-\mu_R)/T} \\
 		&+ T\ln(1 + e^{-(E_p+\mu_R})/T)\}.
@@ -205,24 +209,130 @@ De Buballa\cite{Buballa}:
 
 Podemos reescrever as equações acima como
 \begin{align}
-	m = m_0 + \dots\label{gap} \\
-	\mu_R = \mu + \dots \label{gap_mu_r},
+	m &= m_0 + 4 G_s n_c n_f \int\frac{d^3p}{(2\pi)^3} \frac{m}{E_p} (1 - n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) \label{gap} \\
+	\mu_R &= \mu - 4 n_c n_f \int\frac{d^3p}{(2\pi)^3} (n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) \label{gap_mu_r},
 \end{align}
 %
 que juntamente com a equação para a densidade bariônica
-\begin{equation}
-	\rho_B = n_c n(T, \mu_R) = \dots
+\begin{equation}\label{gap_rho}
+	n_c \rho_B = n(T, \mu_R) = 2 n_f n_c\int\frac{d^3p}{(2\pi)^3}(n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) 
 \end{equation}
 %
-formam um conjunto de equações acopladas que devem ser resolvidas \dots
-
+formam dois conjuntos distintos de equações acopladas que devem ser resolvidas simultaneamente para encontrar $m$ e $\mu_R$: se utilizarmos $\rho_B$ e $T$ como parâmetros livres, devemos utilizar a primeira e a última; se utilizarmos $\mu$ e $T$, devemos utilizar as duas primeiras. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fase de quarks: NJL, SU(2), temperatura zero}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Discutir a particularização para $T = 0$ neste ponto.}
+Tomando o caso especial\footnote{Por que essa simplificação? É um caso específico problemático de se calcular se não fizermos o limite aritmeticamente (devido à distrib. de Fermi-Dirac)? É um caso muito frequente e útil?} $T = 0$, temos uma simplificação substancial das Equações~\eqref{Eq:Pot_Termo_Temp_Finita}, \eqref{gap}, \eqref{gap_mu_r}, e~\eqref{gap_rho}. Verificaremos como obter as expressões nas próximas seções.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Limite da equação de gap para a massa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Na Equação~\eqref{gap}, temos a integral
+\begin{equation}
+	I = \int \frac{m}{E_p} (n_p(T, \mu_R) + \bar{n}_p(T, \mu_R)) d^3p.
+\end{equation}
+%
+No limite $T \to 0$, $\bar{n}_p(T, \mu_R) \to 0$, mas o limite de $n_p$ depende so sinal de $E_p - \mu_R$. Se $E_p - \mu_R > 0$, $n_p \to 0$; Se $E_p - \mu_R \leqslant 0$, $n_p \to 1$. Logo, podemos considerar que no limite $T \to 0$ a distribuição de Fermi-Dirac pode ser substituida por uma função degrau $\theta(\mu_R - E_p)$. Isso significa que todos os estados estão ocupados até uma certa energia\footnote{Denominada \emph{energia de Fermi}.} $E_F$. Equivalentemente, podemos verificar que os estados ocupados estão contidos em uma esfera de raio $p_F$ no espaço de momento, onde $p_F$ é o momento\footnote{Denominado \emph{momento de Fermi}.} do estado com energia $E_F$. 
+
+Podemos determinar uma relação entre $\mu_R$ e $p_F$ considerando que -- para os estados ocupados -- vale a desigualdade
+\begin{equation}
+	E_p = \sqrt{p^2 + m^2} \leqslant \mu_R.
+\end{equation}
+%
+Para o último estado ocupado, em particular, temos
+\begin{equation}
+	E_p = \sqrt{p^2 + m^2} = \mu_R
+\end{equation}
+%
+e, como nesse caso $p \equiv p_F$, temos
+\begin{equation}
+	\mu_R = \sqrt{p_F^2 + m^2}.
+\end{equation}
+%
+Como podemos verificar de $E_p = \sqrt{p^2 + m^2}$, $E_F \equiv \sqrt{p_F^2 + m^2} = \mu_R$. Isto é, a energia de Fermi é o próprio valor do potencial químico renormalizado $\mu_R$.
+
+Podemos, portanto, substituir a função degrau na energia por uma função degrau no momento, isto é, $\theta(p_F - p)$.\footnote{A alteração é basicamente uma mudança na ``ordem de varredura'' do índice da ``soma'': $\theta(\mu_R - E_p)$ é útil para uma soma em ordem crescente de energia, enquanto $\theta(p_F - p)$ é útil para uma soma em ordem crescente de momento; De qualquer forma, em ambos os casos são os mesmos estados.}
+
+No limite $T \to 0$ temos então
+\begin{equation}
+	I = \int \frac{m}{E_p} \theta(p_F - p) d^3p.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Limite do potencial termodinâmico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+No caso do potencial termodinâmico, temos a integral
+\begin{equation}
+	I = \int \left[T \ln\left(1+\exp\left(-\frac{E_p - \mu_R}{T}\right)\right) + T\ln\left(1+\exp\left(-\frac{E_p + \mu_R}{T}\right)\right)\right] d^3p.
+\end{equation}
+%
+Assumindo\footnote{Se separarmos em dois casos ($\mu_R > 0$ e $\mu_R < 0$), provavelmente o que vai acontecer é que o primeiro termo será zero no limite, enquanto o segundo se encaixará na análise que segue. Talvez por isso no Buballa apareçam as funções degrau com os termos dos argumentos ao quadrado.} $\mu_R > 0$, temos que o segundo termo será zero no limite $T \to 0$, pois a exponencial tende a zero e $\ln(1) = 0$. Para o primeiro termo, se $E_p - \mu_R >$, temos o mesmo resultado. No entanto, se $E_p - \mu_R \leqslant 0$, temos
+\begin{equation}
+	\lim_{T \to 0 \\ E_p - \mu_R \leqslant 0} T \ln\left(1+\exp\left(-\frac{E_p - \mu_R}{T}\right)\right),
+\end{equation}
+%
+onde a exponencial tende ao infinito. Tomando a expansão em série\footnote{Segundo o Wolfram alpha, \emph{expansão em série generalizada de Puiseux}.} de $\ln(1 + x)$ em torno de $x = \infty$
+\begin{equation}
+	\ln(1 + x) = -\ln\frac{1}{x} + \frac{1}{x} - \frac{1}{2x^2} + \frac{1}{3x^3} - \dots,
+\end{equation}
+%
+verificamos que os termos $(n x^n)^{-1}$ vão a zero para $x \to \infty$. Substituindo o primeiro termo, temos
+\begin{equation}
+	\lim_{T \to 0 \\ E_p - \mu_R \leqslant 0} T \ln\left(1+\exp\left(-\frac{E_p - \mu_R}{T}\right)\right) = \lim_{T \to 0} \left[-T \frac{E_p - \mu_R}{T} \right] = \mu_R - E_p.
+\end{equation}
+%
+
+Podemos descrever ambos os casos do primeiro termo utilizando uma função degrau $\theta(\mu_R - E_p)$
+\begin{equation}
+	\lim_{T \to 0} T \ln\left(1+\exp\left(-\frac{E_p - \mu_R}{T}\right)\right) = \lim_{T \to 0} \left[-T \frac{E_p - \mu_R}{T} \right] = (\mu_R - E_p)\theta(\mu_R - E_p).
+\end{equation}
+%
+Como no caso anterior, podemos substituir a função degrau na energia por uma função degrau no momento. Obtemos portanto
+\begin{equation}
+	\lim_{T \to 0} I = \int (\mu_R - E_p)\theta(p_F - p) d^3p
+\end{equation}
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Limite da densidade e da equação para o potencial químico renormalizado}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+No caso do potencial químico renormalizado e da densidade, temos a seguinte integral:
+\begin{equation}
+	I = \int (n_p(T,\mu_R) - \bar{n}_p(T, \mu_R)) d^3p.
+\end{equation}
+%
+Se tomarmos o limite $T \to 0$ de cada uma das expressões, temos
+\begin{align}
+	\lim_{T \to 0} \frac{1}{1+\exp((E_p - \mu_R)/T)} &= \begin{cases} 0, \quad \textrm{Se}~E_p - \mu_R > 0 \\ 1, \quad \textrm{Se}~E_p - \mu_R < 0 \end{cases} \\
+	\lim_{T \to 0} \frac{1}{1+\exp((E_p + \mu_R)/T)} &= \begin{cases} 0, \quad \textrm{Se}~E_p + \mu_R > 0 \\ 1, \quad \textrm{Se}~E_p + \mu_R < 0. \end{cases}
+\end{align}
+%
+Como temos\footnote{Novamente, talvez considerar o caso $\mu_R < 0$ explique o quadrado nos termos dos argumentos das funções degrau no Buballa.} que $E_p > 0$ e $\mu_R > 0$, o segundo termo será sempre nulo. Ambos os casos do primeiro podem ser descritos com o auxílio de uma função degrau $\theta(\mu_R - E_p)$, que pode ser trocada por uma função degrau $\theta(p_F - p)$. Logo,
+\begin{equation}
+	\lim_{T \to 0} I = \int \theta(p_F - p)d^3p.
+\end{equation}
+%
+Realizando a integração angular, obtemos
+\begin{equation}
+	\lim_{T \to 0} I = 4\pi \int_0^\infty \theta(p_F - p) p^2 \;dp.
+\end{equation}
+%
+Como o argumento da integral é zero a partir de $p_F$, os limites de integração estão limitados efetivamente:
+\begin{align}
+	\lim_{T \to 0} I &= 4\pi \int_0^{p_F} p^2 \;dp \\
+	&= 4\pi \frac{p_F^3}{3}.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Equações para temperatura zero}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Para o limite de temperatura zero, temos\cite{Buballa1996}\footnote{Muito dessa seção é só uma particularização para temperatura zero. Como vamos discutir temperatura finita antes, a maioria dos conceitos tem que ser discutida antes, para $T \neq 0$, então vai ter que sair daqui para não ficar repetitivo.}:
 \begin{quote}
 Expanding $\bar{\psi}\psi$ and $\bar{\psi}\gamma^\mu\psi$ about their thermal expectation values we can derive the mean field thermodynamic potential at temperature $T$ and chemical potential $\mu$ [11]. We restrict ourselves to the Hartree approximation. Furthermore in this paper we only consider $T=0$ and $\mu \geqslant 0$. The result for the thermodynamic potential is
 \begin{equation}\label{Eq:Def_pot_termo}
@@ -238,7 +348,7 @@ with
 being the vacuum part ant the medium part of the thermodynamic potential (per volume) of a free fermion with mass $m$. [\dots] The vacuum part is strongly divergent and has to be regularized. For simplicity we use a sharp cut-off $\Lambda$ in the three momentum space.\footnote{Isso significa que todas as integrais no momento serão limitadas a $\Lambda$.}
 \end{quote}
 %
-Ainda temos que
+Ainda temos que\footnote{essa relação para $p_F$ precisa ser demonstrada.}
 \begin{align}
 	E_p &= \sqrt{m^2+p^2}, \label{Eq:Def_E}\\
 	p_F &= \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2), \label{Eq:Rel_pot_quim_renorm_mom_fermi}
