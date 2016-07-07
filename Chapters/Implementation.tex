@@ -26,11 +26,13 @@ Dessa forma, as equações discutidas nos capítulos anteriores precisam ter sua
 \section{Fase de quarks: NJL, SU(2), temperatura zero}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Apesar de ser mais instrutivo analisar primeiramente o caso $T \neq 0$ ao estudarmos a termodinâmica do modelo NJL, a implementação do caso especial $T = 0$ é mais simples. Devido a isso, verificaremos os detalhes de implementação e resultados para esse caso antes do caso mais geral.
+
 %%%%%%%%%%%%%%%%%%%%%%
 \subsection{Algoritmo}
 %%%%%%%%%%%%%%%%%%%%%%
 
-A escolha das variáveis de \emph{loop} é uma questão de conveniência. Em especial, para o caso $T = 0$, temos ao variarmos $\rho_B$ a seguinte sequência de cálculo\footnote{Obter essas equações no capítulo de termodinâmica e fazer referência a elas aqui.}:
+A escolha das variáveis de \emph{loop} é uma questão de conveniência. Em especial, para o caso $T = 0$, temos ao variarmos $\rho_B$ a seguinte sequência de cálculo\footnote{Essas expressões foram calculadas quando tomamos o limite $T \to 0$.}:
 \begin{align}
 	\rho_B &= \textrm{escolhido arbitrariamente} \\
 	p_F &= \sqrt[3]{3 \pi^2 \rho_B / n_f} \label{Eq:mom_fermi_rho_bar}\\
@@ -70,17 +72,17 @@ Uma vez definida a variável de laço e as expressões para as demais variáveis
 		Podemos determinar o valor de $p_F$ de acordo com a expressão~\eqref{Eq:mom_fermi_rho_bar}.
 	\item[Potencial químico:] O potencial químico pode ser calculado de acordo com a expressão~\eqref{Eq:pot_quim_renorm_loop_dens_bar} acima.
 	\item[A massa efetiva e a densidade escalar:] Precisamos solucionar a equação~\eqref{gap}. A solução deve ser encontrada utilizando-se um algoritmo para encontrar zeros de função. Veja a próxima seção para mais detalhes;
-	\item[O potencial termodinâmico:] Uma vez determinados os valores de $\mu$, $\mu_R$ e $m$, podemos determinar o valor do potencial termodinâmico através da expressão~\eqref{pot_term_T_zero}. Para isso, no entanto, devemos calcular
+	\item[O potencial termodinâmico:] Uma vez determinados os valores de $\mu$, $\mu_R$ e $m$, podemos determinar o valor do potencial termodinâmico através da expressão~\eqref{Eq:Def_pot_termo}. Para isso, no entanto, devemos calcular
 		\begin{description}
 			\item[Valor mínimo do potencial termodinâmico:] Nenhuma grandeza é alterada ao se somar uma constante no potencial termodinâmico\footnote{Segundo o Buballa, eu tentei calcular $\varepsilon/\rho$ e tive problemas sem essa constante.}. Vamos nos valer desse fato para que o valor mínimo do potencial seja zero quando $T = \mu = 0$, definindo tal potencial com um ``potencial regularizado'' $\tilde\omega$:
 							\begin{equation}
 					\tilde\omega = \omega(\mu;m,\mu_R) - \omega(0;m_{\rm{vac}},0).
 				\end{equation}
 				Para isso, no entanto, devemos calcular o valor de massa $m_{\rm{vac}}$ que minimiza o potencial termodinâmico;
-			\item[Determinação da massa no vácuo:] Para que possamos determinar o potencial termodinâmico $\tilde\omega$ adequadamente, precisamos determinar o valor de massa que minimiza o potencial $\omega$. Isso resulta na equação \ref{mvac_gap} que --~novamente~--deve ser resolvida utilizando-se um algoritmo para determinar zeros de funções; Veja a próxima seção para mais detalhes. Uma vez determinado o valor de $m_{\rm{vac}}$, podemos determinar $\tilde\omega$.
+			\item[Determinação da massa no vácuo:] Para que possamos determinar o potencial termodinâmico $\tilde\omega$ adequadamente, precisamos determinar o valor de massa que minimiza o potencial $\omega$. Isso resulta na equação \ref{Eq:Calculo_m_vac} que --~novamente~--deve ser resolvida utilizando-se um algoritmo para determinar zeros de funções; Veja a próxima seção para mais detalhes. Uma vez determinado o valor de $m_{\rm{vac}}$, podemos determinar $\tilde\omega$.
 		\end{description}	
 		Como o valor de $m_{\rm{vac}}$ e o valor de $\tilde\omega$ são constantes (não dependem de $\rho_B$, direta ou indiretamente), podemos determinar tais valores antes mesmo de iniciarmos o \emph{loop} em $\rho_B$, armazenando os valores e utilizando-os quando necessário.
-	\item[Pressão e a energia] Finalmente, podemos calcular a pressão e a energia através das expressões~\eqref{Exp_pressao} e~\eqref{Exp_energia};
+	\item[Pressão e a energia] Finalmente, podemos calcular a pressão e a energia através das expressões~\eqref{Eq:Pressao_omega_tilde} e~\eqref{Eq:Energia_omega_tilde};
 \end{description}
 %
 Uma vez determinadas a massa no vácuo e a massa efetiva, a obtenção das demais grandezas é simples, uma vez conhecidas as suas expressões. Vamos discutir a determinação dos dois primeiros itens na seção a seguir. 
@@ -89,7 +91,7 @@ Uma vez determinadas a massa no vácuo e a massa efetiva, a obtenção das demai
 \subsection{Solução auto-consistente de equações}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-As Equações~\eqref{gap}, \eqref{gap_mu_r} e~\eqref{mvac_gap} são expressões para a determinação de uma variável que envolvem na expressão de cálculo a própria variável --~isto é, são equações trancendentais~--. Podemos resolver tais equações utilizando um algoritmo para determinar zeros de funções\cite{NumericalRecipes}, bastando para isso definir uma função $f$ cujos zeros devemos encontrar. No caso da Equação~\eqref{gap}, por exemplo, temos\footnote{A integral tem forma fechada, porém vamos utilizar a forma com a integral para tornar a expressão mais simples nessa discussão.}
+As Equações~\eqref{gap}, \eqref{gap_mu_r} e~\eqref{Eq:Calculo_m_vac} são expressões para a determinação de uma variável que envolvem na expressão de cálculo a própria variável --~isto é, são equações trancendentais~--. Podemos resolver tais equações utilizando um algoritmo para determinar zeros de funções\cite{NumericalRecipes}, bastando para isso definir uma função $f$ cujos zeros devemos encontrar. No caso da Equação~\eqref{gap}, por exemplo, temos\footnote{A integral tem forma fechada, porém vamos utilizar a forma com a integral para tornar a expressão mais simples nessa discussão.}
 \begin{equation}
 	m = m_0 - \alpha\int_0^\Lambda \frac{m}{\sqrt{p^2 + m^2}} p^2 dp,
 \end{equation}
@@ -387,13 +389,13 @@ A solução no caso $T \neq 0$ é bastante similar ao caso $T = 0$:
 	\item[Densidade bariônica $\rho_B$:] Os valores de densidade também são determinados arbitrariamente\footnote{No caso $T = 0$, definimos o momento de Fermi a partir da densidade, através da Equação~\eqref{gap_rho} no limite $T \to 0$. Como não estamos trabalhando nesse limite, não temos valores para o momento de Fermi $p_F$.}.
 	\item[Massa efetiva e potencial químico:] Solucionamos as Equações~\eqref{gap} e~\eqref{gap_rho} simultaneamente, utilizando uma rotina para determinar zeros de funções de várias variáveis. Veja detalhes na próxima seção.
 	\item[Potencial químico:] Uma vez determinado o potencial químico renormalizado $\mu_R$, podemor determinar o valor do potencial químico $\mu$ através da Equação~\eqref{Eq:pot_quim_loop_bar_dens}.
-	\item[Potencial termodinâmico:] Com os valores de $m$, $\mu_R$ e $\mu$ --~além de $T$~-- podemos determinar o valor do potencial termodinâmico $\omega$ através da Equação~\ref{Eq:Pot_term_NJL_T_finito}. Mais uma vez, desejamos que o valor mínimo do potencial seja nulo:
+	\item[Potencial termodinâmico:] Com os valores de $m$, $\mu_R$ e $\mu$ --~além de $T$~-- podemos determinar o valor do potencial termodinâmico $\omega$ através da Equação~\ref{Eq:Pot_Termo_Temp_Finita}. Mais uma vez, desejamos que o valor mínimo do potencial seja nulo:
 		\begin{description}
 			\item[Valor mínimo do potencial termodinâmico:] Novamente, definimos um potencial termodinâmico regularizado $\tilde\omega$, sendo que seu valor para $T = \mu = 0$ é zero no ponto de mínimo:
 				\begin{equation}
 					\tilde\omega = \omega(T,\mu;m,\mu_R) - \omega(0,0;m_{\rm{vac}},0).
 				\end{equation}
-			\item[Determinação da massa no vácuo:] Como tomamos $T = 0$, o valor de $m_{\rm{vac}}$ deve ser determinado da mesma maneira que no caso anterior, através da Equação~\eqref{mvac_gap}.
+			\item[Determinação da massa no vácuo:] Como tomamos $T = 0$, o valor de $m_{\rm{vac}}$ deve ser determinado da mesma maneira que no caso anterior, através da Equação~\eqref{Eq:Calculo_m_vac}.
 		\end{description}
 		Como o valor de $m_{\rm{vac}}$ e o valor de $\tilde\omega$ são constantes (não dependem de $\rho_B$, direta ou indiretamente), podemos determinar tais valores antes mesmo de iniciarmos o \emph{loop} em $\rho_B$, armazenando os valores e utilizando-os quando necessário.
 	\item[Entropia:] A entropia pode ser calculada a partir da derivada do potencial termodinâmico em relação à temperatura. Tal cálculo está contido na Seção~\ref{Sec:Entropia}, sendo que a expressão resultante é a Equação~\eqref{Eq:Entropia}.
@@ -423,6 +425,16 @@ No caso específico do presente problema, temos somente uma interseção entre a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Análise Dimensional}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Fazendo a análise dimensional das equações, temos
+\begin{itemize}
+	\item Na Equação~\eqref{Eq:Pot_Termo_Temp_Finita}, se exigimos $[\omega] = [\omega_M] = \rm{MeV}/\rm{fm}^3$, devemos multiplicar os termos $(m - m_0)^2/(4G_s)$ e $(\mu - \mu_R)^2/(4G_v)$ por $(\hbar c)^{-1}$;
+	\item Na Equação~\eqref{Eq:Por_Termo_Temp_Finita_Fermi_Gas_Contrib}, se exigimos $[\omega_M] = \rm{MeV}/\rm{fm}^3$, devemos multiplicar a integral por $(\hbar c)^{-3}$;
+	\item Na Equação~\eqref{Eq:Pot_quim_a_partir_de_mu_r_rho_bar}, se $[\mu] = \rm{MeV}$, o termo $2 n_c G_v \rho_B$ deve ser multiplicado por $(\hbar c)$;
+	\item Na Equação~\eqref{gap}, como a massa tem dimensão de MeV, precisamos multiplicar o termo contendo a integral por $(\hbar c)^{-2}$.
+	\item Na Equação~\eqref{gap_mu_r}, como o potencial químico e o potencial químico renormalizado têm dimensão MeV, devemos multiplicar o termo contendo a integral por $(\hbar c)^{-2}$.
+	\item Na Equação~\eqref{gap_rho}, $[n] = \rm{fm}^{-3}$. Precisamos multiplicar lado direito por $(\hbar c)^{-3}$.
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Resultados $T \neq 0$}
@@ -689,6 +701,7 @@ NJL:
 	\item fazer função para calcular $\mu$ a partir de $\mu_R$
 	\item Reprodução da Fig. 2.7 (esq) do Buballa (Rep.) fica um pouco ``jagged'', cheia de degraus; Verificar.
 	\item Review da discussão de resultados.
+	\item \textbf{Entropia: implementar nova expressão que derivei(verificar antes), implementar a expressão que peguei do artigo do James; comparar resultados. Se forem diferentes, ficar com a do James. Se forem iguais, tentar mais uma vez chegar de uma na outra.}
 \end{itemize}
 
 eNJL:

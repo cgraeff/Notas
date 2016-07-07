@@ -150,6 +150,7 @@ Isso precisa constar nessa seção:
 	m &= m_0 - 2 G_s \phi \\
 	\mu_R &= \mu - 2 G_v n.
 \end{align}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fase de quarks: NJL, SU(2)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -169,7 +170,7 @@ De Buballa\cite{Buballa}\footnote{As variáveis foram alteradas para refletir a 
 	[\dots]
 	The further evaluation of $\omega_M$ can be found in textbooks. [\dots] One finally gets
 	\begin{equation}
-	\begin{split}
+	\begin{split}\label{Eq:Por_Termo_Temp_Finita_Fermi_Gas_Contrib}
 		\omega_M(T, \mu_R) = -2 n_f n_c \int \frac{d^3p}{(2\pi)^3} \{E_p &+ T\ln(1+e^{-(E_p-\mu_R)/T} \\
 		&+ T\ln(1 + e^{-(E_p+\mu_R})/T)\}.
 	\end{split}
@@ -177,6 +178,11 @@ De Buballa\cite{Buballa}\footnote{As variáveis foram alteradas para refletir a 
 \end{quote}
 %
 onde $E_p = \sqrt{p^2 + m^2}$.
+
+A constante que aparece na definição do potencial não tem influência em nenhum resultado, por isso podemos a escolher\footnote{Mais detalhes na Seção~\ref{Sec:M_vac}.} de forma que o potencial termodinâmico seja nulo para $T = \mu = 0$, para o valor de $m = m_{\rm{vac}}$ que minimiza $\omega$. Por conveniência\footnote{Essa definição simplesmente calcula o valor do potencial termodinâmico mínimo no vácuo e subtrai tal valor do potencial como função de $T$ e $\mu$.}, definimos um potencial termodinâmico ``regularizado'' $\tilde\omega$ a partir do qual calcularemos as quantidades termodinâmicas em que estamos interessados, sendo que ele é dado por
+\begin{equation}
+	\tilde\omega(T, \mu; m, \mu_R) = \omega(T, \mu; m, \mu_R) - \omega(0, 0; m_{\rm{vac}}, 0).
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Equações auto-consistentes para a massa e para o potencial químico renormalizado}
@@ -210,7 +216,7 @@ De Buballa\cite{Buballa}:
 Podemos reescrever as equações acima como
 \begin{align}
 	m &= m_0 + 4 G_s n_c n_f \int\frac{d^3p}{(2\pi)^3} \frac{m}{E_p} (1 - n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) \label{gap} \\
-	\mu_R &= \mu - 4 n_c n_f \int\frac{d^3p}{(2\pi)^3} (n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) \label{gap_mu_r},
+	\mu_R &= \mu - 4 G_v n_c n_f \int\frac{d^3p}{(2\pi)^3} (n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) \label{gap_mu_r},
 \end{align}
 %
 que juntamente com a equação para a densidade bariônica
@@ -220,15 +226,94 @@ que juntamente com a equação para a densidade bariônica
 %
 formam dois conjuntos distintos de equações acopladas que devem ser resolvidas simultaneamente para encontrar $m$ e $\mu_R$: se utilizarmos $\rho_B$ e $T$ como parâmetros livres, devemos utilizar a primeira e a última; se utilizarmos $\mu$ e $T$, devemos utilizar as duas primeiras. 
 
+No caso de tomarmos a segunda alternativa ($\mu$ e $T$ como variáveis), utilizamos a equação acima para obtermos $\rho_B$. No entanto, se utilizarmos a densidade bariônica como uma das variáveis, devemos calcular $\mu$. Isso é simples se notarmos que a integral que aparece na expressão para $\mu_R$ acima é a mesma que aparece na expressão para a densidade bariônica. Assim podemos escrever
+\begin{equation}
+	\mu = \mu_R + 4 n_f n_c G_v \int \frac{d^3p}{(2\pi)^3} (n_p(T, \mu_R) - \bar{n}_p(T, \mu_R))
+\end{equation}
+%
+e
+\begin{equation}
+	\int\frac{d^3p}{(2\pi)^3} (n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) = \frac{\rho_B}{2 n_f}.
+\end{equation}
+%
+Logo, substituindo a expressão acima na anterior,
+\begin{equation}\label{Eq:Pot_quim_a_partir_de_mu_r_rho_bar}
+	\mu = \mu_R + 2 n_c G_v \rho_B.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Equações de estado}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+De Buballa~\cite{Buballa}:
+\begin{quote}
+	Having found a pair of solutions $m$ and $\mu_R$, other thermodynamic quantities can be obtained in the standard way. Since the system is uniform, pressure and energy density are given by
+	\begin{align}
+		p(T, \mu) &= -\omega(T, \mu; m, \mu_R) \label{Exp_pressao_T}\\
+		\varepsilon(T, \mu) &= -p(T, \mu) + T s(T, \mu) + \mu n(T,\mu). \label{Exp_energia_T}
+	\end{align}
+\end{quote}
+%
+Portanto, a obtenção das equações de estado depende diretamente do potencial termodinâmico e indiretamente da massa e do potencial químico renormalizado. Verificamos que há uma dependência implicita em $\rho_B$ através de $\mu$, quando utilizamos a primeira como parâmetro ao invés da segunda. Verificamos também que a densidade de energia depende da densidade de entropia $s(T, \mu)$ que será discutida na próxima seção.
+
+Para a obtenção de resultados numéricos devemos escolher a temperatura $T$ e mais uma variável ($\rho_B$ ou $\mu$) como sendo livres, determinando todas as demais quantidades. Ao varrermos as variáveis livres, obtemos um conjunto se soluções ``ponto a ponto'': se quisermos fazer um gráfico tipo $\omega \times m$ ou $\mu \times m$, basta escolhermos os pares de variáveis (por exemplo, $(m_1, \omega_1)$, $(m_2, \omega_2)$, \dots) \emph{de uma mesma solução} (isto é, para os mesmos valores das variáveis livres); assim, se estamos variando $\rho_B$ com um valor de $T$ qualquer, temos para $\omega \times m$ os pontos $(m_1, \omega_1)$ calculado à densidade $\rho_B^{(1)}$, $(m_2, \omega_2)$ calculado à densidade $\rho_B^{(2)}$, \dots.
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Entropia}
+\label{Sec:Entropia}
+%%%%%%%%%%%%%%%%%%%%
+
+Para calcularmos a densidade de energia $\varepsilon$, precisamos calcular a densidade de entropia $s$. Temos que a entropia é dada nesse caso\footnote{Não sei como chegar nessa expressão (peguei de V. Dexheimer, J.R. Torres, D.P. Menezes Eur. Phys. J. C (2013) 73:2569). Acredito que no nosso caso basta substituir a soma em $i = u, d$ pela constante $n_f \equiv 2$. No Buballa (Rep.) diz que é só calcular $s = -\partial\omega/\partial T$, mas a expressão que obtenho é diferente (veja abaixo).} pela expressão para um gás de Fermi livre:
+\begin{equation}\label{Eq:Entropia}
+\begin{split}
+	s = -2 n_c \sum_i \int [&n_p^{(i)} \ln n_p^{(i)} + (1 - n_p^{(i)}) \ln(1-n_p^{(i)}) \\
+	&+ \bar{n}_p^{(i)} \ln \bar{n}_p^{(i)} + (1-\bar{n}_p^{(i)})\ln(1-\bar{n}_p^{(i)})] \\
+	&\times\theta(\Lambda^2 - p^2)\;\frac{d^3p}{(2\pi)^3}.
+\end{split}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Cálculo segundo a derivada}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A entropia pode ser calculada através de
+\begin{equation}
+	s = -\frac{\partial \omega}{\partial T}.
+\end{equation}
+%
+O único termo que contribui para a derivada é o dado pela Equação~\eqref{Eq:Por_Termo_Temp_Finita_Fermi_Gas_Contrib} para $\omega_M$. Utilizando\footnote{Assumindo que ela se aplique a derivadas parciais também.} a fórmula de Leibniz (Equação~\eqref{Eq:Form_Leibniz}), obtemos
+\begin{equation}
+	s = 2 n_f n_c \int\frac{d^3p}{(2\pi)^2} \frac{\partial}{\partial T} \left[E_p + T \ln(1 + e^{-\frac{E_p - \mu_p}{T}}) + T \ln(1 + e^{-\frac{E_p + \mu_p}{T}})\right].
+\end{equation}
+%
+A derivada de $E_p$ é nula, enquanto
+\begin{align}
+	\frac{\partial}{\partial T}\left[T \ln(1 + e^{-\nicefrac{\xi}{T}})\right] &= \ln (1 + e^{-\nicefrac{\xi}{T}}) + \frac{\xi e^{-\nicefrac{\xi}{T}}}{T(1+e^{-\nicefrac{\xi}{T}})} \\
+	&= - \ln(1-\hat{n}) + \frac{\xi}{T}\hat{n},
+\end{align}
+%
+onde $\tilde{n}$ é dado por
+\begin{equation}
+	\hat{n} = \begin{cases} n_p(T, \mu_R), \quad \textrm{se}~ \xi = E_p - \mu \\ \bar{n}_p(T, \mu_R), \quad \textrm{se}~ \xi = E_p + \mu. \end{cases}
+\end{equation}
+%
+Temos então
+\begin{equation}
+\begin{split}
+	s = 2 n_f n_c \int &-\ln(1 - n_p(T, \mu_R)) + \frac{E_p - \mu_R}{T} n_p(T, \mu_R) \\
+	&- \ln (1 - \bar{n}_p(T, \mu_R)) + \frac{E_p + \mu_R}{T} \bar{n}_p(T, \mu_R) \; \frac{d^3p}{(2\pi)^3}.
+\end{split}
+\end{equation}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fase de quarks: NJL, SU(2), temperatura zero}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Tomando o caso especial\footnote{Por que essa simplificação? É um caso específico problemático de se calcular se não fizermos o limite aritmeticamente (devido à distrib. de Fermi-Dirac)? É um caso muito frequente e útil?} $T = 0$, temos uma simplificação substancial das Equações~\eqref{Eq:Pot_Termo_Temp_Finita}, \eqref{gap}, \eqref{gap_mu_r}, e~\eqref{gap_rho}. Verificaremos como obter as expressões nas próximas seções.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Limite da equação de gap para a massa}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Limite $T \to 0$ da equação de gap para a massa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Na Equação~\eqref{gap}, temos a integral
 \begin{equation}
@@ -261,18 +346,18 @@ No limite $T \to 0$ temos então
 	I = \int \frac{m}{E_p} \theta(p_F - p) d^3p.
 \end{equation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Limite do potencial termodinâmico}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Limite $T \to 0$ do potencial termodinâmico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 No caso do potencial termodinâmico, temos a integral
 \begin{equation}
-	I = \int \left[T \ln\left(1+\exp\left(-\frac{E_p - \mu_R}{T}\right)\right) + T\ln\left(1+\exp\left(-\frac{E_p + \mu_R}{T}\right)\right)\right] d^3p.
+	I = \int [T \ln(1+e^{-\frac{E_p - \mu_R}{T}}) + T\ln(1+e^{-\frac{E_p + \mu_R}{T}})] d^3p.
 \end{equation}
 %
-Assumindo\footnote{Se separarmos em dois casos ($\mu_R > 0$ e $\mu_R < 0$), provavelmente o que vai acontecer é que o primeiro termo será zero no limite, enquanto o segundo se encaixará na análise que segue. Talvez por isso no Buballa apareçam as funções degrau com os termos dos argumentos ao quadrado.} $\mu_R > 0$, temos que o segundo termo será zero no limite $T \to 0$, pois a exponencial tende a zero e $\ln(1) = 0$. Para o primeiro termo, se $E_p - \mu_R >$, temos o mesmo resultado. No entanto, se $E_p - \mu_R \leqslant 0$, temos
+Assumindo\footnote{Se separarmos em dois casos ($\mu_R > 0$ e $\mu_R < 0$), provavelmente o que vai acontecer é que o primeiro termo será zero no limite, enquanto o segundo se encaixará na análise que segue. Talvez por isso no Buballa apareçam as funções degrau com os termos dos argumentos ao quadrado.} $\mu_R > 0$, temos que o segundo termo será zero no limite $T \to 0$, pois a exponencial tende a zero e $\ln(1) = 0$. Para o primeiro termo, se $E_p - \mu_R >$, temos o mesmo resultado. No entanto, se $E_p - \mu_R < 0$, temos
 \begin{equation}
-	\lim_{T \to 0 \\ E_p - \mu_R \leqslant 0} T \ln\left(1+\exp\left(-\frac{E_p - \mu_R}{T}\right)\right),
+	\lim_{\substack{T \to 0 \\ E_p - \mu_R < 0}} T \ln(1+e^{-\frac{E_p - \mu_R}{T}}),
 \end{equation}
 %
 onde a exponencial tende ao infinito. Tomando a expansão em série\footnote{Segundo o Wolfram alpha, \emph{expansão em série generalizada de Puiseux}.} de $\ln(1 + x)$ em torno de $x = \infty$
@@ -282,13 +367,13 @@ onde a exponencial tende ao infinito. Tomando a expansão em série\footnote{Seg
 %
 verificamos que os termos $(n x^n)^{-1}$ vão a zero para $x \to \infty$. Substituindo o primeiro termo, temos
 \begin{equation}
-	\lim_{T \to 0 \\ E_p - \mu_R \leqslant 0} T \ln\left(1+\exp\left(-\frac{E_p - \mu_R}{T}\right)\right) = \lim_{T \to 0} \left[-T \frac{E_p - \mu_R}{T} \right] = \mu_R - E_p.
+	\lim_{\substack{T \to 0 \\ E_p - \mu_R < 0}} T \ln(1+e^{-\frac{E_p - \mu_R}{T}}) = \lim_{T \to 0} \left[-T \frac{E_p - \mu_R}{T} \right] = \mu_R - E_p.
 \end{equation}
 %
 
 Podemos descrever ambos os casos do primeiro termo utilizando uma função degrau $\theta(\mu_R - E_p)$
 \begin{equation}
-	\lim_{T \to 0} T \ln\left(1+\exp\left(-\frac{E_p - \mu_R}{T}\right)\right) = \lim_{T \to 0} \left[-T \frac{E_p - \mu_R}{T} \right] = (\mu_R - E_p)\theta(\mu_R - E_p).
+	\lim_{T \to 0} T \ln(1+e^{-\frac{E_p - \mu_R}{T}}) = (\mu_R - E_p)\theta(\mu_R - E_p).
 \end{equation}
 %
 Como no caso anterior, podemos substituir a função degrau na energia por uma função degrau no momento. Obtemos portanto
@@ -297,9 +382,9 @@ Como no caso anterior, podemos substituir a função degrau na energia por uma f
 \end{equation}
 %
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Limite da densidade e da equação para o potencial químico renormalizado}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Limite $T \to 0$ da densidade e da equação para o potencial químico renormalizado}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 No caso do potencial químico renormalizado e da densidade, temos a seguinte integral:
 \begin{equation}
@@ -328,15 +413,21 @@ Como o argumento da integral é zero a partir de $p_F$, os limites de integraç�
 	&= 4\pi \frac{p_F^3}{3}.
 \end{align}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Equações para temperatura zero}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Substituindo esse resultado nas Equações~\eqref{gap_mu_r} e~\eqref{gap_rho}, obtemos as seguintes relações:
+\begin{align}
+	p_F &= \sqrt{\frac{3\pi^2\rho_B}{n_f}} \\
+	\mu_R &= \mu - 2 n_c G_v \rho_B.
+\end{align}	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Equações para temperatura zero}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Para o limite de temperatura zero, temos\cite{Buballa1996}\footnote{Muito dessa seção é só uma particularização para temperatura zero. Como vamos discutir temperatura finita antes, a maioria dos conceitos tem que ser discutida antes, para $T \neq 0$, então vai ter que sair daqui para não ficar repetitivo.}:
 \begin{quote}
 Expanding $\bar{\psi}\psi$ and $\bar{\psi}\gamma^\mu\psi$ about their thermal expectation values we can derive the mean field thermodynamic potential at temperature $T$ and chemical potential $\mu$ [11]. We restrict ourselves to the Hartree approximation. Furthermore in this paper we only consider $T=0$ and $\mu \geqslant 0$. The result for the thermodynamic potential is
 \begin{equation}\label{Eq:Def_pot_termo}
-	\omega_{\rm{MF}}(\mu; m, \mu_R) = \omega_m^{\rm{(vac)}} + \omega_m^{\rm{(med)}}(\mu_R) + \frac{(m - m_0)^2}{4G_S} - \frac{(\mu - \mu_R)^2}{4G_V},
+	\omega(0,\mu; m, \mu_R) = \omega_m^{\rm{(vac)}} + \omega_m^{\rm{(med)}}(\mu_R) + \frac{(m - m_0)^2}{4G_S} - \frac{(\mu - \mu_R)^2}{4G_V},
 \end{equation}
 %
 with
@@ -348,7 +439,7 @@ with
 being the vacuum part ant the medium part of the thermodynamic potential (per volume) of a free fermion with mass $m$. [\dots] The vacuum part is strongly divergent and has to be regularized. For simplicity we use a sharp cut-off $\Lambda$ in the three momentum space.\footnote{Isso significa que todas as integrais no momento serão limitadas a $\Lambda$.}
 \end{quote}
 %
-Ainda temos que\footnote{essa relação para $p_F$ precisa ser demonstrada.}
+Ainda temos que
 \begin{align}
 	E_p &= \sqrt{m^2+p^2}, \label{Eq:Def_E}\\
 	p_F &= \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2), \label{Eq:Rel_pot_quim_renorm_mom_fermi}
@@ -375,23 +466,72 @@ Resolvendo a equação para $\mu_R$ acima, obtemos
 	&= \mu - \frac{2G_V(n_fn_c)}{3\pi^2}p_F^3 \label{Eq:Expr_pot_quim_renorm}
 \end{align}
 %
-e é possível eliminar a dependência de $\omega_{\rm{MF}}$ na variável $\mu_R$, obtendo algo que depende somente de $m$ (para um dado $\mu$).
+e é possível eliminar a dependência de $\omega$ na variável $\mu_R$, obtendo algo que depende somente de $m$ (para um dado $\mu$).\footnote{Na prática é mais simples calcular $\mu_R$ e usar o valor no cálculo de $\tilde{\omega}$. Além disso, ao se utilizar $\rho_B$ como variável livre, o próprio valor de $\mu$ passa a estar vinculado a $\rho_B$.}
 
-Definindo então o potencial termodinâmico ``renormalizado''\footnote{Eu estou chamando assim para diferenciar do $\omega$.} $\tilde\omega$:
+Definindo então o potencial termodinâmico ``renormalizado'' $\tilde\omega$:
 \begin{equation}\label{Eq:Def_omega_tilde}
-	\tilde{\omega}(\mu;m) = \omega_{\rm{MF}}(\mu; m, \mu_R(\mu,m)) - \omega_{\rm{MF}}(0; m_{\rm{vac}}, 0),
+	\tilde{\omega}(0,\mu;m,\mu_R) = \omega(0,\mu; m, \mu_R(\mu,m)) - \omega(0,0; m_{\rm{vac}}, 0),
 \end{equation}
 %
-onde calculamos o valor de $\omega_{\rm{MF}}$ para $\mu = \mu_R = 0$ (o que implica\footnote{Isso pode ser visto na expressão \eqref{Eq:Expr_pot_quim_renorm} ou na expressão \eqref{Eq:Rel_pot_quim_renorm_mom_fermi}} em $p_F = 0$), obtendo uma constante que será diminuída do potencial, resultando em um potencial $\tilde\omega$ nulo quando $m = m_{\rm{vac}}$, $\mu = 0$. A obtenção de $m_{\rm{vac}}$ será discutida adiante.
+onde calculamos o valor de $\omega_{\rm{MF}}$ para $\mu = \mu_R = 0$ (o que implica\footnote{Isso pode ser visto na expressão \eqref{Eq:Expr_pot_quim_renorm} ou na expressão \eqref{Eq:Rel_pot_quim_renorm_mom_fermi}} em $p_F = 0$), obtendo uma constante que será diminuída do potencial, resultando em um potencial $\tilde\omega$ nulo quando $m = m_{\rm{vac}}$, $\mu = 0$. A obtenção de $m_{\rm{vac}}$ será discutida na próxima seção.
 
-É possível se obter outras grandezas através das equações\footnote{Obter essas expressões.}
+É possível se obter outras grandezas através das equações
 \begin{align}
 	\rho_B &= \frac{1}{n_c} \langle\psi^\dagger\psi\rangle = \frac{n_f}{3\pi^2}p_F^3, \label{Eq:Rel_Dens_Mom_Fermi_NJL}\\
 	\varepsilon &= \tilde{\omega} + \mu n_c \rho_B, \label{Eq:Energia_omega_tilde}\\
 	p &= - \tilde{\omega}, \label{Eq:Pressao_omega_tilde}
 \end{align}
 %
-onde ``[\dots] for a given $\mu$ these formulas have to be evaluated for the values of $m$ and $\mu_R$ which minimize the thermodynamic potential.''\footnote{É necessário fazer essa minimização para descobrir quais são esses valores antes?}
+onde ``[\dots] for a given $\mu$ these formulas have to be evaluated for the values of $m$ and $\mu_R$ which minimize the thermodynamic potential.''\footnote{Isso é necessário se tivermos mais que uma solução. Nesse caso, devemos utilizar aquela que minimiza o potencial termodinâmico.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Determinação da constante no potencial termodinâmico}
+\label{Sec:M_vac}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Para calcular as grandezas em que estamos interessados ($p$, $\varepsilon$), precisamos calcular $\tilde{\omega}$. Para calcular tal grandeza, precisamos calcular o valor de $m_{\rm{vac}}$, Eq.~\eqref{Eq:Def_omega_tilde}. Esse valor é dado de forma que\cite{Buballa1996}
+\begin{quote}
+	$m_{\rm{vac}}$ is the dynamical mass which minimizes the thermodynamic potential of the vacuum.
+\end{quote}
+%
+isto é\footnote{ou acredito que seja}, $m_{\rm{vac}}$ deve minimizar o potencial definido pela Eq.~\ref{Eq:Def_pot_termo} para o caso do vácuo\footnote{No Report do Buballa, também há a menção a minimizar o potencial termodinâmico, porém não há o termo $\omega_m^{\rm{med}}$. Acredito que devido à função degrau, esse termo seja zero na forma que temos aqui.}. Podemos determinar o valor que minimiza o potencial tomando a derivada em relação a $m$ e igualando-a a zero:
+\begin{align}
+	\frac{d}{dm} \omega(T = 0,\mu = 0; m, \mu_R = 0) &= \frac{d}{dm}\omega_m^{\rm{(vac)}} \\
+	&\phantom{=} + \frac{d}{dm}\omega_m^{\rm{(med)}}(\mu_R) \nonumber \\
+	&\phantom{=} + \frac{d}{dm}\frac{(m - m_0)^2}{4G_S} \nonumber \\
+	&= 0.\nonumber
+\end{align}
+%
+Como $\mu_R = 0$ e $E = \sqrt{p^2+m^2}$, da expressão~\eqref{Eq:Def_omega_med} temos que o segundo termo é nulo (por $\mu_R$ ser zero e pelo fato de que a função degrau será zero, pois $p_F$ é zero se $\mu_R = 0$, Eq.~\eqref{Eq:Rel_pot_quim_renorm_mom_fermi}).
+
+O primeiro termo pode ser calculado através da fórmula de Leibniz (Equação~\eqref{Eq:Form_Leibniz}) resultando em
+\begin{align}
+	\frac{d}{dm}\omega_m^{\rm{(vac)}} &= -2 n_f n_c\frac{d}{dm}\int \frac{d^3p}{(2\pi)^3} \sqrt{p^2 + m^2} \\
+	&= - \frac{n_f n_c}{\pi^2} \int \frac{\partial}{\partial m} p^2\sqrt{p^2+m^2} dp \\
+	&= - \frac{n_f n_c}{\pi^2} \int_0^\Lambda \frac{mp^2}{\sqrt{p^2+m^2}} dp \\
+	&= - \frac{n_f n_c}{\pi^2} \;m [F_0(m, \Lambda) - F_0(m,0)]
+\end{align}
+%
+onde usamos as relações~\eqref{Eq:Int_d3p_to_dp} e \eqref{Eq:Def_F0},~\eqref{Eq:Def_F0_integrado}.
+
+Finalmente, o terceiro termo é dado por
+\begin{equation}
+	\frac{d}{dm} \frac{(m - m_0)^2}{4G_S} = \frac{2 (m - m_0)}{4G_S} = \frac{m - m_0}{2G_S}.
+\end{equation}
+%
+Consequentemente,
+\begin{align}
+	\frac{d}{dm} \omega(T = 0, \mu = 0; m, \mu_R = 0) &= - \frac{n_f n_c}{\pi^2} \;m [F_0(m, \Lambda) - F_0(m,0)] \\
+	&\phantom{=}~+ \frac{m - m_0}{2G_S} \nonumber \\
+	&= 0.
+\end{align}
+%
+multiplicando por $2G_S$, obtemos uma equação equivalente:
+\begin{equation}\label{Eq:Calculo_m_vac}
+	m - m_0 - 2G_S\frac{n_f n_c}{\pi^2} \;m [F_0(m, \Lambda) - F_0(m,0)] = 0.
+\end{equation}
+%
+Devemos resolver tal equação através de um método para encontrar zeros de funções. O valor obtido será o valor de $m_{\rm{vac}}$, a partir do qual podemos calcular $\omega(0,0;m_{\rm{vac}}, 0)$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Equação do gap}
@@ -429,62 +569,6 @@ Para isso, basta reescrevermos a expressão acima como
 \end{equation}
 %
 e utilizar um método para encontrar zeros de funções, variando $m$ em uma janela de valores que contenha o valor adequado da massa efetiva (entre algo próximo de zero e \np[GeV]{1}, por exemplo). Note que o valor de $\rho_s$ depende de $m$ e deve ser calculado para cada ``chute'' de $m$.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Massa no vácuo}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Para calcular as grandezas em que estamos interessados ($p$, $\varepsilon$), precisamos calcular $\tilde{\omega}$. Para calcular tal grandeza, precisamos calcular o valor de $m_{\rm{vac}}$, Eq.~\eqref{Eq:Def_omega_tilde}. Esse valor é dado de forma que\cite{Buballa1996}
-\begin{quote}
-	$m_{\rm{vac}}$ is the dynamical mass which minimizes the thermodynamic potential of the vacuum.
-\end{quote}
-%
-isto é\footnote{ou acredito que seja}, $m_{\rm{vac}}$ deve minimizar o potencial definido pela Eq.~\ref{Eq:Def_pot_termo} para o caso do vácuo\footnote{No Report do Buballa, também há a menção a minimizar o potencial termodinâmico, porém não há o termo $\omega_m^{\rm{med}}$. Acredito que devido à função degrau, esse termo seja zero na forma que temos aqui.}. Podemos determinar o valor que minimiza o potencial tomando a derivada em relação a $m$ e igualando-a a zero:
-\begin{align}
-	\frac{d}{dm} \omega(\mu = 0; m, \mu_R = 0) &= \frac{d}{dm}\omega_m^{\rm{(vac)}} \\
-	&\phantom{=} + \frac{d}{dm}\omega_m^{\rm{(med)}}(\mu_R) \nonumber \\
-	&\phantom{=} + \frac{d}{dm}\frac{(m - m_0)^2}{4G_S} \nonumber \\
-	&= 0.\nonumber
-\end{align}
-%
-Como $\mu_R = 0$ e $E = \sqrt{p^2+m^2}$, da expressão~\eqref{Eq:Def_omega_med} temos que o segundo termo é nulo (por $\mu_R$ ser zero e pelo fato de que a função degrau será zero, pois $p_F$ é zero se $\mu_R$, Eq.~\eqref{Eq:Rel_pot_quim_renorm_mom_fermi}).
-
-O primeiro termo pode ser calculado através da fórmula de Leibniz\footnote{Se os limites são constantes, o lado direito se resume à integral.}
-\begin{equation}
-\begin{split}
-	\frac{d}{dx} \left(\int_{a(x)}^{b(x)} f(x,t) dt\right) =&~ f(x, b(x))b'(x) - f(x, a(x))a'(x) \\
-	&+ \int_{a(x)}^{b(x)}\frac{\partial}{\partial x}f(x,t) dt
-\end{split}
-\end{equation}
-%
-resultando em
-\begin{align}
-	\frac{d}{dm}\omega_m^{\rm{(vac)}} &= -2 n_f n_c\frac{d}{dm}\int \frac{d^3p}{(2\pi)^3} \sqrt{p^2 + m^2} \\
-	&= - \frac{n_f n_c}{\pi^2} \int \frac{\partial}{\partial m} p^2\sqrt{p^2+m^2} dp \\
-	&= - \frac{n_f n_c}{\pi^2} \int_0^\Lambda \frac{mp^2}{\sqrt{p^2+m^2}} dp \\
-	&= - \frac{n_f n_c}{\pi^2} \;m [F_0(m, \Lambda) - F_0(m,0)]
-\end{align}
-%
-onde usamos as relações~\eqref{Eq:Int_d3p_to_dp} e \eqref{Eq:Def_F0},~\eqref{Eq:Def_F0_integrado}.
-
-Finalmente, o terceiro termo é dado por
-\begin{equation}
-	\frac{d}{dm} \frac{(m - m_0)^2}{4G_S} = \frac{2 (m - m_0)}{4G_S} = \frac{m - m_0}{2G_S}.
-\end{equation}
-%
-Consequentemente,
-\begin{align}
-	\frac{d}{dm} \omega(\mu = 0; m, \mu_R = 0) &= - \frac{n_f n_c}{\pi^2} \;m [F_0(m, \Lambda) - F_0(m,0)] \\
-	&\phantom{=}~+ \frac{m - m_0}{2G_S} \nonumber \\
-	&= 0.
-\end{align}
-%
-multiplicando por $2G_S$, obtemos uma equação equivalente:
-\begin{equation}\label{Eq:Calculo_m_vac}
-	m - m_0 - 2G_S\frac{n_f n_c}{\pi^2} \;m [F_0(m, \Lambda) - F_0(m,0)] = 0.
-\end{equation}
-%
-Devemos resolver tal equação através de um método para encontrar zeros de função, tal como é feito para a equação do gap.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Determinação de $\tilde{\omega}$ para o caso $G_V = 0$}
@@ -764,6 +848,14 @@ Com $E = \sqrt{k^2 + m^2}$,
 	&\equiv F_E(m, k),
 \end{align}
 
+Fórmula de Leibniz:\footnote{Se os limites são constantes, o lado direito se resume à integral.}
+\begin{equation}\label{Eq:Form_Leibniz}
+\begin{split}
+	\frac{d}{dx} \left(\int_{a(x)}^{b(x)} f(x,t) dt\right) =&~ f(x, b(x))b'(x) - f(x, a(x))a'(x) \\
+	&+ \int_{a(x)}^{b(x)}\frac{\partial}{\partial x}f(x,t) dt
+\end{split}
+\end{equation}
+
 %%%%%%%%%%%%%%%%%%%%%%%%
 \section{Próximas ações}
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -809,8 +901,7 @@ Com $E = \sqrt{k^2 + m^2}$,
 					\item Determinar função partição;
 					\item Determinar potencial termodinâmico;
 					\item Determinar dens. de energia, pressão;
-					\item Determinar a eq do gap, potencial químico renormalizado
-					\item O pot. quim. e a massa efetiva são determinadas a partir das eq. do gap e a para o pot quim. efetivo, não precisa calcular depois (pelo que entendi)
+					\item Determinar a eq do gap, potencial químico renormalizado (fiz um \emph{quote} do Buballa, mas não sei exatamente o que é aquilo, de onde vem aquele cálculo.
 				\end{itemize}
 		\end{itemize}
 	\item Dúvidas:
@@ -819,15 +910,12 @@ Com $E = \sqrt{k^2 + m^2}$,
 		\end{itemize}
 	\item Cálculo para $T = 0$
 		\begin{itemize}
-			\item Obter as expressões utilizadas no loop em $\rho_B$ para o caso $T = 0$ ($p_F$, $\mu_r$, $\mu$);
 			\item deixar as integrais aqui, realizar as integrações angulares e explicitar os limites de zero ao \emph{cutoff};
+			\item limpar itens que estejam repetidos por termos invertido a ordem para $T \neq 0$, $T = 0$.
 		\end{itemize}
 	\item Cálculo para $T \neq 0$
 		\begin{itemize}
-			\item Atualizar as notas com informações para o caso $T \neq 0$: Eq. oriundas do Buballa\cite{Buballa} (gap, $\mu_R$, $\rho_B = n/3 = \dots$, $\omega$);
 			\item digitar cálculo de entropia;
-			\item digitar cálculos de ``especialização'' para $T = 0$ a partir de $T \neq 0$.
-			\item discular a constante no cálculo de $\tilde\omega$: é só pra fazer com que o potencial seja nulo quando estiver no mínimo para temperatura e potencial químico nulos. Pra isso, obviamente, calculamos o valor do potencial nessas condições e dizemos que a constante é ``menos aquilo''. 
-			\item Inverter ordem, colocar caso $T \neq 0$ antes, o caso $T = 0$ é só um caso especial.
+			\item Estou calculando como se todas as integrais precisassem ser regularizadas via cutoff. Não sei se isso é verdade.
 		\end{itemize}
 \end{itemize}
