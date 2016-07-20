@@ -263,12 +263,21 @@ Para a obtenção de resultados numéricos devemos escolher a temperatura $T$ e 
 \label{Sec:Entropia}
 %%%%%%%%%%%%%%%%%%%%
 
-Para calcularmos a densidade de energia $\varepsilon$, precisamos calcular a densidade de entropia $s$. Temos que a entropia é dada nesse caso\footnote{Não sei como chegar nessa expressão (peguei de V. Dexheimer, J.R. Torres, D.P. Menezes Eur. Phys. J. C (2013) 73:2569). Acredito que no nosso caso basta substituir a soma em $i = u, d$ pela constante $n_f \equiv 2$. No Buballa (Rep.) diz que é só calcular $s = -\partial\omega/\partial T$, mas a expressão que obtenho é diferente (veja abaixo).} pela expressão para um gás de Fermi livre:
-\begin{equation}\label{Eq:Entropia}
+Para calcularmos a densidade de energia $\varepsilon$, precisamos calcular a densidade de entropia $s$. Temos que a entropia é dada nesse caso\footnote{Não sei como chegar nessa expressão (peguei de V. Dexheimer, J.R. Torres, D.P. Menezes Eur. Phys. J. C (2013) 73:2569). No Buballa (Rep.) diz que é só calcular $s = -\partial\omega/\partial T$, mas a expressão que obtenho é diferente (veja abaixo). Ou meu cálculo está errado, ou as expressões são equivalentes (não consigo verificar isso).} pela expressão para um gás de Fermi livre:
+\begin{equation}\label{Eq:Densidade_de_entropia}
 \begin{split}
 	s = -2 n_c \sum_i \int [&n_p^{(i)} \ln n_p^{(i)} + (1 - n_p^{(i)}) \ln(1-n_p^{(i)}) \\
 	&+ \bar{n}_p^{(i)} \ln \bar{n}_p^{(i)} + (1-\bar{n}_p^{(i)})\ln(1-\bar{n}_p^{(i)})] \\
 	&\times\theta(\Lambda^2 - p^2)\;\frac{d^3p}{(2\pi)^3}.
+\end{split}
+\end{equation}
+%
+Acredito que no nosso caso basta substituir a soma em $i = u, d$ pela constante $n_f \equiv 2$:
+\begin{equation}
+\begin{split}
+	s = - \frac{n_c n_f}{\pi^2} \int [&n_p^{(i)} \ln n_p^{(i)} + (1 - n_p^{(i)}) \ln(1-n_p^{(i)}) \\
+	&+ \bar{n}_p^{(i)} \ln \bar{n}_p^{(i)} + (1-\bar{n}_p^{(i)})\ln(1-\bar{n}_p^{(i)})] \\
+	&\times\theta(\Lambda^2 - p^2) \; p^2 dp.
 \end{split}
 \end{equation}
 
@@ -286,7 +295,7 @@ O único termo que contribui para a derivada é o dado pela Equação~\eqref{Eq:
 	s = 2 n_f n_c \int\frac{d^3p}{(2\pi)^2} \frac{\partial}{\partial T} \left[E_p + T \ln(1 + e^{-\frac{E_p - \mu_p}{T}}) + T \ln(1 + e^{-\frac{E_p + \mu_p}{T}})\right].
 \end{equation}
 %
-A derivada de $E_p$ é nula, enquanto
+A derivada de $E_p$ é nula, enquanto\footnote{É fácil mostrar que $1 - n_p = 1/(1 + \exp(-(E_p - \mu_p)/T))$ e que $1 - \bar{n}_p = 1/(1 + \exp(-(E_p + \mu_p)/T))$.}
 \begin{align}
 	\frac{\partial}{\partial T}\left[T \ln(1 + e^{-\nicefrac{\xi}{T}})\right] &= \ln (1 + e^{-\nicefrac{\xi}{T}}) + \frac{\xi e^{-\nicefrac{\xi}{T}}}{T(1+e^{-\nicefrac{\xi}{T}})} \\
 	&= - \ln(1-\hat{n}) + \frac{\xi}{T}\hat{n},
@@ -297,11 +306,19 @@ onde $\tilde{n}$ é dado por
 	\hat{n} = \begin{cases} n_p(T, \mu_R), \quad \textrm{se}~ \xi = E_p - \mu \\ \bar{n}_p(T, \mu_R), \quad \textrm{se}~ \xi = E_p + \mu. \end{cases}
 \end{equation}
 %
-Temos então\footnote{É fácil mostrar que $1 - n_p = 1/(1 + \exp(-(E_p - \mu_p)/T))$ e que $1 - \bar{n}_p = 1/(1 + \exp(-(E_p + \mu_p)/T))$
+Temos então
+\begin{equation}\label{Eq:Densidade_de_entropia_deriv}
+\begin{split}
+	s = 2 n_f n_c \int \Big\{&-\ln(1 - n_p(T, \mu_R)) + \frac{E_p - \mu_R}{T} n_p(T, \mu_R) \\
+	&- \ln (1 - \bar{n}_p(T, \mu_R)) + \frac{E_p + \mu_R}{T} \bar{n}_p(T, \mu_R)\Big\} \; \frac{d^3p}{(2\pi)^3},
+\end{split}
+\end{equation}
+%
+onde a integração deverá ser feita no intervalo $|\vec{p}| = [0;\Lambda]$:
 \begin{equation}
 \begin{split}
-	s = 2 n_f n_c \int &-\ln(1 - n_p(T, \mu_R)) + \frac{E_p - \mu_R}{T} n_p(T, \mu_R) \\
-	&- \ln (1 - \bar{n}_p(T, \mu_R)) + \frac{E_p + \mu_R}{T} \bar{n}_p(T, \mu_R) \; \frac{d^3p}{(2\pi)^3}.
+	s = \frac{n_f n_c}{\pi^2} \int_0^\Lambda \Big\{&-\ln(1 - n_p(T, \mu_R)) + \frac{E_p - \mu_R}{T} n_p(T, \mu_R) \\
+	&- \ln (1 - \bar{n}_p(T, \mu_R)) + \frac{E_p + \mu_R}{T} \bar{n}_p(T, \mu_R)\Big\} \; p^2 dp,
 \end{split}
 \end{equation}
 

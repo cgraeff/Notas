@@ -398,7 +398,7 @@ A solução no caso $T \neq 0$ é bastante similar ao caso $T = 0$:
 			\item[Determinação da massa no vácuo:] Como tomamos $T = 0$, o valor de $m_{\rm{vac}}$ deve ser determinado da mesma maneira que no caso anterior, através da Equação~\eqref{Eq:Calculo_m_vac}.
 		\end{description}
 		Como o valor de $m_{\rm{vac}}$ e o valor de $\tilde\omega$ são constantes (não dependem de $\rho_B$, direta ou indiretamente), podemos determinar tais valores antes mesmo de iniciarmos o \emph{loop} em $\rho_B$, armazenando os valores e utilizando-os quando necessário.
-	\item[Entropia:] A entropia pode ser calculada a partir da derivada do potencial termodinâmico em relação à temperatura. Tal cálculo está contido na Seção~\ref{Sec:Entropia}, sendo que a expressão resultante é a Equação~\eqref{Eq:Entropia}.
+	\item[Entropia:] A entropia pode ser calculada a partir da derivada do potencial termodinâmico em relação à temperatura. Tal cálculo está contido na Seção~\ref{Sec:Entropia}, sendo que a expressão resultante é a Equação~\eqref{Eq:Densidade_de_entropia}.
 	\item[Pressão e a energia] Finalmente, podemos calcular a pressão e a energia através das expressões~\eqref{Exp_pressao_T} e~\eqref{Exp_energia_T};
 \end{description}
 
@@ -434,6 +434,7 @@ Fazendo a análise dimensional das equações, temos
 	\item Na Equação~\eqref{gap}, como a massa tem dimensão de MeV, precisamos multiplicar o termo contendo a integral por $(\hbar c)^{-2}$.
 	\item Na Equação~\eqref{gap_mu_r}, como o potencial químico e o potencial químico renormalizado têm dimensão MeV, devemos multiplicar o termo contendo a integral por $(\hbar c)^{-2}$.
 	\item Na Equação~\eqref{gap_rho}, $[n] = \rm{fm}^{-3}$. Precisamos multiplicar lado direito por $(\hbar c)^{-3}$.
+	\item Como estamos utilizando $[T] = \rm{MeV}$, a entropia é adimensional ($[k_B] = \textrm{MeV}/\rm{K}$), portanto a densidade de entropia $s$ tem dimensão de $\rm{fm}^{-3}$. Na Equação~\eqref{Eq:Densidade_de_entropia}, os termos dentro da integral são adimensionais, porém temos uma integral em $d^3p$, o que nos deixa uma dimensão de $\rm{MeV}^3$. Devemos portanto multiplicar toda a equação por $(\hbar c)^{-3}$.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
