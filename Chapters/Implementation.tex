@@ -441,6 +441,12 @@ Fazendo a análise dimensional das equações, temos
 \subsection{Resultados $T \neq 0$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Para o cálculo da entropia, temos três opções para o cálculo do integrando: A Equação~\eqref{Eq:Densidade_de_entropia}, a Equação~\eqref{Eq:Densidade_de_entropia_deriv}, e esta última -- porém com a derivada na forma dada pela expressão~\eqref{Eq:Der_da_dens_entropia_para_implement} -- sem a simplificação $1 - n_p = 1/(1 + \exp(-(E_p - \mu_p)/T))$ e que $1 - \bar{n}_p = 1/(1 + \exp(-(E_p + \mu_p)/T))$. Quando tudo corre bem, as três formas resultam nos mesmos valores. Porém, quando estamos em situações limite temos problemas com alguns modos de cálculo que não existem com outros: baixa temperatura, potencial químico renormalizado e massa (a duas primeiras formas têm problemas numéricos para baixos valores de momento); baixa massa e temperatura com potencial químico renormalizado alto (a duas primeiras formas têm problemas numéricos para baixos valores de momento); No caso de valores $m = \np[MeV]{300}$, $\mu_R = \np[MeV]{400}$ e $T = \np[MeV]{1}$, os resultados calculados pelas três formas são bastante problemáticos; Provavelmente existem mais situações problemáticas.
+
+Acredito que os problemas numéricos têm origem na exponencial que aparece nos três casos, sendo que uma forma pode ser mais afetada que outra pois podemos ter perda de precisão ao fazer alguma operação. Com o intuito de minimizar esse tipo de problema, usei a função \texttt{log1p} sempre que possível, pois ela é capaz de calcular $\ln(1 + x)$ para $x$ pequeno sem perda de precisão. De uma maneira geral, o uso da Equação~\eqref{Eq:Densidade_de_entropia_deriv} sem a simplificação (isto é, com a derivada dada pela expressão~\eqref{Eq:Der_da_dens_entropia_para_implement}) é a melhor opção.
+
+Os gráficos obtidos para a entropia parecem razoáveis. Veja as figuras ...
+
 Reprodução da Fig. 2.7 (esq) do Buballa (Rep.) fica um pouco ``jagged'', cheia de degraus. Em primeira instância, deveria ser uma questão de aumentar a precisão do cálculo, mas no caso das integrais de distribuição de Fermi-Dirac, estou no limite da precisão do \texttt{double}. Talvez se separar as integrais melhorasse um pouco, mas não tenho certeza. De qualquer forma, o resultado fecha certo com a referência, então isso significa que o cálculo da equação do Gap para a massa está funcionando (fora os degraus, produz o que se esperava). Além disso, o caso é meio crítico\footnote{Pensando bem, haveria razão para crer que $\rho_B \neq 0$, o que implica em $\mu_R \neq zero$, daria melhores resultados? Acho que não, e certamente, de alguma forma, as integrais envolvendo a distribuição de Fermi-Dirac estão tendo problemas numéricos para poder apresentar os degraus. Provavelmente temos valores pequenos nessa região.}, para $\rho_B = 0$. 
 
 % inserir figuras aqui
@@ -702,7 +708,10 @@ NJL:
 	\item fazer função para calcular $\mu$ a partir de $\mu_R$
 	\item Reprodução da Fig. 2.7 (esq) do Buballa (Rep.) fica um pouco ``jagged'', cheia de degraus; Verificar.
 	\item Review da discussão de resultados.
-	\item \textbf{Entropia: implementar nova expressão que derivei(verificar antes), implementar a expressão que peguei do artigo do James; comparar resultados. Se forem diferentes, ficar com a do James. Se forem iguais, tentar mais uma vez chegar de uma na outra.}
+	\item Entropia:
+		\begin{itemize}
+			\item Ao calcular as equações de estado, escrever a entropia também. Como podemos ter problemas numéricos ao calcular o integrando da entropia, uma inspeção visual no resultado para a entropia é importante para sabermos que não estamos calculando nada estranho.
+		\end{itemize}
 \end{itemize}
 
 eNJL:

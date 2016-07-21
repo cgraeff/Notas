@@ -263,7 +263,7 @@ Para a obtenção de resultados numéricos devemos escolher a temperatura $T$ e 
 \label{Sec:Entropia}
 %%%%%%%%%%%%%%%%%%%%
 
-Para calcularmos a densidade de energia $\varepsilon$, precisamos calcular a densidade de entropia $s$. Temos que a entropia é dada nesse caso\footnote{Não sei como chegar nessa expressão (peguei de V. Dexheimer, J.R. Torres, D.P. Menezes Eur. Phys. J. C (2013) 73:2569). No Buballa (Rep.) diz que é só calcular $s = -\partial\omega/\partial T$, mas a expressão que obtenho é diferente (veja abaixo). Ou meu cálculo está errado, ou as expressões são equivalentes (não consigo verificar isso).} pela expressão para um gás de Fermi livre:
+Para calcularmos a densidade de energia $\varepsilon$, precisamos calcular a densidade de entropia $s$. Temos que a entropia é dada nesse caso\footnote{Não sei como chegar nessa expressão (peguei de V. Dexheimer, J.R. Torres, D.P. Menezes Eur. Phys. J. C (2013) 73:2569). No Buballa (Rep.) diz que é só calcular $s = -\partial\omega/\partial T$, mas a expressão que obtenho é diferente (veja abaixo). Acredito que as expressões são equivalentes (não consegui verificar isso), pois os resultados que obtive são equivalentes. No entanto, obtive problemas numéricos com essa expressão que não tive com a minha.} pela expressão para um gás de Fermi livre:
 \begin{equation}\label{Eq:Densidade_de_entropia}
 \begin{split}
 	s = -2 n_c \sum_i \int [&n_p^{(i)} \ln n_p^{(i)} + (1 - n_p^{(i)}) \ln(1-n_p^{(i)}) \\
@@ -297,7 +297,7 @@ O único termo que contribui para a derivada é o dado pela Equação~\eqref{Eq:
 %
 A derivada de $E_p$ é nula, enquanto\footnote{É fácil mostrar que $1 - n_p = 1/(1 + \exp(-(E_p - \mu_p)/T))$ e que $1 - \bar{n}_p = 1/(1 + \exp(-(E_p + \mu_p)/T))$.}
 \begin{align}
-	\frac{\partial}{\partial T}\left[T \ln(1 + e^{-\nicefrac{\xi}{T}})\right] &= \ln (1 + e^{-\nicefrac{\xi}{T}}) + \frac{\xi e^{-\nicefrac{\xi}{T}}}{T(1+e^{-\nicefrac{\xi}{T}})} \\
+	\frac{\partial}{\partial T}\left[T \ln(1 + e^{-\nicefrac{\xi}{T}})\right] &= \ln (1 + e^{-\nicefrac{\xi}{T}}) + \frac{\xi e^{-\nicefrac{\xi}{T}}}{T(1+e^{-\nicefrac{\xi}{T}})} \label{Eq:Der_da_dens_entropia_para_implement}\\
 	&= - \ln(1-\hat{n}) + \frac{\xi}{T}\hat{n},
 \end{align}
 %
