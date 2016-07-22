@@ -445,7 +445,13 @@ Para o cálculo da entropia, temos três opções para o cálculo do integrando:
 
 Acredito que os problemas numéricos têm origem na exponencial que aparece nos três casos, sendo que uma forma pode ser mais afetada que outra pois podemos ter perda de precisão ao fazer alguma operação. Com o intuito de minimizar esse tipo de problema, usei a função \texttt{log1p} sempre que possível, pois ela é capaz de calcular $\ln(1 + x)$ para $x$ pequeno sem perda de precisão. De uma maneira geral, o uso da Equação~\eqref{Eq:Densidade_de_entropia_deriv} sem a simplificação (isto é, com a derivada dada pela expressão~\eqref{Eq:Der_da_dens_entropia_para_implement}) é a melhor opção.
 
-Os gráficos obtidos para a entropia parecem razoáveis. Veja as figuras ...
+Os gráficos obtidos para a entropia parecem razoáveis. Em alguns deles podemos notar pequenos ``dentes'' quando a tolerância no erro da integração é muito alta, mas que somem ao exigirmos erros menores. Veja a Figura~\ref{Fig:Entropia}.
+
+\begin{figure*}
+	\input{graphics/Entropy/entropy.tex}
+	\caption{Gráfico da entropia em função da massa. Linha cheia $T = \np[MeV]{10}$, linha tracejada $T = \np[MeV]{15}$. \protect\input{graphics/Entropy/info.tex}}
+	\label{Fig:Entropia}
+\end{figure*}
 
 Reprodução da Fig. 2.7 (esq) do Buballa (Rep.) fica um pouco ``jagged'', cheia de degraus. Em primeira instância, deveria ser uma questão de aumentar a precisão do cálculo, mas no caso das integrais de distribuição de Fermi-Dirac, estou no limite da precisão do \texttt{double}. Talvez se separar as integrais melhorasse um pouco, mas não tenho certeza. De qualquer forma, o resultado fecha certo com a referência, então isso significa que o cálculo da equação do Gap para a massa está funcionando (fora os degraus, produz o que se esperava). Além disso, o caso é meio crítico\footnote{Pensando bem, haveria razão para crer que $\rho_B \neq 0$, o que implica em $\mu_R \neq zero$, daria melhores resultados? Acho que não, e certamente, de alguma forma, as integrais envolvendo a distribuição de Fermi-Dirac estão tendo problemas numéricos para poder apresentar os degraus. Provavelmente temos valores pequenos nessa região.}, para $\rho_B = 0$. 
 
@@ -701,9 +707,7 @@ NJL:
 		\begin{itemize}
 			\item Separar o que é teste de reprodução, do que é teste de debug, do que é resultado; (Resultado é tudo aquilo que tenha que ser calculado no loop principal que ocorre na densidade, ao se calcular o potencial termodinâmico, ou que dependa diretamente de valores que são calculados nesse loop. Também qq coisa que dependa da temperatura, se passarmos a fazer um loop principal na temperatura (melhor fazer um loop separado, onde calcularemos os resultados selecionados que desejamos, se for um loop dentro do outro, vai gerar uma quantidade enorme de dados; No entanto, talvez seja necessário para podermos gerar o diagrama de fases).
 			\item Adicionar mapas aos resultados; Mostrar efeito da variação da temperatura e da variação da densidade.
-			\item Reorganizar diretórios
-
-		scripts para fazer gráficos. Temos que levar em conta que existem duas possibilidades agora: $T = 0$ e $T \neq 0$. Além disso, temos os testes e os resultados regulares.
+			\item Reorganizar diretórios, scripts para fazer gráficos. Temos que levar em conta que existem duas possibilidades agora: $T = 0$ e $T \neq 0$. Além disso, temos os testes e os resultados regulares. Idealmente, todos os gráficos contidos nesse pdf deveriam ser gerados lá, mesmo que tivessem que ser várias execuções (uma para cada parametrização). Gerar tanto os gráficos em png, quanto em tex, aí fica fácil de copiar ... e não precisaria dos scripts e dados nas notas (apesar de que seria bom manter, só pra poder gerar o pdf no futuro; às vezes uma incompatibilidade entre um gráfico .tex gerado e uma versão nova do pdflatex podem impossibilitar o uso do gráfico pronto, sendo necessário gerar de novo).
 		\end{itemize}
 	\item fazer função para calcular $\mu$ a partir de $\mu_R$
 	\item Reprodução da Fig. 2.7 (esq) do Buballa (Rep.) fica um pouco ``jagged'', cheia de degraus; Verificar.
@@ -711,6 +715,7 @@ NJL:
 	\item Entropia:
 		\begin{itemize}
 			\item Ao calcular as equações de estado, escrever a entropia também. Como podemos ter problemas numéricos ao calcular o integrando da entropia, uma inspeção visual no resultado para a entropia é importante para sabermos que não estamos calculando nada estranho.
+			\item Mover parâmetros de controle da integral da entropia para a \texttt{struct Parameters}.
 		\end{itemize}
 \end{itemize}
 

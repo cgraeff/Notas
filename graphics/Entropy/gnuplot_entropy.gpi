@@ -1,0 +1,18 @@
+set term tikz size 14cm, 9cm
+
+set ylabel '$s$ ($\rm{fm}^{-3}$)'
+set xlabel '$m$ (MeV)'
+
+#set title 'T = 1, 5, 10, 15; mu = 50, 100,200, 350'
+
+set output "entropy.tex"
+
+plot "entropy_2_0.dat" w l t '$\mu_R = \np[MeV]{50}$', \
+	 "entropy_2_1.dat" w l t '$\mu_R = \np[MeV]{100}$', \
+	 "entropy_2_2.dat" w l t '$\mu_R = \np[MeV]{200}$', \
+	 "entropy_2_3.dat" w l t '$\mu_R = \np[MeV]{350}$', \
+	 "entropy_3_0.dat" w l t '$\mu_R = \np[MeV]{50}$' dashtype 2, \
+	 "entropy_3_1.dat" w l t '$\mu_R = \np[MeV]{100}$' dashtype 2, \
+	 "entropy_3_2.dat" w l t '$\mu_R = \np[MeV]{200}$' dashtype 2, \
+	 "entropy_3_3.dat" w l t '$\mu_R = \np[MeV]{350}$' dashtype 2
+
