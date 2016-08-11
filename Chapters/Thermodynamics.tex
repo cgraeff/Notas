@@ -264,7 +264,7 @@ Para a obtenção de resultados numéricos devemos escolher a temperatura $T$ e 
 %%%%%%%%%%%%%%%%%%%%
 
 Para calcularmos a densidade de energia $\varepsilon$, precisamos calcular a densidade de entropia $s$. Temos que a entropia é dada nesse caso\footnote{Não sei como chegar nessa expressão (peguei de V. Dexheimer, J.R. Torres, D.P. Menezes Eur. Phys. J. C (2013) 73:2569). No Buballa (Rep.) diz que é só calcular $s = -\partial\omega/\partial T$, mas a expressão que obtenho é diferente (veja abaixo). Acredito que as expressões são equivalentes (não consegui verificar isso), pois os resultados que obtive são equivalentes. No entanto, obtive problemas numéricos com essa expressão que não tive com a minha.} pela expressão para um gás de Fermi livre:
-\begin{equation}\label{Eq:Densidade_de_entropia}
+\begin{equation}\label{Eq:Densidade_de_entropia_art}
 \begin{split}
 	s = -2 n_c \sum_i \int [&n_p^{(i)} \ln n_p^{(i)} + (1 - n_p^{(i)}) \ln(1-n_p^{(i)}) \\
 	&+ \bar{n}_p^{(i)} \ln \bar{n}_p^{(i)} + (1-\bar{n}_p^{(i)})\ln(1-\bar{n}_p^{(i)})] \\
@@ -295,11 +295,23 @@ O único termo que contribui para a derivada é o dado pela Equação~\eqref{Eq:
 	s = 2 n_f n_c \int\frac{d^3p}{(2\pi)^2} \frac{\partial}{\partial T} \left[E_p + T \ln(1 + e^{-\frac{E_p - \mu_p}{T}}) + T \ln(1 + e^{-\frac{E_p + \mu_p}{T}})\right].
 \end{equation}
 %
-A derivada de $E_p$ é nula, enquanto\footnote{É fácil mostrar que $1 - n_p = 1/(1 + \exp(-(E_p - \mu_p)/T))$ e que $1 - \bar{n}_p = 1/(1 + \exp(-(E_p + \mu_p)/T))$.}
-\begin{align}
-	\frac{\partial}{\partial T}\left[T \ln(1 + e^{-\nicefrac{\xi}{T}})\right] &= \ln (1 + e^{-\nicefrac{\xi}{T}}) + \frac{\xi e^{-\nicefrac{\xi}{T}}}{T(1+e^{-\nicefrac{\xi}{T}})} \label{Eq:Der_da_dens_entropia_para_implement}\\
-	&= - \ln(1-\hat{n}) + \frac{\xi}{T}\hat{n},
-\end{align}
+A derivada de $E_p$ é nula, enquanto
+\begin{equation}
+	\frac{\partial}{\partial T}\left[T \ln(1 + e^{-\nicefrac{\xi}{T}})\right] = \ln (1 + e^{-\nicefrac{\xi}{T}}) + \frac{\xi e^{-\nicefrac{\xi}{T}}}{T(1+e^{-\nicefrac{\xi}{T}})} ,
+\end{equation}
+%
+o que resulta na expressão
+\begin{equation}\label{Eq:Densidade_de_entropia_deriv}
+\begin{split}
+	s = 2 n_f n_c \int\frac{d^3p}{(2\pi)^2} \Big[&\ln (1 + e^{-\frac{E_p - \mu_R}{T}}) + \frac{E_p - \mu_R e^{-\frac{E_p - \mu_R}{T}}}{T(1+e^{-\frac{E_p - \mu_R}{T}})} \\
+	 &+ \ln (1 + e^{-\frac{E_p + \mu_R}{T}}) + \frac{E_p + \mu_R e^{-\frac{E_p + \mu_R}{T}}}{T(1+e^{-\frac{E_p + \mu_R}{T}})}\Big].
+\end{split}
+\end{equation}
+
+Podemos simplificar a expressão acima\footnote{É fácil mostrar que $1 - n_p = 1/(1 + \exp(-(E_p - \mu_p)/T))$ e que $1 - \bar{n}_p = 1/(1 + \exp(-(E_p + \mu_p)/T))$.} obtendo
+\begin{equation}
+	\frac{\partial}{\partial T}\left[T \ln(1 + e^{-\nicefrac{\xi}{T}})\right] = - \ln(1-\hat{n}) + \frac{\xi}{T}\hat{n},
+\end{equation}
 %
 onde $\tilde{n}$ é dado por
 \begin{equation}
@@ -307,7 +319,7 @@ onde $\tilde{n}$ é dado por
 \end{equation}
 %
 Temos então
-\begin{equation}\label{Eq:Densidade_de_entropia_deriv}
+\begin{equation}\label{Eq:Densidade_de_entropia_deriv_simplificada}
 \begin{split}
 	s = 2 n_f n_c \int \Big\{&-\ln(1 - n_p(T, \mu_R)) + \frac{E_p - \mu_R}{T} n_p(T, \mu_R) \\
 	&- \ln (1 - \bar{n}_p(T, \mu_R)) + \frac{E_p + \mu_R}{T} \bar{n}_p(T, \mu_R)\Big\} \; \frac{d^3p}{(2\pi)^3},

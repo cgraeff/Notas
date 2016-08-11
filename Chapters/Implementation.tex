@@ -6,6 +6,19 @@
 Detalhes sobre a implementação do modelo e resultados obtidos. Aqui os resultados se referem aos produtos dos cálculos, não a resultados interessantes em si. A ideia é mostrar que as rotinas funcionam direito e calculam o que precisamos. Tratamos o caso NJL, seguido do caso eNJL.
 \end{fullwidth}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Classificação dos resultados}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Para fins de organização dividimos os produtos dos cálculos em três tipos
+\begin{description}
+	\item[Resultados:] São os produtos cuja obtenção é a razão pela qual elaboramos os cálculos; São gerados sempre que os códigos são executados;
+	\item[Testes:] Frequentemente procuramos reproduzir resultados de uma referência ou mesmo inspecionar os resultados gerados por uma rotina em particular. Ambos são considerados testes e normalmente não são gerados ao se executar o código. Para gerá-los, devemos requisitar explicitamente sua execução. Nesse caso, os produtos principais (os \emph{resultados}) não são gerados.
+	\item[Testes Transientes:] Quando precisamos executar um teste para escolha de um método para o cálculo de uma determinada quantidade, sendo que não desejamos executar tal teste no futuro, podemos classificar os resultados oriundos de tal teste como transientes. Tais testes são frequentes ao se ``debugar'' o código, mas prejudicam a organização e devem ser eliminados assim que possível.
+\end{description}
+%
+Os programas cujas implementações são descritas abaixo estão organizados levando a classificação acima em conta. Isso implica que os testes transientes mostrados abaixo não serão facilmente reprodutíveis.
+
 %%%%%%%%%%%%%%%%%%%
 \section{Dimensões}
 %%%%%%%%%%%%%%%%%%%
@@ -398,7 +411,7 @@ A solução no caso $T \neq 0$ é bastante similar ao caso $T = 0$:
 			\item[Determinação da massa no vácuo:] Como tomamos $T = 0$, o valor de $m_{\rm{vac}}$ deve ser determinado da mesma maneira que no caso anterior, através da Equação~\eqref{Eq:Calculo_m_vac}.
 		\end{description}
 		Como o valor de $m_{\rm{vac}}$ e o valor de $\tilde\omega$ são constantes (não dependem de $\rho_B$, direta ou indiretamente), podemos determinar tais valores antes mesmo de iniciarmos o \emph{loop} em $\rho_B$, armazenando os valores e utilizando-os quando necessário.
-	\item[Entropia:] A entropia pode ser calculada a partir da derivada do potencial termodinâmico em relação à temperatura. Tal cálculo está contido na Seção~\ref{Sec:Entropia}, sendo que a expressão resultante é a Equação~\eqref{Eq:Densidade_de_entropia}.
+	\item[Entropia:] A entropia pode ser calculada a partir da derivada do potencial termodinâmico em relação à temperatura. Tal cálculo está contido na Seção~\ref{Sec:Entropia}, sendo que a expressão resultante é a Equação~\eqref{Eq:Densidade_de_entropia_deriv}.
 	\item[Pressão e a energia] Finalmente, podemos calcular a pressão e a energia através das expressões~\eqref{Exp_pressao_T} e~\eqref{Exp_energia_T};
 \end{description}
 
@@ -434,18 +447,18 @@ Fazendo a análise dimensional das equações, temos
 	\item Na Equação~\eqref{gap}, como a massa tem dimensão de MeV, precisamos multiplicar o termo contendo a integral por $(\hbar c)^{-2}$.
 	\item Na Equação~\eqref{gap_mu_r}, como o potencial químico e o potencial químico renormalizado têm dimensão MeV, devemos multiplicar o termo contendo a integral por $(\hbar c)^{-2}$.
 	\item Na Equação~\eqref{gap_rho}, $[n] = \rm{fm}^{-3}$. Precisamos multiplicar lado direito por $(\hbar c)^{-3}$.
-	\item Como estamos utilizando $[T] = \rm{MeV}$, a entropia é adimensional ($[k_B] = \textrm{MeV}/\rm{K}$), portanto a densidade de entropia $s$ tem dimensão de $\rm{fm}^{-3}$. Na Equação~\eqref{Eq:Densidade_de_entropia}, os termos dentro da integral são adimensionais, porém temos uma integral em $d^3p$, o que nos deixa uma dimensão de $\rm{MeV}^3$. Devemos portanto multiplicar toda a equação por $(\hbar c)^{-3}$.
+	\item Como estamos utilizando $[T] = \rm{MeV}$, a entropia é adimensional ($[k_B] = \textrm{MeV}/\rm{K}$), portanto a densidade de entropia $s$ tem dimensão de $\rm{fm}^{-3}$. Na Equação~\eqref{Eq:Densidade_de_entropia_deriv}, os termos dentro da integral são adimensionais, porém temos uma integral em $d^3p$, o que nos deixa uma dimensão de $\rm{MeV}^3$. Devemos portanto multiplicar toda a equação por $(\hbar c)^{-3}$.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Resultados $T \neq 0$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Para o cálculo da entropia, temos três opções para o cálculo do integrando: A Equação~\eqref{Eq:Densidade_de_entropia}, a Equação~\eqref{Eq:Densidade_de_entropia_deriv}, e esta última -- porém com a derivada na forma dada pela expressão~\eqref{Eq:Der_da_dens_entropia_para_implement} -- sem a simplificação $1 - n_p = 1/(1 + \exp(-(E_p - \mu_p)/T))$ e que $1 - \bar{n}_p = 1/(1 + \exp(-(E_p + \mu_p)/T))$. Quando tudo corre bem, as três formas resultam nos mesmos valores. Porém, quando estamos em situações limite temos problemas com alguns modos de cálculo que não existem com outros: baixa temperatura, potencial químico renormalizado e massa (a duas primeiras formas têm problemas numéricos para baixos valores de momento); baixa massa e temperatura com potencial químico renormalizado alto (a duas primeiras formas têm problemas numéricos para baixos valores de momento); No caso de valores $m = \np[MeV]{300}$, $\mu_R = \np[MeV]{400}$ e $T = \np[MeV]{1}$, os resultados calculados pelas três formas são bastante problemáticos; Provavelmente existem mais situações problemáticas.
+Para o cálculo da entropia, temos três opções para o cálculo do integrando: A Equação~\eqref{Eq:Densidade_de_entropia_art}, a Equação~\eqref{Eq:Densidade_de_entropia_deriv}, e esta última simplificada, Equação~\eqref{Eq:Densidade_de_entropia_deriv_simplificada}. Quando tudo corre bem, as três formas resultam nos mesmos valores. Porém, quando estamos em situações limite temos problemas de cálculo para a primeira e a última: A primeira tem valores indefinidos (\texttt{NaN}) para algumas combinações de parâmetros, enquanto a última frequentemente tem problemas de cálculo para valores pequenos de momento.
 
-Acredito que os problemas numéricos têm origem na exponencial que aparece nos três casos, sendo que uma forma pode ser mais afetada que outra pois podemos ter perda de precisão ao fazer alguma operação. Com o intuito de minimizar esse tipo de problema, usei a função \texttt{log1p} sempre que possível, pois ela é capaz de calcular $\ln(1 + x)$ para $x$ pequeno sem perda de precisão. De uma maneira geral, o uso da Equação~\eqref{Eq:Densidade_de_entropia_deriv} sem a simplificação (isto é, com a derivada dada pela expressão~\eqref{Eq:Der_da_dens_entropia_para_implement}) é a melhor opção.
+A expressão~\eqref{Eq:Densidade_de_entropia_deriv}, no entanto, tem resultados consistentes. Acredito que os problemas numéricos têm origem na exponencial que aparece nos três casos, sendo que uma forma pode ser mais afetada que outra pois podemos ter perda de precisão ao fazer alguma operação. Com o intuito de minimizar esse tipo de problema, usei a função \texttt{log1p} sempre que possível, pois ela é capaz de calcular $\ln(1 + x)$ para $x$ pequeno sem perda de precisão. De uma maneira geral, o uso da Equação~\eqref{Eq:Densidade_de_entropia_deriv} sem a simplificação é a melhor opção. Veja as Figuras~\ref{Fig:Test_entropy_integrand_calc_0_3_0} a~\ref{Fig:Test_entropy_integrand_calc_0_4_3}.
 
-Os gráficos obtidos para a entropia parecem razoáveis. Em alguns deles podemos notar pequenos ``dentes'' quando a tolerância no erro da integração é muito alta, mas que somem ao exigirmos erros menores. Veja a Figura~\ref{Fig:Entropia}.
+Os gráficos obtidos para a entropia parecem razoáveis. Veja a Figura~\ref{Fig:Entropia}.
 
 \begin{figure*}
 	\input{graphics/Entropy/entropy.tex}
@@ -453,9 +466,58 @@ Os gráficos obtidos para a entropia parecem razoáveis. Em alguns deles podemos
 	\label{Fig:Entropia}
 \end{figure*}
 
-Reprodução da Fig. 2.7 (esq) do Buballa (Rep.) fica um pouco ``jagged'', cheia de degraus. Em primeira instância, deveria ser uma questão de aumentar a precisão do cálculo, mas no caso das integrais de distribuição de Fermi-Dirac, estou no limite da precisão do \texttt{double}. Talvez se separar as integrais melhorasse um pouco, mas não tenho certeza. De qualquer forma, o resultado fecha certo com a referência, então isso significa que o cálculo da equação do Gap para a massa está funcionando (fora os degraus, produz o que se esperava). Além disso, o caso é meio crítico\footnote{Pensando bem, haveria razão para crer que $\rho_B \neq 0$, o que implica em $\mu_R \neq zero$, daria melhores resultados? Acho que não, e certamente, de alguma forma, as integrais envolvendo a distribuição de Fermi-Dirac estão tendo problemas numéricos para poder apresentar os degraus. Provavelmente temos valores pequenos nessa região.}, para $\rho_B = 0$. 
+Reprodução da Fig. 2.7 (esq) do Buballa (Rep.): o resultado concorda com a referência, então isso significa que o cálculo da equação do Gap para a massa está funcionando.
+\begin{figure*}
+	\input{graphics/Buballa_rep_2.7/mass_at_zero_dens_as_func_temp}
+	\caption{Reprodução da Figura~2.7 (Buballa). \protect\input{graphics/Buballa_rep_2.7/info.tex}}
+	\label{Fig:Buballa_rep_2.7}
+\end{figure*}
+
+Nos mapas das Equações\eqref{gap} e~\eqref{gap_rho} (zeradas), para todos os valores de temperatura e densidade bariônica testados, existem duas curvas bem definidas e que se cruzam em um só ponto. O efeito do aumento da temperatura é o de deslocar as curvas para baixo, enquanto o aumento da densidade bariônica desloca a curva correspondente à Equação~\eqref{gap_rho} diagonalmente para a esquerda e para cima.
 
 % inserir figuras aqui
+
+\begin{figure*}
+	\input{graphics/Test_entropy_integrand_calc/entropy_integrand_calc_methods_0_3_0}
+	\caption{Gráfico comparando os métodos de cálculo do integrando da entropia $m = \np[MeV]{50}$, $\mu_R = \np[MeV]{300}$, $T = \np[MeV]{1.0}$. \protect\input{graphics/Test_entropy_integrand_calc/info.tex}}
+	\label{Fig:Test_entropy_integrand_calc_0_3_0}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Test_entropy_integrand_calc/entropy_integrand_calc_methods_0_3_1}
+	\caption{Gráfico comparando os métodos de cálculo do integrando da entropia $m = \np[MeV]{50}$, $\mu_R = \np[MeV]{300}$, $T = \np[MeV]{5.0}$. \protect\input{graphics/Test_entropy_integrand_calc/info.tex}}
+	\label{Fig:Test_entropy_integrand_calc_0_3_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Test_entropy_integrand_calc/entropy_integrand_calc_methods_0_3_2}
+	\caption{Gráfico comparando os métodos de cálculo do integrando da entropia $m = \np[MeV]{50}$, $\mu_R = \np[MeV]{300}$, $T = \np[MeV]{7.0}$. \protect\input{graphics/Test_entropy_integrand_calc/info.tex}}
+	\label{Fig:Test_entropy_integrand_calc_0_3_2}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Test_entropy_integrand_calc/entropy_integrand_calc_methods_0_4_0}
+	\caption{Gráfico comparando os métodos de cálculo do integrando da entropia $m = \np[MeV]{50}$, $\mu_R = \np[MeV]{400}$, $T = \np[MeV]{1.0}$. \protect\input{graphics/Test_entropy_integrand_calc/info.tex}}
+	\label{Fig:Test_entropy_integrand_calc_0_4_0}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Test_entropy_integrand_calc/entropy_integrand_calc_methods_0_4_1}
+	\caption{Gráfico comparando os métodos de cálculo do integrando da entropia $m = \np[MeV]{50}$, $\mu_R = \np[MeV]{400}$, $T = \np[MeV]{5.0}$. \protect\input{graphics/Test_entropy_integrand_calc/info.tex}}
+	\label{Fig:Test_entropy_integrand_calc_0_4_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Test_entropy_integrand_calc/entropy_integrand_calc_methods_0_4_2}
+	\caption{Gráfico comparando os métodos de cálculo do integrando da entropia $m = \np[MeV]{50}$, $\mu_R = \np[MeV]{400}$, $T = \np[MeV]{7.0}$. \protect\input{graphics/Test_entropy_integrand_calc/info.tex}}
+	\label{Fig:Test_entropy_integrand_calc_0_4_2}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Test_entropy_integrand_calc/entropy_integrand_calc_methods_0_4_3}
+	\caption{Gráfico comparando os métodos de cálculo do integrando da entropia $m = \np[MeV]{50}$, $\mu_R = \np[MeV]{400}$, $T = \np[MeV]{10.0}$. \protect\input{graphics/Test_entropy_integrand_calc/info.tex}}
+	\label{Fig:Test_entropy_integrand_calc_0_4_3}
+\end{figure*}
 
 \FloatBarrier
 
