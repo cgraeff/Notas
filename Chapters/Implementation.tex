@@ -456,7 +456,7 @@ Fazendo a análise dimensional das equações, temos
 
 Para o cálculo da entropia, temos três opções para o cálculo do integrando: A Equação~\eqref{Eq:Densidade_de_entropia_art}, a Equação~\eqref{Eq:Densidade_de_entropia_deriv}, e esta última simplificada, Equação~\eqref{Eq:Densidade_de_entropia_deriv_simplificada}. Quando tudo corre bem, as três formas resultam nos mesmos valores. Porém, quando estamos em situações limite temos problemas de cálculo para a primeira e a última: A primeira tem valores indefinidos (\texttt{NaN}) para algumas combinações de parâmetros, enquanto a última frequentemente tem problemas de cálculo para valores pequenos de momento.
 
-A expressão~\eqref{Eq:Densidade_de_entropia_deriv}, no entanto, tem resultados consistentes. Acredito que os problemas numéricos têm origem na exponencial que aparece nos três casos, sendo que uma forma pode ser mais afetada que outra pois podemos ter perda de precisão ao fazer alguma operação. Com o intuito de minimizar esse tipo de problema, usei a função \texttt{log1p} sempre que possível, pois ela é capaz de calcular $\ln(1 + x)$ para $x$ pequeno sem perda de precisão. De uma maneira geral, o uso da Equação~\eqref{Eq:Densidade_de_entropia_deriv} sem a simplificação é a melhor opção. Veja as Figuras~\ref{Fig:Test_entropy_integrand_calc_0_3_0} a~\ref{Fig:Test_entropy_integrand_calc_0_4_3}.
+A expressão~\eqref{Eq:Densidade_de_entropia_deriv}, no entanto, tem resultados consistentes. Acredito que os problemas numéricos têm origem na exponencial que aparece nos três casos, sendo que uma forma pode ser mais afetada que outra pois podemos ter perda de precisão ao fazer alguma operação. Com o intuito de minimizar esse tipo de problema, usei a função \texttt{log1p} sempre que possível, pois ela é capaz de calcular $\ln(1 + x)$ para $x$ pequeno sem perda de precisão. De uma maneira geral, o uso da Equação~\eqref{Eq:Densidade_de_entropia_deriv} sem a simplificação é a melhor opção. Veja as Figuras~\ref{Fig:Test_entropy_integrand_calc_0_3_0} a~\ref{Fig:Test_entropy_integrand_calc_0_4_4}.
 
 Os gráficos obtidos para a entropia parecem razoáveis. Veja a Figura~\ref{Fig:Entropia}.
 
@@ -473,7 +473,7 @@ Reprodução da Fig. 2.7 (esq) do Buballa (Rep.): o resultado concorda com a ref
 	\label{Fig:Buballa_rep_2.7}
 \end{figure*}
 
-Nos mapas das Equações\eqref{gap} e~\eqref{gap_rho} (zeradas), para todos os valores de temperatura e densidade bariônica testados, existem duas curvas bem definidas e que se cruzam em um só ponto. O efeito do aumento da temperatura é o de deslocar as curvas para baixo, enquanto o aumento da densidade bariônica desloca a curva correspondente à Equação~\eqref{gap_rho} diagonalmente para a esquerda e para cima.
+Nos mapas das Equações\eqref{gap} e~\eqref{gap_rho} (zeradas), para todos os valores de temperatura e densidade bariônica testados, existem duas curvas bem definidas e que se cruzam em um só ponto. O efeito do aumento da temperatura é o de deslocar as curvas para baixo, enquanto o aumento da densidade bariônica desloca a curva correspondente à Equação~\eqref{gap_rho} diagonalmente para a esquerda e para cima. Percebemos que $m$ decresce com $\rho_B$, como esperado. Nas Figuras~\ref{Fig:Map_9_4} a~\ref{Fig:Map_9_8} podemos ver exemplos de mapas ao variarmos $\rho_B$ e nas Figuras~\ref{Fig:Map_0_0} a ~\ref{Fig:Map_9_0} ao variarmos a temperatura.
 
 % inserir figuras aqui
 
@@ -493,6 +493,12 @@ Nos mapas das Equações\eqref{gap} e~\eqref{gap_rho} (zeradas), para todos os v
 	\input{graphics/Test_entropy_integrand_calc/entropy_integrand_calc_methods_0_3_2}
 	\caption{Gráfico comparando os métodos de cálculo do integrando da entropia $m = \np[MeV]{50}$, $\mu_R = \np[MeV]{300}$, $T = \np[MeV]{7.0}$. \protect\input{graphics/Test_entropy_integrand_calc/info.tex}}
 	\label{Fig:Test_entropy_integrand_calc_0_3_2}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Test_entropy_integrand_calc/entropy_integrand_calc_methods_0_3_3}
+	\caption{Gráfico comparando os métodos de cálculo do integrando da entropia $m = \np[MeV]{50}$, $\mu_R = \np[MeV]{300}$, $T = \np[MeV]{10.0}$. \protect\input{graphics/Test_entropy_integrand_calc/info.tex}}
+	\label{Fig:Test_entropy_integrand_calc_0_3_3}
 \end{figure*}
 
 \begin{figure*}
@@ -517,6 +523,70 @@ Nos mapas das Equações\eqref{gap} e~\eqref{gap_rho} (zeradas), para todos os v
 	\input{graphics/Test_entropy_integrand_calc/entropy_integrand_calc_methods_0_4_3}
 	\caption{Gráfico comparando os métodos de cálculo do integrando da entropia $m = \np[MeV]{50}$, $\mu_R = \np[MeV]{400}$, $T = \np[MeV]{10.0}$. \protect\input{graphics/Test_entropy_integrand_calc/info.tex}}
 	\label{Fig:Test_entropy_integrand_calc_0_4_3}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Test_entropy_integrand_calc/entropy_integrand_calc_methods_0_4_4}
+	\caption{Gráfico comparando os métodos de cálculo do integrando da entropia $m = \np[MeV]{50}$, $\mu_R = \np[MeV]{400}$, $T = \np[MeV]{20.0}$. \protect\input{graphics/Test_entropy_integrand_calc/info.tex}}
+	\label{Fig:Test_entropy_integrand_calc_0_4_4}
+\end{figure*}
+
+%%%0.2, 0.24, 0.28, 0.32, 0.4, 0.44
+
+\begin{figure*}
+	\input{graphics/Maps/map_9_4}
+	\caption{Mapa mostrando as regiões das Equações~\ref{gap} e~\ref{gap_rho} (zeradas) que estão próximas a zero (em verde e roxo, respectivamente). O ponto em preto representa uma estimativa para a raíz das equações, dada pelo ponto de interseção entre as duas regiões.  $T = \np[MeV]{50.0}$, $\rho_B = \np[fm^{-3}]{0.2}$.\protect\input{graphics/Maps/info.tex}}
+	\label{Fig:Map_9_4}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Maps/map_9_5}
+	\caption{Mapa mostrando as regiões das Equações~\ref{gap} e~\ref{gap_rho} (zeradas) que estão próximas a zero (em verde e roxo, respectivamente). O ponto em preto representa uma estimativa para a raíz das equações, dada pelo ponto de interseção entre as duas regiões. $T = \np[MeV]{50.0}$, $\rho_B = \np[fm^{-3}]{0.24}$.\protect\input{graphics/Maps/info.tex}}
+	\label{Fig:Map_9_5}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Maps/map_9_6}
+	\caption{Mapa mostrando as regiões das Equações~\ref{gap} e~\ref{gap_rho} (zeradas) que estão próximas a zero (em verde e roxo, respectivamente). O ponto em preto representa uma estimativa para a raíz das equações, dada pelo ponto de interseção entre as duas regiões. $T = \np[MeV]{50.0}$, $\rho_B = \np[fm^{-3}]{0.28}$.\protect\input{graphics/Maps/info.tex}}
+	\label{Fig:Map_9_6}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Maps/map_9_7}
+	\caption{Mapa mostrando as regiões das Equações~\ref{gap} e~\ref{gap_rho} (zeradas) que estão próximas a zero (em verde e roxo, respectivamente). O ponto em preto representa uma estimativa para a raíz das equações, dada pelo ponto de interseção entre as duas regiões. $T = \np[MeV]{50.0}$, $\rho_B = \np[fm^{-3}]{0.32}$.\protect\input{graphics/Maps/info.tex}}
+	\label{Fig:Map_9_7}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Maps/map_9_8}
+	\caption{Mapa mostrando as regiões das Equações~\ref{gap} e~\ref{gap_rho} (zeradas) que estão próximas a zero (em verde e roxo, respectivamente). O ponto em preto representa uma estimativa para a raíz das equações, dada pelo ponto de interseção entre as duas regiões. $T = \np[MeV]{50.0}$, $\rho_B = \np[fm^{-3}]{0.40}$\protect\input{graphics/Maps/info.tex}}
+	\label{Fig:Map_9_8}
+\end{figure*}
+
+%%%
+
+\begin{figure*}
+	\input{graphics/Maps/map_0_0}
+	\caption{Mapa mostrando as regiões das Equações~\ref{gap} e~\ref{gap_rho} (zeradas) que estão próximas a zero (em verde e roxo, respectivamente). O ponto em preto representa uma estimativa para a raíz das equações, dada pelo ponto de interseção entre as duas regiões. $T = \np[MeV]{1.0}$, $\rho_B = \np[fm^{-3}]{0.04}$.\protect\input{graphics/Maps/info.tex}}
+	\label{Fig:Map_0_0}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Maps/map_3_0}
+	\caption{Mapa mostrando as regiões das Equações~\ref{gap} e~\ref{gap_rho} (zeradas) que estão próximas a zero (em verde e roxo, respectivamente). O ponto em preto representa uma estimativa para a raíz das equações, dada pelo ponto de interseção entre as duas regiões.  $T = \np[MeV]{10.0}$, $\rho_B = \np[fm^{-3}]{0.04}$.\protect\input{graphics/Maps/info.tex}}
+	\label{Fig:Map_3_0}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Maps/map_6_0}
+	\caption{Mapa mostrando as regiões das Equações~\ref{gap} e~\ref{gap_rho} (zeradas) que estão próximas a zero (em verde e roxo, respectivamente). O ponto em preto representa uma estimativa para a raíz das equações, dada pelo ponto de interseção entre as duas regiões. $T = \np[MeV]{25.0}$, $\rho_B = \np[fm^{-3}]{0.04}$. \protect\input{graphics/Maps/info.tex}}
+	\label{Fig:Map_6_0}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Maps/map_9_0}
+	\caption{Mapa mostrando as regiões das Equações~\ref{gap} e~\ref{gap_rho} (zeradas) que estão próximas a zero (em verde e roxo, respectivamente). O ponto em preto representa uma estimativa para a raíz das equações, dada pelo ponto de interseção entre as duas regiões.  $T = \np[MeV]{50.0}$, $\rho_B = \np[fm^{-3}]{0.04}$.\protect\input{graphics/Maps/info.tex}}
+	\label{Fig:Map_9_0}
 \end{figure*}
 
 \FloatBarrier
@@ -770,6 +840,7 @@ NJL:
 			\item Separar o que é teste de reprodução, do que é teste de debug, do que é resultado; (Resultado é tudo aquilo que tenha que ser calculado no loop principal que ocorre na densidade, ao se calcular o potencial termodinâmico, ou que dependa diretamente de valores que são calculados nesse loop. Também qq coisa que dependa da temperatura, se passarmos a fazer um loop principal na temperatura (melhor fazer um loop separado, onde calcularemos os resultados selecionados que desejamos, se for um loop dentro do outro, vai gerar uma quantidade enorme de dados; No entanto, talvez seja necessário para podermos gerar o diagrama de fases).
 			\item Adicionar mapas aos resultados; Mostrar efeito da variação da temperatura e da variação da densidade.
 			\item Reorganizar diretórios, scripts para fazer gráficos. Temos que levar em conta que existem duas possibilidades agora: $T = 0$ e $T \neq 0$. Além disso, temos os testes e os resultados regulares. Idealmente, todos os gráficos contidos nesse pdf deveriam ser gerados lá, mesmo que tivessem que ser várias execuções (uma para cada parametrização). Gerar tanto os gráficos em png, quanto em tex, aí fica fácil de copiar ... e não precisaria dos scripts e dados nas notas (apesar de que seria bom manter, só pra poder gerar o pdf no futuro; às vezes uma incompatibilidade entre um gráfico .tex gerado e uma versão nova do pdflatex podem impossibilitar o uso do gráfico pronto, sendo necessário gerar de novo).
+			\item Adicionar resultados de \texttt{output} ao caso NJL $T \neq 0$.
 		\end{itemize}
 	\item fazer função para calcular $\mu$ a partir de $\mu_R$
 	\item Reprodução da Fig. 2.7 (esq) do Buballa (Rep.) fica um pouco ``jagged'', cheia de degraus; Verificar.
