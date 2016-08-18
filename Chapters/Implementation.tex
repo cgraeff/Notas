@@ -684,7 +684,7 @@ A solução da Equação~\eqref{Eq:Gap} é encontrada zerando a Equação~\eqref
 	\label{Fig:Gap_zero_graph}
 \end{figure*}
 
-Portanto, ao se utilizar um método qualquer para se determinar o zero da função, são necessários parâmetros que tornem possível encontrar o zero da função. Como a função só tem um zero\footnote[][1cm]{Desprezando a solução trivial $M = 0$.}, temos uma situação mais simples, pois não há risco de que tenhamos que encontrar mais que um mínimo (se esse fosse o caso, teríamos que encontrar aquele que minimiza alguma energia\cite{Buballa}. Verificar.). Adotando o método da biseção, que é o mais simples, só precisamos de dois pontos que devem estar à esquerda e à direita do zero. Adotamos os valores \np{1.0e-3} e 1500 (em MeV), sendo o primeiro bastante próximo de zero e o segundo aparentemente se posiciona à direita do zero para vários valores de densidade. Não podemos adotar zero para o valor à esquerda pois $f(M=0) = 0$. A Fig.~\ref{Fig:mass_graph} mostra os valores de $M$ obtidos de acordo com o acima exposto, enquanto a Fig.~\ref{Fig:scalar_density_graph} mostra a curva das densidades escalares correspondentes, ambos para o caso $m = 0$.
+Portanto, ao se utilizar um método qualquer para se determinar o zero da função, são necessários parâmetros que tornem possível encontrar o zero da função. Como a função só tem um zero\footnote[][1cm]{Desprezando a solução trivial $M = 0$.}, temos uma situação mais simples, pois não há risco de que tenhamos que encontrar mais que um mínimo (se esse fosse o caso, teríamos que encontrar aquele que minimiza alguma energia\cite{Buballa}. Verificar.). Adotando o método da biseção, que é o mais simples, só precisamos de dois pontos que devem estar à esquerda e à direita do zero. Adotamos os valores \np{1.0e-3} e 1500 (em MeV), sendo o primeiro bastante próximo de zero e o segundo aparentemente se posiciona à direita do zero para vários valores de densidade. Não podemos adotar zero para o valor à esquerda pois $f(M=0) = 0$. A Fig.~\ref{Fig:mass_graph} mostra os valores de $M$ obtidos de acordo com o acima exposto, enquanto a Fig.~\ref{Fig:scalar_density_graph} mostra a curva das densidades escalares correspondentes, ambos para o caso $m = 0$. Para que possamos extender a solução além do valor de $\rho_B$ para o qual $M = 0$, devemos verificar se os valores da função nos extremos do intervalo de busca são iguais. Nesse caso, ao invés de tentar descobrir o valor da raíz, vamos simplesmente assumir que estamos no caso em que a única solução é a solução trivial e retornamos $M = 0$.
 
 \begin{figure*}
 	\input{graphics/eNJL1-Yp_0.5/graph/mass.tex}
@@ -696,6 +696,12 @@ Portanto, ao se utilizar um método qualquer para se determinar o zero da funç�
 	\input{graphics/eNJL1-Yp_0.5/graph/scalar_density.tex}
 	\caption{Gráfico da densidade escalar em função da densidade bariônica para fração de prótons 1/2. O resultado mostrado nesse gráfico é obtido juntamente com os resultados mostrados na Fig.~\ref{Fig:mass_graph} através da solução da Equação~\ref{Eq:Gap_zero}. \protect\input{graphics/eNJL1-Yp_0.5/info.tex}}
 	\label{Fig:scalar_density_graph}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Mass_Rep_Pais/mass.tex}
+	\caption{Reprodução do Fig. 2 de Pais para o caso da massa.}
+	\label{Fig:Mass_Rep_Pais}
 \end{figure*}
 
 \FloatBarrier
@@ -823,10 +829,9 @@ NJL:
 			\item Escrever função para gerar os mapas;
 			\item Escrever função para estimar raízes usando os mapas;
 		\end{itemize}
-	\item Atualizar README.md
 	\item Implementar testes para reproduzir as figuras 2.9, 2.10 e 2.12 do Buballa Report
 	\item Colocar as tabelas de parâmetros para NJL e eNJL neste capítulo; A do NJL tem que pegar dos artigos, do eNJL está em algum dos capítulos.
-	\item Renomear as funções \texttt{Zeroed*} para \texttt{PolynomialFunctionOf*}, já que esse é o nome certo das equações dessa forma, no contexto de \emph{root finding}. \footnote{Every polynomial $P$ in $x$ corresponds to a function, $f(x) = P$ (where the occurrences of $x$ in $P$ are interpreted as the argument of $f$), called the polynomial function of $P$; the equation in $x$ setting $f(x) = 0$ is the polynomial equation corresponding to $P$.} \textbf{Nadaver:} Isso é pra polinômio. Chamar de \texttt{CanonicalGapEquationFor*} talvez.
+	\item Renomear as funções \texttt{Zeroed*}, chamar de \texttt{CanonicalGapEquationFor*} talvez.
 	\item As funções \texttt{WriteZeroedGapEquation}, \texttt{WriteVacuumMassEquation} e \texttt{WriteZeroedRenormalizedChemicalPotentialEquation} são só pra teste. Extinguí-las e adicionar o conteúdo diretamente à seção de testes. Reorganizar os testes do início, colocar algum propósito específico neles. Ou fazer um seção de testes genéricos. Reorganizar os gnuplot.gpi. Evitar testes que tem que escrever centenas de arquivos, focar em algo mais específico.
 	\item criar função para abrir arquivos, criar o caminho quando necessário e checkar se o arquivo foi aberto. Dar mensagens de erro adequadas.
 	\item Fix-me: Remover primeira parte do \texttt{if} no potencial químico pois ela não faz nada; Substituir por != 0 (em Reproduce Fig. 2.8 (right) from  M. Buballa, Physics Reports 407 (2005) 205-376)
@@ -837,17 +842,12 @@ NJL:
 	\item Mover parâmetros específicos para o cálculo da entropia para \texttt{struct parameters}.
 	\item Reorganizar testes e resultados:
 		\begin{itemize}
-			\item Separar o que é teste de reprodução, do que é teste de debug, do que é resultado; (Resultado é tudo aquilo que tenha que ser calculado no loop principal que ocorre na densidade, ao se calcular o potencial termodinâmico, ou que dependa diretamente de valores que são calculados nesse loop. Também qq coisa que dependa da temperatura, se passarmos a fazer um loop principal na temperatura (melhor fazer um loop separado, onde calcularemos os resultados selecionados que desejamos, se for um loop dentro do outro, vai gerar uma quantidade enorme de dados; No entanto, talvez seja necessário para podermos gerar o diagrama de fases).
-			\item Adicionar mapas aos resultados; Mostrar efeito da variação da temperatura e da variação da densidade.
-			\item Reorganizar diretórios, scripts para fazer gráficos. Temos que levar em conta que existem duas possibilidades agora: $T = 0$ e $T \neq 0$. Além disso, temos os testes e os resultados regulares. Idealmente, todos os gráficos contidos nesse pdf deveriam ser gerados lá, mesmo que tivessem que ser várias execuções (uma para cada parametrização). Gerar tanto os gráficos em png, quanto em tex, aí fica fácil de copiar ... e não precisaria dos scripts e dados nas notas (apesar de que seria bom manter, só pra poder gerar o pdf no futuro; às vezes uma incompatibilidade entre um gráfico .tex gerado e uma versão nova do pdflatex podem impossibilitar o uso do gráfico pronto, sendo necessário gerar de novo).
 			\item Adicionar resultados de \texttt{output} ao caso NJL $T \neq 0$.
 		\end{itemize}
 	\item fazer função para calcular $\mu$ a partir de $\mu_R$
-	\item Reprodução da Fig. 2.7 (esq) do Buballa (Rep.) fica um pouco ``jagged'', cheia de degraus; Verificar.
 	\item Review da discussão de resultados.
 	\item Entropia:
 		\begin{itemize}
-			\item Ao calcular as equações de estado, escrever a entropia também. Como podemos ter problemas numéricos ao calcular o integrando da entropia, uma inspeção visual no resultado para a entropia é importante para sabermos que não estamos calculando nada estranho.
 			\item Mover parâmetros de controle da integral da entropia para a \texttt{struct Parameters}.
 		\end{itemize}
 \end{itemize}
