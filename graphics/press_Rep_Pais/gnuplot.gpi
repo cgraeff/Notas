@@ -1,0 +1,22 @@
+set xlabel '$\rho_B$ ($\rm{fm}^{-3}$)'
+set ylabel '$p$ (MeV)'
+
+set key reverse left Left
+
+set xrange[0:0.5]
+set yrange[-6:60]
+
+set term png
+set out "pressure.png"
+
+plot "pressure_eNJL1.dat" w l dashtype 1 t 'eNJL1', \
+     "pressure_eNJL2.dat" w l dashtype 2 t 'eNJL2', \
+     "pressure_eNJL3.dat" w l dashtype 3 t 'eNJL3', \
+     "pressure_eNJL1m.dat" w l dashtype 4 t 'eNJL1m', \
+     "pressure_eNJL2m.dat" w l dashtype 5 t 'eNJL2m'
+
+set term tikz size 14cm, 9cm
+set out "pressure.tex"
+replot
+
+

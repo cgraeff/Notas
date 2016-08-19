@@ -1,0 +1,22 @@
+set xlabel '$\rho_B$ ($\rm{fm}^{-3}$)'
+set ylabel '$\epsilon/\rho_B = E / A$ (MeV)'
+
+set key reverse left Left
+
+set xrange[0:0.5]
+set yrange[-18:40]
+
+set term png
+set out "energy_density_per_particle.png"
+
+plot "energy_density_per_particle_eNJL1.dat" w l dashtype 1 t 'eNJL1', \
+	 "energy_density_per_particle_eNJL2.dat" w l dashtype 2 t 'eNJL2', \
+	 "energy_density_per_particle_eNJL3.dat" w l dashtype 3 t 'eNJL3', \
+	 "energy_density_per_particle_eNJL1m.dat" w l dashtype 4 t 'eNJL1m', \
+	 "energy_density_per_particle_eNJL2m.dat" w l dashtype 5 t 'eNJL2m', \
+
+set term tikz size 14cm, 9cm
+set out "energy_density_per_particle.tex"
+replot
+
+
