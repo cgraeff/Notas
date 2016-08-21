@@ -531,7 +531,8 @@ Nos mapas das Equações\eqref{gap} e~\eqref{gap_rho} (zeradas), para todos os v
 	\label{Fig:Test_entropy_integrand_calc_0_4_4}
 \end{figure*}
 
-%%%0.2, 0.24, 0.28, 0.32, 0.4, 0.44
+\FloatBarrier
+%%%
 
 \begin{figure*}
 	\input{graphics/Maps/map_9_4}
@@ -563,6 +564,7 @@ Nos mapas das Equações\eqref{gap} e~\eqref{gap_rho} (zeradas), para todos os v
 	\label{Fig:Map_9_8}
 \end{figure*}
 
+\FloatBarrier
 %%%
 
 \begin{figure*}
@@ -684,7 +686,9 @@ A solução da Equação~\eqref{Eq:Gap} é encontrada zerando a Equação~\eqref
 	\label{Fig:Gap_zero_graph}
 \end{figure*}
 
-Portanto, ao se utilizar um método qualquer para se determinar o zero da função, são necessários parâmetros que tornem possível encontrar o zero da função. Como a função só tem um zero\footnote[][1cm]{Desprezando a solução trivial $M = 0$.}, temos uma situação mais simples, pois não há risco de que tenhamos que encontrar mais que um mínimo (se esse fosse o caso, teríamos que encontrar aquele que minimiza alguma energia\cite{Buballa}. Verificar.). Adotando o método da biseção, que é o mais simples, só precisamos de dois pontos que devem estar à esquerda e à direita do zero. Adotamos os valores \np{1.0e-3} e 1500 (em MeV), sendo o primeiro bastante próximo de zero e o segundo aparentemente se posiciona à direita do zero para vários valores de densidade. Não podemos adotar zero para o valor à esquerda pois $f(M=0) = 0$. A Fig.~\ref{Fig:mass_graph} mostra os valores de $M$ obtidos de acordo com o acima exposto, enquanto a Fig.~\ref{Fig:scalar_density_graph} mostra a curva das densidades escalares correspondentes, ambos para o caso $m = 0$. Para que possamos extender a solução além do valor de $\rho_B$ para o qual $M = 0$, devemos verificar se os valores da função nos extremos do intervalo de busca são iguais. Nesse caso, ao invés de tentar descobrir o valor da raíz, vamos simplesmente assumir que estamos no caso em que a única solução é a solução trivial e retornamos $M = 0$.
+Portanto, ao se utilizar um método qualquer para se determinar o zero da função, são necessários parâmetros que tornem possível encontrar o zero da função. Como a função só tem um zero\footnote[][1cm]{Desprezando a solução trivial $M = 0$.}, temos uma situação mais simples, pois não há risco de que tenhamos que encontrar mais que um mínimo (se esse fosse o caso, teríamos que encontrar aquele que minimiza alguma energia\cite{Buballa}. Verificar.). Adotando o método da biseção, que é o mais simples, só precisamos de dois pontos que devem estar à esquerda e à direita do zero. Adotamos os valores \np{1.0e-3} e 3000 (em MeV), sendo o primeiro bastante próximo de zero e o segundo aparentemente se posiciona à direita do zero para vários valores de densidade. Não podemos adotar zero para o valor à esquerda pois $f(M=0) = 0$. A Fig.~\ref{Fig:mass_graph} mostra os valores de $M$ obtidos de acordo com o acima exposto, enquanto a Fig.~\ref{Fig:scalar_density_graph} mostra a curva das densidades escalares correspondentes, ambos para o caso $m = 0$.
+
+Para que possamos extender a solução além do valor de $\rho_B$ para o qual $M = 0$, devemos verificar se os valores da função nos extremos do intervalo de busca são iguais. Nesse caso, ao invés de tentar descobrir o valor da raíz, vamos simplesmente assumir que estamos no caso em que a única solução é a solução trivial e retornamos $M = 0$. Quando fazemos isso, temos que tratar o caso $M = 0$ como casos especiais para o cálculo de $\rho_s|_{M=0} = 0$ e $\varepsilon_{kin}|_{M=0} = \frac{2 N_c}{p_F^4 - \Lambda^4}$\footnote{Confirmar essa expressão.}. Para obtermos o gráfico mostrado na Figura~\eqref{Fig:en_per_part_Rep_Pais}, calculamos $\varepsilon / \rho_B - m_N$, onde $m_N$ é a massa do nucleon.
 
 \begin{figure*}
 	\input{graphics/eNJL1-Yp_0.5/graph/mass.tex}
@@ -702,6 +706,18 @@ Portanto, ao se utilizar um método qualquer para se determinar o zero da funç�
 	\input{graphics/Mass_Rep_Pais/mass.tex}
 	\caption{Reprodução do Fig. 2 de Pais para o caso da massa.}
 	\label{Fig:Mass_Rep_Pais}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/En_per_part_Rep_Pais/energy_density_per_particle.tex}
+	\caption{Reprodução do Fig. 2 de Pais para o caso da energia por partícula.}
+	\label{Fig:en_per_part_Rep_Pais}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/press_Rep_Pais/pressure.tex}
+	\caption{Reprodução do Fig. 2 de Pais para o caso da pressão.}
+	\label{Fig:pressure_Rep_Pais}
 \end{figure*}
 
 \FloatBarrier
