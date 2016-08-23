@@ -318,7 +318,6 @@ onde $\tilde{n}$ é dado por
 	\hat{n} = \begin{cases} n_p(T, \mu_R), \quad \textrm{se}~ \xi = E_p - \mu \\ \bar{n}_p(T, \mu_R), \quad \textrm{se}~ \xi = E_p + \mu. \end{cases}
 \end{equation}
 %
-<<<<<<< Updated upstream
 Temos então
 \begin{equation}\label{Eq:Densidade_de_entropia_deriv_simplificada}
 \begin{split}
@@ -328,15 +327,7 @@ Temos então
 \end{equation}
 %
 onde a integração deverá ser feita no intervalo $|\vec{p}| = [0;\Lambda]$:
-=======
-Temos então\footnote{É fácil mostrar que $1 - n_p = 1/(1 + \exp(-(E_p - \mu_p)/T))$ e que $1 - \bar{n}_p = 1/(1 + \exp(-(E_p + \mu_p)/T))$.}
->>>>>>> Stashed changes
-\begin{equation}
-\begin{split}
-	s = \frac{n_f n_c}{\pi^2} \int_0^\Lambda \Big\{&-\ln(1 - n_p(T, \mu_R)) + \frac{E_p - \mu_R}{T} n_p(T, \mu_R) \\
-	&- \ln (1 - \bar{n}_p(T, \mu_R)) + \frac{E_p + \mu_R}{T} \bar{n}_p(T, \mu_R)\Big\} \; p^2 dp,
-\end{split}
-\end{equation}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fase de quarks: NJL, SU(2), temperatura zero}
@@ -657,7 +648,16 @@ Portanto,
 \omega_{\rm{MF}} = - \frac{n_f n_c}{\pi^2} \left[\int_{p_F}^\Lambda p^2E_p \; dp + \mu_R \frac{p_F^3}{3} \right] + \frac{(m-m_0)^2}{4G_S}.
 \end{equation}
 
-Utilizando a definição de $E_p$, Equação~\eqref{Eq:Def_E}, podemos calcular a integral utilizando a expressão \eqref{Eq:Def_F_E}, o que nos leva a
+Utilizando a definição de $E_p$, Equação~\eqref{Eq:Def_E}, temos
+\begin{equation}
+	\omega_{\rm{MF}} = - \frac{n_f n_c}{\pi^2} \left[\int_{p_F}^\Lambda p^2\sqrt{p^2 + m^2} \; dp + \mu_R \frac{p_F^3}{3} \right] + \frac{(m-m_0)^2}{4G_S}.
+\end{equation}
+%
+A integral na expressão acima possui forma analítica dada pela expressão \eqref{Eq:Def_F_E}. Podemos definir uma função \begin{equation}
+	F_E(m, k) = \begin{cases} k^4 / 4, \quad \textrm{se}~ m = 0 \\ \frac{1}{4}\left[kE_p^3 - \frac{1}{2}m^2kE_p - \frac{1}{2}m^4\ln\left(\frac{k + E_p}{m}\right)\right], \quad \textrm{se}~ m \neq 0. \end{cases}
+\end{equation}
+%
+Com tal resultado podemos escrever $\omega_{\rm{MF}}$ como
 \begin{equation}\label{Eq:Pot_termodinamico_1}
 \omega_{\rm{MF}} = - \frac{n_f n_c}{\pi^2} \left[[F_E(m,\Lambda) - F_E(m, p_F)] + \mu_R \frac{p_F^3}{3} \right] + \frac{(m-m_0)^2}{4G_S}.
 \end{equation}
@@ -882,46 +882,86 @@ As equações de estado para pressão $P$ e densidade de energia $\varepsilon$ s
 
 Temos que a densidade escalar é dada por\footnote{Explicar em algum lugar como obter isso.}
 \begin{equation}
-	\rho_s^i = - 2 n_c \int \frac{d^3p}{(2\pi)^3}\frac{m_i}{E_i}(n_{i-} - n_{i+}) \theta(\Lambda^2 - p^2),
+	\rho_s^i = - 2 n_c \int \frac{d^3p}{(2\pi)^3}\frac{m_i}{E_p^i}(n_{i-} - n_{i+}) \theta(\Lambda^2 - p^2),
 \end{equation}
 %
 onde $i = p, n$ e
 \begin{align}
-	n_{i-} &= \frac{1}{1 + \exp(-(E+\mu)/T)} \\
-	n_{i+} &= \frac{1}{1 + \exp((E-\mu)/T)}.
+	n_{i-} &= \frac{1}{1 + \exp(-(E_p^i+\mu_i)/T)} \\
+	n_{i+} &= \frac{1}{1 + \exp((E_p^i-\mu_i)/T)}.
 \end{align}
 
-No limite $T \to 0$, temos que\footnote{Veja a discussão na Seção \ref{Sec:Obtencao_eq_temp_zero_NJL_quarks}.}
+No limite $T \to 0$, temos que\footnote{Esse caso é análogo ao apresentado nas subseções da Seção \ref{Sec:Obtencao_eq_temp_zero_NJL_quarks}.}
 \begin{align}
 	\lim_{T \to 0} n_{i-} &= 1 \\
-	\lim_{T \to 0} n_{i+} &= \theta(\mu - E_p) = \theta(p_F - p).
+	\lim_{T \to 0} n_{i+} &= \theta(\mu - E_p^i) = \theta(p_F^i - p).
 \end{align}
 %
 Obtemos, portanto,
 \begin{align}
-	\rho_s^i &= - 2 n_c \frac{1}{(2\pi)^3} \int d^3p \frac{m_i} (1 - \theta(p_F - p)) \theta(\Lambda^2 - p^2)\\
-	&= -\frac{n_c}{\pi^2} m_i \left[\int \frac{p^2}{E_i} \theta(\Lambda - p) - \int \frac{p^2}{E_i}\theta(p_F - p)\theta(\Lambda - p)\\
-	&= -\frac{n_c}{\pi^2} m_i \left[\int_0^\Lambda \frac{p^2}{\sqrt{p^2+m^2}} dp - \int_0^p_F \frac{p^2}{\sqrt{p^2+m^2}} dp,
-\end{equation}
+	\rho_s^i &= - 2 n_c \frac{1}{(2\pi)^3} \int d^3p \frac{m_i}{E_p^i} (1 - \theta(p_F^i - p)) \theta(\Lambda^2 - p^2)\\
+	&= -\frac{n_c}{\pi^2} m_i \left[\int \frac{p^2}{E_p^i} \theta(\Lambda - p) - \int \frac{p^2}{E_p^i}\theta(p_F^i - p)\theta(\Lambda - p)\right]\\
+	&= -\frac{n_c}{\pi^2} m_i \left[\int_0^\Lambda \frac{p^2}{\sqrt{p^2+m_i^2}} dp - \int_0^{p_F^i} \frac{p^2}{\sqrt{p^2+m_i^2}} dp \right],
+\end{align}
 %
-onde nos valemos do fato de que as funções degrau efetivamente alteram o limite superior de integração. Além disso, como $\Lambda > p_F$, na segunda integral podemos simplesmente omitir a função degrau. A integral que aparece na equação acima tem forma analítica dada pela Equação~\ref{Eq:Integ_momento_quad}.
+onde nos valemos do fato de que as funções degrau efetivamente alteram o limite superior de integração. Além disso, como $\Lambda > p_F$, na segunda integral podemos simplesmente omitir a segunda função degrau. A integral que aparece na equação acima tem forma analítica dada pela Equação~\ref{Eq:Integ_momento_quad}.
 
 Definindo a função
 \begin{align}
-	F_0(m, \kappa) &= \int_0^\kappa \frac{p^2}{\sqrt{p^2 + m^2}} dp \\
-	&= \frac{1}{2} \left[\kappa E - m^2\ln\frac{E + \kappa}{m} \right],
+	F_0(m_i, \kappa) &= \int_0^\kappa \frac{p^2}{\sqrt{p^2 + m_i^2}} dp \\
+	&= \frac{1}{2} \left[\kappa E_p^i - m_i^2\ln\frac{E_p^i + \kappa}{m_i} \right],
 \end{align}
 %
-onde utilizamos a forma analítica para a integral e o fato de que tal expressão resulta em zero para o limite inferior na equação acima. Podemos então escrever
+onde utilizamos a forma analítica para a integral e o fato de que tal expressão resulta em zero para o limite inferior na equação acima, podemos escrever
 \begin{equation}
-	\rho_s^i = -\frac{n_c}{\pi^2} m_i [F_0(m, \Lambda) - F_0(M,p_F)].
+	\rho_s^i = -\frac{n_c}{\pi^2} m_i [F_0(m_i, \Lambda) - F_0(m_i,p_F^i)].
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cálculo da energia cinética}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Temos que a energia cinética é dada por ...
+Temos que a energia cinética é dada por
+\begin{equation}
+	\varepsilon_{\rm{kin}} = - 2 n_c \sum_i \int \frac{d^3p}{(2\pi)^3} \frac{p^2}{E_p^i} (n_{i-} - n_{i+}) \theta(\Lambda^2 - p^2),
+\end{equation}
+%
+onde $i = p, n$.
+
+No limite para $T \to 0$, temos que
+\begin{align}
+	\lim_{T \to 0} n_{i-} &= 1 \\,
+	\lim_{T \to 0} n_{i+} &= \theta(\mu - E_p^i) = \theta(p_F^i - p),
+\end{align}
+%
+o que resulta em
+\begin{align}
+	\varepsilon_{\rm{kin}} &= - 2 n_c \sum_i \int \frac{d^3p}{(2\pi)^3} \frac{p^2}{E_p^i} (1 - \theta(p_F^i - p))\theta(\Lambda^2 - p^2) \\
+	&= -  \frac{n_c}{\pi^2} \sum_i \left[\int_0^\Lambda \frac{p^4}{\sqrt{p^2 + m_i^2}} dp - \int_0^{p_F^i} \frac{p^4}{\sqrt{p^2 + m_i^2}} dp\right].
+\end{align}
+%
+A integral que aparece na expressão acima tem forma analítica dada pela equação \ref{Eq:Integ_momento_quarta}. Definindo uma função $F_2$ tal que
+\begin{align}
+	F_2(m_i, \kappa) &= \int_0^\kappa \frac{p^4}{\sqrt{p^2 + m_i^2}} dp \\
+	&= \frac{1}{4}\left[\kappa^3 E_p^i - \frac{3}{2} m_i^2\kappa E_p^i + \frac{3}{2}m_i^4\ln \frac{E_p^i + \kappa}{m_i}\right],
+\end{align}
+%
+onde utilizamos a forma analítica para a integral e o fato de que tal expressão resulta em zero para o limite inferior na equação acima, podemos escrever
+\begin{equation}
+	\varepsilon_{\rm{kin}} = - \frac{n_c}{\pi} \sum_i \left[F_2(m_i, \Lambda) - F_2(m_i, p_F^i)\right].
+\end{equation}
+
+Para o caso especial $m = 0$, temos:
+\begin{align}
+	\varepsilon_{\rm{kin}} &= - \frac{n_c}{\pi^2}\left[\int_0^\Lambda p^3 dp - \int_0^{p_F^i} p^3 dp\right] \\
+	&= - \frac{n_c}{\pi^2}\left[\frac{\Lambda^4}{4} - \frac{(p_F^i)^4}{4}\right].
+\end{align}
+%
+Podemos tratar os dois casos simplesmente fazendo
+\begin{align}
+	F_2(m_i, \kappa) &= \int_0^\kappa \frac{p^4}{\sqrt{p^2 + m_i^2}} dp \\
+	&= \begin{cases} \kappa^4/4, \quad \textrm{se}~ m = 0 \\ \frac{1}{4}\left[\kappa^3 E_p^i - \frac{3}{2} m_i^2\kappa E_p^i + \frac{3}{2}m_i^4\ln \frac{E_p^i + \kappa}{m_i}\right], \quad \textrm{se}~ m\neq 0. \end{cases}
+\end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -934,17 +974,12 @@ Temos que a energia cinética é dada por ...
 Integrais utilizadas nas expressões para temperatura zero: (Glendenning\cite{Glendenning} p. 94\footnote{Na Ref. o primeiro termo da segunda expressão aparece sem o $k$ multiplicando, o que dimensionalmente está incorreto.})
 \begin{align}
 	\int \frac{k^4}{\sqrt{k^2 + m^2}} dk &= \frac{1}{4}\left[k^3\epsilon - \frac{3}{2} m^2k\epsilon + \frac{3}{2}m^4\ln\frac{\epsilon + k}{m} \right] \label{Eq:Integ_momento_quarta}\\
-	\int \frac{k^2}{\sqrt{k^2 + m^2}} dk &= \frac{1}{2}\left[k\epsilon - m^2\ln\frac{\epsilon + k}{m}\right] \label{Eq:Integ_momento_quad}
+	\int \frac{k^2}{\sqrt{k^2 + m^2}} dk &= \frac{1}{2}\left[k\epsilon - m^2\ln\frac{\epsilon + k}{m}\right] \label{Eq:Integ_momento_quad} \\
+	\int k^2 \sqrt{k^2 + m^2} \;dk &= \frac{1}{4}\left[k \epsilon^3 - \frac{1}{2} m^2 k \epsilon - \frac{1}{2} m^4\ln\left(\frac{k+\epsilon}{m}\right)\right] \label{Eq:Def_F_E}
 \end{align}
 %
 onde $\epsilon = \sqrt{k^2+m^2}$. 
 trazer: Eq.~\ref{Eq:Int_d3p_to_dp}, \eqref{Eq:Def_F0_integrado}
-
-Com $E = \sqrt{k^2 + m^2}$, 
-\begin{align} \label{Eq:Def_F_E}
-	\int k^2 \sqrt{k^2 + m^2} \;dk &= \frac{1}{4}\left[k E^3 - \frac{1}{2} m^2 k E - \frac{1}{2} m^4\ln\left(\frac{k+E}{m}\right)\right] \\
-	&\equiv F_E(m, k),
-\end{align}
 
 Fórmula de Leibniz:\footnote{Se os limites são constantes, o lado direito se resume à integral.}
 \begin{equation}\label{Eq:Form_Leibniz}
