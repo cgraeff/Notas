@@ -342,7 +342,12 @@ Temos então\footnote{É fácil mostrar que $1 - n_p = 1/(1 + \exp(-(E_p - \mu_p
 \section{Fase de quarks: NJL, SU(2), temperatura zero}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Tomando o caso especial\footnote{Por que essa simplificação? É um caso específico problemático de se calcular se não fizermos o limite aritmeticamente (devido à distrib. de Fermi-Dirac)? É um caso muito frequente e útil?} $T = 0$, temos uma simplificação substancial das Equações~\eqref{Eq:Pot_Termo_Temp_Finita}, \eqref{gap}, \eqref{gap_mu_r}, e~\eqref{gap_rho}. Verificaremos como obter as expressões nas próximas seções.
+Tomando o caso especial\footnote{Por que essa simplificação? É um caso específico problemático de se calcular se não fizermos o limite aritmeticamente (devido à distrib. de Fermi-Dirac)? É um caso muito frequente e útil?} $T = 0$, temos uma simplificação substancial das Equações~\eqref{Eq:Pot_Termo_Temp_Finita}, \eqref{gap}, \eqref{gap_mu_r}, e~\eqref{gap_rho}. Verificaremos como obter as expressões nas próxima seção (dividida em sub-seções).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Obtenção das equações para temperatura zero}
+\label{Sec:Obtencao_eq_temp_zero_NJL_quarks}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Limite $T \to 0$ da equação de gap para a massa}
@@ -727,10 +732,12 @@ onde $\mu$ pode ser calculado invertendo a relação~\eqref{Eq:Eq_Gap_Pot_Quim_R
 %
 O potencial termodinâmico no vácuo ($\omega_{\rm{MF}}(0; m_{\rm{vac}}, 0)$) não é afetado pelo termo em $G_V$, o que pode ser visto da Equação~\eqref{Eq:Pot_termodinamico_1_G_V_neq_0} ao se tomar $\mu = \mu_R = 0$.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Fase de Hádrons: NJL, SU(2), temperatura finita}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fase de Hádrons: eNJL, SU(2), temperatura finita}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\textbf{Isso não deveria estar aqui, deveria? Me parece que isso está perdido aqui.}
+{\it
 De uma forma geral, podemos escolher variar $\rho_B$ ou $\mu$ ao resolver o problema numericamente. Basicamente o que temos é uma solução de um sistema para um valor específico de densidade ou de potencial químico (não estamos calculando uma função da densidade, por exemplo, mas sim resolvendo o sistema para um valor específico de densidade). Como $\mu$ e $\rho$ estão ligados através das equações
 \begin{subequations}
 \begin{equation}\label{Eqs:sist_m_mu_t_finito}
@@ -744,10 +751,21 @@ e
 \end{subequations}
 %
 já que estão ligados individualmente a $\mu_R$, podemos escolher um dos dois como variável e calcular o outro\footnote{Isso assume que ambos estão ligados de maneira única. Em Buballa (2005) -- p. 235, após a Eq. 2.56 -- diz que a função é estritamente crescente, o que garante isso.}. No cálculo do potencial termodinâmico, uma das variáveis pode ser então eliminada. Em geral se escolhe $\mu$ para ser variado, pelo que tenho percebido\footnote{Mas como comecei variando $\rho_B$, vou insistir. De qualquer forma, pelo menos para $T = 0$ é mais fácil.}.
+}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Fase de hádrons: eNJL} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fase de hádrons: eNJL, SU(2), temperatura zero} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Desenvolver caso de temperatura finita.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Obtenção das equações para temperatura zero}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%
+\textbf{Rever essa seção, simplificar depois que tivermos a seção para temperatura finita pronta. Integrar as seções subsequentes}
+%%%%%%%%%%%
 
 A partir da lagrangiana \eqref{Eq:Lagrangiana_eNLJ_Pais}, é possível determinar  o potencial termodinâmico\footnote{Potencial Grand-canônico, ou potencial de Landau.} por unidade de volume, dado por (em Tsue~\cite{japoneses}, o potencial é \emph{definido} como $\omega = \langle\langle \mathcal{H}^{MF}\rangle\rangle - \mu\langle\langle\mathcal{N}\rangle\rangle - \frac{1}{\beta}\langle\langle\mathcal{S}\rangle\rangle$\footnote{Os termos $\langle\langle \cdot \rangle\rangle$ são a Hamiltoniana de campo médio, a densidade bariônica, e algo que pode ser a entropia (eu acho). Isso tem que sair de alguma coisa da termodinâmica, tipo $\omega (T, m) = (T/V) \ln Z$, como poderia ser \emph{definido}?}, o que se traduz em uma expressão similar a essa que segue)
 \begin{equation}\label{Eq:potencial_termodinamico}
@@ -810,13 +828,7 @@ Logo, temos
 	&= \frac{N_c}{\pi^2}\sum_i\left[\int \frac{p^4dp}{\sqrt{p^2 + M_i^2}}\theta(\Lambda^2 - p^2) + \int m_i M_i \frac{p^2 dp}{\sqrt{p^2 + M_i^2}}\theta(\Lambda^2 - p^2)\right] \label{Eq:Engergia_cin_separada}
 \end{align}
 %
-Podemos utilizar as relações (Glendenning\cite{Glendenning} p. 94\footnote{Na Ref. o primeiro termo da segunda expressão aparece sem o $k$ multiplicando, o que dimensionalmente está incorreto.})
-\begin{align}
-	\int \frac{k^4}{\sqrt{k^2 + m^2}} dk &= \frac{1}{4}\left[k^3\epsilon - \frac{3}{2} m^2k\epsilon + \frac{3}{2}m^4\ln\frac{\epsilon + k}{m} \right]\\
-	\int \frac{k^2}{\sqrt{k^2 + m^2}} dk &= \frac{1}{2}\left[k\epsilon - m^2\ln\frac{\epsilon + k}{m}\right] \label{Eq:Integ_momento_quad}
-\end{align}
-%
-onde $\epsilon = \sqrt{k^2+m^2}$. Tomando o caso $m_i \to 0$\footnote{No prog. \texttt{eos\_enjl1-dens-assym- clean-rho-vr.f}: $\varepsilon \propto [F_2(M, k_F^i) - F_2(M, \Lambda)]$ ao invés de $\varepsilon \propto [F_2(M_i, \Lambda) - F_2(M_i, 0)]$; Isso se deve à retirada da contribuição do vácuo. Vendo Lee \etal talvez seja o seguinte: $n_i^+$ não vai a zero, mas a uma função degrau que envolve o momento, de forma que entre zero e $p_F$ o resultado seja nulo. A mudança na ordem dos limites pode explicar algum sinal.}, obtemos
+Tomando o caso $m_i \to 0$\footnote{No prog. \texttt{eos\_enjl1-dens-assym- clean-rho-vr.f}: $\varepsilon \propto [F_2(M, k_F^i) - F_2(M, \Lambda)]$ ao invés de $\varepsilon \propto [F_2(M_i, \Lambda) - F_2(M_i, 0)]$; Isso se deve à retirada da contribuição do vácuo. Vendo Lee \etal talvez seja o seguinte: $n_i^+$ não vai a zero, mas a uma função degrau que envolve o momento, de forma que entre zero e $p_F$ o resultado seja nulo. A mudança na ordem dos limites pode explicar algum sinal.}, obtemos\footnote{Usando eqs do apendice do capítulo, colocar refs.}
 \begin{equation}\label{Eq:Energia_kin}
 	\varepsilon_{\rm{kin}} = \frac{N_c}{\pi^2}\sum_i \Big[\underbrace{\frac{1}{8}\Big((2p^3 - 3M_i^2p)\sqrt{p^2 + M_i^2} + 3M_i^4\ln\frac{p + \sqrt{p^2 + M_i^2}}{M_i}\Big)}_{F_2(m,p)}\Big]_0^\Lambda
 \end{equation}
@@ -863,6 +875,54 @@ As equações de estado para pressão $P$ e densidade de energia $\varepsilon$ s
 	P &= -\omega(\mu) + \epsilon_0 \label{Eq:Pressao}\\
 	\varepsilon &= -P + \mu_p\rho_p + \mu_n\rho_n. \label{Eq:Densidade_energia}
 \end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Cálculo da densidade escalar}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Temos que a densidade escalar é dada por\footnote{Explicar em algum lugar como obter isso.}
+\begin{equation}
+	\rho_s^i = - 2 n_c \int \frac{d^3p}{(2\pi)^3}\frac{m_i}{E_i}(n_{i-} - n_{i+}) \theta(\Lambda^2 - p^2),
+\end{equation}
+%
+onde $i = p, n$ e
+\begin{align}
+	n_{i-} &= \frac{1}{1 + \exp(-(E+\mu)/T)} \\
+	n_{i+} &= \frac{1}{1 + \exp((E-\mu)/T)}.
+\end{align}
+
+No limite $T \to 0$, temos que\footnote{Veja a discussão na Seção \ref{Sec:Obtencao_eq_temp_zero_NJL_quarks}.}
+\begin{align}
+	\lim_{T \to 0} n_{i-} &= 1 \\
+	\lim_{T \to 0} n_{i+} &= \theta(\mu - E_p) = \theta(p_F - p).
+\end{align}
+%
+Obtemos, portanto,
+\begin{align}
+	\rho_s^i &= - 2 n_c \frac{1}{(2\pi)^3} \int d^3p \frac{m_i} (1 - \theta(p_F - p)) \theta(\Lambda^2 - p^2)\\
+	&= -\frac{n_c}{\pi^2} m_i \left[\int \frac{p^2}{E_i} \theta(\Lambda - p) - \int \frac{p^2}{E_i}\theta(p_F - p)\theta(\Lambda - p)\\
+	&= -\frac{n_c}{\pi^2} m_i \left[\int_0^\Lambda \frac{p^2}{\sqrt{p^2+m^2}} dp - \int_0^p_F \frac{p^2}{\sqrt{p^2+m^2}} dp,
+\end{equation}
+%
+onde nos valemos do fato de que as funções degrau efetivamente alteram o limite superior de integração. Além disso, como $\Lambda > p_F$, na segunda integral podemos simplesmente omitir a função degrau. A integral que aparece na equação acima tem forma analítica dada pela Equação~\ref{Eq:Integ_momento_quad}.
+
+Definindo a função
+\begin{align}
+	F_0(m, \kappa) &= \int_0^\kappa \frac{p^2}{\sqrt{p^2 + m^2}} dp \\
+	&= \frac{1}{2} \left[\kappa E - m^2\ln\frac{E + \kappa}{m} \right],
+\end{align}
+%
+onde utilizamos a forma analítica para a integral e o fato de que tal expressão resulta em zero para o limite inferior na equação acima. Podemos então escrever
+\begin{equation}
+	\rho_s^i = -\frac{n_c}{\pi^2} m_i [F_0(m, \Lambda) - F_0(M,p_F)].
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Cálculo da energia cinética}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Temos que a energia cinética é dada por ...
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -871,9 +931,14 @@ As equações de estado para pressão $P$ e densidade de energia $\varepsilon$ s
 \section{Apêndice}
 %%%%%%%%%%%%%%%%%%
 
-Colocar expressões usadas no capítulo aqui, pra não poluir o texto.
-
-trazer: Eq.~\ref{Eq:Int_d3p_to_dp}, \eqref{Eq:Integ_momento_quad}, \eqref{Eq:Def_F0_integrado}
+Integrais utilizadas nas expressões para temperatura zero: (Glendenning\cite{Glendenning} p. 94\footnote{Na Ref. o primeiro termo da segunda expressão aparece sem o $k$ multiplicando, o que dimensionalmente está incorreto.})
+\begin{align}
+	\int \frac{k^4}{\sqrt{k^2 + m^2}} dk &= \frac{1}{4}\left[k^3\epsilon - \frac{3}{2} m^2k\epsilon + \frac{3}{2}m^4\ln\frac{\epsilon + k}{m} \right] \label{Eq:Integ_momento_quarta}\\
+	\int \frac{k^2}{\sqrt{k^2 + m^2}} dk &= \frac{1}{2}\left[k\epsilon - m^2\ln\frac{\epsilon + k}{m}\right] \label{Eq:Integ_momento_quad}
+\end{align}
+%
+onde $\epsilon = \sqrt{k^2+m^2}$. 
+trazer: Eq.~\ref{Eq:Int_d3p_to_dp}, \eqref{Eq:Def_F0_integrado}
 
 Com $E = \sqrt{k^2 + m^2}$, 
 \begin{align} \label{Eq:Def_F_E}
