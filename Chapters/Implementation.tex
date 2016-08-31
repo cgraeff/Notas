@@ -209,7 +209,11 @@ Ao reproduzir o cálculo em Fortran obtenho bons resultados (Figuras \ref{Fig:en
 	
 Apesar de reproduzir os resultados e eles serem coerentes com aquilo que eu esperava, os resultados não são bons para valores baixos de densidade\footnote{A Débora mencionou que havia um problema com o cálculo em $\rho_B$, por isso o programa em Fortran executa o cálculo variando $\mu_R$, talvez seja isso? P.S.: Se eu me referia à curva com concavidade voltada para baixo que aparece no início de alguns gráficos, como em $\varepsilon/rho$, pelo que entendi do Buballa é isso mesmo.}. De qualquer forma, os dados que seguem foram calculados segundo as expressões desse segundo caso, isto é, as expressões do programa em Fortran com as alterações mencionadas acima. 
 
-Apesar de inicialmente eu ter feito uma interpretação errada do cálculo utilizando o potencial termodinâmico como em Buballa\cite{Buballa1996}, com a interpretação correta temos resultados adequados para a parametrização D$_1$.
+Apesar de inicialmente eu ter feito uma interpretação errada do cálculo utilizando o potencial termodinâmico como em \textcite{Buballa1996}, com a interpretação correta temos resultados adequados para a parametrização D$_1$.
+
+Nas Figuras~\ref{Fig:Mass_Tsue} a~\ref{Fig:Press_Tsue}, temos uma reprodução de dados similares aos contidos em \textcite{japoneses2}.
+
+Nas Figuras~\ref{Fig:Buballa_2.9_1} a~\ref{Fig:Buballa_2.9_4} temos uma reprodução da Figura 2.9 em \textcite{Buballa}. Nas figuras para a massa em função do potencial químico, não reproduzimos o ``plateau'' inicial. Veja discussão na Seção~\ref{Sec:plateau}.
 
 %%%
 
@@ -374,6 +378,52 @@ Apesar de inicialmente eu ter feito uma interpretação errada do cálculo utili
 	\label{Fig:energy_density_per_particle_NJL-D_1}
 \end{figure*}
 
+%%%
+
+\begin{figure*}
+	\input{graphics/Rep_Tsue/mass_chem_pot.tex}
+	\caption{Reprodução da Fig. 2 em \textcite{japoneses2}. \protect\input{graphics/Rep_Tsue/info.tex}}
+	\label{Fig:Mass_Tsue}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Rep_Tsue/barionic_dens_chemical_potential.tex}
+	\caption{Reprodução da Fig. 3 em \textcite{japoneses2}. \protect\input{graphics/Rep_Tsue/info.tex}}
+	\label{Fig:Dens_Tsue}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Rep_Tsue/pressure_chem_pot.tex}
+	\caption{Reprodução da Fig. 4 em \textcite{japoneses2}. \protect\input{graphics/Rep_Tsue/info.tex}}
+	\label{Fig:Press_Tsue}
+\end{figure*}
+
+%%%
+
+\begin{figure*}
+	\input{graphics/Rep_Buballa_2.9/mass_chem_pot.tex}
+	\caption{Reprodução da Fig. 2.9 em \textcite{Buballa}. \protect\input{graphics/Rep_Buballa_2.9/info.tex}}
+	\label{Fig:Buballa_2.9_1}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Rep_Buballa_2.9/barionic_dens_chemical_potential.tex}
+	\caption{Reprodução da Fig. 2.9 em \textcite{Buballa}. \protect\input{graphics/Rep_Buballa_2.9/info.tex}}
+	\label{Fig:Buballa_2.9_2}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Rep_Buballa_2.9/mass_chem_pot_GV.tex}
+	\caption{Reprodução da Fig. 2.9 em \textcite{Buballa}. \protect\input{graphics/Rep_Buballa_2.9/info_GV.tex}}
+	\label{Fig:Buballa_2.9_3}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Rep_Buballa_2.9/barionic_dens_chemical_potential_GV.tex}
+	\caption{Reprodução da Fig. 2.9 em \textcite{Buballa}. \protect\input{graphics/Rep_Buballa_2.9/info_GV.tex}}
+	\label{Fig:Buballa_2.9_4}
+\end{figure*}
+
 \FloatBarrier
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -435,6 +485,8 @@ Uma ferramenta interessante é justamente mapear as regiões do espaço de fase 
 
 No caso específico do presente problema, temos somente uma interseção entre as curvas, que são contínuas. Dessa forma, ao elaborarmos o mapa, podemos variar os valores de $m$ e $\mu_R$ de forma que e esta variável esteja no \emph{loop} mais interno. Isso garante que os pontos estarão ordenados em ordem crescente de $m$. Eliminamos a possível multiplicidade dos pontos fazendo a média nos valores de $\mu_R$ para cada valor de $m$. Agora basta percorrer os valores de $m$ à procura da menor distância entre os valores de $\mu_R$ de cada curva. Tal ponto será o valor estimado da posição da raíz que deverá ser passado para a rotina que deverá ``polir'' o valor até que ele esteja dentro da tolerância desejada.
 
+Apesar de tudo isso, nem sempre temos curvas bem definidas ao gerar um mapa. Isso faz com que o cálculo seja muito demorado e não garante que não haja falhas. Uma maneira de se calcular mais rapidamente e com melhores chances de não ter problemas de convergência é utilizar como chutes iniciais os valores obtidos em uma iteração anterior. Se, por exemplo, estamos variando $\rho_B$, assim que se obtém a solução para $\rho_B = 0$, podemos determinar a solução para $\rho_B = 0.1$ utilizando como valores iniciais os obtidos para $\rho_B = 0$. Isso funciona bem pois as raízes subsequentes estão próximas da solução anterior se o passo utilizado para $\rho_B$ é pequeno.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Análise Dimensional}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -473,7 +525,6 @@ Reprodução da Fig. 2.7 (esq) do Buballa (Rep.): o resultado concorda com a ref
 	\label{Fig:Buballa_rep_2.7}
 \end{figure*}
 
-Nos mapas das Equações\eqref{gap} e~\eqref{gap_rho} (zeradas), para todos os valores de temperatura e densidade bariônica testados, existem duas curvas bem definidas e que se cruzam em um só ponto. O efeito do aumento da temperatura é o de deslocar as curvas para baixo, enquanto o aumento da densidade bariônica desloca a curva correspondente à Equação~\eqref{gap_rho} diagonalmente para a esquerda e para cima. Percebemos que $m$ decresce com $\rho_B$, como esperado. Nas Figuras~\ref{Fig:Map_9_4} a~\ref{Fig:Map_9_8} podemos ver exemplos de mapas ao variarmos $\rho_B$ e nas Figuras~\ref{Fig:Map_0_0} a ~\ref{Fig:Map_9_0} ao variarmos a temperatura.
 
 % inserir figuras aqui
 
@@ -532,7 +583,12 @@ Nos mapas das Equações\eqref{gap} e~\eqref{gap_rho} (zeradas), para todos os v
 \end{figure*}
 
 \FloatBarrier
+
+
 %%%
+
+Nos mapas das Equações\eqref{gap} e~\eqref{gap_rho} (zeradas), para todos os valores de temperatura e densidade bariônica testados, existem duas curvas bem definidas e que se cruzam em um só ponto. O efeito do aumento da temperatura é o de deslocar as curvas para baixo, enquanto o aumento da densidade bariônica desloca a curva correspondente à Equação~\eqref{gap_rho} diagonalmente para a esquerda e para cima. Percebemos que $m$ decresce com $\rho_B$, como esperado. Nas Figuras~\ref{Fig:Map_9_4} a~\ref{Fig:Map_9_8} podemos ver exemplos de mapas ao variarmos $\rho_B$ e nas Figuras~\ref{Fig:Map_0_0} a ~\ref{Fig:Map_9_0} ao variarmos a temperatura.
+
 
 \begin{figure*}
 	\input{graphics/Maps/map_9_4}
@@ -592,6 +648,54 @@ Nos mapas das Equações\eqref{gap} e~\eqref{gap_rho} (zeradas), para todos os v
 \end{figure*}
 
 \FloatBarrier
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ausência de ``plateau'' para pequenos valores de potencial químico}
+\label{Sec:plateau}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Ao resolvermos simultaneamente as Equações~\ref{gap} e~\ref{gap_rho}, encontramos os valores de $\mu_R$ e de $m$ que satisfazem ambas as equações simultaneamente. Escrevendo
+\begin{align}
+	f_1(m, \mu_R) &= m - m_0 - 4G_s n_c n_f \int\frac{d^3p}{(2\pi)^3} \frac{m}{E_p}(1 - n_p - \bar{n}_p) \\
+	f_2(m, \mu_R) &= n_c\rho_B - 2 n_fn_c\int\frac{d^3p}{(2\pi)^3}(n_p - \bar{n}_p)
+\end{align}
+%
+e verificando as regiões de ambos de forma que $|f_i| < t_i$, onde $t_i$ é um valor pequeno de tolerância arbitrário, obtemos um mapa como o da Figura~\ref{Fig:Map_0_0}, onde a curva em verde corresponde a $f_1$ e a curva em roxo a $f_2$.
+
+Para o caso $T \to 0$, temos que 
+\begin{equation}
+	\mu_R = \sqrt{p_F^2 + m^2}
+\end{equation}
+%
+onde $p_F$ está ligado à densidade bariônica através de
+\begin{equation}
+	\rho_B = \frac{n_f}{3\pi^2}p_F^3.
+\end{equation}
+%
+Ao varrermos em $\rho_B$ para determinar as soluções, partimos de $\rho_B = 0$ até um valor máximo arbitrário. Isso implica que o valor inicial $p_F = 0$, o que corresponde a uma reta $\mu_R = m$ para a curva $f_2$. Veja a Figura~\ref{Fig:Map_zero_temp_zero_dens}.
+
+\begin{figure*}
+	\input{graphics/map_zero_temp_zero_dens/map_0_0}
+	\caption{Mapa mostrando as regiões das Equações~\ref{gap} e~\ref{gap_rho} (zeradas) que estão próximas a zero (em verde e roxo, respectivamente).  Neste gráfico em particular, para a região em roxo, o que é relevante é a interface plana da região. $T = \np[MeV]{1e-4}$, $\rho_B = \np[fm^{-3}]{0}$.\protect\input{graphics/Maps/info.tex}}
+	\label{Fig:Map_zero_temp_zero_dens}
+\end{figure*}
+
+Observamos que
+\begin{itemize}
+	\item Para $\rho_B > 0$, o ponto em que as curvas $f_1$ e $f_2$ se cruzam se desloca para a esquerda sobre a curva em verde.
+	\item Em \textcite{Buballa1996}, ao rodar em $\mu$, considerando por simplicidade o caso $G_v = 0$ que implica em $\mu_R = \mu$, temos que
+		\begin{equation}
+			p_F = \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2).
+		\end{equation}
+		Portanto, para qualquer valor de $\mu_R < m$, temos que $p_F = 0$. Isso implica numa mesma solução para $m$.\footnote{Aparentemente o ``plateau'' nos gráficos $m \times \mu$ das referências se deve à reprodução sempre do mesmo ponto, não à região plana presente em $f_1$.}
+\end{itemize}
+
+Dúvidas:
+\begin{itemize}
+	\item Existe algum significado físico para a região $\mu_R < m$? (E para $\mu_R > m$?)
+	\item Quando $T \neq 0$ a região $|f_2| \approx 0$ passará sempre na região plana de $f_1$? (Pelos gráficos que fiz, sim.)
+	\item Podemos simplesmente repetir o primeiro ponto (para $\rho_B = 0$) para os valores de $\mu_R < m$? É necessário?
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fase de hádrons: eNJL, SU(2), temperatura zero}
@@ -827,6 +931,48 @@ O termo adicionado a essa equação corresponde \emph{exatamente} ao segundo ter
 \end{figure*}
 
 \FloatBarrier
+
+%%%%%%%%%%%%%%%%%%
+\section{Binodais}
+%%%%%%%%%%%%%%%%%%
+
+Obtemos os resultados das Figuras~\ref{Binodal1} a \ref{Binodal6} para as binodais, fazendo como em \textcite{japoneses2} (escolhidos aleatóriamente só para exemplificar).
+
+\begin{figure*}
+	\input{graphics/Binodals/Buballa_1-eNJL1-quark-hadron_phase_transition.tex}
+	\caption{Binodal para \texttt{[Buballa1, eNJL1]}}
+	\label{Fig:Binodal1}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Binodals/Buballa_1-eNJL1-quark-hadron_phase_transition2.tex}
+	\caption{Binodal para \texttt{[Buballa1, eNJL1]}}
+	\label{Fig:Binodal2}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Binodals/Buballa_1-eNJL1m-quark-hadron_phase_transition.tex}
+	\caption{Binodal para \texttt{[Buballa1, eNJL1m]}}
+	\label{Fig:Binodal3}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Binodals/Buballa_1-eNJL1m-quark-hadron_phase_transition2.tex}
+	\caption{Binodal para \texttt{[Buballa1, eNJL1m]}}
+	\label{Fig:Binodal4}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Binodals/Buballa_1-eNJL2-quark-hadron_phase_transition.tex}
+	\caption{Binodal para \texttt{[Buballa1, eNJL2]}}
+	\label{Fig:Binodal5}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Binodals/Buballa_1-eNJL2-quark-hadron_phase_transition2.tex}
+	\caption{Binodal para \texttt{[Buballa1, eNJL2]}}
+	\label{Fig:Binodal6}
+\end{figure*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

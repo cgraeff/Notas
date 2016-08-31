@@ -1,4 +1,9 @@
-\documentclass[justified,a4paper]{tufte-book}
+\documentclass[justified,a4paper,nobib]{tufte-book}
+\usepackage[brazil,safe=bib]{babel}
+\usepackage{hyphenat}
+\usepackage[backend=biber, style = authoryear]{biblatex}
+\addbibresource{Preamble/References.bib}
+%\renewcommand{\cite}[2][0pt]{\sidenote[][#1]{\fullcite{#2}}} % citations as sidenotes
 
 \input{Preamble/Packages}
 \input{Preamble/Formatting}
@@ -65,9 +70,9 @@
 
 \backmatter
 
-\bibliography{Preamble/References.bib}
-\bibliographystyle{plainnat}
-
+%\bibliography{Preamble/References.bib}
+%\bibliographystyle{plainnat}
+\printbibliography
 
 \printindex
 

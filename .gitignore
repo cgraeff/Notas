@@ -10,3 +10,5 @@
 *.toc
 *.swp
 .DS_Store
+*.bcf
+*.xml
