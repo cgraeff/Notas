@@ -211,7 +211,7 @@ Apesar de reproduzir os resultados e eles serem coerentes com aquilo que eu espe
 
 Apesar de inicialmente eu ter feito uma interpretação errada do cálculo utilizando o potencial termodinâmico como em \textcite{Buballa1996}, com a interpretação correta temos resultados adequados para a parametrização D$_1$.
 
-Nas Figuras~\ref{Fig:Mass_Tsue} a~\ref{Fig:Press_Tsue}, temos uma reprodução de dados similares aos contidos em \textcite{japoneses2}.
+Nas Figuras~\ref{Fig:Mass_Tsue} a~\ref{Fig:Press_Tsue}, temos uma reprodução de dados similares aos contidos em \textcite{japoneses2}. Nos gráficos da referência, existe uma região pontilhada. Pelo que entendi, ela é ocorre na região de $m \times \mu$ onde existe mais que um valor de $m$ para um mesmo valor de $\mu_R$, sendo que nesse caso devemos escolher para qual valor de $m$ temos um sistema estável verificando qual dos múltiplos valores maximiza a pressão. Os valores de $m$ que não maximizam a pressão são a região pontilhada. No gráfico da pressão, a quina está ligada à transição chiral. Não sei exatamente como isso se forma.
 
 Nas Figuras~\ref{Fig:Buballa_2.9_1} a~\ref{Fig:Buballa_2.9_4} temos uma reprodução da Figura 2.9 em \textcite{Buballa}. Nas figuras para a massa em função do potencial químico, não reproduzimos o ``plateau'' inicial. Veja discussão na Seção~\ref{Sec:plateau}.
 
@@ -930,13 +930,31 @@ O termo adicionado a essa equação corresponde \emph{exatamente} ao segundo ter
 	\label{Fig:energy_by_nucleon_graph_eNJL1m}
 \end{figure*}
 
+\begin{figure*}
+	\input{graphics/Rep_Pais/mass.tex}
+	\caption{Reprodução da Fig. 2 em \textcite{Pais}.}
+	\label{Fig:Rep_Pais_Mass}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Rep_Pais/pressure.tex}
+	\caption{Reprodução da Fig. 2 em \textcite{Pais}.}
+	\label{Fig:Rep_Pais_Pressure}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/Rep_Pais/energy_density_per_particle.tex}
+	\caption{Reprodução da Fig. 2 em \textcite{Pais}.}
+	\label{Fig:Rep_Pais_Energy_Dens}
+\end{figure*}
+
 \FloatBarrier
 
 %%%%%%%%%%%%%%%%%%
 \section{Binodais}
 %%%%%%%%%%%%%%%%%%
 
-Obtemos os resultados das Figuras~\ref{Binodal1} a \ref{Binodal6} para as binodais, fazendo como em \textcite{japoneses2} (escolhidos aleatóriamente só para exemplificar).
+Obtemos os resultados das Figuras~\ref{Fig:Binodal1} a \ref{Fig:Binodal6} para as binodais, fazendo como em \textcite{japoneses2} (resultados das três primeiras combinações de conjuntos de parâmetros, em ordem alfabética, só para exemplificar). Nos gráficos em escala logarítmica, a fase ``realized'' é aquela que maximiza a pressão, então ela percorre uma das curvas até certo ponto e então ocorre uma mudança de uma curva para outra. Deveríamos esperar que as curvas fossem sempre ``paralelas'', isto é, não se cruzassem?
 
 \begin{figure*}
 	\input{graphics/Binodals/Buballa_1-eNJL1-quark-hadron_phase_transition.tex}
