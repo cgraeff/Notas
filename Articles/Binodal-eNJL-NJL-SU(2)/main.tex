@@ -1,0 +1,310 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[prc, reprint, amsmath, linenumbers,10pt]{revtex4-1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+\usepackage{graphicx}
+
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+
+%
+%%
+%%%
+%%%% Front Matter
+%%%
+%%
+%
+
+\title{The title}
+
+\author{Clebson Abati Graeff}
+\affiliation{Universidade Tecnológica Federal do Paraná, campus Pato Branco \\ Via do Conhecimento, Km 1 CEP 85503-390 Pato Branco -- PR, Brazil}
+\email{cgraeff@utfpr.edu.br}
+
+\author{Débora Pérez Menezes}
+\affiliation{Departamento de Física, Universidade Federal de Santa Catarina, Florianópolis, SC, CP 476, CEP 88.040-900, Brazil}
+\email{debora.p.m@ufsc.br}
+
+%%%
+
+\begin{abstract}
+An article usually includes an abstract, a concise summary of the work
+covered at length in the main body of the article. 
+\begin{description}
+\item[Usage]
+Secondary publications and information retrieval purposes.
+\item[PACS numbers]
+May be entered using the \verb+\pacs{#1}+ command.
+\item[Structure]
+You may use the \texttt{description} environment to structure your abstract;
+use the optional argument of the \verb+\item+ command to give the category of each item. 
+\end{description}
+\end{abstract}
+
+%%%
+
+\pacs{Valid PACS appear here}
+
+%%%
+
+\maketitle
+
+%
+%%
+%%%
+%%%% Main Matter
+%%%
+%%
+%
+
+%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%
+
+Fazer como o Marcelo e deixar enviar em branco?
+
+%%%%%%%%%%%%%%%%%%%
+\section{Formalism}
+%%%%%%%%%%%%%%%%%%%
+Lagrangiana genérica SU(2)?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Quark Matter}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Considerando a lagrangiana do tipo NJL em SU(2) dada por Buballa\cite{Buballa1996}
+\begin{equation}\label{Eq:LagNJL-SU2-Bub}
+\begin{split}
+	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi \\
+	&+ G_S[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] - G_V(\bar{\psi}\gamma^\mu \psi)^2,
+\end{split}
+\end{equation}
+%
+se obtém as seguintes equações para o potencial termodinâmico e equações de estado
+	\begin{equation}\label{Eq:Pot_Termo_Temp_Finita}
+		\omega(T, \mu; m, \mu_r) = \omega_M(T, \mu_R) + \frac{(m - m_0)^2}{4G_s} - \frac{(\mu - \mu_R)^2}{4G_v} + \textrm{const.},
+	\end{equation}
+%
+\textbf{onde o sinal do último termo faz com que eu só consiga dormir com as luzes acesas.}
+		\begin{equation}
+	\begin{split}\label{Eq:Por_Termo_Temp_Finita_Fermi_Gas_Contrib}
+		\omega_M(T, \mu_R) = -2 n_f n_c \int \frac{d^3p}{(2\pi)^3} \{E_p &+ T\ln(1+e^{-(E_p-\mu_R)/T} \\
+		&+ T\ln(1 + e^{-(E_p+\mu_R})/T)\}.
+	\end{split}
+	\end{equation}
+	onde $E_p = \sqrt{p^2 + m^2}$.
+	
+E a equação do gap?
+
+A constante que aparece na definição do potencial não tem influência em nenhum resultado, por isso podemos a escolher de forma que o potencial termodinâmico seja nulo para $T = \mu = 0$, para o valor de $m = m_{\rm{vac}}$ que minimiza $\omega$. Por conveniência\footnote{Essa definição simplesmente calcula o valor do potencial termodinâmico mínimo no vácuo e subtrai tal valor do potencial como função de $T$ e $\mu$.}, definimos um potencial termodinâmico ``regularizado'' $\tilde\omega$ a partir do qual calcularemos as quantidades termodinâmicas em que estamos interessados, sendo que ele é dado por
+\begin{equation}
+	\tilde\omega(T, \mu; m, \mu_R) = \omega(T, \mu; m, \mu_R) - \omega(0, 0; m_{\rm{vac}}, 0).
+\end{equation}
+De Buballa~\cite{Buballa2005}:
+\begin{quote}
+	Having found a pair of solutions $m$ and $\mu_R$, other thermodynamic quantities can be obtained in the standard way. Since the system is uniform, pressure and energy density are given by
+	\begin{align}
+		p(T, \mu) &= -\omega(T, \mu; m, \mu_R) \label{Exp_pressao_T}\\
+		\varepsilon(T, \mu) &= -p(T, \mu) + T s(T, \mu) + \mu n(T,\mu). \label{Exp_energia_T}
+	\end{align}
+\end{quote}
+
+Essas expressões devem ser particularizadas para $T = 0$ assim que possível.
+
+
+Tabela com parâmetros
+\begin{table*}
+\caption{Conjuntos de parâmetros para a lagrangiana~\eqref{Eq:LagNJL-SU2-Bub} \cite{Buballa1996, Buballa2005}. \label{Tab:Parametros_NJL}}
+\begin{ruledtabular}
+\begin{tabular}{lcccccccc}
+Model &  $\Lambda$ & $G_s$ ($\rm{fm}^2$) & $G_v$ ($\rm{fm}^2$) & $m_0$ (MeV) & $m$ (MeV) \\
+\hline
+Buballa-1 & 650 & 0.19721 & -- & 0 & 313 \\
+Buballa-2 & 600 & 0.26498 & -- & 0 & 400 \\
+Buballa-3 & 570 & 0.34034 & -- & 0 & 500 \\
+%BuballaR-1 & 664.3 & 0.18176 & $\propto G_s$ & 5.0 & 300 \\
+BuballaR-2 & 587.9 & 0.27449 & $\propto G_s$ & 5.6 & 400 \\
+%BuballaR-3 & 569.3 & 0.33759 & $\propto G_s$ & 5.5 & 500 \\
+%BuballaR-4 & 568.6 & 0.38178 & $\propto G_s$ & 5.1 & 600
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+\textbf{Parágrafo comentando como resolver.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Hadron Matter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{cite Pais; Koch?}
+Parafrasear:
+The NJL model can be extended [\dots] to yield reasonable saturation properties of nuclear matter, the field $\psi$ being the nucleon field. An effective density dependent coupling constant is obtained if the following extended NJL (eNJL) Lagrangian density, which actually pushes chiral symmetry restoration to higher densities, is considered,
+\begin{equation}\label{Eq:Lagrangiana_eNLJ_Pais}
+\begin{split}
+	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu)\psi + G_s[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] \\
+	& - G_v(\bar{\psi}\gamma^\mu\psi)^2 - G_{sv}[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2](\bar{\psi}\gamma^\mu\psi)^2 \\
+	& - G_\rho[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
+	& - G_{v\rho}(\bar{\psi}\gamma^\mu\psi)^2[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
+	& - G_{s\rho} [(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2][(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2].
+\end{split}
+\end{equation}
+%
+\textbf{de onde alguém obteve, de alguma maneira a densidade de energia e a pressão e eu usei isso pra escrever um potencial termodinâmico completamente nas coxas, já que eu não deduzi nada, mas fiz o inverso do que foi exposto acima para o caso NJL, que eu também não calculei:}
+\begin{equation}\label{Eq:potencial_termodinamico}
+\begin{split}
+	\omega(\mu) =&~ \varepsilon_{\rm{kin}} + m\rho_s - G_s\rho_s^2 + G_v\rho^2 + G_{sv}\rho_s^2\rho^2 + G_\rho\rho_3^2 \\
+	&+ G_{v\rho}\rho^2\rho_3^2 + G_{s\rho}\rho_s^2\rho_3^2 - \mu_p\rho_p - \mu_n\rho_n,
+\end{split}
+\end{equation}
+%
+onde
+\begin{itemize}
+	\item $\rho$ é a densidade bariônica, dada pela soma das densidades de nêutron e próton\footnote{São densidades numéricas de partículas, ou seja, representam o número de partículas por unidade de volume.}:
+	\begin{equation}
+		\rho = \rho_p + \rho_n.
+	\end{equation}
+
+	\item As densidades bariônicas de próton e nêutron são dadas por (alguma indicação de onde isso sai é dada em Tsue~\cite{Lee2013} (resumidamente: QFT)):\footnote{Explicar, explicar o momento de Fermi.}
+	\begin{equation}
+		\rho_i = \int_0^{k_F^i}\frac{dp}{\pi^2}p^2; \qquad i = p,n; \quad k_F^i = \textrm{momento de Fermi},
+	\end{equation}
+	%
+	ou, caso $\rho_i$ sejam conhecidos
+	\begin{equation}\label{Eq:Mom_Fermi_a_partir_de_rho}
+		p_F^i = \sqrt[3]{3\pi^2\rho_i}.
+	\end{equation}
+	
+	\item $\mu_p$ e $\mu_n$ representam os potenciais químicos de próton e nêutron, respectivamente.
+\end{itemize}
+
+E a equação do gap?
+A massa efetiva $M$ na equação acima é dada por\footnote{Essa equação é conhecida como \emph{gap equation}}
+\begin{equation}\label{Eq:Gap}
+	M = m - 2G_s\rho_s + 2G_{sv}\rho_s\rho^2 + 2 G_{s\rho}\rho_s\rho_3^2,
+\end{equation}
+%
+com $\rho_s = \rho_s^p + \rho_s^n$. Temos, portanto, uma interdependência entre as equações. Para que seja possível solucionar tais equações, podemos definir uma função $f(M)$ de tal forma que
+\begin{equation}\label{Eq:Gap_zero}
+	f(M) = M - m + 2G_s\rho_s - 2G_{sv}\rho_s\rho^2 - 2 G_{s\rho}\rho_s\rho_3^2,.
+\end{equation}
+%
+
+Podemos reescrever as equações acima como
+\begin{align}
+	m &= m_0 + 4 G_s n_c n_f \int\frac{d^3p}{(2\pi)^3} \frac{m}{E_p} (1 - n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) \label{gap} \\
+	\mu_R &= \mu - 4 G_v n_c n_f \int\frac{d^3p}{(2\pi)^3} (n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) \label{gap_mu_r},
+\end{align}
+%
+que juntamente com a equação para a densidade bariônica
+\begin{equation}\label{gap_rho}
+	n_c \rho_B = n(T, \mu_R) = 2 n_f n_c\int\frac{d^3p}{(2\pi)^3}(n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) 
+\end{equation}
+%
+formam dois conjuntos distintos de equações acopladas que devem ser resolvidas simultaneamente para encontrar $m$ e $\mu_R$: se utilizarmos $\rho_B$ e $T$ como parâmetros livres, devemos utilizar a primeira e a última; se utilizarmos $\mu$ e $T$, devemos utilizar as duas primeiras. 
+
+\textbf{BLZ, de onde vem essas eqs?}
+
+O termo cinético na expressão acima pode ser calculado através de (primeiro termo da Eq. (1) em \cite{Menezes2003}, o resto é energia potencial; Indicação de onde isso sai é dada em Tsue~\cite{Lee2013}.)\footnote{Degenerescência: O 2 se refere às duas possibilidades de spin; Podemos ter um $N_f$ que representa o número de sabores.}
+\begin{align}
+	\varepsilon_{\rm{kin}} &= \langle\bar{\psi}(\vec{\gamma}\cdot\vec{p})\psi\rangle \\
+	&= 2 N_c\sum_i \int \frac{d^3p}{(2\pi)^3}\frac{p^2 + m_i M_i}{E_i}(n_{i-}-n_{i+})\theta(\Lambda^2 - p^2),
+\end{align}
+
+\textbf{Parágrafo explicando como resolver esse também}
+Para solucionarmos a equação acima, basta utilizarmos uma rotina para encontrar zeros de funções, por exemplo biseção ou Newton-Raphson, encontrando o valor de $M$ para o qual $f(M) = 0$. A densidade escalar $\rho_s$ pode ser calculada através da expressão~\eqref{Eq:Dens_Escalar}.
+
+
+\begin{table*}
+\caption{Conjuntos de parâmetros para a lagrangiana~\eqref{Eq:Lagrangiana_eNLJ_Pais}\cite{Pais2016}. \label{Tab:Parametros_eNJL}}
+\begin{ruledtabular}
+\begin{tabular}{lcccccccc}
+Model & $G_s$ ($\rm{fm}^2$) & $G_v$ ($\rm{fm}^2$) & $G_{sv}$ ($\rm{fm}^8$) & $G_\rho$ ($\rm{fm}^2$) & $G_{v\rho}$ ($\rm{fm}^8$) & $G_{s\rho}$ ($\rm{fm}^8$) & $\Lambda$ (MeV) & $m$ (MeV) \\
+\hline
+eNJL1 & 4.855 & 4.65 & -6.583 & 0.5876 & 0 & 0 & 388.189 & 0 \\
+eNJL1$\omega\rho$1 & 4.855 & 4.65 & -6.583 & 0.5976 & -1 & 0 & 388.189 & 0 \\
+eNJL1$\omega\rho$2 & 4.855 & 4.65 & -6.583 & 0.6476 & -6 & 0 & 388.189 & 0 \\
+eNJL2 & 3.8 & 3.8 & -4.228 & 0.6313 & 0 & 0 & 422.384 & 0 \\
+eNJL2$\omega\rho$1 & 3.8 & 3.8 & -4.228 & 0.6413 & -1 & 0 & 422.384 & 0 \\
+eNJL3 & 1.93 & 3.0 & -1.8 & 0.65 & 0 & 0 & 534.815 & 0 \\
+eNJL3$\sigma\rho$1 & 1.93 & 3.0 & -1.8 & 0.0269 & 0 & 0.5 & 534.815 & 0 \\
+eNJL1m & 1.3833 & 1.781 & -2.943 & 0.7 & 0 & 0 & 478.248 & 450 \\
+eNJL1m$\sigma\rho$1 & 1.3833 & 1.781 & -2.943 & 0.0739 & 0 & 1 & 478.248 & 450 \\
+eNJL2m & 1.078 & 1.955 & -2.74 & 0.75 & 0 & 0 & 502.466 & 450 \\
+eNJL2m$\sigma\rho$1 & 1.078 & 1.955 & -2.74 & -0.1114 & 0 & 1 & 502.466 & 450 \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+%%%%%%%%%%%%%%%%%%
+\section{Binodals}
+%%%%%%%%%%%%%%%%%%
+
+Para determinar a coexistência de fases, utilizamos as condições de Gibbs:
+\begin{align}
+\mu^Q &= \mu^H \\
+T^Q &= T^H \\
+p^Q &= p^H
+\end{align}
+%
+Esses $\mu$ que aparecem aí em cima devem ser o $\mu_B$ que aparece aí em baixo, mas discriminando a fase.
+
+Temos que sair do que está aí em cima e chegar em:
+\begin{itemize}
+	\item O potencial químico ``$\mu_B$'' para a fase de hádrons que está relacionado de alguma maneira com os potenciais $\mu_p$ e $\mu_n$ (por enquanto tenho usado $\mu_B = \mu_p$ para esta fase).
+	\item O potencial químico ``$\mu_B$'' para a fase de quarks, pelo que vi no Tsue, $\mu_B = 3 \mu_q$. Isso faz sentido, o bariônico é três vezes o dos quarks por que tem três quarks em um bárion. 
+	\item Com esses dois e as condições de Gibbs, claramente temos que fazer um gráfico de $p \times \{\mu_B^H, \mu_B^Q = 3 \mu\}$; Claro que devemos determinar o $\mu_B^H$ adequado e recalcular os resultados que eu fiz. Não deve mudar se $\mu_B^H = (\mu_p + \mu_n)/2$ por que estamos usando $y_p = 0.5$ (mencionar isso nos resultados) o que implica que $\mu_p = \mu_n$. 
+\end{itemize}
+
+E aquele esquema de que das várias soluções de $m$ para um dado $\mu$, devemos utilizar aquela que maximiza  a pressão? vai aqui ou vai não vai ou vai nas seções anteriores?
+
+%%%%%%%%%%%%%%%%%
+\section{Results}
+%%%%%%%%%%%%%%%%%
+
+Resultados para $T = 0$.
+
+\begin{figure}[!htpb]
+\includegraphics[width=0.9\linewidth]{graph/Buballa_1-eNJL1-quark-hadron_phase_transition.pdf}
+\caption{Teste.}
+\end{figure}
+
+%
+%%
+%%%
+%%%% Back Matter
+%%%
+%%
+%
+
+\begin{acknowledgments}
+We wish to acknowledge the support of the author community in using
+REV\TeX{}, offering suggestions and encouragement, testing new versions,
+\dots.
+\end{acknowledgments}
+
+%%%
+
+%\appendix
+%\section{Appendix title}
+
+%%%
+
+\bibliography{references}
+
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
