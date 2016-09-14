@@ -1,15 +1,25 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[prc, reprint, amsmath, linenumbers,10pt]{revtex4-1}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%
+% Packages
+%
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lipsum}
 \usepackage{graphicx}
+
+%
+% Macros
+%
+\newcommand{\tr}{\rm{Tr}}
+\newcommand{\mean}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\comment}[1]{{\bf\textit{#1}}}
 
 %%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%
@@ -71,55 +81,75 @@ use the optional argument of the \verb+\item+ command to give the category of ea
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%
 
-Fazer como o Marcelo e deixar enviar em branco?
+\comment{Fazer como o Marcelo e deixar enviar em branco?}
 
 %%%%%%%%%%%%%%%%%%%
 \section{Formalism}
 %%%%%%%%%%%%%%%%%%%
-Lagrangiana genérica SU(2)?
+
+\comment{Lagrangiana genérica SU(2)?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Quark Matter}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-Considerando a lagrangiana do tipo NJL em SU(2) dada por Buballa\cite{Buballa1996}
+The quarks phase is described by a NJL model SU(2) lagrangian, including a vector-isoscalar term, given by\cite{Buballa2005}
 \begin{equation}\label{Eq:LagNJL-SU2-Bub}
 \begin{split}
 	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi \\
-	&+ G_S[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] - G_V(\bar{\psi}\gamma^\mu \psi)^2,
+	&+ G_S[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] - G_V(\bar{\psi}\gamma^\mu \psi)^2.
 \end{split}
 \end{equation}
 %
-se obtém as seguintes equações para o potencial termodinâmico e equações de estado
-	\begin{equation}\label{Eq:Pot_Termo_Temp_Finita}
-		\omega(T, \mu; m, \mu_r) = \omega_M(T, \mu_R) + \frac{(m - m_0)^2}{4G_s} - \frac{(\mu - \mu_R)^2}{4G_v} + \textrm{const.},
-	\end{equation}
+Here $\psi$ represents the quark field, $m_0$ the quark bare mass, and $G_S$ and $G_V$ are coupling constants that are chosen so that the model reproduces \comment{stuff}. 
+
+From the lagrangian $\mathcal{L}$, the hamiltonian density $\mathcal{H}$ can be obtained, which leads to the thermodynamic potential per volume $V$ at temperature $T$ by means of
+\begin{equation}
+	\omega(T, \mu) = -\frac{T}{V} \ln \tr \exp\left(-\frac{1}{T}\int d^3x(\mathcal{H} - \mu\psi^\dagger\psi\right),
+\end{equation}
 %
-\textbf{onde o sinal do último termo faz com que eu só consiga dormir com as luzes acesas.}
-		\begin{equation}
-	\begin{split}\label{Eq:Por_Termo_Temp_Finita_Fermi_Gas_Contrib}
-		\omega_M(T, \mu_R) = -2 n_f n_c \int \frac{d^3p}{(2\pi)^3} \{E_p &+ T\ln(1+e^{-(E_p-\mu_R)/T} \\
-		&+ T\ln(1 + e^{-(E_p+\mu_R})/T)\}.
-	\end{split}
-	\end{equation}
-	onde $E_p = \sqrt{p^2 + m^2}$.
+where $\tr$ stands for a trace over all states of the system, resulting in \comment{(sinal!)}
+\begin{equation}\label{Eq:Pot_Termo_Temp_Finita}
+\begin{split}
+	\omega(T, \mu; m, \mu_R) =&~ \omega_M(T, \mu_R) \\
+	&+ \frac{(m - m_0)^2}{4G_s} - \frac{(\mu - \mu_R)^2}{4G_v} +  \textrm{const.},
+\end{split}
+\end{equation}
+%
+Here the renormalized chemical potential $\mu_R$ and the constituent mass $m$ are given by
+\begin{align}
+	\mu_R &= \mu - 2 G_V \mean{\psi^\dagger\psi} \\
+	m &= m_0 - 2 G_S \mean{\bar\psi\psi}
+\end{align}
+%
+and
+\begin{equation}
+\begin{split}\label{Eq:Por_Termo_Temp_Finita_Fermi_Gas_Contrib}
+	\omega_M(T, \mu_R) = -2 n_f n_c \int \frac{d^3p}{(2\pi)^3} \{&E_p \\
+	&+ T\ln(1+e^{-(E_p-\mu_R)/T} \\
+	&+ T\ln(1 + e^{-(E_p+\mu_R)/T})\}.
+\end{split}
+\end{equation}
+%
+where $E_p = \sqrt{p^2 + m^2}$.
 	
 E a equação do gap?
 
-A constante que aparece na definição do potencial não tem influência em nenhum resultado, por isso podemos a escolher de forma que o potencial termodinâmico seja nulo para $T = \mu = 0$, para o valor de $m = m_{\rm{vac}}$ que minimiza $\omega$. Por conveniência\footnote{Essa definição simplesmente calcula o valor do potencial termodinâmico mínimo no vácuo e subtrai tal valor do potencial como função de $T$ e $\mu$.}, definimos um potencial termodinâmico ``regularizado'' $\tilde\omega$ a partir do qual calcularemos as quantidades termodinâmicas em que estamos interessados, sendo que ele é dado por
+The constant in the potential has no influence in the results \comment{(tem: desloca $p$ e $\varepsilon$ para cima, mas isso não tem significado físico)}, consequently, it may be chosen so that at $T = \mu = 0$ the thermodynamic potential is zero at the value $m = m_{\rm{vac}}$ which minimizes $\omega$. This process may be represented by a  
 \begin{equation}
-	\tilde\omega(T, \mu; m, \mu_R) = \omega(T, \mu; m, \mu_R) - \omega(0, 0; m_{\rm{vac}}, 0).
+	\tilde\omega(T, \mu; m, \mu_R) = \omega(T, \mu; m, \mu_R) - \omega(0, 0; m_{\rm{vac}}, 0),
 \end{equation}
-De Buballa~\cite{Buballa2005}:
-\begin{quote}
-	Having found a pair of solutions $m$ and $\mu_R$, other thermodynamic quantities can be obtained in the standard way. Since the system is uniform, pressure and energy density are given by
-	\begin{align}
-		p(T, \mu) &= -\omega(T, \mu; m, \mu_R) \label{Exp_pressao_T}\\
+%
+so that the quantities we are interested in --~the pressure $p$ and the energy density $\varepsilon$~-- are obtained through
+\begin{align}
+		p(T, \mu) &= -\tilde\omega(T, \mu; m, \mu_R) \label{Exp_pressao_T}\\
 		\varepsilon(T, \mu) &= -p(T, \mu) + T s(T, \mu) + \mu n(T,\mu). \label{Exp_energia_T}
-	\end{align}
-\end{quote}
+\end{align}
+% Having found a pair of solutions $m$ and $\mu_R$, other thermodynamic quantities can be obtained in the standard way. Since the system is uniform, pressure and energy density are given by
+	
+\comment{Essas expressões devem ser particularizadas para $T = 0$ aqui.}
 
-Essas expressões devem ser particularizadas para $T = 0$ assim que possível.
+\comment{Comentários sobre a solução das equações (gap, variável de loop?)} 
 
 
 Tabela com parâmetros
@@ -127,15 +157,15 @@ Tabela com parâmetros
 \caption{Conjuntos de parâmetros para a lagrangiana~\eqref{Eq:LagNJL-SU2-Bub} \cite{Buballa1996, Buballa2005}. \label{Tab:Parametros_NJL}}
 \begin{ruledtabular}
 \begin{tabular}{lcccccccc}
-Model &  $\Lambda$ & $G_s$ ($\rm{fm}^2$) & $G_v$ ($\rm{fm}^2$) & $m_0$ (MeV) & $m$ (MeV) \\
+Model &  $\Lambda$ & $G_S$ ($\rm{fm}^2$) & $G_V$ ($\rm{fm}^2$) & $m_0$ (MeV) & $m$ (MeV) \\
 \hline
 Buballa-1 & 650 & 0.19721 & -- & 0 & 313 \\
 Buballa-2 & 600 & 0.26498 & -- & 0 & 400 \\
 Buballa-3 & 570 & 0.34034 & -- & 0 & 500 \\
-%BuballaR-1 & 664.3 & 0.18176 & $\propto G_s$ & 5.0 & 300 \\
-BuballaR-2 & 587.9 & 0.27449 & $\propto G_s$ & 5.6 & 400 \\
-%BuballaR-3 & 569.3 & 0.33759 & $\propto G_s$ & 5.5 & 500 \\
-%BuballaR-4 & 568.6 & 0.38178 & $\propto G_s$ & 5.1 & 600
+%BuballaR-1 & 664.3 & 0.18176 & $\propto G_S$ & 5.0 & 300 \\
+BuballaR-2 & 587.9 & 0.27449 & $\propto G_S$ & 5.6 & 400 \\
+%BuballaR-3 & 569.3 & 0.33759 & $\propto G_S$ & 5.5 & 500 \\
+%BuballaR-4 & 568.6 & 0.38178 & $\propto G_S$ & 5.1 & 600
 \end{tabular}
 \end{ruledtabular}
 \end{table*}
@@ -273,10 +303,10 @@ E aquele esquema de que das várias soluções de $m$ para um dado $\mu$, devemo
 
 Resultados para $T = 0$.
 
-\begin{figure}[!htpb]
-\includegraphics[width=0.9\linewidth]{graph/Buballa_1-eNJL1-quark-hadron_phase_transition.pdf}
-\caption{Teste.}
-\end{figure}
+%\begin{figure}[!htpb]
+%\includegraphics[width=\linewidth]{graph/Buballa_1-eNJL1-quark-hadron_phase_transition.pdf}
+%\caption{Teste.}
+%\end{figure}
 
 %
 %%
