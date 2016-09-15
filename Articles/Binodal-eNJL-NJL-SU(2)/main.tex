@@ -13,6 +13,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{lipsum}
 \usepackage{graphicx}
+\usepackage[np]{numprint}
 
 %
 % Macros
@@ -101,7 +102,7 @@ The quarks phase is described by a NJL model SU(2) lagrangian, including a vecto
 \end{split}
 \end{equation}
 %
-Here $\psi$ represents the quark field, $m_0$ the quark bare mass, and $G_S$ and $G_V$ are coupling constants that are chosen so that the model reproduces \comment{stuff}. 
+Here $\psi$ represents the quark field, $m_0$ the quark bare mass, and $G_S$ and $G_V$ are coupling constants that are chosen by fitting the pion mass $m_\pi = \np[MeV]{135.0}$ and decay constant $f_\pi = \np[MeV]{92.4}$. As the theory is non-renormalizable, a momentum cutoff $\Lambda$ is employed, which acts as a new parameter.
 
 From the lagrangian $\mathcal{L}$, the hamiltonian density $\mathcal{H}$ can be obtained, which leads to the thermodynamic potential per volume $V$ at temperature $T$ by means of
 \begin{equation}
@@ -115,13 +116,6 @@ where $\tr$ stands for a trace over all states of the system, resulting in \comm
 	&+ \frac{(m - m_0)^2}{4G_s} - \frac{(\mu - \mu_R)^2}{4G_v} +  \textrm{const.},
 \end{split}
 \end{equation}
-%
-Here the renormalized chemical potential $\mu_R$ and the constituent mass $m$ are given by
-\begin{align}
-	\mu_R &= \mu - 2 G_V \mean{\psi^\dagger\psi} \\
-	m &= m_0 - 2 G_S \mean{\bar\psi\psi}
-\end{align}
-%
 and
 \begin{equation}
 \begin{split}\label{Eq:Por_Termo_Temp_Finita_Fermi_Gas_Contrib}
@@ -131,9 +125,24 @@ and
 \end{split}
 \end{equation}
 %
-where $E_p = \sqrt{p^2 + m^2}$.
-	
-E a equação do gap?
+where $n_f$ and $n_c$ stand for the number of flavors and the number of colors, respectively, and $E_p = \sqrt{p^2 + m^2}$.
+
+Here the renormalized chemical potential $\mu_R$ and the constituent mass $m$ are obtained by requiring that $\partial \omega / \partial \mu_R = 0$ and $\partial \omega / \partial m = 0$, respectively, resulting in
+\begin{align}
+	\mu_R = \mu - 2 G_V \rho
+	m &= m_0 - 2 G_S \rho_s
+\end{align}
+%
+and
+\begin{align}
+	\rho &= 2 n_f n_c \int \frac{d^3p}{(2\pi)^3} (n_p(T, \mu_R) - \bar{n}_p(T, \mu_R))\\
+	\rho_s &= - 2 n_f n_c \int\frac{d^3p}{(2\pi)^3} \frac{m}{E_p}(1 - n_p -\bar{n}_p).
+\end{align}
+%
+The Fermi ocupation numbers for quarks $n_p(T, \mu)$ and antiquarks $\bar{n}_p(T, \mu)$ are given by
+\begin{align}
+	n_p &= \frac{1}{1 + e^{(E_p - \mu)/T}} & \bar{n}_p &= \frac{1}{1 + e^{(E_p + \mu)/T}}
+\end{align}
 
 The constant in the potential has no influence in the results \comment{(tem: desloca $p$ e $\varepsilon$ para cima, mas isso não tem significado físico)}, consequently, it may be chosen so that at $T = \mu = 0$ the thermodynamic potential is zero at the value $m = m_{\rm{vac}}$ which minimizes $\omega$. This process may be represented by a  
 \begin{equation}
@@ -147,14 +156,22 @@ so that the quantities we are interested in --~the pressure $p$ and the energy d
 \end{align}
 % Having found a pair of solutions $m$ and $\mu_R$, other thermodynamic quantities can be obtained in the standard way. Since the system is uniform, pressure and energy density are given by
 	
-\comment{Essas expressões devem ser particularizadas para $T = 0$ aqui.}
+Taking the limit $T \to 0$, the expressions for $\rho$, $\rho_s$, and $\tilde\omega$ assume the form
+\begin{align}
+	\rho =  2 n_f n_c \int \frac{d^3p}{(2\pi)^3} \theta(p_F - p)\\
+	\rho_s = - 2 n_f n_c \int\frac{d^3p}{(2\pi)^3} \frac{m}{E_p} \theta(p_F - p)\\
+	\omega_M = -2 n_f n_c \int\frac{d^3p}{(2\pi)^3} [E_p + (\mu_R - E_p)\theta(p_F - p)].
+\end{align}
+%
+The chemical potential obeys the relation
+\begin{equation}
+	\mu_R = sqrt{p_F^2 + m^2}.
+\end{equation}
 
-\comment{Comentários sobre a solução das equações (gap, variável de loop?)} 
+The solution of the above equations consist in determining the solution to the equation for $m$ self-consistently for each value of $\rho$ or $\mu$ (in this case $p_F = \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2)$). \comment{(+info nesse parágrafo; resultados?)}
 
-
-Tabela com parâmetros
 \begin{table*}
-\caption{Conjuntos de parâmetros para a lagrangiana~\eqref{Eq:LagNJL-SU2-Bub} \cite{Buballa1996, Buballa2005}. \label{Tab:Parametros_NJL}}
+\caption{Parameters sets for the lagrangian density~\eqref{Eq:LagNJL-SU2-Bub} \cite{Buballa1996, Buballa2005}. \label{Tab:Parametros_NJL}}
 \begin{ruledtabular}
 \begin{tabular}{lcccccccc}
 Model &  $\Lambda$ & $G_S$ ($\rm{fm}^2$) & $G_V$ ($\rm{fm}^2$) & $m_0$ (MeV) & $m$ (MeV) \\
@@ -169,8 +186,6 @@ BuballaR-2 & 587.9 & 0.27449 & $\propto G_S$ & 5.6 & 400 \\
 \end{tabular}
 \end{ruledtabular}
 \end{table*}
-
-\textbf{Parágrafo comentando como resolver.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Hadron Matter}
