@@ -129,7 +129,7 @@ where $n_f$ and $n_c$ stand for the number of flavors and the number of colors, 
 
 Here the renormalized chemical potential $\mu_R$ and the constituent mass $m$ are obtained by requiring that $\partial \omega / \partial \mu_R = 0$ and $\partial \omega / \partial m = 0$, respectively, resulting in
 \begin{align}
-	\mu_R = \mu - 2 G_V \rho
+	\mu_R &= \mu - 2 G_V \rho \\
 	m &= m_0 - 2 G_S \rho_s
 \end{align}
 %
@@ -158,14 +158,14 @@ so that the quantities we are interested in --~the pressure $p$ and the energy d
 	
 Taking the limit $T \to 0$, the expressions for $\rho$, $\rho_s$, and $\tilde\omega$ assume the form
 \begin{align}
-	\rho =  2 n_f n_c \int \frac{d^3p}{(2\pi)^3} \theta(p_F - p)\\
-	\rho_s = - 2 n_f n_c \int\frac{d^3p}{(2\pi)^3} \frac{m}{E_p} \theta(p_F - p)\\
-	\omega_M = -2 n_f n_c \int\frac{d^3p}{(2\pi)^3} [E_p + (\mu_R - E_p)\theta(p_F - p)].
+	\rho &=  2 n_f n_c \int \frac{d^3p}{(2\pi)^3} \theta(p_F - p)\\
+	\rho_s &= - 2 n_f n_c \int\frac{d^3p}{(2\pi)^3} \frac{m}{E_p} \theta(p_F - p)\\
+	\omega_M &= -2 n_f n_c \int\frac{d^3p}{(2\pi)^3} [E_p + (\mu_R - E_p)\theta(p_F - p)].
 \end{align}
 %
 The chemical potential obeys the relation
 \begin{equation}
-	\mu_R = sqrt{p_F^2 + m^2}.
+	\mu_R = \sqrt{p_F^2 + m^2}.
 \end{equation}
 
 The solution of the above equations consist in determining the solution to the equation for $m$ self-consistently for each value of $\rho$ or $\mu$ (in this case $p_F = \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2)$). \comment{(+info nesse parágrafo; resultados?)}
@@ -191,12 +191,10 @@ BuballaR-2 & 587.9 & 0.27449 & $\propto G_S$ & 5.6 & 400 \\
 \subsection{Hadron Matter}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{cite Pais; Koch?}
-Parafrasear:
-The NJL model can be extended [\dots] to yield reasonable saturation properties of nuclear matter, the field $\psi$ being the nucleon field. An effective density dependent coupling constant is obtained if the following extended NJL (eNJL) Lagrangian density, which actually pushes chiral symmetry restoration to higher densities, is considered,
+Even though the original NJL model is unable to describe the saturation properties of the nuclear matter, this can be fixed by the inclusion of a \comment{scalar-isovector?} channel~\cite{Koch1987}. An extended NJL model (eNJL)~\cite{Pais2016} which includes such channel is given by the lagrangian density
 \begin{equation}\label{Eq:Lagrangiana_eNLJ_Pais}
 \begin{split}
-	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu)\psi + G_s[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] \\
+	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi + G_s[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] \\
 	& - G_v(\bar{\psi}\gamma^\mu\psi)^2 - G_{sv}[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2](\bar{\psi}\gamma^\mu\psi)^2 \\
 	& - G_\rho[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
 	& - G_{v\rho}(\bar{\psi}\gamma^\mu\psi)^2[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
@@ -204,7 +202,9 @@ The NJL model can be extended [\dots] to yield reasonable saturation properties 
 \end{split}
 \end{equation}
 %
-\textbf{de onde alguém obteve, de alguma maneira a densidade de energia e a pressão e eu usei isso pra escrever um potencial termodinâmico completamente nas coxas, já que eu não deduzi nada, mas fiz o inverso do que foi exposto acima para o caso NJL, que eu também não calculei:}
+where $\psi$ represents the nucleon field and the constants $G_i$ represents the coupling constants for the different channels.
+
+The thermodynamic potential obtained from~\eqref{Eq:Lagrangiana_eNLJ_Pais} is given by \comment{(hocus-pocus)}
 \begin{equation}\label{Eq:potencial_termodinamico}
 \begin{split}
 	\omega(\mu) =&~ \varepsilon_{\rm{kin}} + m\rho_s - G_s\rho_s^2 + G_v\rho^2 + G_{sv}\rho_s^2\rho^2 + G_\rho\rho_3^2 \\
@@ -212,61 +212,41 @@ The NJL model can be extended [\dots] to yield reasonable saturation properties 
 \end{split}
 \end{equation}
 %
-onde
-\begin{itemize}
-	\item $\rho$ é a densidade bariônica, dada pela soma das densidades de nêutron e próton\footnote{São densidades numéricas de partículas, ou seja, representam o número de partículas por unidade de volume.}:
-	\begin{equation}
-		\rho = \rho_p + \rho_n.
-	\end{equation}
-
-	\item As densidades bariônicas de próton e nêutron são dadas por (alguma indicação de onde isso sai é dada em Tsue~\cite{Lee2013} (resumidamente: QFT)):\footnote{Explicar, explicar o momento de Fermi.}
-	\begin{equation}
-		\rho_i = \int_0^{k_F^i}\frac{dp}{\pi^2}p^2; \qquad i = p,n; \quad k_F^i = \textrm{momento de Fermi},
-	\end{equation}
-	%
-	ou, caso $\rho_i$ sejam conhecidos
-	\begin{equation}\label{Eq:Mom_Fermi_a_partir_de_rho}
-		p_F^i = \sqrt[3]{3\pi^2\rho_i}.
-	\end{equation}
-	
-	\item $\mu_p$ e $\mu_n$ representam os potenciais químicos de próton e nêutron, respectivamente.
-\end{itemize}
-
-E a equação do gap?
-A massa efetiva $M$ na equação acima é dada por\footnote{Essa equação é conhecida como \emph{gap equation}}
-\begin{equation}\label{Eq:Gap}
-	M = m - 2G_s\rho_s + 2G_{sv}\rho_s\rho^2 + 2 G_{s\rho}\rho_s\rho_3^2,
+where $\rho_B$ is the total barionic density, which is the sum of the proton $\rho_B^p$ and neutron $\rho_B^n$ barionic densities. At zero temperature, those densities are given by
+\begin{equation}
+	\rho_i = \int_0^{p_F^i}\frac{dp}{\pi^2}p^2; \qquad i = p,n
 \end{equation}
 %
-com $\rho_s = \rho_s^p + \rho_s^n$. Temos, portanto, uma interdependência entre as equações. Para que seja possível solucionar tais equações, podemos definir uma função $f(M)$ de tal forma que
-\begin{equation}\label{Eq:Gap_zero}
-	f(M) = M - m + 2G_s\rho_s - 2G_{sv}\rho_s\rho^2 - 2 G_{s\rho}\rho_s\rho_3^2,.
-\end{equation}
-%
-
-Podemos reescrever as equações acima como
+where $p_F^i$ stands for the Fermi momentum of each particle. The kinectic energy contribution is given by
 \begin{align}
-	m &= m_0 + 4 G_s n_c n_f \int\frac{d^3p}{(2\pi)^3} \frac{m}{E_p} (1 - n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) \label{gap} \\
-	\mu_R &= \mu - 4 G_v n_c n_f \int\frac{d^3p}{(2\pi)^3} (n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) \label{gap_mu_r},
+	\varepsilon_{\rm{kin}} &= 2 N_c\sum_i \int \frac{d^3p}{(2\pi)^3}\frac{p^2}{E_i}(n_{i-}-n_{i+})\theta(\Lambda^2 - p^2) \\
+	&= 2 n_c \sum_i \int \frac{d^3p}{(2\pi)^3}\frac{p^2}{E_p^i}(1 - \theta(p_F^i - p))\theta(\Lambda^2 - p^2),
 \end{align}
 %
-que juntamente com a equação para a densidade bariônica
-\begin{equation}\label{gap_rho}
-	n_c \rho_B = n(T, \mu_R) = 2 n_f n_c\int\frac{d^3p}{(2\pi)^3}(n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)) 
-\end{equation}
-%
-formam dois conjuntos distintos de equações acopladas que devem ser resolvidas simultaneamente para encontrar $m$ e $\mu_R$: se utilizarmos $\rho_B$ e $T$ como parâmetros livres, devemos utilizar a primeira e a última; se utilizarmos $\mu$ e $T$, devemos utilizar as duas primeiras. 
+with the second expression being valid for $T = 0$.
 
-\textbf{BLZ, de onde vem essas eqs?}
-
-O termo cinético na expressão acima pode ser calculado através de (primeiro termo da Eq. (1) em \cite{Menezes2003}, o resto é energia potencial; Indicação de onde isso sai é dada em Tsue~\cite{Lee2013}.)\footnote{Degenerescência: O 2 se refere às duas possibilidades de spin; Podemos ter um $N_f$ que representa o número de sabores.}
-\begin{align}
-	\varepsilon_{\rm{kin}} &= \langle\bar{\psi}(\vec{\gamma}\cdot\vec{p})\psi\rangle \\
-	&= 2 N_c\sum_i \int \frac{d^3p}{(2\pi)^3}\frac{p^2 + m_i M_i}{E_i}(n_{i-}-n_{i+})\theta(\Lambda^2 - p^2),
+The effective mass $m$ and the chemical potentials appearing in the thermodynamic potencial $\omega$ are determined by requiring that $\partial\omega/\partial m = 0$ and $\partial\omega/\partial p_F^i = $, resulting in
+\begin{align}\label{Eq:Gap}
+	m &= m_0 - 2G_s\rho_s + 2G_{sv}\rho_s\rho^2 + 2 G_{s\rho}\rho_s\rho_3^2 \\
+	\mu_i &= E_{p_F}^i + 2G_v\rho + 2G_{sv}\rho\rho_s^2 \pm 2G_\rho\rho_3+2G_{v\rho}\rho_3^2\rho \nonumber \\
+	&\phantom{=} \pm 2G_{v\rho}\rho^2\rho_3 \pm 2 G_{s\rho}\rho_3\rho_s^2,
 \end{align}
+%
+with $i = p,n$, and e $E_{p_F}^i = \sqrt{M^2 + (p_F^i)^2}$. The scalar density $\rho_s$ is given by sum of the proton and neutron scalar densities
+\begin{align}
+	\rho_s^i &= - 2 n_c \int \frac{d^3p}{(2\pi)^3}\frac{m_0^i m_i}{E_p^i}(n_{i-} - n_{i+})\theta(\Lambda^2 - p^2) \\
+	&= - 2 n_c \int \frac{d^3p}{(2\pi)^3}\frac{m_0^i m_i}{E_p^i}\theta(p_F - p)\theta(\Lambda^2 - p^2)
+\end{align}
+%
+where the second expression being valid for $T = 0$.
 
-\textbf{Parágrafo explicando como resolver esse também}
-Para solucionarmos a equação acima, basta utilizarmos uma rotina para encontrar zeros de funções, por exemplo biseção ou Newton-Raphson, encontrando o valor de $M$ para o qual $f(M) = 0$. A densidade escalar $\rho_s$ pode ser calculada através da expressão~\eqref{Eq:Dens_Escalar}.
+The equations of state can be obtained from
+\begin{align}
+	P &= -\omega(\mu) + \omega_{\rm{vac}} \\
+	\varepsilon &= -P + \mu_p \rho_B^p + \mu_n \rho_B^n,
+\end{align}
+%
+where $\omega_{\rm{vac}}$ ... \comment{mudei $\varepsilon_0 \to \omega_{\rm{vac}}$, pois acredito que é isso (discutir os cálculos que me levaram a pensar isso). Fica a questão de como mostrar que $m_{\rm{vac}} = m_n$. Confirmando isso, acho melhor deixar mais próximo da seção anterior.} 
 
 
 \begin{table*}
