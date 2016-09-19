@@ -274,29 +274,28 @@ eNJL2m$\sigma\rho$1 & 1.078 & 1.955 & -2.74 & -0.1114 & 0 & 1 & 502.466 & 450 \\
 \section{Binodals}
 %%%%%%%%%%%%%%%%%%
 
-Para determinar a coexistência de fases, utilizamos as condições de Gibbs:
+The phase coexistence may be determined using the Gibbs' conditions \comment{(ref)}
 \begin{align}
-\mu^Q &= \mu^H \\
+\mu_B^Q &= \mu_B^H \\
 T^Q &= T^H \\
-p^Q &= p^H
+P^Q &= P^H
 \end{align}
 %
-Esses $\mu$ que aparecem aí em cima devem ser o $\mu_B$ que aparece aí em baixo, mas discriminando a fase.
+where the indexes $H$ and $Q$ refer to the hadrons and quarks phases. The chemical potentials are given by \cite{Cavagnoli2011}
+\begin{align}
+	\mu_B^H &= \frac{\mu_p + \mu_n}{2} \\
+	\mu_B^Q &= \frac{3}{2} (\mu_u + \mu_d) = 3 \mu_q.
+\end{align}
+%
+The phase coexistence may then be obtained by simply plotting $P \times \mu_B^i$, $i = Q, H$, and looking for the intersection of both lines.
 
-Temos que sair do que está aí em cima e chegar em:
-\begin{itemize}
-	\item O potencial químico ``$\mu_B$'' para a fase de hádrons que está relacionado de alguma maneira com os potenciais $\mu_p$ e $\mu_n$ (por enquanto tenho usado $\mu_B = \mu_p$ para esta fase).
-	\item O potencial químico ``$\mu_B$'' para a fase de quarks, pelo que vi no Tsue, $\mu_B = 3 \mu_q$. Isso faz sentido, o bariônico é três vezes o dos quarks por que tem três quarks em um bárion. 
-	\item Com esses dois e as condições de Gibbs, claramente temos que fazer um gráfico de $p \times \{\mu_B^H, \mu_B^Q = 3 \mu\}$; Claro que devemos determinar o $\mu_B^H$ adequado e recalcular os resultados que eu fiz. Não deve mudar se $\mu_B^H = (\mu_p + \mu_n)/2$ por que estamos usando $y_p = 0.5$ (mencionar isso nos resultados) o que implica que $\mu_p = \mu_n$. 
-\end{itemize}
-
-E aquele esquema de que das várias soluções de $m$ para um dado $\mu$, devemos utilizar aquela que maximiza  a pressão? vai aqui ou vai não vai ou vai nas seções anteriores?
+\comment{(comentar que estamos usando exclusivamente $y_p = 0.5$?)}
 
 %%%%%%%%%%%%%%%%%
 \section{Results}
 %%%%%%%%%%%%%%%%%
 
-Resultados para $T = 0$.
+\comment{(Resultados para $T = 0$. Que critério adotar na escolha das combinações de parametrização para as quais elaboraremos gráficos?)}
 
 %\begin{figure}[!htpb]
 %\includegraphics[width=\linewidth]{graph/Buballa_1-eNJL1-quark-hadron_phase_transition.pdf}
