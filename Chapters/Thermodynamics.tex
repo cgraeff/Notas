@@ -342,6 +342,7 @@ Tomando o caso especial\footnote{Por que essa simplificação? É um caso espec�
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Limite $T \to 0$ da equação de gap para a massa}
+\label{Sec:Lim_temp_zero_eq_gap}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Na Equação~\eqref{gap}, temos a integral
@@ -963,15 +964,61 @@ Podemos tratar os dois casos simplesmente fazendo
 	&= \begin{cases} \kappa^4/4, \quad \textrm{se}~ m = 0 \\ \frac{1}{4}\left[\kappa^3 E_p^i - \frac{3}{2} m_i^2\kappa E_p^i + \frac{3}{2}m_i^4\ln \frac{E_p^i + \kappa}{m_i}\right], \quad \textrm{se}~ m\neq 0. \end{cases}
 \end{align}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Equlíbrio $\beta$}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Equilíbrio $\beta$ e neutralidade de carga}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Se adicionarmos um gás de elétrons não interagentes a um sistema, devemos incluir o seguinte termo à densidade lagrangiana:
+Se adicionarmos um gás de elétrons não interagentes a um sistema, devemos incluir o seguinte termo à densidade lagrangiana \parencite{CavagnoliTese}:
 \begin{equation}
-	\mathcal{L} = 
+	\mathcal{L} = \bar\psi_e(i\gamma_\mu\partial^\mu - m_e)\psi_e.
+\end{equation}
+%
+O reflexo disso para a energia e a pressão é a adição dos seguintes termos, respectivamente:
+\begin{align}
+	\varepsilon_e &= \frac{1}{\pi^2} \int p^2 (f_+ - f_-) d^3p \\
+	P_e &= \frac{1}{3\pi^2}\int p^4 \frac{(f_+ - f_-)}{\sqrt{p^2 + m_e^2}} dp,
+\end{align}
+%
+onde
+\begin{equation}
+	f_{\pm} = \frac{1}{1 + \exp((E_p^e \mp \mu_e)/T)},
+\end{equation}
+%
+com $E_p^e = \sqrt{p^2 + m_e^2}$.
+
+A densidade de elétrons é dada por
+\begin{equation}
+	\rho_e = \frac{2}{(2\pi)^3}\int (f_+ - f_-) d^3p.
 \end{equation}
 
+No limite $T \to 0$ temos, utilizando os resultados discutidos anteriormente, que
+\begin{align}
+	\rho_e &= \frac{1}{(3\pi)^2} (p_F^e)^3 \\
+	\varepsilon_e |_{T = 0} &= \frac{1}{\pi^2} \int p^2 \sqrt{p^2 + m_e^2} \theta(p_F^e - p) dp \\
+	P_e|_{T = 0} &= \frac{1}{3\pi^2} \int \frac{p^4}{\sqrt{p^2 + m_e}} \theta(p_F^e - p) dp.
+\end{align}
+%
+A densidade de elétrons $\rho_e$ é determinada ao se assumir a neutralidade de carga
+\begin{equation}
+	\rho_e = \rho_p.
+\end{equation}
+%
+Assim como na Seção~\ref{Sec:Lim_temp_zero_eq_gap}, o potencial químico é dado pela energia do nível de Fermi, ou seja,
+\begin{equation}
+	\mu_e = \sqrt{(p_F^e)^2 + m_e^2}.
+\end{equation}
+
+No equilíbrio $\beta$, precisamos garantir que\footnote{No equilíbrio, adicionar ou remover do sistema um nêutron, ou um próton e um elétron têm o mesmo ``custo'' energético. Ou seja, o potencial químico (custo energético para adicionar uma partícula) do nêutron é igual à soma dos potenciais químicos do próton e do elétron. Se houvesse alguma diferença, haveria uma reação espontânea no sentido de minimizar a energia (se, por exemplo, $\mu_n > \mu_p + \mu_e$, então ocorre a reação $n^0 \to p^+ + e^-$).}
+\begin{equation}
+	\mu_n = \mu_p + \mu_e.
+\end{equation}
+%
+Isso implica que não podemos ter uma fração de prótons $y_p = \np{0.5}$, que implicaria em 50\% de prótons e 50\% de nêutrons. Devemos então adicionar mais uma equação que deve ser zerada,
+\begin{equation}
+	\mu_n - \mu_p - \mu_e = 0,
+\end{equation}
+%
+sendo que isso é feito variando-se a fração de prótons $y_p$.
 
 %%%%%%%%%%%%%%%%%%
 \section{Apêndice}
