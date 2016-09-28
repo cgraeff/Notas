@@ -125,7 +125,7 @@
   \renewcommand{\papertype}{alongposter}
   \renewcommand{\fontpointsize}{25pt}
   \setlength{\paperwidth}{80.96cm}
-  \setlength{\paperheight}{90.0cm}
+  \setlength{\paperheight}{105.0cm}
   \renewcommand{\setpspagesize}{% not really necessary
     \ifthenelse{\equal{\orientation}{portrait}}{
       \special{papersize=83.96cm,135.82cm}
