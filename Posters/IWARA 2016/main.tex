@@ -1,0 +1,135 @@
+\documentclass[plainsections,alongposter]{sciposterlocal}
+
+\usepackage{multicol}
+\usepackage{palatino} % Better fonts
+\usepackage{parskip}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[np]{numprint}
+
+%
+% Macros
+%
+\newcommand{\tr}{\rm{Tr}}
+\newcommand{\mean}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\comment}[1]{{\bf\textit{#1}}}
+
+%%%%%%%%%%%% Header info
+\title{The QCD phase-diagram obtained from NJL and extended-NJL models for quark and hadron phases}
+
+\author{Graeff, C. A.$^\dagger$; Menezes, D. P.$^*$}
+\email{cgraeff@fsc.ufsc.br, debora.p.m@ufsc.br}
+
+\institute{$^\dagger$~Universidade Tecnológica Federal do Paraná -- Pato Branco, PR - Brazil \\
+$^*$~Universidade Federal de Santa Catarina -- Florian\'opolis, SC - Brazil \\
+}
+
+\leftlogo{Brasao_UFSC_PDF.pdf}
+\rightlogo{logo_UTFPR_cor.pdf}
+%%%%%%%%%%%%
+
+%%% Color for sections titles
+\definecolor{SectionColor}{rgb}{0.22,0.33,0.6}
+
+%%% Set roman fonts instead of sans serif
+\renewcommand{\familydefault}{\rmdefault}
+
+%%% No rules between columns, please
+\setlength{\columnseprule}{0pt}
+
+%%% BibTeX bibliography style
+\bibliographystyle{plain}
+
+%%%%%%%%%%%%%%%%%%%%
+%%% The Document %%%
+%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\maketitle % The Header
+
+\begin{multicols}{2} % Start content area
+
+%%%%%%%%%%%%%%%%%%%
+\section*{Abstract}
+{ \it
+We analyse the hadron/quark-gluon-plasma phase transition described by the Nambu-Jona-Lasinio (NJL) model [quark phase] and the extended Nambu-Jona-Lasinio model (eNJL) [hadron phase]. While the original formulation of NJL model is not capable of describing hadronic properties due to its lack of confinement, it can be extended with a scalar-vector interaction so it exhibits this property, the so-called  eNJL model. As part of this analysis, we obtain the equations of state within the SU(2) versions of both models for
+for the hadron and the quark phases and determine the binodal surface. 
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Motivation}
+
+Lorem ipsum.
+
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Quarks phase}
+
+The quarks phase is described by a NJL model SU(2) lagrangian, including a vector-isoscalar term, given by\cite{Buballa2005}
+\begin{equation}\label{Eq:LagNJL-SU2-Bub}
+\begin{split}
+	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi \\
+	&+ G_S[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] - G_V(\bar{\psi}\gamma^\mu \psi)^2.
+\end{split}
+\end{equation}
+%
+Here $\psi$ represents the quark field, $m_0$ the quark bare mass, and $G_S$ and $G_V$ are coupling constants that are chosen by fitting the pion mass $m_\pi = \np[MeV]{135.0}$ and decay constant $f_\pi = \np[MeV]{92.4}$. As the theory is non-renormalizable, a momentum cutoff $\Lambda$ is employed, which acts as a new parameter.
+
+%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Hadrons phase}
+Even though the original NJL model is unable to describe the saturation properties of the nuclear matter, this can be fixed by the inclusion of a \comment{scalar-isovector?} channel~\cite{Koch1987}. An extended NJL model (eNJL)~\cite{Pais2016} which includes such channel is given by the lagrangian density
+\begin{equation}\label{Eq:Lagrangiana_eNLJ_Pais}
+\begin{split}
+	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi + G_s[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] \\
+	& - G_v(\bar{\psi}\gamma^\mu\psi)^2 - G_{sv}[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2](\bar{\psi}\gamma^\mu\psi)^2 \\
+	& - G_\rho[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
+	& - G_{v\rho}(\bar{\psi}\gamma^\mu\psi)^2[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
+	& - G_{s\rho} [(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2][(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2].
+\end{split}
+\end{equation}
+%
+where $\psi$ represents the nucleon field and the constants $G_i$ represents the coupling constants for the different channels.
+
+%%%%%%%%%%%%
+\columnbreak
+
+%%%%%%%%%%%%%%%%%%%
+\section*{Binodals}
+
+The phase coexistence may be determined using the Gibbs' conditions \comment{(ref)}
+\begin{align}
+\mu_B^Q &= \mu_B^H \\
+T^Q &= T^H \\
+P^Q &= P^H
+\end{align}
+%
+where the indexes $H$ and $Q$ refer to the hadrons and quarks phases. The chemical potentials are given by \cite{Cavagnoli2011}
+\begin{align}
+	\mu_B^H &= \frac{\mu_p + \mu_n}{2} \\
+	\mu_B^Q &= \frac{3}{2} (\mu_u + \mu_d) = 3 \mu_q.
+\end{align}
+%
+The phase coexistence may then be obtained by simply plotting $P \times \mu_B^i$, $i = Q, H$, and looking for the intersection of both lines.
+
+%%%%%%%%%%%%%%%%%%%%
+\section*{Results}
+% Link para o github nesta seção
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Conclusions}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%% The bibliography %%% 
+%%%%%%%%%%%%%%%%%%%%%%%%
+{ \tiny
+\bibliography{references}
+}
+
+\end{multicols}
+\end{document}
