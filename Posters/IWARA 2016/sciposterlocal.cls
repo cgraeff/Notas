@@ -361,7 +361,7 @@
   \newcommand{\VeryHuge}{\fontsize{74.3}{93}\selectfont}
   \newcommand{\VERYHuge}{\fontsize{89.16}{112}\selectfont}
   \newcommand{\titlesize}{\veryHuge}
-  \newcommand{\authorsize}{\LARGE}
+  \newcommand{\authorsize}{\Large}
   \newcommand{\instsize}{\Large}
 
   \setlength\smallskipamount{5pt plus 2pt minus 2pt}
@@ -637,7 +637,7 @@
     \end{center}
   \end{minipage}%}}
   \ifthenelse{\boolean{userightlogo}}{%
-  \begin{minipage}[c]{\logoWideWidth}
+  \begin{minipage}[c]{0.7\logoWideWidth}
      \printrightlogo
   \end{minipage}
   }{}
