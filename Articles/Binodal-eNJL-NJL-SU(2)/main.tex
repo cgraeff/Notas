@@ -15,6 +15,10 @@
 \usepackage{graphicx}
 \usepackage[np]{numprint}
 
+% Gráficos em Tikz, terão que ser convertidos antes de submeter
+\usepackage{tikz}
+\usepackage{gnuplot-lua-tikz}
+
 %
 % Macros
 %
@@ -42,7 +46,7 @@
 \affiliation{Universidade Tecnológica Federal do Paraná, campus Pato Branco \\ Via do Conhecimento, Km 1 CEP 85503-390 Pato Branco -- PR, Brazil}
 \email{cgraeff@utfpr.edu.br}
 
-\author{Débora Pérez Menezes}
+\author{Débora Péres Menezes}
 \affiliation{Departamento de Física, Universidade Federal de Santa Catarina, Florianópolis, SC, CP 476, CEP 88.040-900, Brazil}
 \email{debora.p.m@ufsc.br}
 
@@ -82,13 +86,11 @@ use the optional argument of the \verb+\item+ command to give the category of ea
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%
 
-\comment{Fazer como o Marcelo e deixar enviar em branco?}
+\comment{Fazer como o Marcelo e deixar enviar a introdução em branco?}
 
 %%%%%%%%%%%%%%%%%%%
 \section{Formalism}
 %%%%%%%%%%%%%%%%%%%
-
-\comment{Lagrangiana genérica SU(2)?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Quark Matter}
@@ -109,7 +111,7 @@ From the lagrangian $\mathcal{L}$, the hamiltonian density $\mathcal{H}$ can be 
 	\omega(T, \mu) = -\frac{T}{V} \ln \tr \exp\left(-\frac{1}{T}\int d^3x(\mathcal{H} - \mu\psi^\dagger\psi\right),
 \end{equation}
 %
-where $\tr$ stands for a trace over all states of the system, resulting in \comment{(sinal!)}
+where $\tr$ stands for a trace over all states of the system, resulting in \comment{(sinal do termo em $G_V$!)}
 \begin{equation}\label{Eq:Pot_Termo_Temp_Finita}
 \begin{split}
 	\omega(T, \mu; m, \mu_R) =&~ \omega_M(T, \mu_R) \\
@@ -168,7 +170,7 @@ The chemical potential obeys the relation
 	\mu_R = \sqrt{p_F^2 + m^2}.
 \end{equation}
 
-The solution of the above equations consist in determining the solution to the equation for $m$ self-consistently for each value of $\rho$ or $\mu$ (in this case $p_F = \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2)$). \comment{(+info nesse parágrafo; resultados?)}
+The solution of the above equations consist in determining the solution to the equation for $m$ self-consistently for each value of $\rho$ or $\mu$ (in this case $p_F = \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2)$). \comment{(+info nesse parágrafo? resultados para $\varepsilon, P$?)}
 
 \begin{table*}
 \caption{Parameters sets for the lagrangian density~\eqref{Eq:LagNJL-SU2-Bub} \cite{Buballa1996, Buballa2005}. \label{Tab:Parametros_NJL}}
@@ -191,7 +193,7 @@ BuballaR-2 & 587.9 & 0.27449 & $\propto G_S$ & 5.6 & 400 \\
 \subsection{Hadron Matter}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Even though the original NJL model is unable to describe the saturation properties of the nuclear matter, this can be fixed by the inclusion of a \comment{scalar-isovector?} channel~\cite{Koch1987}. An extended NJL model (eNJL)~\cite{Pais2016} which includes such channel is given by the lagrangian density
+Even though the original NJL model is unable to describe the saturation properties of the nuclear matter, this can be fixed by the inclusion of a scalar-isovector \comment{(?)} channel~\cite{Koch1987}. An extended NJL model (eNJL)~\cite{Pais2016} which includes such channel is given by the lagrangian density
 \begin{equation}\label{Eq:Lagrangiana_eNLJ_Pais}
 \begin{split}
 	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi + G_s[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] \\
@@ -204,7 +206,7 @@ Even though the original NJL model is unable to describe the saturation properti
 %
 where $\psi$ represents the nucleon field and the constants $G_i$ represents the coupling constants for the different channels.
 
-The thermodynamic potential obtained from~\eqref{Eq:Lagrangiana_eNLJ_Pais} is given by \comment{(hocus-pocus)}
+The thermodynamic potential obtained from~\eqref{Eq:Lagrangiana_eNLJ_Pais} is given by \comment{(Como foi calculada essa expressão?)}
 \begin{equation}\label{Eq:potencial_termodinamico}
 \begin{split}
 	\omega(\mu) =&~ \varepsilon_{\rm{kin}} + m\rho_s - G_s\rho_s^2 + G_v\rho^2 + G_{sv}\rho_s^2\rho^2 + G_\rho\rho_3^2 \\
@@ -246,7 +248,7 @@ The equations of state can be obtained from
 	\varepsilon &= -P + \mu_p \rho_B^p + \mu_n \rho_B^n,
 \end{align}
 %
-where $\omega_{\rm{vac}}$ ... \comment{mudei $\varepsilon_0 \to \omega_{\rm{vac}}$, pois acredito que é isso (discutir os cálculos que me levaram a pensar isso). Fica a questão de como mostrar que $m_{\rm{vac}} = m_n$. Confirmando isso, acho melhor deixar mais próximo da seção anterior.} 
+where $\omega_{\rm{vac}} = \omega(T = 0, \mu = 0, m = m_N)$, with $m_N$ representing the nucleon mass. \comment{mudei $\varepsilon_0 \to \omega_{\rm{vac}}$, ou seria melhor manter $\varepsilon_0$?} 
 
 
 \begin{table*}
@@ -274,14 +276,14 @@ eNJL2m$\sigma\rho$1 & 1.078 & 1.955 & -2.74 & -0.1114 & 0 & 1 & 502.466 & 450 \\
 \section{Binodals}
 %%%%%%%%%%%%%%%%%%
 
-The phase coexistence may be determined using the Gibbs' conditions \comment{(ref)}
+The phase coexistence may be determined using the Gibbs' conditions \cite{Cavagnoli2011}
 \begin{align}
 \mu_B^Q &= \mu_B^H \\
 T^Q &= T^H \\
 P^Q &= P^H
 \end{align}
 %
-where the indexes $H$ and $Q$ refer to the hadrons and quarks phases. The chemical potentials are given by \cite{Cavagnoli2011}
+where the indexes $H$ and $Q$ refer to the hadrons and quarks phases. The chemical potentials are given by
 \begin{align}
 	\mu_B^H &= \frac{\mu_p + \mu_n}{2} \\
 	\mu_B^Q &= \frac{3}{2} (\mu_u + \mu_d) = 3 \mu_q.
@@ -295,7 +297,99 @@ The phase coexistence may then be obtained by simply plotting $P \times \mu_B^i$
 \section{Results}
 %%%%%%%%%%%%%%%%%
 
-\comment{(Resultados para $T = 0$. Que critério adotar na escolha das combinações de parametrização para as quais elaboraremos gráficos?)}
+Observações:
+\begin{description}
+	\item[Parametrizações]~
+		\begin{description}
+			\item[Buballa\_x] Set x de \cite{Buballa1996}
+			\item[BuballaR\_2] Set II de \cite{Buballa2005}
+			\item[hádrons] os da Helena
+			\item[quarks SU(3)] não tenho como rodar nas mesmas parametrizações de quarks que a Helena, ela usa SU(3)
+		\end{description}
+	\item[Gráficos] Em geral as curvas $P \times \mu_B$ se cruzam, mas podemos observar que
+		\begin{itemize}
+			\item As combinações contendo eNJLxm não cruzam (exceto Buballa\_1+eNJL2m).
+			\item As combinações contendo BuballaR\_2\_GV não se cruzam.
+		\end{itemize}
+		No caso eNJLxm a diferença em relação às demais parametrizações para hádrons é o fato de que $m_0 \neq 0$. No caso de BuballaR\_2\_GV acredito que seja por que o valor de $G_V$ é exagerado ($G_V = G_S$). 
+\end{description}
+
+\begin{figure}
+	\input{temp_graph/BuballaR_2-eNJL1OmegaRho1-quark-hadron_phase_transition.tex}
+	\caption{BuballaR\_2-eNJL1OmegaRho1}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/BuballaR_2-eNJL1OmegaRho1-quark-hadron_phase_transition2.tex}
+	\caption{BuballaR\_2-eNJL1OmegaRho1}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/BuballaR_2-eNJL2OmegaRho1-quark-hadron_phase_transition.tex}
+	\caption{BuballaR\_2-eNJL2OmegaRho1}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/BuballaR_2-eNJL2OmegaRho1-quark-hadron_phase_transition2.tex}
+	\caption{BuballaR\_2-eNJL2OmegaRho1}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/Buballa_1-eNJL1OmegaRho1-quark-hadron_phase_transition2.tex}
+	\caption{Buballa\_1-eNJL1OmegaRho1}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/Buballa_1-eNJL2OmegaRho1-quark-hadron_phase_transition.tex}
+	\caption{Buballa\_1-eNJL2OmegaRho1}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/Buballa_1-eNJL2OmegaRho1-quark-hadron_phase_transition2.tex}
+	\caption{Buballa\_1-eNJL2OmegaRho1}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/Buballa_1-eNJL2m-quark-hadron_phase_transition.tex}
+	\caption{Buballa\_1-eNJL2m}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/Buballa_1-eNJL2m-quark-hadron_phase_transition2.tex}
+	\caption{Buballa\_1-eNJL2m}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/Buballa_2-eNJL1OmegaRho1-quark-hadron_phase_transition.tex}
+	\caption{Buballa\_2-eNJL1OmegaRho1}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/Buballa_2-eNJL1OmegaRho1-quark-hadron_phase_transition2.tex}
+	\caption{Buballa\_2-eNJL1OmegaRho1}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/Buballa_2-eNJL1m-quark-hadron_phase_transition.tex}
+	\caption{Buballa\_2-eNJL1m}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/Buballa_2-eNJL1m-quark-hadron_phase_transition2.tex}
+	\caption{Buballa\_2-eNJL1m}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/Buballa_2-eNJL2OmegaRho1-quark-hadron_phase_transition.tex}
+	\caption{Buballa\_2-eNJL2OmegaRho1}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/Buballa_2-eNJL2OmegaRho1-quark-hadron_phase_transition2.tex}
+	\caption{Buballa\_2-eNJL2OmegaRho1}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/Buballa_3-eNJL1OmegaRho1-quark-hadron_phase_transition.tex}
+	\caption{Buballa\_3-eNJL1OmegaRho1}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/Buballa_3-eNJL1OmegaRho1-quark-hadron_phase_transition2.tex}
+	\caption{Buballa\_3-eNJL1OmegaRho1}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/Buballa_3-eNJL2OmegaRho1-quark-hadron_phase_transition.tex}
+	\caption{Buballa\_3-eNJL2OmegaRho1}
+\end{figure}
+\begin{figure}
+	\input{temp_graph/Buballa_3-eNJL2OmegaRho1-quark-hadron_phase_transition2.tex}
+	\caption{Buballa\_3-eNJL2OmegaRho1}
+\end{figure}
 
 %\begin{figure}[!htpb]
 %\includegraphics[width=\linewidth]{graph/Buballa_1-eNJL1-quark-hadron_phase_transition.pdf}
@@ -310,11 +404,9 @@ The phase coexistence may then be obtained by simply plotting $P \times \mu_B^i$
 %%
 %
 
-\begin{acknowledgments}
-We wish to acknowledge the support of the author community in using
-REV\TeX{}, offering suggestions and encouragement, testing new versions,
-\dots.
-\end{acknowledgments}
+%\begin{acknowledgments}
+% Lorem ipsum.
+%\end{acknowledgments}
 
 %%%
 
