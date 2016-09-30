@@ -21,7 +21,7 @@
 \newcommand{\comment}[1]{{\bf\textit{#1}}}
 
 %%%%%%%%%%%% Header info
-\title{The QCD phase-diagram obtained from NJL and extended-NJL models for quark and hadron phases}
+\title{The QCD phase-diagram obtained from the NJL and the extended-NJL models for quark and hadron phases}
 
 \author{Clebson A. Graeff$^\dagger$; Débora P. Menezes$^*$}
 \email{cgraeff@utfpr.edu.br, debora.p.m@ufsc.br}
@@ -58,8 +58,7 @@ $^*$~Universidade Federal de Santa Catarina -- Florian\'opolis, SC - Brazil \\
 %%%%%%%%%%%%%%%%%%%
 \section*{Abstract}
 { \it
-We analyse the hadron/quark-gluon-plasma phase transition described by the Nambu-Jona-Lasinio (NJL) model [quark phase] and the extended Nambu-Jona-Lasinio model (eNJL) [hadron phase]. While the original formulation of NJL model is not capable of describing hadronic properties due to its lack of confinement, it can be extended with a scalar-vector interaction so it exhibits this property, the so-called  eNJL model. As part of this analysis, we obtain the equations of state within the SU(2) versions of both models for
-for the hadron and the quark phases and determine the binodal surface. 
+We analyse the hadron/quark phase transition described by the Nambu-Jona-Lasinio (NJL) model [quark phase] and the extended Nambu-Jona-Lasinio model (eNJL) [hadron phase]. While the original formulation of NJL model is not capable of describing hadronic properties due to its lack of confinement, it can be extended with a scalar-vector interaction so it exhibits this property, the so-called  eNJL model. As part of this analysis, we obtain the equations of state within the SU(2) versions of both models for the hadron and the quark phases and determine the binodal surface. 
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -67,26 +66,31 @@ for the hadron and the quark phases and determine the binodal surface.
 
 The study of the QCD phase-diagram, is relevant to the understanding of relativistic heavy ion collisions and stars. However, the direct solution of QCD is not possible at finite chemical potential.
 
-Given the importance of the study of the phases and the phase separation boundaries, we propose an investigation of the hadrons/quark-gluon-plasma phase transition within a two phases model.
+Given the importance of the study of the phases and the phase separation boundaries, we propose an investigation of the hadron/quark phase transition within a two phase model.
 
 
  
-%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Quarks phase}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Quark phase matter}
 
-The quarks phase is described by a NJL model SU(2) lagrangian, including a vector-isoscalar term, given by\cite{Buballa2005}
+The quark phase is described by a SU(2) NJL model lagrangian, including a vector-isoscalar term, given by\cite{Buballa2005}
 \begin{equation*}\label{Eq:LagNJL-SU2-Bub}
-\begin{split}
-	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi \\
-	&+ G_S[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] - G_V(\bar{\psi}\gamma^\mu \psi)^2.
-\end{split}
+	\mathcal{L} =\bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi + G_S[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] - G_V(\bar{\psi}\gamma^\mu \psi)^2.
 \end{equation*}
 %
 Here $\psi$ represents the quark field, $m_0$ the quark bare mass, and $G_S$ and $G_V$ are coupling constants that are chosen by fitting the pion mass $m_\pi = \np[MeV]{135.0}$ and decay constant $f_\pi = \np[MeV]{92.4}$. As the theory is non-renormalizable, a momentum cutoff $\Lambda$ is employed, which acts as a new parameter.
 
-%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Hadrons phase}
-Even though the original NJL model is unable to describe the saturation properties of the nuclear matter, this can be fixed by the inclusion of a \comment{scalar-isovector?} channel~\cite{Koch1987}. An extended NJL model (eNJL)~\cite{Pais2016} which includes such channel is given by the lagrangian density
+\begin{table}
+\caption{Parameters}
+\begin{tabular}{cc}
+a & b \\
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Hadron phase matter}
+
+Even though the original NJL model is unable to describe the saturation properties of the nuclear matter, this can be fixed by the inclusion of a scalar-vector channel~\cite{Koch1987}. An extended NJL model (eNJL)~\cite{Pais2016} which includes such channel is given by the lagrangian density
 \begin{equation*}\label{Eq:Lagrangiana_eNLJ_Pais}
 \begin{split}
 	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi + G_s[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] \\
@@ -98,6 +102,13 @@ Even though the original NJL model is unable to describe the saturation properti
 \end{equation*}
 %
 where $\psi$ represents the nucleon field and the constants $G_i$ represents the coupling constants for the different channels.
+
+\begin{table}
+\caption{Parameters}
+\begin{tabular}{cc}
+a & b \\
+\end{tabular}
+\end{table}
 
 %%%%%%%%%%%%
 \columnbreak
@@ -131,11 +142,13 @@ P^Q &= P^H
 \input{graph/quark-hadron_phase_transition}
 \caption{Pressure as function of barionic chemical potential. The crossing point is the phase-coexistence point. Red curves represent hadrons, blue represent quarks. From left to right (quarks, hadrons): Set 1 from \cite{Buballa1996} and eNJL3 set from \cite{Pais2016}, set 1 from \cite{Buballa1996} and eNJL1$\omega\rho$1 from \cite{Pais2016}, set II from \cite{Buballa2005} and eNJL2$\omega\rho$1 from \cite{Pais2016}.}
 \end{figure}
-%
-\begin{figure}
-\input{graph/quark-hadron_phase_transition2}
-\caption{Logarithm of pressure as function of barionic density. The colors and sets are the same as the previous figure.}
-\end{figure}
+
+\begin{table}
+\caption{Tabela com os valores de $\mu$ dos cruzamentos.}
+\begin{tabular}{cc}
+a & b \\
+\end{tabular}
+\end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section*{Conclusions}
