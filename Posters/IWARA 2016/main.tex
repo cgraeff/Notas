@@ -1,4 +1,4 @@
-\documentclass[plainsections,alongposter]{sciposterlocal}
+\documentclass[plainsections,a0]{sciposterlocal}
 
 \usepackage{multicol}
 \usepackage{mathpazo} % Better fonts
@@ -121,15 +121,15 @@ where $\psi$ represents the nucleon field and the constants $G_i$ represents the
 Model & $G_s$ ($\rm{fm}^2$) & $G_v$ ($\rm{fm}^2$) & $G_{sv}$ ($\rm{fm}^8$) & $G_\rho$ ($\rm{fm}^2$) & $G_{v\rho}$ ($\rm{fm}^8$) & $G_{s\rho}$ ($\rm{fm}^8$) & $\Lambda$ (MeV) & $m$ (MeV) \\
 \midrule
 eNJL1 & 4.855 & 4.65 & -6.583 & 0.5876 & 0 & 0 & 388.189 & 0 \\
+eNJL1m & 1.3833 & 1.781 & -2.943 & 0.7 & 0 & 0 & 478.248 & 450 \\
 eNJL1$\omega\rho$1 & 4.855 & 4.65 & -6.583 & 0.5976 & -1 & 0 & 388.189 & 0 \\
 %eNJL1$\omega\rho$2 & 4.855 & 4.65 & -6.583 & 0.6476 & -6 & 0 & 388.189 & 0 \\
 eNJL2 & 3.8 & 3.8 & -4.228 & 0.6313 & 0 & 0 & 422.384 & 0 \\
+eNJL2m & 1.078 & 1.955 & -2.74 & 0.75 & 0 & 0 & 502.466 & 450 \\
 eNJL2$\omega\rho$1 & 3.8 & 3.8 & -4.228 & 0.6413 & -1 & 0 & 422.384 & 0 \\
 eNJL3 & 1.93 & 3.0 & -1.8 & 0.65 & 0 & 0 & 534.815 & 0 \\
 eNJL3$\sigma\rho$1 & 1.93 & 3.0 & -1.8 & 0.0269 & 0 & 0.5 & 534.815 & 0 \\
-eNJL1m & 1.3833 & 1.781 & -2.943 & 0.7 & 0 & 0 & 478.248 & 450 \\
 %eNJL1m$\sigma\rho$1 & 1.3833 & 1.781 & -2.943 & 0.0739 & 0 & 1 & 478.248 & 450 \\
-eNJL2m & 1.078 & 1.955 & -2.74 & 0.75 & 0 & 0 & 502.466 & 450 \\
 %eNJL2m$\sigma\rho$1 & 1.078 & 1.955 & -2.74 & -0.1114 & 0 & 1 & 502.466 & 450 \\
 \bottomrule
 \end{tabular}
@@ -164,10 +164,10 @@ P^Q &= P^H
 
 We determine the equations of state for both models at $T = 0$ and proton fraction $y_p = \np{0.5}$ (code available at \texttt{github.com/cgraeff}). The realized phase of the system is the one which maximizes the pressure. This means that the crossing of the lines, as in Figure~\ref{Fig:Pressure_func_chemical_pot}, indicates a phase transition.
 
-In Table~\ref{Tab:Transition_chemical_pot} we show the chemical potential $\mu_B^i$ at phase-transition for cominations of parameterizations of Tables~\ref{Tab:Parametros_NJL} and~\ref{Tab:Parametros_eNJL}. Combinations for which there is no transition are ommited.
+In Table~\ref{Tab:Transition_chemical_pot} we show the chemical potential $\mu_B^i$ at phase-transition for combinations of parameterizations of Tables~\ref{Tab:Parametros_NJL} and~\ref{Tab:Parametros_eNJL}. Combinations for which there is no transition are ommited.
 
 \begin{figure}
-\caption{Pressure as function of barionic chemical potential. The crossing point is the phase-coexistence point. Red curves represent hadrons, blue represent quarks. From left to right (quarks, hadrons): Buballa-1--eNJL3, Buballa-1--eNJL1$\omega\rho$1, BuballaR-2--eNJL2$\omega\rho$1.\label{Fig:Pressure_func_chemical_pot}}
+\caption{Pressure as function of barionic chemical potential. The crossing point is the phase-coexistence point. Red curves represent hadrons, blue represent quarks. From left to right (quarks, hadrons): Buballa-1--eNJL1m (no phase-transition), Buballa-1--eNJL1$\omega\rho$1, BuballaR-2--eNJL2$\omega\rho$1.\label{Fig:Pressure_func_chemical_pot}}
 \input{graph/quark-hadron_phase_transition}
 \end{figure}
 
@@ -201,7 +201,9 @@ Buballa-2 & eNJL3$\sigma\rho$1 & \np{1570.7} \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Conclusions}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in mauris imperdiet, blandit urna accumsan, maximus lacus. Duis diam lectus, malesuada et interdum non, euismod non magna. Duis non blandit augue. Ut congue tincidunt dolor nec dictum. Nam consequat, nunc vitae iaculis vehicula, nisl orci malesuada est, a lobortis eros libero quis elit. Nullam condimentum mollis orci, eget aliquet elit consectetur et. Nulla porttitor accumsan augue. Mauris sit amet dui at tortor ultrices euismod. Fusce eu urna non massa sagittis porttitor. 
+From the leftmost plot at Figure~\ref{Fig:Pressure_func_chemical_pot}, we can see that not all combinations of parameterizations produces a system in which a phase-transition is favored. Another manifestation of the dependence of the results in the choice of parameterizations is the range of chemical potential for which the transition takes place: it spans from \np[MeV]{1248,3} to \np[MeV]{1744,3}, a 40\% difference in relation to the lowest value. This indicate that the choice of parameterizations to produce a complete phase-diagram should made with care.
+
+As a next step on this analysis, we shall now turn our attention to expand our results for $T \neq 0$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 %%% The bibliography %%% 
