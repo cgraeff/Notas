@@ -64,7 +64,7 @@ We analyse the hadron/quark phase transition described by the Nambu-Jona-Lasinio
 %%%%%%%%%%%%%%%%%%%%%%%
 \section*{Motivation}
 
-The study of the QCD phase-diagram, is relevant to the understanding of many aspects of the physics in our universe. Two of the aspects of interest are related to relativistic heavy ion collisions (low densities, high temperatures) and stars (high densities, low temperatures). However, the direct solution of QCD is not possible at finite chemical potential.
+The study of the QCD phase-diagram is relevant to the understanding of many aspects of the physics in our universe. Two of the aspects of interest are related to relativistic heavy ion collisions (low densities, high temperatures) and stars (high densities, low temperatures). However, the direct solution of QCD is not possible at finite chemical potential.
 
 Given the importance of the study of the phases and the phase separation boundaries, we propose an investigation of the hadron/quark phase transition within a two phase model.
 
@@ -141,7 +141,7 @@ eNJL3$\sigma\rho$1 & 1.93 & 3.0 & -1.8 & 0.0269 & 0 & 0.5 & 534.815 & 0 \\
 %%%%%%%%%%%%%%%%%%%
 \section*{Binodals}
 
-The phase coexistence may be determined using the Gibbs' conditions \cite{Cavagnoli2011}:
+The QCD phase-diagram is characterized by potentially multiple phases, whose phase separation boundaries are referred as \emph{binodals}. Over those boundaries, the phases from the regions of either side of the boundary can coexist. The binodals may be determined using the Gibbs' conditions \cite{Cavagnoli2011}:
 
 \begin{minipage}{0.5\columnwidth}
 \begin{align*}
@@ -163,11 +163,11 @@ P^Q &= P^H
 \section*{Results}
 
 We determine the equations of state for both models at $T = 0$ and proton fraction $y_p = \np{0.5}$ (code available at \texttt{github.com/cgraeff}). The realized phase of the system is the one which maximizes the pressure. This means that the crossing of the lines, as in Figure~\ref{Fig:Pressure_func_chemical_pot}, indicates a phase transition.
-
+%
 In Table~\ref{Tab:Transition_chemical_pot} we show the chemical potential $\mu_B^i$ at phase-transition for combinations of parameterizations of Tables~\ref{Tab:Parametros_NJL} and~\ref{Tab:Parametros_eNJL}. Combinations for which there is no transition are ommited.
 
 \begin{figure}
-\caption{Pressure as function of barionic chemical potential. The crossing point is the phase-coexistence point. Red curves represent hadrons, blue represent quarks. From left to right (quarks, hadrons): Buballa-1--eNJL1m (no phase-transition), Buballa-1--eNJL1$\omega\rho$1, BuballaR-2--eNJL2$\omega\rho$1.\label{Fig:Pressure_func_chemical_pot}}
+\caption{The crossing point at a $P^i \times \mu_B^i$ plot indicate the phase-coexistence. Red curves represent hadrons, blue represent quarks. From left to right (quarks, hadrons): Buballa-1--eNJL1m (no phase-transition), Buballa-1--eNJL1$\omega\rho$1, BuballaR-2--eNJL2$\omega\rho$1.\label{Fig:Pressure_func_chemical_pot}}
 \input{graph/quark-hadron_phase_transition}
 \end{figure}
 
@@ -201,9 +201,9 @@ Buballa-2 & eNJL3$\sigma\rho$1 & \np{1570.7} \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Conclusions}
 
-From the leftmost plot at Figure~\ref{Fig:Pressure_func_chemical_pot}, we can see that not all combinations of parameterizations produces a system in which a phase-transition is favored. Another manifestation of the dependence of the results in the choice of parameterizations is the range of chemical potential for which the transition takes place: it spans from \np[MeV]{1248,3} to \np[MeV]{1744,3}, a 40\% difference in relation to the lowest value. This indicate that the choice of parameterizations to produce a complete phase-diagram should made with care.
+From the leftmost plot at Figure~\ref{Fig:Pressure_func_chemical_pot}, we can see that not all combinations of parameterizations produce a system in which a phase-transition is favored. Another manifestation of the dependence of the results in the choice of parameterizations is the range of chemical potential for which the transition takes place: it spans from \np[MeV]{1248,3} to \np[MeV]{1744,3}, a 40\% difference in relation to the lowest value. This indicates that the choice of parameterizations to produce a complete phase-diagram should made with care.
 
-As a next step on this analysis, we shall now turn our attention to expand our results for $T \neq 0$.
+As a next step on this analysis, we shall turn our attention to expand our results for finite temperature and obtain the binodal sections.
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 %%% The bibliography %%% 
