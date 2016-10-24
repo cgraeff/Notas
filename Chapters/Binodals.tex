@@ -3,24 +3,27 @@
 \begin{description}
 \item[Condições de Gibbs:]\footnote{Por que essas condições garantem a coexistência de fases?}
 \begin{align}
-	\mu_u^H &= \mu_u^Q \\
-	\mu_d^H &= \mu_d^Q \\
-	T^H &= T^Q \\
-	P^H &= P^Q
+\mu_B^Q &= \mu_B^H \\
+T^Q &= T^H \\
+P^Q &= P^H
+\end{align}
+%
+onde os índices $H$ e $Q$ se referem às fases de hádrons e quarks, respectivamente. Os potenciais químicos são dados por
+\begin{align}
+	\mu_B^H &= \frac{\mu_p + \mu_n}{2} \\
+	\mu_B^Q &= \frac{3}{2} (\mu_u + \mu_d) = 3 \mu_q.
 \end{align}
 
 \item[Binodal:] Generalização da linha de transição de fases: quando determinamos o diagrama de fases no plano $T \times \mu$, obtemos uma linha onde duas fases coexistem. Ao adicionarmos uma terceira variável, verifica-se (ou pelo menos é uma possibilidade) que esta variável altera a ``posição'' da lina. Temos então que existe uma \emph{superfície} onde ocorre a coexistência de fases. A linha que ocorre no diagrama de fases $T \times \mu$ é uma projeção da superfície no plano $T \times \mu$. \footnote{Essa interpretação está correta?}
 	\begin{itemize}
 		\item Acredito que as binodais não necessariamente sejam superfícies fechadas. Não consigo imaginar algo que seja fechado e tenha a projeção esperada para o plano $T \times \mu$, exceto se incluir os eixos, ou for algo similar o que tem na tese do James.
-		\item Que $\mu$ é o do gráfico? $\mu_B$?
-		\item Como relacionar $\mu_i^j$ a $\mu$?
 		\item Para determinar uma binodal, precisamos de mais uma variável. Por enquanto, não podemos usar $T$ pois não tem na versão hadrônica, nem $y_p$, pois não temos como variar isso para a versão de quarks.
 	\end{itemize}
 \end{description}
 
 
 
-Em \textcite{japoneses} e \textcite{japoneses2}, a determinação da binodal é feita de maneira relativamente simples, verificando a pressão em função de $\mu_B = \mu_N = 3\mu_q$. Temos só um ponto $(p, \mu_B)|_{\textrm{coexist}}$ de coexistência entre as fases.
+Em \textcite{japoneses} e \textcite{japoneses2}, a determinação da binodal é feita de maneira relativamente simples, verificando a pressão\footnote{A fase que ocorre (``realized phase'') é aquela que maximiza a pressão. Por que isso? (Isso não é o princípio de Clapeyron, ou Le Chatelier?)} em função de $\mu_B^i$. Temos só um ponto $(P^i, \mu_B^i)|_{\textrm{coexist}}$ de coexistência entre as fases.
 
 Observações:
 \begin{itemize}

@@ -205,7 +205,7 @@ Consigo reproduzir\footnote{Exceto o do Set 1, que dá \np[MeV]{311.4}.} o valor
 
 Na Figura~\ref{Fig:pot_term_analysys_NJL-Buballa_Set_1} mostramos o potencial termodinâmico calculado para $\mu = \mu_r = p_F = \rho_B = 0$, variando $m$ arbitrariamente. O resultado é exatamente igual ao apresentado no Buballa. Também consigo reproduzir um gráfico similar que está no Report.
 
-Ao adicionar termos em $G_V$, no entanto, não consigo reproduzir a Figura 2.8 (direita) do Report. Para poder variar o potencial termodinâmico com a massa $m$, preciso determinar o valor de $\mu_R$, sendo que $\mu$ é dado como um parâmetro. Podemos escrever a equação para $\mu_R$ como uma equação de gap:
+Ao adicionar termos em $G_V$, consigo reproduzir a Figura 2.8 (direita) do Report\footnote{Devido a um erro de implementação, usei um $\mu$ ao invés de um $\mu_R$, essa figura só era reproduzida se eu alterasse o sinal do termo em $G_V$ no potencial termodinâmico. Tal alteração corrigia o problema exatamente para $T = 0$. O problema foi corrigido.}. Para poder variar o potencial termodinâmico com a massa $m$, preciso determinar o valor de $\mu_R$, sendo que $\mu$ é dado como um parâmetro. Podemos escrever a equação para $\mu_R$ como uma equação de gap:
 \begin{equation}\label{Eq:Renorm_chem_pot_auto_1}
 	\mu_R = \mu - \frac{2G_V n_fn_c}{3\pi^2}p_F^3,
 \end{equation}
@@ -220,11 +220,11 @@ Temos que resolver as equações acima auto-consistentemente, isto é, devemos a
 	f(\mu_R) = \mu_R - \mu + \frac{2G_V n_fn_c}{3\pi^2} \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2).
 \end{equation}
 %
-Os resultados obtidos podem ser vistos na Fig.~\ref{Fig:Renorm_chem_pot} para $\mu \neq 0$. Para $\mu = 0$, a única solução possível é $\mu_R = 0$, já que nesse caso temos que a função é estritamente positiva (veja que o argumento da raíz é real, o que é garantido pela função degrau; devido a isso, o argumento é estritamente positivo). O gráfico do potencial obtido pode ser visto na Fig.~\ref{Fig:Fig2.8RBubR_repro}. O caso $\mu = 0$ confere com a referência, os demais são excessivamente negativos e não apresentam o mínimo local esperado. No entanto, se o termo em $G_V$ for adicionado com o sinal trocado\footnote{A Débora lembra de ter encontrado esse tipo de problema também.} (com um sinal negativo), os resultados são extremamente próximos (Fig.~\ref{Fig:Fig2.8RBubR_repro_s}).
+Os resultados obtidos podem ser vistos na Fig.~\ref{Fig:Renorm_chem_pot} para $\mu \neq 0$. Para $\mu = 0$, a única solução possível é $\mu_R = 0$, já que nesse caso temos que a função é estritamente positiva (veja que o argumento da raíz é real, o que é garantido pela função degrau; devido a isso, o argumento é estritamente positivo). O gráfico do potencial obtido pode ser visto na Fig.~\ref{Fig:Fig2.8RBubR_repro}.
 
 Ao reproduzir o cálculo em Fortran obtenho bons resultados (Figuras \ref{Fig:energy_Comp_C_F} e \ref{Fig:pressure_Comp_C_F}), porém a primeira leitura que fiz das expressões não bateu com o resultado. Para que eu chegasse ao mesmo valor obtido pelo programa em Fortran, tive que tirar o 2 que multiplicava o termo $G_S \rho_S^2$. Além disso, tirei no vácuo o termo envolvendo $\mu_R$\footnote{Pensando bem, não sei por que o inseri, no potencial do vácuo nas expressões do Buballa também não há tal termo.}. O próprio potencial termodinâmico eu calculei a partir das expressões para a energia, assumindo que $\tilde{\omega} = \varepsilon - \mu_R N_c \rho_B$.
 	
-Apesar de reproduzir os resultados e eles serem coerentes com aquilo que eu esperava, os resultados não são bons para valores baixos de densidade\footnote{A Débora mencionou que havia um problema com o cálculo em $\rho_B$, por isso o programa em Fortran executa o cálculo variando $\mu_R$, talvez seja isso? P.S.: Se eu me referia à curva com concavidade voltada para baixo que aparece no início de alguns gráficos, como em $\varepsilon/rho$, pelo que entendi do Buballa é isso mesmo.}. De qualquer forma, os dados que seguem foram calculados segundo as expressões desse segundo caso, isto é, as expressões do programa em Fortran com as alterações mencionadas acima. 
+Apesar de reproduzir os resultados e eles serem coerentes com aquilo que eu esperava, os resultados não são bons para valores baixos de densidade\footnote{A Débora mencionou que havia um problema com o cálculo em $\rho_B$, por isso o programa em Fortran executa o cálculo variando $\mu_R$, talvez seja isso? P.S.: Se eu me referia à curva com concavidade voltada para baixo que aparece no início de alguns gráficos, como em $\varepsilon/\rho$, pelo que entendi do Buballa é isso mesmo --~isto é, meus cálculos estão corretos~--.}. De qualquer forma, os dados que seguem foram calculados segundo as expressões desse segundo caso, isto é, as expressões do programa em Fortran com as alterações mencionadas acima. 
 
 Apesar de inicialmente eu ter feito uma interpretação errada do cálculo utilizando o potencial termodinâmico como em \textcite{Buballa1996}, com a interpretação correta temos resultados adequados para a parametrização D$_1$.
 
@@ -257,12 +257,6 @@ Nas Figuras~\ref{Fig:Buballa_2.9_1} a~\ref{Fig:Buballa_2.9_4} temos uma reprodu�
 	\input{graphics/Fig2.8RBubR/Fig2.8RBubR.tex}
 	\caption{Gráfico de $\tilde\omega$ obtido para o caso $G_V \neq 0$, variando-se $m$. \protect\input{graphics/Fig2.8RBubR/info.tex}}
 	\label{Fig:Fig2.8RBubR_repro}
-\end{figure*}
-
-\begin{figure*}
-	\input{graphics/Fig2.8RBubR/Fig2.8RBubR_s.tex}
-	\caption{Gráfico de $\tilde\omega$ obtido para o caso $G_V \neq 0$, variando-se $m$. Nesta figura o termo em $G_V$ foi adicionado com o sinal trocado (negativo). \protect\input{graphics/Fig2.8RBubR/info.tex}}
-	\label{Fig:Fig2.8RBubR_repro_s}
 \end{figure*}
 
 \begin{figure*}
@@ -988,11 +982,85 @@ O termo adicionado a essa equação corresponde \emph{exatamente} ao segundo ter
 
 \FloatBarrier
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Equilíbrio $\beta$ e neutralidade de carga}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Ao adicionarmos o equilíbrio $\beta$ e a neutralidade de carga, temos novos vínculos. O sengundo pode ser implementado de maneira simples: basta tomar a densidade numérica de elétrons como sendo igual à densidade bariônica de prótons. A primeira, no entanto, é um pouco mais complicada. 
+
+Quando adicionamos o equilíbrio $\beta$, temos o vínculo
+\begin{equation*}
+	\mu_n = \mu_p + \mu_e.
+\end{equation*}
+%
+O potencial químico do elétron está relacionado ao momento de Fermi do elétron $p_F^e$, sendo que este está relacionado à densidade numérica de elétrons. A relação entre os potenciais químicos, no entanto, não vale para qualquer valor da fração de prótons\footnote{A fração de prótons deixa de ser um valor de entrada dos cálculos e passa a ser um valor de saída.} $y_p$. Precisamos determinar o valor de $y_p$, através de uma variação no valor dessa variável, procurando o valor para o qual o vínculo acima é satisfeito. No entanto, os próprios potenciais químicos dependem do valor de $y_p$. Dessa forma, precisamos determinar o valor da fração de prótons concomitantemente com o valor da massa $m$: passamos de um problema de encontrar raízes unidimensionais para um problema de raízes bi-dimensionais, assim como temos para o caso NJL SU(2) com $T \neq 0$.
+
+Uma vez determinado o valor adequado para a fração de prótons e dos potenciais químicos, podemos determinar o valor das contribuições dos elétrons para a pressão e para a densidade de energia. Tais contribuições são aditivas, podendo ser calculadas separadamente e então somadas.
+
+Nas Figuras~\ref{Fig:Pressure_beta_equil} a~\ref{Fig:Proton_fraction_beta_equil} vemos a pressão total, a densidade total de energia, a energia total por partícula, o potencial químico do elétron, e a fração de prótons para uma parametrização arbitrária. Note que no caso da energia total por partícula deixamos de ter a saturação.\footnote{Isso não é tão estranho quanto parece. Esse valor é obtido somando todas as contribuições para a densidade de energia e dividindo pela densidade bariônica total $\rho_B$. Se só somássemos as contribuições de prótons e nêutrons talvez obtivéssemos ainda a saturação.}
+
+\begin{figure*}
+	\input{graphics/beta_equil/pressure.tex}
+	\caption{Pressão para o caso em que temos equilíbrio $\beta$ e neutralidade de carga. \protect\input{graphics/beta_equil/info.tex}}
+	\label{Fig:Pressure_beta_equil}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/beta_equil/energy_density.tex}
+	\caption{Densidade de energia para o caso em que temos equilíbrio $\beta$ e neutralidade de carga. \protect\input{graphics/beta_equil/info.tex}}
+	\label{Fig:energy_density_beta_equil}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/beta_equil/energy_density_per_particle.tex}
+	\caption{Densidade de energia por partícula para o caso em que temos equilíbrio $\beta$ e neutralidade de carga. \protect\input{graphics/beta_equil/info.tex}}
+	\label{Fig:energy_per_particle_beta_equil}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/beta_equil/electron_chemical_potential.tex}
+	\caption{Potencial químico do elétron para o caso em que temos equilíbrio $\beta$ e neutralidade de carga. \protect\input{graphics/beta_equil/info.tex}}
+	\label{Fig:Electron_chemical_potential_beta_equil}
+\end{figure*}
+
+\begin{figure*}
+	\input{graphics/beta_equil/proton_fraction.tex}
+	\caption{Fração de prótons para o caso em que temos equilíbrio $\beta$ e neutralidade de carga. \protect\input{graphics/beta_equil/info.tex}}
+	\label{Fig:Proton_fraction_beta_equil}
+\end{figure*}
+
 %%%%%%%%%%%%%%%%%%
 \section{Binodais}
 %%%%%%%%%%%%%%%%%%
 
-Obtemos os resultados das Figuras~\ref{Fig:Binodal1} a \ref{Fig:Binodal6} para as binodais, fazendo como em \textcite{japoneses2} (resultados das três primeiras combinações de conjuntos de parâmetros, em ordem alfabética, só para exemplificar). Nos gráficos em escala logarítmica, a fase ``realized'' é aquela que maximiza a pressão, então ela percorre uma das curvas até certo ponto e então ocorre uma mudança de uma curva para outra. Deveríamos esperar que as curvas fossem sempre ``paralelas'', isto é, não se cruzassem?
+Obtemos os resultados das Figuras~\ref{Fig:Binodal1} a \ref{Fig:Binodal6} para as binodais, fazendo como em \textcite{japoneses2} (resultados das três primeiras combinações de conjuntos de parâmetros, em ordem alfabética, só para exemplificar). Nos gráficos $P_i \times \mu_B^i$, a fase ``realized'' é aquela que maximiza a pressão, então ela percorre uma das curvas até certo ponto e então ocorre uma mudança de uma curva para outra --~isto é, ocorre uma transição de fase~--. O valor de $\mu_B^i$ para o qual ocorre a transição é o valor onde a binodal toca o eixo $\mu$ nas Figura~\ref{FigBuballa} \emph{(a)}. Nas Figuras em escala logarítmica, destacam-se as descontinuidades\footnote{Não sei exatamente o que se deseja mostrar com essas descontinuidades, talvez a restauração chiral.}. Na Tabela~\ref{Tab:Transition_chemical_pot} temos os valores de $\mu_B^i$ no ponto de transição. Note que nem todas as combinações de parametrizações estão presentes pois em muitos casos não há transição.
+
+\begin{table*}
+\centering
+\begin{tabular}{ccccccc}
+\toprule
+Quarks & Hadrons & $\mu_B^i$ (MeV) &\phantom{~o~}& Quarks & Hadrons & $\mu_B^i$ (MeV)\\
+\cmidrule{1-3} \cmidrule{5-7}
+Buballa-1 & eNJL1 & \np{1243.8} && Buballa-3 & eNJL1 & \np{1615.3} \\
+Buballa-1 & eNJL1$\omega\rho$1 & \np{1243.8} && Buballa-3 & eNJL1$\omega\rho$1 & \np{1615.3} \\
+Buballa-1 & eNJL2 & \np{1373.0} && Buballa-3 & eNJL2 & \np{1700.0} \\
+Buballa-1 & eNJL2m & \np{1278.7} && Buballa-3 & eNJL2$\omega\rho$1 & \np{1700.0} \\
+Buballa-1 & eNJL2$\omega\rho$1 & \np{1373.0} && Buballa-3 & eNJL3 & \np{1744.3} \\
+Buballa-1 & eNJL3 & \np{1312.9} && Buballa-3 & eNJL3$\sigma\rho$1 & \np{1744.3} \\
+Buballa-1 & eNJL3$\sigma\rho$1 & \np{1312.9} && BuballaR-2 & eNJL1 & \np{1474.9} \\
+Buballa-2 & eNJL1 & \np{1460.1} && BuballaR-2 & eNJL1$\omega\rho$1 & \np{1474.9} \\
+Buballa-2 & eNJL1$\omega\rho$1 & \np{1460.0} && BuballaR-2 & eNJL2 & \np{1570.3} \\
+Buballa-2 & eNJL2 & \np{1556.8} && BuballaR-2 & eNJL2m & \np{1729.6} \\
+Buballa-2 & eNJL2m & \np{1674.9} && BuballaR-2 & eNJL2$\omega\rho$1 & \np{1570.3} \\
+Buballa-2 & eNJL2$\omega\rho$1 & \np{1556.8} && BuballaR-2 & eNJL3 & \np{1587.5} \\
+Buballa-2 & eNJL3 & \np{1570.7} && BuballaR-2 & eNJL3$\sigma\rho$1 & \np{1587.4} \\
+Buballa-2 & eNJL3$\sigma\rho$1 & \np{1570.7}\\
+
+\bottomrule
+\end{tabular}
+\caption{Chemical potential $\mu_B^i$ at crossing point por different parameterization combinations. \label{Tab:Transition_chemical_pot}}
+\end{table*}
+
 
 \begin{figure*}
 	\input{graphics/Binodals/Buballa_1-eNJL1-quark-hadron_phase_transition.tex}

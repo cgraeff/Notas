@@ -871,7 +871,7 @@ Os potenciais químicos são dados por\footnote{Como essas expressões são calc
 %
 onde $i = p,n$, os sinais superiores se referem ao caso de prótons, e $E_{p_F}^i = \sqrt{M^2 + (p_F^i)^2}$.
 
-As equações de estado para pressão $P$ e densidade de energia $\varepsilon$ são dadas por\footnote{Como são calculadas?}
+As equações de estado para pressão $P$ e densidade de energia $\varepsilon$ são dadas por\footnote{Aqui $\epsilon_0$ nada mais é do que o próprio potencial do vácuo, como no caso NJL. Percebi isso ao verificar as expressões do programa em Fortran e comparar com o potencial do vácuo no NJL. No entanto, ao invés de calcular a massa do vácuo (aquela que minimiza o potencial para potencial químico nulo), o programa simplesmente assume que tal massa é a massa do nucleon. Isso não teria que ser confirmado (até pra validar o conjunto de parâmetros, pois eles afetam o mínimo do potencial).}
 \begin{align}
 	P &= -\omega(\mu) + \epsilon_0 \label{Eq:Pressao}\\
 	\varepsilon &= -P + \mu_p\rho_p + \mu_n\rho_n. \label{Eq:Densidade_energia}
@@ -968,7 +968,7 @@ Podemos tratar os dois casos simplesmente fazendo
 \section{Equilíbrio $\beta$ e neutralidade de carga}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Se adicionarmos um gás de elétrons não interagentes a um sistema, devemos incluir o seguinte termo à densidade lagrangiana \parencite{CavagnoliTese}:
+Se adicionarmos um gás de elétrons não interagentes a um sistema\footnote{a adição de um gás de elétrons faz com que a saturação da matéria nuclear seja perdida mesmo quando existe um termo escalar-vetorial.}, devemos incluir o seguinte termo à densidade lagrangiana \parencite{CavagnoliTese}:
 \begin{equation}
 	\mathcal{L} = \bar\psi_e(i\gamma_\mu\partial^\mu - m_e)\psi_e.
 \end{equation}
@@ -1013,7 +1013,7 @@ No equilíbrio $\beta$, precisamos garantir que\footnote{No equilíbrio, adicion
 	\mu_n = \mu_p + \mu_e.
 \end{equation}
 %
-Isso implica que não podemos ter uma fração de prótons $y_p = \np{0.5}$, que implicaria em 50\% de prótons e 50\% de nêutrons. Devemos então adicionar mais uma equação que deve ser zerada,
+Isso implica que não podemos ter uma fração de prótons $y_p = \np{0.5}$, que implicaria em 50\% de prótons e 50\% de nêutrons. Devemos então adicionar mais um vínculo (mais uma equação que deve ser zerada, juntamente com a equação do gap para a massa, ou para o potencial químico),
 \begin{equation}
 	\mu_n - \mu_p - \mu_e = 0,
 \end{equation}
