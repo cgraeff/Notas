@@ -14,6 +14,7 @@
 \usepackage{lipsum}
 \usepackage{graphicx}
 \usepackage[np]{numprint}
+%\usepackage{longtable}
 
 % Gráficos em Tikz, terão que ser convertidos antes de submeter
 \usepackage{tikz}
@@ -187,7 +188,7 @@ Even though the original NJL model is unable to describe the saturation properti
 \end{split}
 \end{equation}
 %
-where $\psi$ represents the nucleon field and the constants $G_i$ represents the coupling constants for the different channels.
+where $\psi$ represents the nucleon field and the constants $G_i$ represents the coupling constants for the different channels. The effects of the different channels are: the term in $G_V$ simulates a chiral-invariant short-range repulsion between the nucleons, the term in $G_{SV}$ accounts for the density dependence of the scalar coupling, the term in $G_\rho$ allows the description of isospin asymmetric matter, and the terms in $G_{\omega\rho}$ and $G_{S\rho}$ make the symmetry energy softer. For nuclear matter, the NJL model leads to binding, but the binding energy per particle does not have a mininum except at a rather high density where the nucleon mass is small or vanishing. The introduction of the term in $G_{SV}$ corrects this.\comment{(Praticamente uma cópia do que está em \cite{Pais2016}).}
 
 The thermodynamic potential obtained from~\eqref{Eq:Lagrangiana_eNLJ_Pais} is given by \comment{(Como foi calculada essa expressão?)}
 \begin{equation}\label{Eq:potencial_termodinamico}
@@ -259,7 +260,7 @@ eNJL2m$\sigma\rho$1 & 1.078 & 1.955 & -2.74 & -0.1114 & 0 & 1 & 502.466 & 450 \\
 \section{Binodals}
 %%%%%%%%%%%%%%%%%%
 
-The phase coexistence may be determined using the Gibbs' conditions \cite{Cavagnoli2011}
+The QCD phase-diagram is characterized by potentially multiple phases, whose phase separation boundaries are referred as \emph{binodals}. Over those boundaries, the phases from the regions of either side of the boundary can coexist. The binodals may be determined using the Gibbs' conditions \cite{Cavagnoli2011}:
 \begin{align}
 \mu_B^Q &= \mu_B^H \\
 T^Q &= T^H \\
@@ -272,73 +273,77 @@ where the indexes $H$ and $Q$ refer to the hadrons and quarks phases. The chemic
 	\mu_B^Q &= \frac{3}{2} (\mu_u + \mu_d) = 3 \mu_q.
 \end{align}
 %
-The phase coexistence may then be obtained by simply plotting $P \times \mu_B^i$, $i = Q, H$, and looking for the intersection of both lines.
+The realized phase is the one which maximizes the pressure for a given chemical potential, consequently the phase coexistence may be obtained simply by plotting $P^i \times \mu_B^i$, $i = Q, H$, and looking for the intersection of both lines (see Fig.~\ref{Fig:Intersection}). The absence of intersections imply that there are no phase transitions in the range shown (see Fig.~\ref{Fig:NoIntersection}).
 
-\comment{(comentar que estamos usando exclusivamente $y_p = 0.5$?)}
+\begin{figure}
+	\input{temp_graph/BuballaR_2-eNJL1OmegaRho1-quark-hadron_phase_transition.tex}
+	\caption{Example of a combination of parameters sets for which there is a phase transition. Quarks: BuballaR-2; Hadrons: eNJL1$\omega\rho$1. \label{Fig:Intersection}}
+\end{figure}
+
+\begin{figure}
+	\input{temp_graph/Buballa_2-eNJL1m-quark-hadron_phase_transition.tex}
+	\caption{Example of a combination of parameters sets for which no phase transition happens. Quarks: Buballa-2; Hadrons: eNJL1m. \label{Fig:NoIntersection}}
+\end{figure}
+
+\begin{figure}
+	\input{temp_graph/BuballaR_2-eNJL1OmegaRho1-quark-hadron_phase_transition2.tex}
+	\caption{\comment{O que as descontinuidades significam?} Quarks: BuballaR-2; Hadrons: eNJL1$\omega\rho$1.}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%
 \section{Results}
 %%%%%%%%%%%%%%%%%
 
-Observações:
-\begin{description}
-	\item[Parametrizações]~
-		\begin{description}
-			\item[Buballa\_x] Set x de \cite{Buballa1996}
-			\item[BuballaR\_2] Set II de \cite{Buballa2005}
-			\item[hádrons] os da Helena
-			\item[quarks SU(3)] não tenho como rodar nas mesmas parametrizações de quarks que a Helena, ela usa SU(3)
-		\end{description}
-	\item[Gráficos] Em geral as curvas $P \times \mu_B$ se cruzam, mas podemos observar que
-		\begin{itemize}
-			\item As combinações contendo eNJLxm não cruzam (exceto Buballa\_1+eNJL2m).
-			\item As combinações contendo BuballaR\_2\_GV não se cruzam.
-		\end{itemize}
-		No caso eNJLxm a diferença em relação às demais parametrizações para hádrons é o fato de que $m_0 \neq 0$. No caso de BuballaR\_2\_GV acredito que seja por que o valor de $G_V$ é exagerado ($G_V = G_S$). 
-\end{description}
+We determine the value of chemical potential $\mu_B^i$ for which the phase transition takes place for combinations of the parameters sets from Tables~\ref{Tab:Parametros_NJL} e~\ref{Tab:Parametros_eNJL}. Furthermore, we restrict our treatment of the hadron phase to symmetric matter due to the fact that in our treatment of the quark phase the proportion of $u$ and $d$ quarks is always 50\% of each particle. This reflects the fact that both particles are assumed to have the same bare mass and the same chemical potential.
 
-\begin{table}
+The results so obtained are displayed in Table~\ref{Tab:Transition_chemical_pot}. In particular we may note that no combination involving the BuballaR-2 set with $G_V \neq 0$ present a transition.
+
+
+\begin{table}[!htpb]
 \centering
-\caption{Chemical potential $\mu_B^i$ at crossing point por different parameterization combinations. \label{Tab:Transition_chemical_pot}}
+\caption{Chemical potential $\mu_B^i$ at crossing point por different parameterization combinations. For BuballaR-2 in this table we have $G_V = 0$.\label{Tab:Transition_chemical_pot}}
 \begin{ruledtabular}
-\begin{tabular}{ccccccc}
+\begin{tabular}{ccc}
+Quarks & Hadrons & $\mu_B^i$ (MeV) \\
 \hline
-Quarks & Hadrons & $\mu_B^i$ (MeV) &\phantom{~o~}& Quarks & Hadrons & $\mu_B^i$ (MeV)\\
-\hline
-Buballa-1 & eNJL1 & \np{1243.8} && Buballa-3 & eNJL1 & \np{1615.3} \\
-Buballa-1 & eNJL1$\omega\rho$1 & \np{1243.8} && Buballa-3 & eNJL1$\omega\rho$1 & \np{1615.3} \\
-Buballa-1 & eNJL2 & \np{1373.0} && Buballa-3 & eNJL2 & \np{1700.0} \\
-Buballa-1 & eNJL2m & \np{1278.7} && Buballa-3 & eNJL2$\omega\rho$1 & \np{1700.0} \\
-Buballa-1 & eNJL2$\omega\rho$1 & \np{1373.0} && Buballa-3 & eNJL3 & \np{1744.3} \\
-Buballa-1 & eNJL3 & \np{1312.9} && Buballa-3 & eNJL3$\sigma\rho$1 & \np{1744.3} \\
-Buballa-1 & eNJL3$\sigma\rho$1 & \np{1312.9} && BuballaR-2 & eNJL1 & \np{1474.9} \\
-Buballa-2 & eNJL1 & \np{1460.1} && BuballaR-2 & eNJL1$\omega\rho$1 & \np{1474.9} \\
-Buballa-2 & eNJL1$\omega\rho$1 & \np{1460.0} && BuballaR-2 & eNJL2 & \np{1570.3} \\
-Buballa-2 & eNJL2 & \np{1556.8} && BuballaR-2 & eNJL2m & \np{1729.6} \\
-Buballa-2 & eNJL2m & \np{1674.9} && BuballaR-2 & eNJL2$\omega\rho$1 & \np{1570.3} \\
-Buballa-2 & eNJL2$\omega\rho$1 & \np{1556.8} && BuballaR-2 & eNJL3 & \np{1587.5} \\
-Buballa-2 & eNJL3 & \np{1570.7} && BuballaR-2 & eNJL3$\sigma\rho$1 & \np{1587.4} \\
+Buballa-1 & eNJL1 & \np{1243.8} \\
+Buballa-1 & eNJL1$\omega\rho$1 & \np{1243.8} \\
+Buballa-1 & eNJL2 & \np{1373.0} \\
+Buballa-1 & eNJL2m & \np{1278.7} \\
+Buballa-1 & eNJL2$\omega\rho$1 & \np{1373.0} \\
+Buballa-1 & eNJL3 & \np{1312.9} \\
+Buballa-1 & eNJL3$\sigma\rho$1 & \np{1312.9} \\
+Buballa-2 & eNJL1 & \np{1460.1} \\
+Buballa-2 & eNJL1$\omega\rho$1 & \np{1460.0} \\
+Buballa-2 & eNJL2 & \np{1556.8} \\
+Buballa-2 & eNJL2m & \np{1674.9} \\
+Buballa-2 & eNJL2$\omega\rho$1 & \np{1556.8} \\
+Buballa-2 & eNJL3 & \np{1570.7} \\
 Buballa-2 & eNJL3$\sigma\rho$1 & \np{1570.7} \\
-\hline
+Buballa-3 & eNJL1 & \np{1615.3} \\
+Buballa-3 & eNJL1$\omega\rho$1 & \np{1615.3} \\
+Buballa-3 & eNJL2 & \np{1700.0} \\
+Buballa-3 & eNJL2$\omega\rho$1 & \np{1700.0} \\
+Buballa-3 & eNJL3 & \np{1744.3} \\
+Buballa-3 & eNJL3$\sigma\rho$1 & \np{1744.3} \\
+BuballaR-2 & eNJL1 & \np{1474.9} \\
+BuballaR-2 & eNJL1$\omega\rho$1 & \np{1474.9} \\
+BuballaR-2 & eNJL2 & \np{1570.3} \\
+BuballaR-2 & eNJL2m & \np{1729.6} \\
+BuballaR-2 & eNJL2$\omega\rho$1 & \np{1570.3} \\
+BuballaR-2 & eNJL3 & \np{1587.5} \\
+BuballaR-2 & eNJL3$\sigma\rho$1 & \np{1587.4} \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusions}
+%%%%%%%%%%%%%%%%%%%%%
 
-\begin{figure}
-	\input{temp_graph/BuballaR_2-eNJL1OmegaRho1-quark-hadron_phase_transition.tex}
-	\caption{BuballaR\_2-eNJL1OmegaRho1}
-\end{figure}
-\begin{figure}
-	\input{temp_graph/BuballaR_2-eNJL1OmegaRho1-quark-hadron_phase_transition2.tex}
-	\caption{BuballaR\_2-eNJL1OmegaRho1}
-\end{figure}
+From Fig.~\ref{Fig:NoIntersection}, we can see that not all combinations of parameterizations produce a system in which a phase-transition is favored. Another manifestation of the dependence of the results in the choice of parameterizations is the range of chemical potential for which the transition takes place: it spans from \np[MeV]{1248,3} to \np[MeV]{1744,3}, a 40\% difference in relation to the lowest value. This indicates that the choice of parameterizations to produce a complete phase-diagram should made with care.
 
-\begin{figure}
-	\input{temp_graph/Buballa_2-eNJL1m-quark-hadron_phase_transition.tex}
-	\caption{Buballa\_2-eNJL1m}
-\end{figure}
-
+As a next step on this analysis, we shall turn our attention to expand our results for finite temperature and obtain the binodal sections.
 
 %
 %%
