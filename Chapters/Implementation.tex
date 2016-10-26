@@ -878,6 +878,8 @@ Para que as dimensões fiquem corretas
 	\item O lado direito das Equações~\eqref{Eq:Def_dens_energia_cin_vacuo} e \eqref{Eq:Def_dens_escalar_vacuo} deve ser multiplicado por $(\hbar c)^{-3}$
 \end{itemize}
 
+Um ponto importante é o cálculo da contribuição do vácuo $\epsilon_0$ na Equação~\eqref{Eq:Pressao}. Eu peguei isso diretamente do programa da Helena, porém é simplesmente o valor do potencial termodinâmico para o caso em que $\mu = \mu_R = T = 0$. No entanto, o potencial termodinâmico do vácuo tem que ser calculado para o valor de massa que minimiza o potencial termodinâmico (isto é, é o mesmo que foi feito para o caso NJL). No entanto no programa simplesmente se assume que tal valor é a massa do nucleon. A Figura~\ref{Fig:PotencialTerm_vs_mass-eNJL} mostra que isso é verdade, porém não está garantido para qualquer parametrização. O ideal seria calcular esse valor.
+
 \begin{figure*}
 	\input{graphics/eNJL1-Yp_0.5/graph/chemical_potentials.tex}
 	\caption{Gráfico dos potenciais químicos de próton e nêutron calculados a partir da Equação~\eqref{Eq:Potenciais_Quimicos}. Como a fração de próton é 1/2, ambos os potenciais tem o mesmo valor. \protect\input{graphics/eNJL1-Yp_0.5/info.tex}}
@@ -901,6 +903,13 @@ Para que as dimensões fiquem corretas
 	\caption{Gráfico da razão entre a densidade de energia $\varepsilon$ e a densidade $\rho$. Note que o mínimo da energia ocorre em aproximadamente \np[fm^{-3}]{0.15}, que é a densidade de saturação da matéria nuclear. Para obtermos o valor de \np[MeV]{16} por nucleon, basta subtrairmos o valor da massa do nucleon. \protect\input{graphics/eNJL1-Yp_0.5/info.tex}}
 	\label{Fig:energy_by_nucleon_graph}
 \end{figure*}
+
+\begin{figure*}
+	\input{graphics/m_vac_eNJL/thermodynamic_potential_by_mass.tex}
+	\caption{Figura mostrando o potencial termodinâmico para as várias parametrizações de eNJL. O mínimo está em $m_N$ como o esperado.}
+	\label{Fig:PotencialTerm_vs_mass-eNJL}
+\end{figure*}
+
 
 \FloatBarrier
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
