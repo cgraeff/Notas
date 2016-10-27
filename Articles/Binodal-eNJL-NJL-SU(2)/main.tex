@@ -87,7 +87,15 @@ use the optional argument of the \verb+\item+ command to give the category of ea
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%
 
-\comment{Fazer como o Marcelo e deixar enviar a introdução em branco?}
+Trab. Rafael: descreve o (diagrama de fases | transição) da QCD com duas fases: QHD-II, MIT
+
+In \cite{Cavagnoli2011} the authors study the phase transition from hadrons to a quark-gluon plasma in asymmetric matter using a two phase model in which the hadron phase is described by the non-linear Walecka Model (NLWM), while the quark phase is described by the MIT Bag Model, analyzing the features that depend on the isospin and may be relevant in a phenomenological description of heavy-ion collision. \comment{(Ipsis litteris)}
+
+Tsue, Lee: eNJL e NJLv
+
+Nós: O que? Revisit Tsue, Lee com ENJL + channels (Pais 2016) para $T = 0$
+por quê?
+como?
 
 %%%%%%%%%%%%%%%%%%%
 \section{Formalism}
@@ -101,11 +109,11 @@ The quark phase is described by a SU(2) NJL model lagrangian, including a vector
 \begin{equation}\label{Eq:LagNJL-SU2-Bub}
 \begin{split}
 	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi \\
-	&+ G_S[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] - G_V(\bar{\psi}\gamma^\mu \psi)^2.
+	&+ G_s[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] - G_v(\bar{\psi}\gamma^\mu \psi)^2.
 \end{split}
 \end{equation}
 %
-Here $\psi$ represents the quark field, $m_0$ the quark bare mass, and $G_S$ and $G_V$ are coupling constants that are chosen by fitting the pion mass $m_\pi = \np[MeV]{135.0}$ and decay constant $f_\pi = \np[MeV]{92.4}$. As the theory is non-renormalizable, a momentum cutoff $\Lambda$ is employed, which acts as a new parameter.
+Here $\psi$ represents the quark field, $m_0$ the quark bare mass, and $G_s$ and $G_v$ are coupling constants that are chosen by fitting the pion mass $m_\pi = \np[MeV]{135.0}$ and decay constant $f_\pi = \np[MeV]{92.4}$. As the theory is non-renormalizable, a momentum cutoff $\Lambda$ is employed, which acts as a new parameter.
 
 From the lagrangian $\mathcal{L}$, the hamiltonian density $\mathcal{H}$ can be obtained, which leads to the thermodynamic potential per volume $V$ at temperature $T$ by means of
 \begin{equation}
@@ -116,61 +124,78 @@ where $\tr$ stands for a trace over all states of the system, resulting in \cite
 \begin{equation}\label{Eq:Pot_Termo_Temp_zero}
 \begin{split}
 	\omega(\mu; m, \mu_R) =&~ \omega_m^{(\rm{vac})} + \omega_m^{(\rm{med})}(\mu_R) \\
-	&+ \frac{(m - m_0)^2}{4G_S} - \frac{(\mu - \mu_R)^2}{4G_V} +  \textrm{const.},
+	&+ \frac{(m - m_0)^2}{4G_s} - \frac{(\mu - \mu_R)^2}{4G_v} +  \textrm{const.},
 \end{split}
 \end{equation}
 %
 with
 \begin{align}
 	\omega_m^{(\rm{vac})} &= -(2 n_f n_c) \int \frac{d^3p}{(2\pi)^3} E_p\\
-	\omega_m^{(\rm{med})}(\mu_R) &= - (2n_f n_c) \int\frac{d^3p}{(2 \pi)^3} (\mu_R - E_p) \theta(p_F -p),
+	\omega_m^{(\rm{med})}(\mu_R) &= - (2n_f n_c) \int\frac{d^3p}{(2 \pi)^3} (\mu_R - E_p) \theta(p_F -p).
 \end{align}
 %
-at the zero temperature limit in the mean-field approximation. Here $n_f$ and $n_c$ stand for the number of flavors and the number of colors, respectively, and $E_p = \sqrt{p^2 + m^2}$.
+At the zero temperature limit in the mean-field approximation. Here $n_f$ and $n_c$ stand for the number of flavors and the number of colors, respectively, and $E_p = \sqrt{p^2 + m^2}$. The Fermi momentum of the quarks is represented by $p_F$ and $\theta(p_F - p)$ stands for the step function.
 
 The renormalized chemical potential $\mu_R$ and the constituent mass $m$ are obtained by requiring that $\partial \omega / \partial \mu_R = 0$ and $\partial \omega / \partial m = 0$, respectively, resulting in
 \begin{align}
-	\mu_R &= \mu - 2 G_V \rho \\
-	m &= m_0 - 2 G_S \rho_s
+	\mu_R &= \mu - 2 G_v \rho \\
+	m &= m_0 - 2 G_s \rho_s
 \end{align}
 %
 with
 \begin{align}
 	\rho &= n_c \rho_B = \frac{n_f n_c}{3\pi^2} p_F^3 \\
 	\rho_s &= \langle \bar\psi\psi\rangle = - 2 n_f n_c \int\frac{d^3p}{(2\pi)^3} \frac{m}{E_p}(1 - \theta(p_F - p)) \\
-	\mu_R &= \sqrt{p_F^2 + m^2}.
+	\mu_R &= \sqrt{p_F^2 + m^2},
 \end{align}
+%
+where $\rho_B$ for the barionic density.
 
 The constant in the potential has no physical meaning, consequently, it may be chosen so that at $T = \mu = 0$ the thermodynamic potential is zero at the value $m = m_{\rm{vac}}$ which minimizes $\omega$. This process may be represented by 
 \begin{equation}
 	\tilde\omega(\mu; m, \mu_R) = \omega(\mu; m, \mu_R) - \omega(0, 0; m_{\rm{vac}}, 0),
 \end{equation}
 %
-so that the quantities we are interested in --~the pressure $p$ and the energy density $\varepsilon$~-- are obtained through
+so that the quantities we are interested in --~the pressure $P$ and the energy density $\varepsilon$~-- are obtained through
 \begin{align}
-		p &= -\tilde\omega(\mu; m, \mu_R) \label{Exp_pressao_T}\\
+		P &= -\tilde\omega(\mu; m, \mu_R) \label{Exp_pressao_T}\\
 		\varepsilon &= -p + \mu \rho. \label{Exp_energia_T}
 \end{align}
 	
-The solution of the above equations consist in determining the solution to the equation for $m$ self-consistently for each value of $\rho$ or $\mu$ (in this case $p_F = \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2)$). \comment{(+info nesse parágrafo? resultados para $\varepsilon, P$?)}
+The solution of the above equations consist in determining the solution to the equation for $m$ self-consistently for each value of $\rho$ or $\mu$ (in this case $p_F = \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2)$).
 
 \begin{table}[!htpb]
 \centering
 \caption{Parameters sets for the lagrangian density~\eqref{Eq:LagNJL-SU2-Bub} \cite{Buballa1996, Buballa2005}. \label{Tab:Parametros_NJL}}
 \begin{ruledtabular}
 \begin{tabular}{lccccc}
-Model &  $\Lambda$ & $G_S$ ($\rm{fm}^2$) & $G_V$ ($\rm{fm}^2$) & $m_0$ (MeV) & $m$ (MeV) \\
+Model &  $\Lambda$ & $G_s$ ($\rm{fm}^2$) & $G_v$ ($\rm{fm}^2$) & $m_0$ (MeV) & $m$ (MeV) \\
 \hline
 Buballa-1 & 650 & 0.19721 & -- & 0 & 313 \\
 Buballa-2 & 600 & 0.26498 & -- & 0 & 400 \\
 Buballa-3 & 570 & 0.34034 & -- & 0 & 500 \\
-%BuballaR-1 & 664.3 & 0.18176 & $\propto G_S$ & 5.0 & 300 \\
-BuballaR-2 & 587.9 & 0.27449 & $\propto G_S$ & 5.6 & 400 \\
-%BuballaR-3 & 569.3 & 0.33759 & $\propto G_S$ & 5.5 & 500 \\
-%BuballaR-4 & 568.6 & 0.38178 & $\propto G_S$ & 5.1 & 600
+%BuballaR-1 & 664.3 & 0.18176 & $\propto G_s$ & 5.0 & 300 \\
+BuballaR-2 & 587.9 & 0.27449 & $\propto G_s$ & 5.6 & 400 \\
+%BuballaR-3 & 569.3 & 0.33759 & $\propto G_s$ & 5.5 & 500 \\
+%BuballaR-4 & 568.6 & 0.38178 & $\propto G_s$ & 5.1 & 600
 \end{tabular}
 \end{ruledtabular}
 \end{table}
+
+\begin{figure}
+	\input{temp_graph/pressure_Buballa_1.tex}
+	\caption{Pressure obtained with Buballa-1 parameters set. \label{Fig:Ex_pressure}}
+\end{figure}
+
+\begin{figure}
+	\input{temp_graph/energy_density_Buballa_1.tex}
+	\caption{Energy density obtained with Buballa-1 parameters set. \label{Fig:Ex_pressure}}
+\end{figure}
+
+\begin{figure}
+	\input{temp_graph/energy_density_per_particle_Buballa_1.tex}
+	\caption{Energy per particle obtained with Buballa-1 parameters set. \label{Fig:Ex_pressure}}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Hadron Matter}
@@ -180,28 +205,28 @@ Even though the original NJL model is unable to describe the saturation properti
 \begin{equation}\label{Eq:Lagrangiana_eNLJ_Pais}
 \begin{split}
 	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi \\
-	& + G_S[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] \\
-	& - G_V(\bar{\psi}\gamma^\mu\psi)^2 - G_{sv}[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2](\bar{\psi}\gamma^\mu\psi)^2 \\
+	& + G_s[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] \\
+	& - G_v(\bar{\psi}\gamma^\mu\psi)^2 - G_{sv}[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2](\bar{\psi}\gamma^\mu\psi)^2 \\
 	& - G_\rho[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
-	& - G_{V\rho}(\bar{\psi}\gamma^\mu\psi)^2[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
-	& - G_{S\rho} [(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2][(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2].
+	& - G_{v\rho}(\bar{\psi}\gamma^\mu\psi)^2[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
+	& - G_{s\rho} [(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2][(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2].
 \end{split}
 \end{equation}
 %
 
-where $\psi$ represents the nucleon field and the constants $G_i$ represents the coupling constants for the different channels. The effects of the different channels are: the term in $G_V$ simulates a chiral-invariant short-range repulsion between the nucleons, the term in $G_{SV}$ accounts for the density dependence of the scalar coupling, the term in $G_\rho$ allows the description of isospin asymmetric matter, and the terms in $G_{\omega\rho}$ and $G_{S\rho}$ make the symmetry energy softer. For nuclear matter, the NJL model leads to binding, but the binding energy per particle does not have a mininum except at a rather high density where the nucleon mass is small or vanishing. The introduction of the term in $G_{SV}$ corrects this. As in the quark case, the theory is renormalized via a three momentum cutoff $\Lambda$.\comment{(Praticamente uma cópia do que está em \cite{Pais2016}).}
+where $\psi$ represents the nucleon field and the constants $G_i$ represents the coupling constants for the different channels. The effects of the different channels are: the term in $G_v$ simulates a chiral-invariant short-range repulsion between the nucleons, the term in $G_{sv}$ accounts for the density dependence of the scalar coupling, the term in $G_\rho$ allows the description of isospin asymmetric matter, and the terms in $G_{\omega\rho}$ and $G_{s\rho}$ make the symmetry energy softer. For nuclear matter, the NJL model leads to binding, but the binding energy per particle does not have a mininum except at a rather high density where the nucleon mass is small or vanishing. The introduction of the term in $G_{sv}$ corrects this. As in the quark case, the theory is renormalized via a three momentum cutoff $\Lambda$.\comment{(Praticamente uma cópia do que está em \cite{Pais2016}).}
 
 The thermodynamic potential is obtained from~\eqref{Eq:Lagrangiana_eNLJ_Pais} in the same way as for the quark case and is given by
 \begin{equation}\label{Eq:potencial_termodinamico}
 \begin{split}
-	\omega(\mu) =&~ \varepsilon_{\rm{kin}} + m\rho_s - G_S\rho_s^2 + G_V\rho_B^2 + G_{sv}\rho_s^2\rho_B^2 + G_\rho\rho_3^2 \\
-	&+ G_{V\rho}\rho_B^2\rho_3^2 + G_{S\rho}\rho_s^2\rho_3^2 - \mu_p\rho_B^p - \mu_n\rho_B^n,
+	\omega(\mu) =&~ \varepsilon_{\rm{kin}} + m\rho_s - G_s\rho_s^2 + G_v\rho_B^2 + G_{sv}\rho_s^2\rho_B^2 + G_\rho\rho_3^2 \\
+	&+ G_{v\rho}\rho_B^2\rho_3^2 + G_{s\rho}\rho_s^2\rho_3^2 - \mu_p\rho_B^p - \mu_n\rho_B^n,
 \end{split}
 \end{equation}
 %
 where $\rho_B$ is the total barionic density, which is the sum of the proton $\rho_B^p$ and neutron $\rho_B^n$ barionic densities, while $\rho_3 = \rho_B^p - \rho_B^n$. At zero temperature, those densities are given by
 \begin{equation}
-	\rho_i = \int_0^{p_F^i}\frac{dp}{\pi^2}p^2; \qquad i = p,n
+	\rho_B^i = \int_0^{p_F^i}\frac{dp}{\pi^2}p^2; \qquad i = p,n
 \end{equation}
 %
 where $p_F^i$ stands for the Fermi momentum of each particle. The kinectic energy contribution is given by
@@ -229,8 +254,22 @@ The equations of state can be obtained from
 	\varepsilon &= -P + \mu_p \rho_B^p + \mu_n \rho_B^n,
 \end{align}
 %
-where $\omega_{\rm{vac}} = \omega(T = 0, \mu = 0, m = m_N)$, with $m_N$ representing the nucleon mass. \comment{mudei $\varepsilon_0 \to \omega_{\rm{vac}}$, ou seria melhor manter $\varepsilon_0$?} 
+where $\omega_{\rm{vac}} = \omega(T = 0, \mu = 0, m = m_N)$, with $m_N$ representing the nucleon mass. 
 
+\begin{figure}
+	\input{temp_graph/pressure_eNJL1.tex}
+	\caption{Pressure obtained with Buballa-1 parameters set. \label{Fig:Ex_pressure}}
+\end{figure}
+
+\begin{figure}
+	\input{temp_graph/energy_density_eNJL1.tex}
+	\caption{Energy density obtained with Buballa-1 parameters set. \label{Fig:Ex_pressure}}
+\end{figure}
+
+\begin{figure}
+	\input{temp_graph/energy_density_per_particle_eNJL1.tex}
+	\caption{Energy per particle obtained with Buballa-1 parameters set. \label{Fig:Ex_pressure}}
+\end{figure}
 
 \begin{table*}
 \caption{Conjuntos de parâmetros para a lagrangiana~\eqref{Eq:Lagrangiana_eNLJ_Pais}\cite{Pais2016}. \label{Tab:Parametros_eNJL}}
