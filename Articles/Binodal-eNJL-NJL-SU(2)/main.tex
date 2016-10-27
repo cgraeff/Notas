@@ -176,40 +176,38 @@ BuballaR-2 & 587.9 & 0.27449 & $\propto G_S$ & 5.6 & 400 \\
 \subsection{Hadron Matter}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Even though the original NJL model is unable to describe the saturation properties of the nuclear matter, this can be fixed by the inclusion of a scalar-isovector \comment{(?)} channel~\cite{Koch1987}. An extended NJL model (eNJL)~\cite{Pais2016} which includes such channel is given by the lagrangian density
+Even though the original NJL model is unable to describe the saturation properties of the nuclear matter, this can be fixed by the inclusion of a scalar-vector channel~\cite{Koch1987}. An extended NJL model (eNJL)~\cite{Pais2016} which includes such channel is given by the lagrangian density
 \begin{equation}\label{Eq:Lagrangiana_eNLJ_Pais}
 \begin{split}
 	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi \\
-	& + G_s[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] \\
-	& - G_v(\bar{\psi}\gamma^\mu\psi)^2 - G_{sv}[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2](\bar{\psi}\gamma^\mu\psi)^2 \\
+	& + G_S[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] \\
+	& - G_V(\bar{\psi}\gamma^\mu\psi)^2 - G_{sv}[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2](\bar{\psi}\gamma^\mu\psi)^2 \\
 	& - G_\rho[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
-	& - G_{v\rho}(\bar{\psi}\gamma^\mu\psi)^2[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
-	& - G_{s\rho} [(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2][(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2].
+	& - G_{V\rho}(\bar{\psi}\gamma^\mu\psi)^2[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
+	& - G_{S\rho} [(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2][(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2].
 \end{split}
 \end{equation}
 %
-where $\psi$ represents the nucleon field and the constants $G_i$ represents the coupling constants for the different channels. The effects of the different channels are: the term in $G_V$ simulates a chiral-invariant short-range repulsion between the nucleons, the term in $G_{SV}$ accounts for the density dependence of the scalar coupling, the term in $G_\rho$ allows the description of isospin asymmetric matter, and the terms in $G_{\omega\rho}$ and $G_{S\rho}$ make the symmetry energy softer. For nuclear matter, the NJL model leads to binding, but the binding energy per particle does not have a mininum except at a rather high density where the nucleon mass is small or vanishing. The introduction of the term in $G_{SV}$ corrects this.\comment{(Praticamente uma cópia do que está em \cite{Pais2016}).}
 
-The thermodynamic potential obtained from~\eqref{Eq:Lagrangiana_eNLJ_Pais} is given by \comment{(Como foi calculada essa expressão?)}
+where $\psi$ represents the nucleon field and the constants $G_i$ represents the coupling constants for the different channels. The effects of the different channels are: the term in $G_V$ simulates a chiral-invariant short-range repulsion between the nucleons, the term in $G_{SV}$ accounts for the density dependence of the scalar coupling, the term in $G_\rho$ allows the description of isospin asymmetric matter, and the terms in $G_{\omega\rho}$ and $G_{S\rho}$ make the symmetry energy softer. For nuclear matter, the NJL model leads to binding, but the binding energy per particle does not have a mininum except at a rather high density where the nucleon mass is small or vanishing. The introduction of the term in $G_{SV}$ corrects this. As in the quark case, the theory is renormalized via a three momentum cutoff $\Lambda$.\comment{(Praticamente uma cópia do que está em \cite{Pais2016}).}
+
+The thermodynamic potential is obtained from~\eqref{Eq:Lagrangiana_eNLJ_Pais} in the same way as for the quark case and is given by
 \begin{equation}\label{Eq:potencial_termodinamico}
 \begin{split}
-	\omega(\mu) =&~ \varepsilon_{\rm{kin}} + m\rho_s - G_s\rho_s^2 + G_v\rho^2 + G_{sv}\rho_s^2\rho^2 + G_\rho\rho_3^2 \\
-	&+ G_{v\rho}\rho^2\rho_3^2 + G_{s\rho}\rho_s^2\rho_3^2 - \mu_p\rho_p - \mu_n\rho_n,
+	\omega(\mu) =&~ \varepsilon_{\rm{kin}} + m\rho_s - G_S\rho_s^2 + G_V\rho_B^2 + G_{sv}\rho_s^2\rho_B^2 + G_\rho\rho_3^2 \\
+	&+ G_{V\rho}\rho_B^2\rho_3^2 + G_{S\rho}\rho_s^2\rho_3^2 - \mu_p\rho_B^p - \mu_n\rho_B^n,
 \end{split}
 \end{equation}
 %
-where $\rho_B$ is the total barionic density, which is the sum of the proton $\rho_B^p$ and neutron $\rho_B^n$ barionic densities. At zero temperature, those densities are given by
+where $\rho_B$ is the total barionic density, which is the sum of the proton $\rho_B^p$ and neutron $\rho_B^n$ barionic densities, while $\rho_3 = \rho_B^p - \rho_B^n$. At zero temperature, those densities are given by
 \begin{equation}
 	\rho_i = \int_0^{p_F^i}\frac{dp}{\pi^2}p^2; \qquad i = p,n
 \end{equation}
 %
 where $p_F^i$ stands for the Fermi momentum of each particle. The kinectic energy contribution is given by
-\begin{align}
-	\varepsilon_{\rm{kin}} &= 2 N_c\sum_i \int \frac{d^3p}{(2\pi)^3}\frac{p^2}{E_i}(n_{i-}-n_{i+})\theta(\Lambda^2 - p^2) \\
-	&= 2 n_c \sum_i \int \frac{d^3p}{(2\pi)^3}\frac{p^2}{E_p^i}(1 - \theta(p_F^i - p))\theta(\Lambda^2 - p^2),
-\end{align}
-%
-with the second expression being valid for $T = 0$.
+\begin{equation}
+	\varepsilon_{\rm{kin}} = 2 n_c \sum_i \int \frac{d^3p}{(2\pi)^3}\frac{p^2}{E_p^i}(1 - \theta(p_F^i - p))\theta(\Lambda^2 - p^2).
+\end{equation}
 
 The effective mass $m$ and the chemical potentials appearing in the thermodynamic potencial $\omega$ are determined by requiring that $\partial\omega/\partial m = 0$ and $\partial\omega/\partial p_F^i = $, resulting in
 \begin{align}\label{Eq:Gap}
@@ -219,10 +217,9 @@ The effective mass $m$ and the chemical potentials appearing in the thermodynami
 \end{align}
 %
 with $i = p,n$, and e $E_{p_F}^i = \sqrt{M^2 + (p_F^i)^2}$. The scalar density $\rho_s$ is given by sum of the proton and neutron scalar densities
-\begin{align}
-	\rho_s^i &= - 2 n_c \int \frac{d^3p}{(2\pi)^3}\frac{m_0^i m_i}{E_p^i}(n_{i-} - n_{i+})\theta(\Lambda^2 - p^2) \\
-	&= - 2 n_c \int \frac{d^3p}{(2\pi)^3}\frac{m_0^i m_i}{E_p^i}\theta(p_F - p)\theta(\Lambda^2 - p^2)
-\end{align}
+\begin{equation}
+	\rho_s^i = - 2 n_c \int \frac{d^3p}{(2\pi)^3}\frac{m_0^i m_i}{E_p^i}\theta(p_F - p)\theta(\Lambda^2 - p^2)
+\end{equation}
 %
 where the second expression being valid for $T = 0$.
 
