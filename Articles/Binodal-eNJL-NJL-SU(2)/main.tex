@@ -41,16 +41,23 @@
 %%
 %
 
-\title{The title}
+\title{Hadron-quark phase transition and possible conversion of a metastable start to a quark star}
 
 \author{Clebson A. Graeff}
 \affiliation{Universidade Tecnológica Federal do Paraná, campus Pato Branco \\ Via do Conhecimento, Km 1 CEP 85503-390 Pato Branco -- PR, Brazil}
 \email{cgraeff@utfpr.edu.br}
 
+\author{Marcelo D. Alloy}
+\affiliation{Universidade Federal de Santa Catarina}
+\email{}
+
 \author{Débora P. Menezes}
 \affiliation{Departamento de Física, Universidade Federal de Santa Catarina, Florianópolis, SC, CP 476, CEP 88.040-900, Brazil}
 \email{debora.p.m@ufsc.br}
 
+\author{Constança Providência}
+\affiliation{Departamento de Física, Universidade de Coimbra, 3004-516 Coimbra, Portugal}
+\email{}
 %%%
 
 \begin{abstract}
@@ -88,14 +95,13 @@ use the optional argument of the \verb+\item+ command to give the category of ea
 %%%%%%%%%%%%%%%%%%%%%%
 
 In \cite{Cavagnoli2011} the authors study the phase transition from hadrons to a quark-gluon plasma in asymmetric matter using a two phase model in which the hadron phase is described by the non-linear Walecka Model (NLWM), while the quark phase is described by the MIT Bag Model, analysing the features that depend on the isospin and may be relevant in a phenomenological description of heavy-ion collision. \comment{(Ipsis litteris)}
-% O que foi obtido?
 
-The phase transition is also considered at zero~\cite{Tsue2010} and finite~\cite{Lee2013} temperatures, but using Nambu--Jona-Lasinio type models for both phases. Again, a simple two phases model is employed. To describe the hadron phase, the standard NJL model with vector interaction is extended to include a scalar-vector channel, which renders the model capable of saturation at low densities.
-% O que foi obtido
+The phase transition is also considered at zero~\cite{Tsue2010} and finite~\cite{Lee2013} temperatures, but using Nambu--Jona-Lasinio type models for both phases. Again, a simple two phase model is employed. To describe the hadron phase, the standard NJL model with vector interaction is extended to include a scalar-vector channel, which renders the model capable of saturation at low densities.
 
-We revisit the approach of~\cite{Tsue2010} and~\cite{Lee2013} whilst using a further extended model~\cite{Pais2016} which use additional channels to achieve a better description of the symmetry energy. \comment{(Importância disso aqui.)} Albeit the authors also refer to this extension as eNJL, here we will name this new extension PPM to avoid confusion.
-% Por quê?
-% Como?
+We revisit the approach of~\cite{Tsue2010} and~\cite{Lee2013} whilst using a further extended model~\cite{Pais2016} which uses additional channels to achieve a better description of the symmetry energy. \comment{(Importância disso aqui.)} Albeit the authors also refer to this extension as eNJL, here we will name this new extension PPM to avoid confusion.
+
+The effects of the different channels are: the term in $G_v$ simulates a chiral-invariant short-range repulsion between the nucleons, the term in $G_{sv}$ accounts for the density dependence of the scalar coupling, the term in $G_\rho$ allows the description of isospin asymmetric matter, and the terms in $G_{\omega\rho}$ and $G_{s\rho}$ make the symmetry energy softer. For nuclear matter, the NJL model leads to binding, but the binding energy per particle does not have a mininum except at a rather high density where the nucleon mass is small or vanishing. The introduction of the term in $G_{sv}$ corrects this.\comment{(Quase ipsis litteris de \cite{Pais2016}).}
+
 
 \comment{(Quando estiver finalizado, adicionar descrição da organização aqui.)}
 
@@ -103,11 +109,11 @@ We revisit the approach of~\cite{Tsue2010} and~\cite{Lee2013} whilst using a fur
 \section{Formalism}
 %%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Quark Matter}
-%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Quark Matter / NJL SU(2)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The quark phase is described by a SU(2) NJL model lagrangian, including a vector term, given by\cite{Buballa2005}
+The quark phase is described by a SU(2) NJL model lagrangian, including a vector term, given by \cite{Buballa2005}
 \begin{equation}\label{Eq:LagNJL-SU2-Bub}
 \begin{split}
 	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi \\
@@ -115,7 +121,7 @@ The quark phase is described by a SU(2) NJL model lagrangian, including a vector
 \end{split}
 \end{equation}
 %
-Here $\psi$ represents the quark field, $m_0$ the quark bare mass, and $G_s$ and $G_v$ are coupling constants that are chosen by fitting the pion mass $m_\pi = \np[MeV]{135.0}$ and decay constant $f_\pi = \np[MeV]{92.4}$. As the theory is non-renormalizable, a momentum cutoff $\Lambda$ is employed, which acts as a new parameter.
+Here $\psi$ represents the quark field, $m_0$ the quark bare mass, and $G_s$ and $G_v$ are coupling constants that are chosen by fitting the pion mass $m_\pi = \np[MeV]{135.0}$ and its decay constant $f_\pi = \np[MeV]{92.4}$. As the theory is non-renormalizable, a momentum cutoff $\Lambda$ is employed, which acts as a new parameter.
 
 From the lagrangian $\mathcal{L}$, the hamiltonian density $\mathcal{H}$ can be obtained, which leads to the thermodynamic potential per volume $V$ at temperature $T$ by means of
 \begin{equation}
@@ -151,7 +157,7 @@ with
 	\mu_R &= \sqrt{p_F^2 + m^2},
 \end{align}
 %
-where $\rho_B$ for the barionic density.
+where $\rho_B$ stands for the barionic density.
 
 The constant in the potential has no physical meaning, consequently, it may be chosen so that at $T = \mu = 0$ the thermodynamic potential is zero at the value $m = m_{\rm{vac}}$ which minimizes $\omega$. This process may be represented by 
 \begin{equation}
@@ -164,7 +170,7 @@ so that the quantities we are interested in --~the pressure $P$ and the energy d
 		\varepsilon &= -p + \mu \rho. \label{Exp_energia_T}
 \end{align}
 	
-The solution of the above equations consist in determining the solution to the equation for $m$ self-consistently for each value of $\rho$ or $\mu$ (in this case $p_F = \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2)$).
+The equations are solved self-consistently for each value of $\rho$ or $\mu$ (in this case $p_F = \sqrt{\mu_R^2 - m^2}\theta(\mu_R^2 - m^2)$).
 
 \begin{table}[!htpb]
 \centering
@@ -184,26 +190,15 @@ BuballaR-2 & 587.9 & 0.27449 & $\propto G_s$ & 5.6 & 400 \\
 \end{ruledtabular}
 \end{table}
 
-\begin{figure}
-	\input{temp_graph/pressure_Buballa_1.tex}
-	\caption{Pressure obtained with Buballa-1 parameters set. \label{Fig:Ex_pressure}}
-\end{figure}
-
-\begin{figure}
-	\input{temp_graph/energy_density_Buballa_1.tex}
-	\caption{Energy density obtained with Buballa-1 parameters set. \label{Fig:Ex_pressure}}
-\end{figure}
-
-\begin{figure}
-	\input{temp_graph/energy_density_per_particle_Buballa_1.tex}
-	\caption{Energy per particle obtained with Buballa-1 parameters set. \label{Fig:Ex_pressure}}
-\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Quark Matter / NJL SU(3)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Hadron Matter}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Even though the original NJL model is unable to describe the saturation properties of the nuclear matter, this can be fixed by the inclusion of a scalar-vector channel~\cite{Koch1987}. An extended NJL model (eNJL)~\cite{Pais2016} which includes such channel is given by the lagrangian density
+Even though the original NJL model is unable to describe the saturation properties of the nuclear matter, this can be fixed by an extended version which include a scalar-vector channel (eNJL)~\cite{Koch1987}. Other channels that can help the description of other properties as discussed in the Introduction are also included in this ... The lagrangian density of the PPM model is given by~\cite{Pais2016}
 \begin{equation}\label{Eq:Lagrangiana_eNLJ_Pais}
 \begin{split}
 	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi \\
@@ -211,12 +206,11 @@ Even though the original NJL model is unable to describe the saturation properti
 	& - G_v(\bar{\psi}\gamma^\mu\psi)^2 - G_{sv}[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2](\bar{\psi}\gamma^\mu\psi)^2 \\
 	& - G_\rho[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
 	& - G_{v\rho}(\bar{\psi}\gamma^\mu\psi)^2[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
-	& - G_{s\rho} [(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2][(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2].
+	& - G_{s\rho} [(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2][(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2],
 \end{split}
 \end{equation}
 %
-
-where $\psi$ represents the nucleon field and the constants $G_i$ represents the coupling constants for the different channels. The effects of the different channels are: the term in $G_v$ simulates a chiral-invariant short-range repulsion between the nucleons, the term in $G_{sv}$ accounts for the density dependence of the scalar coupling, the term in $G_\rho$ allows the description of isospin asymmetric matter, and the terms in $G_{\omega\rho}$ and $G_{s\rho}$ make the symmetry energy softer. For nuclear matter, the NJL model leads to binding, but the binding energy per particle does not have a mininum except at a rather high density where the nucleon mass is small or vanishing. The introduction of the term in $G_{sv}$ corrects this. As in the quark case, the theory is renormalized via a three momentum cutoff $\Lambda$.\comment{(Quase ipsis litteris de \cite{Pais2016}).}
+where $\psi$ represents the nucleon field and the constants $G_i$ represents the coupling constants for the different channels. As in the quark case, the theory is renormalized via a three momentum cutoff $\Lambda$.
 
 The thermodynamic potential is obtained from~\eqref{Eq:Lagrangiana_eNLJ_Pais} in the same way as for the quark case and is given by
 \begin{equation}\label{Eq:potencial_termodinamico}
@@ -258,21 +252,6 @@ The equations of state can be obtained from
 %
 where $\omega_{\rm{vac}} = \omega(T = 0, \mu = 0, m = m_N)$, with $m_N$ representing the nucleon mass. 
 
-\begin{figure}
-	\input{temp_graph/pressure_eNJL1.tex}
-	\caption{Pressure obtained with Buballa-1 parameters set. \label{Fig:Ex_pressure}}
-\end{figure}
-
-\begin{figure}
-	\input{temp_graph/energy_density_eNJL1.tex}
-	\caption{Energy density obtained with Buballa-1 parameters set. \label{Fig:Ex_pressure}}
-\end{figure}
-
-\begin{figure}
-	\input{temp_graph/energy_density_per_particle_eNJL1.tex}
-	\caption{Energy per particle obtained with Buballa-1 parameters set. \label{Fig:Ex_pressure}}
-\end{figure}
-
 \begin{table*}
 \caption{Conjuntos de parâmetros para a lagrangiana~\eqref{Eq:Lagrangiana_eNLJ_Pais}\cite{Pais2016}. \label{Tab:Parametros_eNJL}}
 \begin{ruledtabular}
@@ -298,7 +277,7 @@ eNJL2m$\sigma\rho$1 & 1.078 & 1.955 & -2.74 & -0.1114 & 0 & 1 & 502.466 & 450 \\
 \section{Binodals}
 %%%%%%%%%%%%%%%%%%
 
-The QCD phase-diagram is characterized by potentially multiple phases, whose phase separation boundaries are referred as \emph{binodals}. Over those boundaries, the phases from the regions of either side of the boundary can coexist. The binodals may be determined using the Gibbs' conditions \cite{Cavagnoli2011}:
+The QCD phase-diagram is characterized by potentially multiple phases, whose phase separation boundaries are referred as \emph{binodals} \cite{Mueller1995}. Over those boundaries, the phases from the regions of either side of the boundary can coexist. The binodals may be determined using the Gibbs' conditions \cite{Cavagnoli2011}:
 \begin{align}
 \mu_B^Q &= \mu_B^H \\
 T^Q &= T^H \\
@@ -311,7 +290,7 @@ where the indexes $H$ and $Q$ refer to the hadrons and quarks phases. The chemic
 	\mu_B^Q &= \frac{3}{2} (\mu_u + \mu_d) = 3 \mu_q.
 \end{align}
 %
-The realized phase is the one which maximizes the pressure for a given chemical potential, consequently the phase coexistence may be obtained simply by plotting $P^i \times \mu_B^i$, $i = Q, H$, and looking for the intersection of both lines (see Fig.~\ref{Fig:Intersection}). The absence of intersections imply that there are no phase transitions in the range shown (see Fig.~\ref{Fig:NoIntersection}).
+The phase coexistence may be obtained simply by plotting $P^i \times \mu_B^i$, $i = Q, H$, and looking for the intersection of both lines (see Fig.~\ref{Fig:Intersection}). The absence of intersections imply that there are no phase transitions in the range shown (see Fig.~\ref{Fig:NoIntersection}).
 
 \begin{figure}
 	\input{temp_graph/BuballaR_2-eNJL1OmegaRho1-quark-hadron_phase_transition.tex}
@@ -328,10 +307,6 @@ The realized phase is the one which maximizes the pressure for a given chemical 
 	\caption{\comment{O que as descontinuidades significam?} Quarks: BuballaR-2; Hadrons: eNJL1$\omega\rho$1.}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%
-\section{Results}
-%%%%%%%%%%%%%%%%%
-
 We determine the value of chemical potential $\mu_B^i$ for which the phase transition takes place for combinations of the parameters sets from Tables~\ref{Tab:Parametros_NJL} e~\ref{Tab:Parametros_eNJL}. Furthermore, we restrict our treatment of the hadron phase to symmetric matter due to the fact that in our treatment of the quark phase the proportion of $u$ and $d$ quarks is always 50\% of each particle. This reflects the fact that both particles are assumed to have the same bare mass and the same chemical potential.
 
 The results so obtained are displayed in Table~\ref{Tab:Transition_chemical_pot}. In particular we may note that no combination involving the BuballaR-2 set with $G_V \neq 0$ present a transition.
@@ -344,33 +319,33 @@ The results so obtained are displayed in Table~\ref{Tab:Transition_chemical_pot}
 \begin{tabular}{ccc}
 Quarks & Hadrons & $\mu_B^i$ (MeV) \\
 \hline
-Buballa-1 & eNJL1 & \np{1243.8} \\
-Buballa-1 & eNJL1$\omega\rho$1 & \np{1243.8} \\
-Buballa-1 & eNJL2 & \np{1373.0} \\
-Buballa-1 & eNJL2m & \np{1278.7} \\
-Buballa-1 & eNJL2$\omega\rho$1 & \np{1373.0} \\
-Buballa-1 & eNJL3 & \np{1312.9} \\
-Buballa-1 & eNJL3$\sigma\rho$1 & \np{1312.9} \\
-Buballa-2 & eNJL1 & \np{1460.1} \\
-Buballa-2 & eNJL1$\omega\rho$1 & \np{1460.0} \\
-Buballa-2 & eNJL2 & \np{1556.8} \\
-Buballa-2 & eNJL2m & \np{1674.9} \\
-Buballa-2 & eNJL2$\omega\rho$1 & \np{1556.8} \\
-Buballa-2 & eNJL3 & \np{1570.7} \\
-Buballa-2 & eNJL3$\sigma\rho$1 & \np{1570.7} \\
-Buballa-3 & eNJL1 & \np{1615.3} \\
-Buballa-3 & eNJL1$\omega\rho$1 & \np{1615.3} \\
-Buballa-3 & eNJL2 & \np{1700.0} \\
-Buballa-3 & eNJL2$\omega\rho$1 & \np{1700.0} \\
-Buballa-3 & eNJL3 & \np{1744.3} \\
-Buballa-3 & eNJL3$\sigma\rho$1 & \np{1744.3} \\
-BuballaR-2 & eNJL1 & \np{1474.9} \\
-BuballaR-2 & eNJL1$\omega\rho$1 & \np{1474.9} \\
-BuballaR-2 & eNJL2 & \np{1570.3} \\
-BuballaR-2 & eNJL2m & \np{1729.6} \\
-BuballaR-2 & eNJL2$\omega\rho$1 & \np{1570.3} \\
-BuballaR-2 & eNJL3 & \np{1587.5} \\
-BuballaR-2 & eNJL3$\sigma\rho$1 & \np{1587.4} \\
+Buballa-1 & eNJL1 & \np{1244} \\
+Buballa-1 & eNJL1$\omega\rho$1 & \np{1244} \\
+Buballa-1 & eNJL2 & \np{1373} \\
+Buballa-1 & eNJL2m & \np{1279} \\
+Buballa-1 & eNJL2$\omega\rho$1 & \np{1373} \\
+Buballa-1 & eNJL3 & \np{1313} \\
+Buballa-1 & eNJL3$\sigma\rho$1 & \np{1313} \\
+Buballa-2 & eNJL1 & \np{1460} \\
+Buballa-2 & eNJL1$\omega\rho$1 & \np{1460} \\
+Buballa-2 & eNJL2 & \np{1557} \\
+Buballa-2 & eNJL2m & \np{1675} \\
+Buballa-2 & eNJL2$\omega\rho$1 & \np{1557} \\
+Buballa-2 & eNJL3 & \np{1571} \\
+Buballa-2 & eNJL3$\sigma\rho$1 & \np{1571} \\
+Buballa-3 & eNJL1 & \np{1615} \\
+Buballa-3 & eNJL1$\omega\rho$1 & \np{1615} \\
+Buballa-3 & eNJL2 & \np{1700} \\
+Buballa-3 & eNJL2$\omega\rho$1 & \np{1700} \\
+Buballa-3 & eNJL3 & \np{1744} \\
+Buballa-3 & eNJL3$\sigma\rho$1 & \np{1744} \\
+BuballaR-2 & eNJL1 & \np{1475} \\
+BuballaR-2 & eNJL1$\omega\rho$1 & \np{1475} \\
+BuballaR-2 & eNJL2 & \np{1570} \\
+BuballaR-2 & eNJL2m & \np{1730} \\
+BuballaR-2 & eNJL2$\omega\rho$1 & \np{1570} \\
+BuballaR-2 & eNJL3 & \np{1588} \\
+BuballaR-2 & eNJL3$\sigma\rho$1 & \np{1587} \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
@@ -379,7 +354,7 @@ BuballaR-2 & eNJL3$\sigma\rho$1 & \np{1587.4} \\
 \section{Conclusions}
 %%%%%%%%%%%%%%%%%%%%%
 
-From Fig.~\ref{Fig:NoIntersection}, we can see that not all combinations of parameterizations produce a system in which a phase-transition is favored. Another manifestation of the dependence of the results in the choice of parameterizations is the range of chemical potential for which the transition takes place: it spans from \np[MeV]{1248,3} to \np[MeV]{1744,3}, a 40\% difference in relation to the lowest value. This indicates that the choice of parameterizations to produce a complete phase-diagram should made with care.
+From Fig.~\ref{Fig:NoIntersection}, we can see that not all combinations of parameterizations produce a system in which a phase-transition is favored. Another manifestation of the dependence of the results in the choice of parameterizations is the range of chemical potential for which the transition takes place: it spans from \np[MeV]{1244} to \np[MeV]{1744}, a 40\% difference in relation to the lowest value. This indicates that the choice of parameterizations to produce a complete phase-diagram should made with care.
 
 As a next step on this analysis, we shall turn our attention to expand our results for finite temperature and obtain the binodal sections.
 
