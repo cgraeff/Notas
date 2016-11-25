@@ -28,14 +28,14 @@
 
 \author{Clebson A. Graeff}
 
-\address{Departamento de Física, Universidade Tecnológica Federal do Paraná, Via do Conhecimento, Km 1 CEP 85503-390\\
-Pato Branco, Paraná,
+\address{Departamento de F\'isica, Universidade Tecnol\'ogica Federal do Paran\'a, Via do Conhecimento, Km 1 CEP 85503-390\\
+Pato Branco, Paran\'a,
 Brazil
 cgraeff@utfpr.ed.br}
 
-\author{Débora P. Menezes}
+\author{D\'ebora P. Menezes}
 
-\address{Departamento de Física, Universidade Federal de Santa Catarina\\ Florianópolis, SC, CP 476, CEP 88.040-900, Brazil\\
+\address{Departamento de F\'isica, Universidade Federal de Santa Catarina\\ Florian\'opolis, SC, CP 476, CEP 88.040-900, Brazil\\
 debora.p.m@ufsc.br}
 
 \maketitle
@@ -71,14 +71,14 @@ The quark phase is described by a SU(2) NJL model lagrangian, including a vector
 Here $\psi$ represents the quark field, $m_0$ the quark bare mass, and $G_S$ and $G_V$ are coupling constants that are chosen by fitting the pion mass $m_\pi = 135.0~\rm{MeV}$ and decay constant $f_\pi = 92.4~\rm{MeV}$. As the theory is non-renormalizable, a momentum cutoff $\Lambda$ is employed, which acts as a new parameter.
 
 \begin{table}[ph]
-\tbl{Parameters sets for the lagrangian density~\eqref{Eq:LagNJL-SU2-Bub} \cite{Buballa1996,Buballa2005}.}
+\tbl{Parameters sets for the lagrangian density~\protect\eqref{Eq:LagNJL-SU2-Bub} \protect\cite{Buballa1996,Buballa2005}.}
 {\begin{tabular}{@{}lcccccccc@{}}\toprule
 Model &  $\Lambda$ & $G_S$ ($\rm{fm}^2$) & $G_V$ ($\rm{fm}^2$) & $m_0$ (MeV) & $m$ (MeV) \\ \colrule
-Buballa-1 & 650 & 0.19721 & -- & 0 & 313 \\
-Buballa-2 & 600 & 0.26498 & -- & 0 & 400 \\
-Buballa-3 & 570 & 0.34034 & -- & 0 & 500 \\
-BuballaR-2 & 587.9 & 0.27449 & 0 & 5.6 & 400 \\
-BuballaR-2$_{G_V}$ & 587.9 & 0.27449 & $G_V \propto G_S$ & 5.6 & 400\\
+$B_1$ & 650 & 0.19721 & -- & 0 & 313 \\
+$B_2$ & 600 & 0.26498 & -- & 0 & 400 \\
+$B_3$ & 570 & 0.34034 & -- & 0 & 500 \\
+$B_2^R$ & 587.9 & 0.27449 & 0 & 5.6 & 400 \\
+$B_2^R|_{G_V}$ & 587.9 & 0.27449 & $G_V \propto G_S$ & 5.6 & 400\\
 \botrule
 \end{tabular} \label{Tab:Parametros_NJL}}
 \end{table}
@@ -99,70 +99,35 @@ Even though the original NJL model is unable to describe the saturation properti
 %
 where $\psi$ represents the nucleon field and the constants $G_i$ represents the coupling constants for the different channels.
 
-\begin{table}[!htpb]
-\centering
-\caption{Chemical potential $\mu_B^i$ at crossing point por different parameterization combinations. For BuballaR-2 in this table we have $G_V = 0$.\label{Tab:Transition_chemical_pot}}
-\begin{ruledtabular}
-\begin{tabular}{cccc}
-Quarks & Hadrons & $\mu_B^i$ (MeV) & $P^i$ (MeV/fm$^3$) \\
-\hline
-Buballa-1 & eNJL1 & 1244 & 122\\
-Buballa-1 & eNJL1$\omega\rho$1 & 1244 & 122 \\
-Buballa-1 & eNJL1$\omega\rho$2 & 1244 & 122 \\
-Buballa-1 & eNJL2 & 1373 & 216\\
-Buballa-1 & eNJL2m & 1279 & 145\\
-Buballa-1 & eNJL2m$\sigma\rho$1 & 1279 & 145 \\
-Buballa-1 & eNJL2$\omega\rho$1 & 1373 & 216 \\
-Buballa-1 & eNJL3 & 1313 & 169\\
-Buballa-1 & eNJL3$\sigma\rho$1 & 1313 & 169 \\
-Buballa-2 & eNJL1 & 1460 & 235\\
-Buballa-2 & eNJL1$\omega\rho$1 & 1460 & 235 \\
-Buballa-2 & eNJL1$\omega\rho$2 & 1460 & 235 \\
-Buballa-2 & eNJL2 & 1557 & 343\\
-Buballa-2 & eNJL2m & 1675 & 506\\
-Buballa-2 & eNJL2m$\sigma\rho$1 & 1675 & 506 \\
-Buballa-2 & eNJL2$\omega\rho$1 & 1557 & 343 \\
-Buballa-2 & eNJL3 & 1571 & 361 \\
-Buballa-2 & eNJL3$\sigma\rho$1 & 1571 & 361 \\
-Buballa-3 & eNJL1 & 1615 & 330\\
-Buballa-3 & eNJL1$\omega\rho$1 & 1615 & 331 \\
-Buballa-3 & eNJL1$\omega\rho$2 & 1615 & 331 \\
-Buballa-3 & eNJL2 & 1700 & 456 \\
-Buballa-3 & eNJL2$\omega\rho$1 & 1700 & 456 \\
-Buballa-3 & eNJL3 & 1744 & 530\\
-Buballa-3 & eNJL3$\sigma\rho$1 & 1744 & 530 \\
-BuballaR-2 & eNJL1 & 1475 & 244 \\
-BuballaR-2 & eNJL1$\omega\rho$1 & 1475 & 244 \\
-BuballaR-2 & eNJL1$\omega\rho$2 & 1475 & 244 \\
-BuballaR-2 & eNJL2 & 1570 & 354 \\
-BuballaR-2 & eNJL2m & 1730 & 587\\
-BuballaR-2 & eNJL2m$\sigma\rho$1 & 1730 & 587 \\
-BuballaR-2 & eNJL2$\omega\rho$1 & 1570 & 354 \\
-BuballaR-2 & eNJL3 & 1587 & 376 \\
-BuballaR-2 & eNJL3$\sigma\rho$1 & 1587 & 376 \\
-\end{tabular}
-\end{ruledtabular}
+\begin{table}[ph]
+\tbl{Parameters sets for the lagrangian density~\protect\eqref{Eq:Lagrangiana_eNLJ_Pais} \protect\cite{Pais2016}.}
+{\begin{tabular}{@{}lcccccccc@{}}\toprule
+Model & $G_s$ ($\rm{fm}^2$) & $G_v$ ($\rm{fm}^2$) & $G_{sv}$ ($\rm{fm}^8$) & $G_\rho$ ($\rm{fm}^2$) & $G_{v\rho}$ ($\rm{fm}^8$) & $G_{s\rho}$ ($\rm{fm}^8$) & $\Lambda$ (MeV) & $m$ (MeV) \\ \colrule
+eNJL1 & 4.855 & 4.65 & -6.583 & 0.5876 & 0 & 0 & 388.189 & 0 \\
+eNJL1$^m$ & 1.3833 & 1.781 & -2.943 & 0.7 & 0 & 0 & 478.248 & 450 \\
+eNJL1$_{\omega\rho 1}$ & 4.855 & 4.65 & -6.583 & 0.5976 & -1 & 0 & 388.189 & 0 \\
+eNJL1$_{\omega\rho 2}$ & 4.855 & 4.65 & -6.583 & 0.6476 & -6 & 0 & 388.189 & 0 \\
+eNJL2 & 3.8 & 3.8 & -4.228 & 0.6313 & 0 & 0 & 422.384 & 0 \\
+eNJL2$^m$ & 1.078 & 1.955 & -2.74 & 0.75 & 0 & 0 & 502.466 & 450 \\
+eNJL2$_{\omega\rho 1}$ & 3.8 & 3.8 & -4.228 & 0.6413 & -1 & 0 & 422.384 & 0 \\
+eNJL3 & 1.93 & 3.0 & -1.8 & 0.65 & 0 & 0 & 534.815 & 0 \\
+eNJL3$_{\sigma\rho 1}$ & 1.93 & 3.0 & -1.8 & 0.0269 & 0 & 0.5 & 534.815 & 0 \\
+eNJL1$^m_{\sigma\rho 1}$ & 1.3833 & 1.781 & -2.943 & 0.0739 & 0 & 1 & 478.248 & 450 \\
+eNJL2$^m_{\sigma\rho 1}$ & 1.078 & 1.955 & -2.74 & -0.1114 & 0 & 1 & 502.466 & 450 \\
+\botrule
+\end{tabular}\label{Tab:Parametros_eNJL}}
 \end{table}
 
-%%%%%%%%%%%%
-\columnbreak
 
 %%%%%%%%%%%%%%%%%%%
 \section{Binodals}
 
 The QCD phase-diagram is characterized by potentially multiple phases, whose phase separation boundaries are referred as \emph{binodals}. Over those boundaries, the phases from the regions of either side of the boundary can coexist. The binodals may be determined using the Gibbs' conditions \cite{Cavagnoli2011}:
-\begin{align}
-\mu_B^Q &= \mu_B^H\\
-T^Q &= T^H \\
+\begin{align*}
+\mu_B^Q &= \mu_B^H &	\mu_B^H &= \frac{\mu_p + \mu_n}{2} \\
+T^Q &= T^H & 	\mu_B^Q &= \frac{3}{2} (\mu_u + \mu_d) = 3 \mu_q\\
 P^Q &= P^H
-\end{align}
-%
-and
-\begin{align}
-	\mu_B^H &= \frac{\mu_p + \mu_n}{2} \\
-	\mu_B^Q &= \frac{3}{2} (\mu_u + \mu_d) = 3 \mu_q.
-\end{align}
-
+\end{align*}
 
 \noindent{}where the indexes $H$ and $Q$ refer to the hadrons and quarks phases. The phase coexistence may then be obtained by simply plotting $P^i \times \mu_B^i$, $i = Q, H$, and looking for the intersection of both lines.
 
@@ -178,30 +143,29 @@ In Table~\ref{Tab:Transition_chemical_pot} we show the chemical potential $\mu_B
 \input{graph/quark-hadron_phase_transition}
 \end{figure}
 
-\begin{table}
-\centering
-\caption{Chemical potential $\mu_B^i$ at crossing point por different parameterization combinations. \label{Tab:Transition_chemical_pot}}
-\begin{tabular}{ccccccc}
-\toprule
-Quarks & Hadrons & $\mu_B^i$ (MeV) &\phantom{~o~}& Quarks & Hadrons & $\mu_B^i$ (MeV)\\
-\cmidrule{1-3} \cmidrule{5-7}
-Buballa-1 & eNJL1 & 1243.8 && Buballa-3 & eNJL1 & 1615.3 \\
-Buballa-1 & eNJL1$\omega\rho$1 & 1243.8 && Buballa-3 & eNJL1$\omega\rho$1 & 1615.3 \\
-Buballa-1 & eNJL2 & 1373.0 && Buballa-3 & eNJL2 & 1700.0 \\
-Buballa-1 & eNJL2m & 1278.7 && Buballa-3 & eNJL2$\omega\rho$1 & 1700.0 \\
-Buballa-1 & eNJL2$\omega\rho$1 & 1373.0 && Buballa-3 & eNJL3 & 1744.3 \\
-Buballa-1 & eNJL3 & 1312.9 && Buballa-3 & eNJL3$\sigma\rho$1 & 1744.3 \\
-Buballa-1 & eNJL3$\sigma\rho$1 & 1312.9 && BuballaR-2 & eNJL1 & 1474.9 \\
-Buballa-2 & eNJL1 & 1460.1 && BuballaR-2 & eNJL1$\omega\rho$1 & 1474.9 \\
-Buballa-2 & eNJL1$\omega\rho$1 & 1460.0 && BuballaR-2 & eNJL2 & 1570.3 \\
-Buballa-2 & eNJL2 & 1556.8 && BuballaR-2 & eNJL2m & 1729.6 \\
-Buballa-2 & eNJL2m & 1674.9 && BuballaR-2 & eNJL2$\omega\rho$1 & 1570.3 \\
-Buballa-2 & eNJL2$\omega\rho$1 & 1556.8 && BuballaR-2 & eNJL3 & 1587.5 \\
-Buballa-2 & eNJL3 & 1570.7 && BuballaR-2 & eNJL3$\sigma\rho$1 & 1587.4 \\
-Buballa-2 & eNJL3$\sigma\rho$1 & 1570.7 \\
-
-\bottomrule
-\end{tabular}
+\begin{table}[ph]
+\tbl{Chemical potential $\mu_B^i$ at crossing point por different parameterization combinations..}
+{\begin{tabular}{@{}ccccccccc@{}} \toprule
+$Q$ & $H$ & $\mu_B^i$ (MeV) & $P^i$ ($\frac{\rm{MeV}}{\rm{fm}^3}$) && $Q$ & $H$ & $\mu_B^i$ (MeV) & $P^i$ ($\frac{\rm{MeV}}{\rm{fm}^3}$)  \\ \colrule
+$B_1$ & eNJL1 & 1244 & 122                    &&   $B_2$ & eNJL3$_{\sigma\rho 1}$ & 1571 & 361    \\
+$B_1$ & eNJL1$_{\omega\rho 1}$ & 1244 & 122   &&   $B_3$ & eNJL1 & 1615 & 330                 \\
+$B_1$ & eNJL1$_{\omega\rho 2}$ & 1244 & 122   &&   $B_3$ & eNJL1$_{\omega\rho 1}$ & 1615 & 331    \\
+$B_1$ & eNJL2 & 1373 & 216                    &&   $B_3$ & eNJL1$_{\omega\rho 2}$ & 1615 & 331    \\
+$B_1$ & eNJL2$^m$ & 1279 & 145                   &&   $B_3$ & eNJL2 & 1700 & 456                 \\
+$B_1$ & eNJL2$^m_{\sigma\rho 1}$ & 1279 & 145  &&   $B_3$ & eNJL2$_{\omega\rho 1}$ & 1700 & 456    \\
+$B_1$ & eNJL2$_{\omega\rho 1}$ & 1373 & 216   &&   $B_3$ & eNJL3 & 1744 & 530                 \\
+$B_1$ & eNJL3 & 1313 & 169                    &&   $B_3$ & eNJL3$_{\sigma\rho 1}$ & 1744 & 530    \\
+$B_1$ & eNJL3$_{\sigma\rho 1}$ & 1313 & 169   &&   $B_2^R$ & eNJL1 & 1475 & 244                \\
+$B_2$ & eNJL1 & 1460 & 235                    &&   $B_2^R$ & eNJL1$_{\omega\rho 1}$ & 1475 & 244   \\
+$B_2$ & eNJL1$_{\omega\rho 1}$ & 1460 & 235   &&   $B_2^R$ & eNJL1$_{\omega\rho 2}$ & 1475 & 244   \\
+$B_2$ & eNJL1$_{\omega\rho 2}$ & 1460 & 235   &&   $B_2^R$ & eNJL2 & 1570 & 354                \\
+$B_2$ & eNJL2 & 1557 & 343                    &&   $B_2^R$ & eNJL2$^m$ & 1730 & 587               \\
+$B_2$ & eNJL2$^m$ & 1675 & 506                   &&   $B_2^R$ & eNJL2$^m_{\sigma\rho 1}$ & 1730 & 587  \\
+$B_2$ & eNJL2$^m_{\sigma\rho 1}$ & 1675 & 506  &&   $B_2^R$ & eNJL2$_{\omega\rho 1}$ & 1570 & 354   \\
+$B_2$ & eNJL2$_{\omega\rho 1}$ & 1557 & 343   &&   $B_2^R$ & eNJL3 & 1587 & 376                \\
+$B_2$ & eNJL3 & 1571 & 361                    &&   $B_2^R$ & eNJL3$_{\sigma\rho 1}$ & 1587 & 376   \\
+\botrule
+\end{tabular} \label{Tab:Transition_chemical_pot}}
 \end{table}
 
 
