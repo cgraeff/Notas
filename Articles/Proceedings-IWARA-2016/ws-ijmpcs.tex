@@ -15,8 +15,8 @@
 
 \begin{document}
 
-\markboth{F. Author \& S. Author}
-{Insert running title (not more than 8 words)}
+\markboth{C. A. Graeff \& D. P. Menezes}
+{NJL/eNJL phase diagram}
 
 %%%%%%%%%%%%%%%%%%%%% Publisher's Area please ignore %%%%%%%%%%%%%%%
 %
@@ -24,25 +24,19 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{Instructions for typesetting
-manuscripts\footnote{Not more than
-3 lines. Typeset the title in 10 pt roman, uppercase and
-boldface.}}
+\title{The QCD phase-diagram obtained from the NJL and the extended-NJL models for quark and hadron phases}
 
-\author{First Author\footnote{Typeset names in 8 pt roman, uppercase.}}
+\author{Clebson A. Graeff}
 
-\address{University Department, University Name, Address\\
-City, State ZIP/Zone,
-Country\footnote{State completely without abbreviations, the
-affiliation and mailing address, including country. Typeset in 8 pt
-italic.}\\
-first\_author@domain\_name}
+\address{Departamento de Física, Universidade Tecnológica Federal do Paraná, Via do Conhecimento, Km 1 CEP 85503-390\\
+Pato Branco, Paraná,
+Brazil
+cgraeff@utfpr.ed.br}
 
-\author{Second Author}
+\author{Débora P. Menezes}
 
-\address{Group, Laboratory, Address\\
-City, State ZIP/Zone, Country\\
-second\_author@domain\_name}
+\address{Departamento de Física, Universidade Federal de Santa Catarina\\ Florianópolis, SC, CP 476, CEP 88.040-900, Brazil\\
+debora.p.m@ufsc.br}
 
 \maketitle
 
@@ -53,270 +47,171 @@ second\_author@domain\_name}
 \end{history}
 
 \begin{abstract}
-The abstract should summarize the context, content
-and conclusions of the paper in less than 200 words. It should
-not contain any references or displayed equations. Typeset the
-abstract in 8 pt roman with baselineskip of 10 pt, making
-an indentation of 1.5 pica on the left and right margins.
-\keywords{Keyword1; keyword2; keyword3.}
+We analyse the hadron/quark phase transition described by the Nambu-Jona-Lasinio (NJL) model [quark phase] and the extended Nambu-Jona-Lasinio model (eNJL) [hadron phase]. While the original formulation of NJL model is not capable of describing hadronic properties due to its lack of confinement, it can be extended with a scalar-vector interaction so it exhibits this property, the so-called  eNJL model. As part of this analysis, we obtain the equations of state within the SU(2) versions of both models for the hadron and the quark phases and determine the binodal surface. 
+\keywords{Phase-transition; NJL; binodal.}
 \end{abstract}
 
 \ccode{PACS numbers:}
 
-\section{General Appearance}	
-Contributions to {\it International Journal of Modern Physics:
-Conference Series} are to be in American English. Authors are
-encouraged to have their contribution checked for grammar. American
-spelling should be used. Abbreviations are allowed but should be spelt
-out in full when first used. Integers ten and below are to be spelt
-out.  Italicize foreign language phrases (e.g.~Latin, French).  Upon
-acceptance, authors are required to submit their data source file
-including postscript files for figures.
+%%%%%%%%%%%%%%%%%%%%%%%
+\section{Motivation}
 
-The text is to be typeset in 10 pt roman, single spaced with
-baselineskip of 13~pt. Text area (including copyright block)
-is 8 inches high and 5 inches wide for the first page.  Text area
-(excluding running title) is 7.7 inches high and 5 inches wide for
-subsequent pages.  Final pagination and insertion of running titles
-will be done by the publisher.
+The study of the QCD phase-diagram is relevant to the understanding of many aspects of the physics in our universe. Two of the aspects of interest are related to relativistic heavy ion collisions (low densities, high temperatures) and stars (high densities, low temperatures). However, the direct solution of QCD is not possible at finite chemical potential.
 
-\section{Running Heads}
+Given the importance of the study of the phases and the phase separation boundaries, we propose an investigation of the hadron/quark phase transition within a two phase model.
 
-Please provide a shortened runninghead (not more than eight words) for
-the title of your paper. This will appear on the top right-hand side
-of your paper.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Quark phase matter}
 
-\section{Major Headings}
-
-Major headings should be typeset in boldface with the first
-letter of important words capitalized.
-
-\subsection{Subheadings}
-
-Subheadings should be typeset in boldface italic and capitalize
-the first letter of the first word only. Section number to be in
-boldface roman.
-
-\subsubsection{Sub-subheadings}
-
-Typeset sub-subheadings in medium face italic and capitalize the
-first letter of the first word only. Section numbers to be in
-roman.
-
-\subsection{Numbering and spacing}
-
-Sections, subsections and subsubsections are numbered in
-Arabic.  Use double spacing before all section headings, and
-single spacing after section headings. Flush left all paragraphs
-that follow after section headings.
-
-\subsection{Lists of items}
-
-Lists may be laid out with each item marked by a dot:
-\begin{itemlist}
- \item item one,
- \item item two.
-\end{itemlist}
-Items may also be numbered in lowercase roman numerals:
-\begin{romanlist}[(ii)]
-\item item one,
-\item item two.
-	\begin{romanlist}[(b)]
-	\item Lists within lists can be numbered with lowercase
-              roman letters,
-	\item second item.
-	\end{romanlist}
-\end{romanlist}
-
-\section{Equations}
-
-Displayed equations should be numbered consecutively in each
-section, with the number set flush right and enclosed in
-parentheses
-\begin{equation}
-\mu(n,t)=\frac{\sum^\infty_{i=1} 1(d_i < t, N(d_i)= n)}{\int^t_{\sigma=0} 1(N(\sigma) = n)d\sigma}\,.
-\label{diseqn}
+The quark phase is described by a SU(2) NJL model lagrangian, including a vector-isoscalar term, given by \cite{Buballa2005}
+\begin{equation}\label{Eq:LagNJL-SU2-Bub}
+	\mathcal{L} =\bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi + G_S[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] - G_V(\bar{\psi}\gamma^\mu \psi)^2.
 \end{equation}
-
-Equations should be referred to in abbreviated form,
-e.g.~``Eq.~(\ref{diseqn})'' or ``(2).'' In multiple-line
-equations, the number should be given on the last line.
-
-\begin{figure}[pb]
-\centerline{\includegraphics[width=4.7cm]{ijmpcsf1}}
-\vspace*{8pt}
-\caption{A schematic illustration of dissociative recombination. The
-direct mechanism, 4m$^2_\pi$ is initiated when the
-molecular ion S$_{\rm L}$ captures an electron with
-kinetic energy. \label{f1}}
-\end{figure}
-
-Displayed equations are to be centered on the page width.
-Standard English letters like x are to appear as $x$
-(italicized) in the text if they are used as mathematical
-symbols. Punctuation marks are used at the end of equations as
-if they appeared directly in the text.
-
-\section{Theorem Environments}
-
-\begin{theorem}
-Theorems$,$ lemmas$,$ propositions$,$ corollaries are to be numbered
-consecutively in the paper or in each section. Use italic for the
-body and upper and lower case boldface$,$ for the declaration.
-\end{theorem}
-
-\begin{remark}
-Remarks, examples, definitions are to be numbered
-consecutively in the paper or in each section. Use roman for the
-body and upper and lower case boldface$,$ for the declaration.
-\end{remark}
-
-\begin{proof}
-The word `Proof' should be type in boldface. Proofs
-should end with\break a box.
-\end{proof}
-
-\section{Figures}
-Figures are to be embedded in the text nearest their first reference
-and sequentially numbered in Arabic numerals. The caption must be
-placed below the figure (see Fig.~\ref{f1}) and typeset in 8 pt roman with
-baselineskip of 10 pt. Use double spacing between a caption and the
-text that follows immediately.
-
-Figures should be black and white (or half-tone) and of a good
-resolution and sharpness. Compressed formats, such as JPEG, should not
-use heavy compression, which introduces undesirable artifacts. Bitmap
-figures, such as photographs or half-tone images, should be at least
-300 dpi (TIFF, BMP or JPEG). Vector (line-art) figures, such as
-charts and technical drawings, should be 600--1200 dpi (EPS, PS,
-PDF). The native formats of software packages will not be permitted.
-
-Previously published material must be accompanied by written
-permission from the author and publisher.
-
-\section{Tables}
-Tables should be inserted in the text as close to the point of
-reference as possible. Some space should be left above and below
-the table.
-
-Tables should be numbered sequentially in the text in Arabic
-numerals. Captions are to be centralized above the tables (see
-Table~\ref{ta1}).  Typeset tables and captions in 8 pt roman with
-baselineskip of 10 pt.
+%
+Here $\psi$ represents the quark field, $m_0$ the quark bare mass, and $G_S$ and $G_V$ are coupling constants that are chosen by fitting the pion mass $m_\pi = 135.0~\rm{MeV}$ and decay constant $f_\pi = 92.4~\rm{MeV}$. As the theory is non-renormalizable, a momentum cutoff $\Lambda$ is employed, which acts as a new parameter.
 
 \begin{table}[ph]
-\tbl{Comparison of acoustic for frequencies for piston-cylinder problem.}
-{\begin{tabular}{@{}cccc@{}} \toprule
-Piston mass & Analytical frequency & TRIA6-$S_1$ model &
-\% Error \\
-& (Rad/s) & (Rad/s) \\ \colrule
-1.0\hphantom{00} & \hphantom{0}281.0 & \hphantom{0}280.81 & 0.07 \\
-0.1\hphantom{00} & \hphantom{0}876.0 & \hphantom{0}875.74 & 0.03 \\
-0.01\hphantom{0} & 2441.0 & 2441.0\hphantom{0} & 0.0\hphantom{0} \\
-0.001 & 4130.0 & 4129.3\hphantom{0} & 0.16\\ \botrule
-\end{tabular} \label{ta1}}
+\tbl{Parameters sets for the lagrangian density~\eqref{Eq:LagNJL-SU2-Bub} \cite{Buballa1996,Buballa2005}.}
+{\begin{tabular}{@{}lcccccccc@{}}\toprule
+Model &  $\Lambda$ & $G_S$ ($\rm{fm}^2$) & $G_V$ ($\rm{fm}^2$) & $m_0$ (MeV) & $m$ (MeV) \\ \colrule
+Buballa-1 & 650 & 0.19721 & -- & 0 & 313 \\
+Buballa-2 & 600 & 0.26498 & -- & 0 & 400 \\
+Buballa-3 & 570 & 0.34034 & -- & 0 & 500 \\
+BuballaR-2 & 587.9 & 0.27449 & 0 & 5.6 & 400 \\
+BuballaR-2$_{G_V}$ & 587.9 & 0.27449 & $G_V \propto G_S$ & 5.6 & 400\\
+\botrule
+\end{tabular} \label{Tab:Parametros_NJL}}
 \end{table}
 
-If tables need to extend over to a second page, the continuation of
-the table should be preceded by a caption, e.g.~``{\it Table 2.}
-$(${\it Continued}$)$''.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Hadron phase matter}
 
-\section{Footnotes}
+Even though the original NJL model is unable to describe the saturation properties of the nuclear matter, this can be fixed by the inclusion of extra channels which combine the scalar and vector terms~\cite{Koch1987}. An extended NJL model (eNJL)~\cite{Pais2016} which includes such channel is given by the lagrangian density
+\begin{equation}\label{Eq:Lagrangiana_eNLJ_Pais}
+\begin{split}
+	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi + G_s[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] - G_v(\bar{\psi}\gamma^\mu\psi)^2 \\
+	& - G_{sv}[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2](\bar{\psi}\gamma^\mu\psi)^2 \\
+	& - G_\rho[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
+	& - G_{v\rho}(\bar{\psi}\gamma^\mu\psi)^2[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
+	& - G_{s\rho} [(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2][(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2].
+\end{split}
+\end{equation}
+%
+where $\psi$ represents the nucleon field and the constants $G_i$ represents the coupling constants for the different channels.
 
-Footnotes should be numbered sequentially in superscript
-lowercase roman letters.\footnote{Footnotes should be
-typeset in 8 pt roman at the bottom of the page.}
+\begin{table}
+\centering
+\caption{Parameters sets for the lagrangian density~\eqref{Eq:Lagrangiana_eNLJ_Pais} \cite{Pais2016}. \label{Tab:Parametros_eNJL}}
+\begin{tabular}{lcccccccc}
+\toprule
+Model & $G_s$ ($\rm{fm}^2$) & $G_v$ ($\rm{fm}^2$) & $G_{sv}$ ($\rm{fm}^8$) & $G_\rho$ ($\rm{fm}^2$) & $G_{v\rho}$ ($\rm{fm}^8$) & $G_{s\rho}$ ($\rm{fm}^8$) & $\Lambda$ (MeV) & $m$ (MeV) \\
+\midrule
+eNJL1 & 4.855 & 4.65 & -6.583 & 0.5876 & 0 & 0 & 388.189 & 0 \\
+eNJL1m & 1.3833 & 1.781 & -2.943 & 0.7 & 0 & 0 & 478.248 & 450 \\
+eNJL1$\omega\rho$1 & 4.855 & 4.65 & -6.583 & 0.5976 & -1 & 0 & 388.189 & 0 \\
+%eNJL1$\omega\rho$2 & 4.855 & 4.65 & -6.583 & 0.6476 & -6 & 0 & 388.189 & 0 \\
+eNJL2 & 3.8 & 3.8 & -4.228 & 0.6313 & 0 & 0 & 422.384 & 0 \\
+eNJL2m & 1.078 & 1.955 & -2.74 & 0.75 & 0 & 0 & 502.466 & 450 \\
+eNJL2$\omega\rho$1 & 3.8 & 3.8 & -4.228 & 0.6413 & -1 & 0 & 422.384 & 0 \\
+eNJL3 & 1.93 & 3.0 & -1.8 & 0.65 & 0 & 0 & 534.815 & 0 \\
+eNJL3$\sigma\rho$1 & 1.93 & 3.0 & -1.8 & 0.0269 & 0 & 0.5 & 534.815 & 0 \\
+%eNJL1m$\sigma\rho$1 & 1.3833 & 1.781 & -2.943 & 0.0739 & 0 & 1 & 478.248 & 450 \\
+%eNJL2m$\sigma\rho$1 & 1.078 & 1.955 & -2.74 & -0.1114 & 0 & 1 & 502.466 & 450 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\section*{Acknowledgments}
+%%%%%%%%%%%%
+\columnbreak
 
-This section should come before the References. Dedications and funding
-information may also be included here.
+%%%%%%%%%%%%%%%%%%%
+\section{Binodals}
 
-\appendix
+The QCD phase-diagram is characterized by potentially multiple phases, whose phase separation boundaries are referred as \emph{binodals}. Over those boundaries, the phases from the regions of either side of the boundary can coexist. The binodals may be determined using the Gibbs' conditions \cite{Cavagnoli2011}:
+\begin{align}
+\mu_B^Q &= \mu_B^H\\
+T^Q &= T^H \\
+P^Q &= P^H
+\end{align}
+%
+and
+\begin{align}
+	\mu_B^H &= \frac{\mu_p + \mu_n}{2} \\
+	\mu_B^Q &= \frac{3}{2} (\mu_u + \mu_d) = 3 \mu_q.
+\end{align}
 
-\section{Appendices}
 
-Appendices should be used only when absolutely necessary. They
-should come before the References. If there is more than one
-appendix, number them alphabetically. Number displayed equations
-occurring in the Appendix in this way, e.g.~(\ref{app1}),\break
-(\ref{app2}), etc.
-\begin{eqnarray}	%A.1
-\begin{array}{rcl}
-g_{\mu_1\mu_2} &=& g_{axby}=-\displaystyle{\epsilon_{abc}}{4\pi}\,
-\frac{(x-y)^c}{|x-y|^3}\,, \\[8pt]
-h_{\mu_1\mu_2\mu_3} &=& \epsilon^{\alpha_1 \alpha_2 \alpha_3}
-g_{\mu_1\alpha_1}g_{\mu_2\alpha_2}g_{\mu_3\alpha_3}
-\end{array}
-\label{app1}
-\end{eqnarray}
-with
-\begin{eqnarray}	%A.2
-\epsilon^{\alpha_1 \alpha_2 \alpha_3} = \epsilon^{b_1y_1b_2y_2cx} =
-\epsilon^{b_1b_2c}\delta(x-y_1)\delta(x-y_2)\,.
-\label{app2}
-\end{eqnarray}
+\noindent{}where the indexes $H$ and $Q$ refer to the hadrons and quarks phases. The phase coexistence may then be obtained by simply plotting $P^i \times \mu_B^i$, $i = Q, H$, and looking for the intersection of both lines.
 
+%%%%%%%%%%%%%%%%%%%%
+\section{Results}
+
+We determine the equations of state for both models at $T = 0$ and proton fraction $y_p = 0.5$ (code available at \texttt{github.com/cgraeff}). The realized phase of the system is the one which maximizes the pressure. This means that the crossing of the lines, as in Figure~\ref{Fig:Pressure_func_chemical_pot}, indicates a phase transition.
+%
+In Table~\ref{Tab:Transition_chemical_pot} we show the chemical potential $\mu_B^i$ at phase-transition for combinations of parameterizations of Tables~\ref{Tab:Parametros_NJL} and~\ref{Tab:Parametros_eNJL}. Combinations for which there is no transition are ommited.
+
+\begin{figure}
+\caption{The crossing point at a $P^i \times \mu_B^i$ plot indicate the phase-coexistence. Red curves represent hadrons, blue represent quarks. From left to right (quarks, hadrons): Buballa-1--eNJL1m (no phase-transition), Buballa-1--eNJL1$\omega\rho$1, BuballaR-2--eNJL2$\omega\rho$1.\label{Fig:Pressure_func_chemical_pot}}
+\input{graph/quark-hadron_phase_transition}
+\end{figure}
+
+\begin{table}
+\centering
+\caption{Chemical potential $\mu_B^i$ at crossing point por different parameterization combinations. \label{Tab:Transition_chemical_pot}}
+\begin{tabular}{ccccccc}
+\toprule
+Quarks & Hadrons & $\mu_B^i$ (MeV) &\phantom{~o~}& Quarks & Hadrons & $\mu_B^i$ (MeV)\\
+\cmidrule{1-3} \cmidrule{5-7}
+Buballa-1 & eNJL1 & 1243.8 && Buballa-3 & eNJL1 & 1615.3 \\
+Buballa-1 & eNJL1$\omega\rho$1 & 1243.8 && Buballa-3 & eNJL1$\omega\rho$1 & 1615.3 \\
+Buballa-1 & eNJL2 & 1373.0 && Buballa-3 & eNJL2 & 1700.0 \\
+Buballa-1 & eNJL2m & 1278.7 && Buballa-3 & eNJL2$\omega\rho$1 & 1700.0 \\
+Buballa-1 & eNJL2$\omega\rho$1 & 1373.0 && Buballa-3 & eNJL3 & 1744.3 \\
+Buballa-1 & eNJL3 & 1312.9 && Buballa-3 & eNJL3$\sigma\rho$1 & 1744.3 \\
+Buballa-1 & eNJL3$\sigma\rho$1 & 1312.9 && BuballaR-2 & eNJL1 & 1474.9 \\
+Buballa-2 & eNJL1 & 1460.1 && BuballaR-2 & eNJL1$\omega\rho$1 & 1474.9 \\
+Buballa-2 & eNJL1$\omega\rho$1 & 1460.0 && BuballaR-2 & eNJL2 & 1570.3 \\
+Buballa-2 & eNJL2 & 1556.8 && BuballaR-2 & eNJL2m & 1729.6 \\
+Buballa-2 & eNJL2m & 1674.9 && BuballaR-2 & eNJL2$\omega\rho$1 & 1570.3 \\
+Buballa-2 & eNJL2$\omega\rho$1 & 1556.8 && BuballaR-2 & eNJL3 & 1587.5 \\
+Buballa-2 & eNJL3 & 1570.7 && BuballaR-2 & eNJL3$\sigma\rho$1 & 1587.4 \\
+Buballa-2 & eNJL3$\sigma\rho$1 & 1570.7 \\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusions}
+
+From the leftmost plot at Figure~\ref{Fig:Pressure_func_chemical_pot}, we can see that not all combinations of parameterizations produce a system in which a phase-transition is favored. Another manifestation of the dependence of the results in the choice of parameterizations is the range of chemical potential for which the transition takes place: it spans from 1248.3~MeV to 1744.3~MeV, a 40\% difference in relation to the lowest value. This indicates that the choice of parameterizations to produce a complete phase-diagram should made with care.
+
+As a next step on this analysis, we shall turn our attention to expand our results for finite temperature and obtain the binodal sections.
+
+%%%%%%%%%%%%%%%%%%%%
 \section{References}
+%%%%%%%%%%%%%%%%%%%%
 
-References are to be listed in the order cited in the text in Arabic
-numerals.  They should be listed according to the style shown in the
-References. Typeset references in 9 pt roman.
-
-References in the text can be typed in superscripts,
-e.g.: ``$\ldots$ have proven\cite{autbk}\cdash\cite{rvo} that
-this equation $\ldots$'' or after punctuation marks:
-``$\ldots$ in the statement.\cite{rvo}'' This is
-done using LaTeX command: ``$\backslash$cite\{name\}''.
-
-When the reference forms part of the sentence, it should not
-be typed in superscripts, e.g.: ``One can show from
-Ref.~\refcite{autbk} that $\ldots$'', ``See
-Refs.~\refcite{jpap}--\refcite{autbk}, \refcite{rvo}
-and \refcite{pro} for more details.''
-This is done using the LaTeX
-command: ``Ref.$\sim\backslash$refcite\{name\}''.
-
-%\begin{thebibliography}{000} %for 3 digits
-%\begin{thebibliography}{00}  %for 2 digits
-\begin{thebibliography}{0}    %for 1 digit
+\begin{thebibliography}{00}    %for 1 digit
 
 %%journal paper
-\bibitem{jpap} R. Loren and D. B. Benson, {\it J. Comput.
-System Sci.} {\bf 27}, 400 (1983).
+\bibitem{Pais2016} H. Pais, D. P. Menezes and C. Providência, {\it Phys. Rev. C} {\bf 93} (2016) 065805.
 
-%%collaboration
-\bibitem{colla} OPAL Collab. (G. Abbiendi {\it et al}.),
-{\it Eur. J. Phys. C\/} {\bf 11}, 217 (1999).
+\bibitem{Buballa1996} M. Buballa, {\it Nuclear Physics A} {\bf 611} (1996) 393-408
 
-%%normal book (authors)
-\bibitem{autbk} R. Loren and D. B. Benson, {\it Introduction to String
-Field Theory}, 2nd edn. (Springer-Verlag, New York, 1999).
+\bibitem{Buballa2005} M. Buballa, {\it Phys. Rep.} {\bf 407} (2005) 205-376
 
-%%normal book (editors)
-\bibitem{edbk} R. Loren and D. B. Benson (eds.), {\it Introduction to
-String Field Theory}, 2nd edn. (Springer-Verlag, New York, 1999).
+\bibitem{Lee2013} T. Lee, Y. Tsue, J. da Provid{\^e}ncia, C. Provid{\^e}ncia, M. Yamamura, {\it Prog. Theor. Exp. Phys.} {\bf 2013} 013D02
 
-%%review volume
-\bibitem{rvo} C. M. Wang, J. N. Reddy and K. H. Lee, New set of
-buckling parameters, in {\it Shear Deformable Beams}, ed.~T. Rex
-(Elsevier, Oxford, 2000), p.~201.
+\bibitem{Tsue2010} Y. Tsue, J. da Provid{\^e}ncia, C. Provid{\^e}ncia, M. Yamamura {\it Progress of Theoretical Physics} {\bf 123} (2010)
 
-%%book in a series
-\bibitem{seri} R. Loren, J. Li and D. B. Benson, Deterministic flow-chart
-interpretations, in {\it Introduction to String Field Theory},
-Ad. Series in Math. Phys., Vol.~3 (Springer-Verlag, New York, 1999),
-p.~401.
+\bibitem{Menezes2003} D. P. Menezes, C. Providência, {\it Phys. Rev. C} {\bf 68} (2003) 035804
 
-%%proceedings
-\bibitem{pro} R. Loren, J. Li and D. B. Benson, Deterministic
-flow-chart interpretations, in {\it Proc. 3rd Int. Conf.
-Entity-Relationship Approach}, eds. C. G. Davis and R. T. Yeh
-(North-Holland, Amsterdam, 1983), p.~421.
+\bibitem{Koch1987} V. Kock, T. S. Biro, J. Kunz, U. Mosel, {\it Physics Letters B} {\bf 185} (1987) 1-5
 
-%%to be published
-\bibitem{publ} R. Loren, J. Li and D. B. Benson, Deterministic
-flow-chart interpretations, to appear in {\it J. Comput. System Sci.}
+\bibitem{Cavagnoli2011} R. Cavagnoli, C. Providência, D. P. Menezes, {\it Phys. Rev. C} {\bf 83} (2011) 045201
+
 \end{thebibliography}
 
 \end{document}
