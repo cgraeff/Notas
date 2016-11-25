@@ -99,26 +99,49 @@ Even though the original NJL model is unable to describe the saturation properti
 %
 where $\psi$ represents the nucleon field and the constants $G_i$ represents the coupling constants for the different channels.
 
-\begin{table}
+\begin{table}[!htpb]
 \centering
-\caption{Parameters sets for the lagrangian density~\eqref{Eq:Lagrangiana_eNLJ_Pais} \cite{Pais2016}. \label{Tab:Parametros_eNJL}}
-\begin{tabular}{lcccccccc}
-\toprule
-Model & $G_s$ ($\rm{fm}^2$) & $G_v$ ($\rm{fm}^2$) & $G_{sv}$ ($\rm{fm}^8$) & $G_\rho$ ($\rm{fm}^2$) & $G_{v\rho}$ ($\rm{fm}^8$) & $G_{s\rho}$ ($\rm{fm}^8$) & $\Lambda$ (MeV) & $m$ (MeV) \\
-\midrule
-eNJL1 & 4.855 & 4.65 & -6.583 & 0.5876 & 0 & 0 & 388.189 & 0 \\
-eNJL1m & 1.3833 & 1.781 & -2.943 & 0.7 & 0 & 0 & 478.248 & 450 \\
-eNJL1$\omega\rho$1 & 4.855 & 4.65 & -6.583 & 0.5976 & -1 & 0 & 388.189 & 0 \\
-%eNJL1$\omega\rho$2 & 4.855 & 4.65 & -6.583 & 0.6476 & -6 & 0 & 388.189 & 0 \\
-eNJL2 & 3.8 & 3.8 & -4.228 & 0.6313 & 0 & 0 & 422.384 & 0 \\
-eNJL2m & 1.078 & 1.955 & -2.74 & 0.75 & 0 & 0 & 502.466 & 450 \\
-eNJL2$\omega\rho$1 & 3.8 & 3.8 & -4.228 & 0.6413 & -1 & 0 & 422.384 & 0 \\
-eNJL3 & 1.93 & 3.0 & -1.8 & 0.65 & 0 & 0 & 534.815 & 0 \\
-eNJL3$\sigma\rho$1 & 1.93 & 3.0 & -1.8 & 0.0269 & 0 & 0.5 & 534.815 & 0 \\
-%eNJL1m$\sigma\rho$1 & 1.3833 & 1.781 & -2.943 & 0.0739 & 0 & 1 & 478.248 & 450 \\
-%eNJL2m$\sigma\rho$1 & 1.078 & 1.955 & -2.74 & -0.1114 & 0 & 1 & 502.466 & 450 \\
-\bottomrule
+\caption{Chemical potential $\mu_B^i$ at crossing point por different parameterization combinations. For BuballaR-2 in this table we have $G_V = 0$.\label{Tab:Transition_chemical_pot}}
+\begin{ruledtabular}
+\begin{tabular}{cccc}
+Quarks & Hadrons & $\mu_B^i$ (MeV) & $P^i$ (MeV/fm$^3$) \\
+\hline
+Buballa-1 & eNJL1 & 1244 & 122\\
+Buballa-1 & eNJL1$\omega\rho$1 & 1244 & 122 \\
+Buballa-1 & eNJL1$\omega\rho$2 & 1244 & 122 \\
+Buballa-1 & eNJL2 & 1373 & 216\\
+Buballa-1 & eNJL2m & 1279 & 145\\
+Buballa-1 & eNJL2m$\sigma\rho$1 & 1279 & 145 \\
+Buballa-1 & eNJL2$\omega\rho$1 & 1373 & 216 \\
+Buballa-1 & eNJL3 & 1313 & 169\\
+Buballa-1 & eNJL3$\sigma\rho$1 & 1313 & 169 \\
+Buballa-2 & eNJL1 & 1460 & 235\\
+Buballa-2 & eNJL1$\omega\rho$1 & 1460 & 235 \\
+Buballa-2 & eNJL1$\omega\rho$2 & 1460 & 235 \\
+Buballa-2 & eNJL2 & 1557 & 343\\
+Buballa-2 & eNJL2m & 1675 & 506\\
+Buballa-2 & eNJL2m$\sigma\rho$1 & 1675 & 506 \\
+Buballa-2 & eNJL2$\omega\rho$1 & 1557 & 343 \\
+Buballa-2 & eNJL3 & 1571 & 361 \\
+Buballa-2 & eNJL3$\sigma\rho$1 & 1571 & 361 \\
+Buballa-3 & eNJL1 & 1615 & 330\\
+Buballa-3 & eNJL1$\omega\rho$1 & 1615 & 331 \\
+Buballa-3 & eNJL1$\omega\rho$2 & 1615 & 331 \\
+Buballa-3 & eNJL2 & 1700 & 456 \\
+Buballa-3 & eNJL2$\omega\rho$1 & 1700 & 456 \\
+Buballa-3 & eNJL3 & 1744 & 530\\
+Buballa-3 & eNJL3$\sigma\rho$1 & 1744 & 530 \\
+BuballaR-2 & eNJL1 & 1475 & 244 \\
+BuballaR-2 & eNJL1$\omega\rho$1 & 1475 & 244 \\
+BuballaR-2 & eNJL1$\omega\rho$2 & 1475 & 244 \\
+BuballaR-2 & eNJL2 & 1570 & 354 \\
+BuballaR-2 & eNJL2m & 1730 & 587\\
+BuballaR-2 & eNJL2m$\sigma\rho$1 & 1730 & 587 \\
+BuballaR-2 & eNJL2$\omega\rho$1 & 1570 & 354 \\
+BuballaR-2 & eNJL3 & 1587 & 376 \\
+BuballaR-2 & eNJL3$\sigma\rho$1 & 1587 & 376 \\
 \end{tabular}
+\end{ruledtabular}
 \end{table}
 
 %%%%%%%%%%%%
