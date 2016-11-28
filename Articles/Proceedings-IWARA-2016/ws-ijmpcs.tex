@@ -70,7 +70,7 @@ The quark phase is described by a SU(2) NJL model lagrangian, including a vector
 %
 Here $\psi$ represents the quark field, $m_0$ the quark bare mass, and $G_S$ and $G_V$ are coupling constants that are chosen by fitting the pion mass $m_\pi = 135.0~\rm{MeV}$ and decay constant $f_\pi = 92.4~\rm{MeV}$. As the theory is non-renormalizable, a momentum cutoff $\Lambda$ is employed, which acts as a new parameter.
 
-\begin{table}[ph]
+\begin{table}[ht]
 \tbl{Parameters sets for the lagrangian density~\protect\eqref{Eq:LagNJL-SU2-Bub} \protect\cite{Buballa1996,Buballa2005}.}
 {\begin{tabular}{@{}lcccccccc@{}}\toprule
 Model &  $\Lambda$ & $G_S$ ($\rm{fm}^2$) & $G_V$ ($\rm{fm}^2$) & $m_0$ (MeV) & $m$ (MeV) \\ \colrule
@@ -90,16 +90,15 @@ Even though the original NJL model is unable to describe the saturation properti
 \begin{equation}\label{Eq:Lagrangiana_eNLJ_Pais}
 \begin{split}
 	\mathcal{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi + G_s[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] - G_v(\bar{\psi}\gamma^\mu\psi)^2 \\
-	& - G_{sv}[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2](\bar{\psi}\gamma^\mu\psi)^2 \\
-	& - G_\rho[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
+	& - G_\rho[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] - G_{sv}[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2](\bar{\psi}\gamma^\mu\psi)^2 \\
 	& - G_{v\rho}(\bar{\psi}\gamma^\mu\psi)^2[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
 	& - G_{s\rho} [(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2][(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2].
 \end{split}
 \end{equation}
 %
 where $\psi$ represents the nucleon field and the constants $G_i$ represents the coupling constants for the different channels.
-
-\begin{table}[ph]
+%
+\begin{table}[hb]
 \tbl{Parameters sets for the lagrangian density~\protect\eqref{Eq:Lagrangiana_eNLJ_Pais} \protect\cite{Pais2016}.}
 {\begin{tabular}{@{}lcccccccc@{}}\toprule
 Model & $G_s$ ($\rm{fm}^2$) & $G_v$ ($\rm{fm}^2$) & $G_{sv}$ ($\rm{fm}^8$) & $G_\rho$ ($\rm{fm}^2$) & $G_{v\rho}$ ($\rm{fm}^8$) & $G_{s\rho}$ ($\rm{fm}^8$) & $\Lambda$ (MeV) & $m$ (MeV) \\ \colrule
@@ -123,10 +122,13 @@ eNJL2$^m_{\sigma\rho 1}$ & 1.078 & 1.955 & -2.74 & -0.1114 & 0 & 1 & 502.466 & 4
 \section{Binodals}
 
 The QCD phase-diagram is characterized by potentially multiple phases, whose phase separation boundaries are referred as \emph{binodals}. Over those boundaries, the phases from the regions of either side of the boundary can coexist. The binodals may be determined using the Gibbs' conditions \cite{Cavagnoli2011}:
+\begin{align}
+\mu_B^Q &= \mu_B^H & T^Q &= T^H & P^Q &= P^H
+\end{align}
+%
+with
 \begin{align*}
-\mu_B^Q &= \mu_B^H &	\mu_B^H &= \frac{\mu_p + \mu_n}{2} \\
-T^Q &= T^H & 	\mu_B^Q &= \frac{3}{2} (\mu_u + \mu_d) = 3 \mu_q\\
-P^Q &= P^H
+\mu_B^H &= \frac{\mu_p + \mu_n}{2} & 	\mu_B^Q &= \frac{3}{2} (\mu_u + \mu_d) = 3 \mu_q.
 \end{align*}
 
 \noindent{}where the indexes $H$ and $Q$ refer to the hadrons and quarks phases. The phase coexistence may then be obtained by simply plotting $P^i \times \mu_B^i$, $i = Q, H$, and looking for the intersection of both lines.
@@ -134,16 +136,17 @@ P^Q &= P^H
 %%%%%%%%%%%%%%%%%%%%
 \section{Results}
 
-We determine the equations of state for both models at $T = 0$ and proton fraction $y_p = 0.5$ (code available at \texttt{github.com/cgraeff}). The realized phase of the system is the one which maximizes the pressure. This means that the crossing of the lines, as in Figure~\ref{Fig:Pressure_func_chemical_pot}, indicates a phase transition.
+We determine the equations of state for both models at $T = 0$ and proton fraction $y_p = 0.5$. The realized phase of the system is the one which maximizes the pressure. This means that the crossing of the lines, as in Figure~\ref{Fig:Pressure_func_chemical_pot}, indicates a phase transition.
 %
 In Table~\ref{Tab:Transition_chemical_pot} we show the chemical potential $\mu_B^i$ at phase-transition for combinations of parameterizations of Tables~\ref{Tab:Parametros_NJL} and~\ref{Tab:Parametros_eNJL}. Combinations for which there is no transition are ommited.
 
 \begin{figure}
-\caption{The crossing point at a $P^i \times \mu_B^i$ plot indicate the phase-coexistence. Red curves represent hadrons, blue represent quarks. From left to right (quarks, hadrons): Buballa-1--eNJL1m (no phase-transition), Buballa-1--eNJL1$\omega\rho$1, BuballaR-2--eNJL2$\omega\rho$1.\label{Fig:Pressure_func_chemical_pot}}
-\input{graph/quark-hadron_phase_transition}
+\centering
+\caption{The crossing point at a $P^i \times \mu_B^i$ plot indicate the phase-coexistence.\label{Fig:Pressure_func_chemical_pot}}
+\includegraphics[width=10cm]{quark-hadron_phase_transition.pdf}
 \end{figure}
 
-\begin{table}[ph]
+\begin{table}[htb]
 \tbl{Chemical potential $\mu_B^i$ at crossing point por different parameterization combinations..}
 {\begin{tabular}{@{}ccccccccc@{}} \toprule
 $Q$ & $H$ & $\mu_B^i$ (MeV) & $P^i$ ($\frac{\rm{MeV}}{\rm{fm}^3}$) && $Q$ & $H$ & $\mu_B^i$ (MeV) & $P^i$ ($\frac{\rm{MeV}}{\rm{fm}^3}$)  \\ \colrule
