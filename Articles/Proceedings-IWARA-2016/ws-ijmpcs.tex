@@ -12,6 +12,7 @@
 
 %\documentclass[draft]{ws-ijmpcs}
 \documentclass{ws-ijmpcs}
+\usepackage{gnuplot-lua-tikz}
 
 \begin{document}
 
@@ -51,7 +52,7 @@ We analyse the hadron/quark phase transition described by the Nambu-Jona-Lasinio
 \keywords{Phase-transition; NJL; binodal.}
 \end{abstract}
 
-\ccode{PACS numbers:}
+%\ccode{PACS numbers:}
 
 %%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivation}
@@ -70,15 +71,14 @@ The quark phase is described by a SU(2) NJL model lagrangian, including a vector
 %
 Here $\psi$ represents the quark field, $m_0$ the quark bare mass, and $G_S$ and $G_V$ are coupling constants that are chosen by fitting the pion mass $m_\pi = 135.0~\rm{MeV}$ and decay constant $f_\pi = 92.4~\rm{MeV}$. As the theory is non-renormalizable, a momentum cutoff $\Lambda$ is employed, which acts as a new parameter.
 
-\begin{table}[ht]
-\tbl{Parameters sets for the lagrangian density~\protect\eqref{Eq:LagNJL-SU2-Bub} \protect\cite{Buballa1996,Buballa2005}.}
+\begin{table}[!ht]
+\tbl{Parameters sets for the lagrangian density \protect\eqref{Eq:LagNJL-SU2-Bub}. (B$_i$ from \protect\cite{Buballa1996}, B$_R$ Set 2 of \protect\cite{Buballa2005}).}
 {\begin{tabular}{@{}lcccccccc@{}}\toprule
 Model &  $\Lambda$ & $G_S$ ($\rm{fm}^2$) & $G_V$ ($\rm{fm}^2$) & $m_0$ (MeV) & $m$ (MeV) \\ \colrule
-$B_1$ & 650 & 0.19721 & -- & 0 & 313 \\
-$B_2$ & 600 & 0.26498 & -- & 0 & 400 \\
-$B_3$ & 570 & 0.34034 & -- & 0 & 500 \\
-$B_2^R$ & 587.9 & 0.27449 & 0 & 5.6 & 400 \\
-$B_2^R|_{G_V}$ & 587.9 & 0.27449 & $G_V \propto G_S$ & 5.6 & 400\\
+B$_1$ & 650 & 0.19721 & -- & 0 & 313 \\
+B$_2$ & 600 & 0.26498 & -- & 0 & 400 \\
+B$_3$ & 570 & 0.34034 & -- & 0 & 500 \\
+B$_R|_{G_V}$ & 587.9 & 0.27449 & $G_V \propto G_S$ & 5.6 & 400\\
 \botrule
 \end{tabular} \label{Tab:Parametros_NJL}}
 \end{table}
@@ -98,21 +98,17 @@ Even though the original NJL model is unable to describe the saturation properti
 %
 where $\psi$ represents the nucleon field and the constants $G_i$ represents the coupling constants for the different channels.
 %
-\begin{table}[hb]
+\begin{table}[!hb]
 \tbl{Parameters sets for the lagrangian density~\protect\eqref{Eq:Lagrangiana_eNLJ_Pais} \protect\cite{Pais2016}.}
 {\begin{tabular}{@{}lcccccccc@{}}\toprule
 Model & $G_s$ ($\rm{fm}^2$) & $G_v$ ($\rm{fm}^2$) & $G_{sv}$ ($\rm{fm}^8$) & $G_\rho$ ($\rm{fm}^2$) & $G_{v\rho}$ ($\rm{fm}^8$) & $G_{s\rho}$ ($\rm{fm}^8$) & $\Lambda$ (MeV) & $m$ (MeV) \\ \colrule
 eNJL1 & 4.855 & 4.65 & -6.583 & 0.5876 & 0 & 0 & 388.189 & 0 \\
 eNJL1$^m$ & 1.3833 & 1.781 & -2.943 & 0.7 & 0 & 0 & 478.248 & 450 \\
 eNJL1$_{\omega\rho 1}$ & 4.855 & 4.65 & -6.583 & 0.5976 & -1 & 0 & 388.189 & 0 \\
-eNJL1$_{\omega\rho 2}$ & 4.855 & 4.65 & -6.583 & 0.6476 & -6 & 0 & 388.189 & 0 \\
 eNJL2 & 3.8 & 3.8 & -4.228 & 0.6313 & 0 & 0 & 422.384 & 0 \\
 eNJL2$^m$ & 1.078 & 1.955 & -2.74 & 0.75 & 0 & 0 & 502.466 & 450 \\
 eNJL2$_{\omega\rho 1}$ & 3.8 & 3.8 & -4.228 & 0.6413 & -1 & 0 & 422.384 & 0 \\
 eNJL3 & 1.93 & 3.0 & -1.8 & 0.65 & 0 & 0 & 534.815 & 0 \\
-eNJL3$_{\sigma\rho 1}$ & 1.93 & 3.0 & -1.8 & 0.0269 & 0 & 0.5 & 534.815 & 0 \\
-eNJL1$^m_{\sigma\rho 1}$ & 1.3833 & 1.781 & -2.943 & 0.0739 & 0 & 1 & 478.248 & 450 \\
-eNJL2$^m_{\sigma\rho 1}$ & 1.078 & 1.955 & -2.74 & -0.1114 & 0 & 1 & 502.466 & 450 \\
 \botrule
 \end{tabular}\label{Tab:Parametros_eNJL}}
 \end{table}
@@ -133,40 +129,38 @@ with
 
 \noindent{}where the indexes $H$ and $Q$ refer to the hadrons and quarks phases. The phase coexistence may then be obtained by simply plotting $P^i \times \mu_B^i$, $i = Q, H$, and looking for the intersection of both lines.
 
+%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!ht]
+\centering
+\caption{The crossing point at a $P^i \times \mu_B^i$ plot indicate the phase-coexistence.\label{Fig:Pressure_func_chemical_pot}}
+\input{graph/quark-hadron_phase_transition}
+\end{figure}
+
 %%%%%%%%%%%%%%%%%%%%
 \section{Results}
 
 We determine the equations of state for both models at $T = 0$ and proton fraction $y_p = 0.5$. The realized phase of the system is the one which maximizes the pressure. This means that the crossing of the lines, as in Figure~\ref{Fig:Pressure_func_chemical_pot}, indicates a phase transition.
-%
+
 In Table~\ref{Tab:Transition_chemical_pot} we show the chemical potential $\mu_B^i$ at phase-transition for combinations of parameterizations of Tables~\ref{Tab:Parametros_NJL} and~\ref{Tab:Parametros_eNJL}. Combinations for which there is no transition are ommited.
 
-\begin{figure}
-\centering
-\caption{The crossing point at a $P^i \times \mu_B^i$ plot indicate the phase-coexistence.\label{Fig:Pressure_func_chemical_pot}}
-\includegraphics[width=10cm]{quark-hadron_phase_transition.pdf}
-\end{figure}
 
 \begin{table}[htb]
-\tbl{Chemical potential $\mu_B^i$ at crossing point por different parameterization combinations..}
+\tbl{Chemical potential $\mu_B^i$ at crossing point por different parameterization combinations. For B$_R$ we have transition only for $G_V = 0$.}
 {\begin{tabular}{@{}ccccccccc@{}} \toprule
 $Q$ & $H$ & $\mu_B^i$ (MeV) & $P^i$ ($\frac{\rm{MeV}}{\rm{fm}^3}$) && $Q$ & $H$ & $\mu_B^i$ (MeV) & $P^i$ ($\frac{\rm{MeV}}{\rm{fm}^3}$)  \\ \colrule
-$B_1$ & eNJL1 & 1244 & 122                    &&   $B_2$ & eNJL3$_{\sigma\rho 1}$ & 1571 & 361    \\
-$B_1$ & eNJL1$_{\omega\rho 1}$ & 1244 & 122   &&   $B_3$ & eNJL1 & 1615 & 330                 \\
-$B_1$ & eNJL1$_{\omega\rho 2}$ & 1244 & 122   &&   $B_3$ & eNJL1$_{\omega\rho 1}$ & 1615 & 331    \\
-$B_1$ & eNJL2 & 1373 & 216                    &&   $B_3$ & eNJL1$_{\omega\rho 2}$ & 1615 & 331    \\
-$B_1$ & eNJL2$^m$ & 1279 & 145                   &&   $B_3$ & eNJL2 & 1700 & 456                 \\
-$B_1$ & eNJL2$^m_{\sigma\rho 1}$ & 1279 & 145  &&   $B_3$ & eNJL2$_{\omega\rho 1}$ & 1700 & 456    \\
-$B_1$ & eNJL2$_{\omega\rho 1}$ & 1373 & 216   &&   $B_3$ & eNJL3 & 1744 & 530                 \\
-$B_1$ & eNJL3 & 1313 & 169                    &&   $B_3$ & eNJL3$_{\sigma\rho 1}$ & 1744 & 530    \\
-$B_1$ & eNJL3$_{\sigma\rho 1}$ & 1313 & 169   &&   $B_2^R$ & eNJL1 & 1475 & 244                \\
-$B_2$ & eNJL1 & 1460 & 235                    &&   $B_2^R$ & eNJL1$_{\omega\rho 1}$ & 1475 & 244   \\
-$B_2$ & eNJL1$_{\omega\rho 1}$ & 1460 & 235   &&   $B_2^R$ & eNJL1$_{\omega\rho 2}$ & 1475 & 244   \\
-$B_2$ & eNJL1$_{\omega\rho 2}$ & 1460 & 235   &&   $B_2^R$ & eNJL2 & 1570 & 354                \\
-$B_2$ & eNJL2 & 1557 & 343                    &&   $B_2^R$ & eNJL2$^m$ & 1730 & 587               \\
-$B_2$ & eNJL2$^m$ & 1675 & 506                   &&   $B_2^R$ & eNJL2$^m_{\sigma\rho 1}$ & 1730 & 587  \\
-$B_2$ & eNJL2$^m_{\sigma\rho 1}$ & 1675 & 506  &&   $B_2^R$ & eNJL2$_{\omega\rho 1}$ & 1570 & 354   \\
-$B_2$ & eNJL2$_{\omega\rho 1}$ & 1557 & 343   &&   $B_2^R$ & eNJL3 & 1587 & 376                \\
-$B_2$ & eNJL3 & 1571 & 361                    &&   $B_2^R$ & eNJL3$_{\sigma\rho 1}$ & 1587 & 376   \\
+B$_1$ & eNJL1 & 1244 & 122                   &&  B$_3$ & eNJL1 & 1615 & 330                   \\
+B$_1$ & eNJL1$_{\omega\rho 1}$ & 1244 & 122  &&  B$_3$ & eNJL1$_{\omega\rho 1}$ & 1615 & 331  \\
+B$_1$ & eNJL2 & 1373 & 216                   &&  B$_3$ & eNJL2 & 1700 & 456                   \\
+B$_1$ & eNJL2$^m$ & 1279 & 145               &&  B$_3$ & eNJL2$_{\omega\rho 1}$ & 1700 & 456  \\
+B$_1$ & eNJL2$_{\omega\rho 1}$ & 1373 & 216  &&  B$_3$ & eNJL3 & 1744 & 530                   \\
+B$_1$ & eNJL3 & 1313 & 169                   &&  B$_R$ & eNJL1 & 1475 & 244                   \\
+B$_2$ & eNJL1 & 1460 & 235                   &&  B$_R$ & eNJL1$_{\omega\rho 1}$ & 1475 & 244  \\
+B$_2$ & eNJL1$_{\omega\rho 1}$ & 1460 & 235  &&  B$_R$ & eNJL2 & 1570 & 354                   \\
+B$_2$ & eNJL2 & 1557 & 343                   &&  B$_R$ & eNJL2$^m$ & 1730 & 587               \\
+B$_2$ & eNJL2$^m$ & 1675 & 506               &&  B$_R$ & eNJL2$_{\omega\rho 1}$ & 1570 & 354  \\
+B$_2$ & eNJL2$_{\omega\rho 1}$ & 1557 & 343  &&  B$_R$ & eNJL3 & 1587 & 376                   \\
+B$_2$ & eNJL3 & 1571 & 361                   &&  \\
 \botrule
 \end{tabular} \label{Tab:Transition_chemical_pot}}
 \end{table}
