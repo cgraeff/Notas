@@ -90,6 +90,83 @@ Sobre o termo vetorial \parencite{Restrepo2015}
 	\item Não há um valor para $G_V$: para $G_S$, $m$, $\Lambda$, se adota a ideia de reproduzir alguns dados experimentais ($m_\pi$, $f_\pi$, $\langle\bar\psi\psi\rangle^{1/3}$); Para $G_V$, deveria se tentar fixar $m_\rho$, mas $m\rho >\Lambda$; Trata-se como parâmetro livre no intervalo $[\np{0.25},\np{0.5}] \cdot G_S$.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Quarks NJL para matéria assimétrica}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Inicialmente consideramos o modelo NJL com termo vetorial conforme o que temos no \emph{M. Buballa / Physics Reports 407 (2005) 205--376}. Nesse caso, a lagrangiana é dada pela Equação~\eqref{Eq:LagNJL-SU2-Bub}
+\begin{equation*}
+\begin{split}
+	\mathscr{L} =&~ \bar{\psi}(i\gamma^\mu\partial_\mu - m_0)\psi \\
+	&+ G_s[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] - G_v(\bar{\psi}\gamma^\mu \psi)^2.
+\end{split}
+\end{equation*}
+%
+No entanto, com essa lagrangiana não poderíamos ter potenciais químicos diferentes para os dois quarks.
+
+Para contemplar a matéria assimétrica, utilizamos as expressões SU(2) contidas em \emph{Pereira, Costa, e Providência Physical Review D 94 094001 (2016)}. No apêndice, temos as expressões para diversos casos, e acredito que o caso que desejamos é o $G_\rho = 0$, $G_\omega = G_V$, que é denominado como NJL(V+P). As equações para a pressão e para a densidade de energia são as mesmas para todos os casos, porém as expressões para os potenciais químicos são distintas. Para o caso NJL(V+P), temos
+\begin{equation}
+    \tilde{\mu}_i = \mu_i - 2 G_V (\rho_i + \rho_j).
+\end{equation}
+
+Esse artigo, no entanto, não dá as expressões para a equação do gap. Nesse caso, voltei ao Buballa (2005). Na seção de matéria assimétrica em SU(2) (página 250), ele trás a lagrangiana
+\begin{equation}
+    \mathscr{L} = \mathscr{L}_0 + \mathscr{L}_1 + \mathscr{L}_2,
+\end{equation}
+%
+onde
+\begin{align}
+    \mathscr{L}_0 &= \bar{q}(i\slashed{\partial} - m)q \\
+    \mathscr{L}_1 &= G_1\{(\bar{q}q)^2 + (\bar{q}\vec{\tau}q)^2 + (\bar{q}i\gamma_5q)^2 + (\bar{q}i\gamma_5\vec{\tau}q)^2\} \\
+    \mathscr{L}_2 &= G_2\{(\bar{q}q)^2 - (\bar{q}\vec{\tau}q)^2 - (\bar{q}i\gamma_5q)^2 + (\bar{q}i\gamma_5\vec{\tau}q)^2\}.
+\end{align}
+%
+Segundo o Buballa, $\mathscr{L}_2$ é o termo de 't Hooft, que --~a princípio~-- não temos intenção de incluir. A partir dessa lagrangiana, ele apresenta as seguintes expressões
+\begin{equation}
+    \Omega = \sum_{f= u,d} \Omega_{M_f}(T, M_f) + 2 G_1(\phi^2_u + \phi_d^2) + 4 G_2\phi_u\phi_d
+\end{equation}
+%
+e
+\begin{equation}
+    M_i = m_i - 4G_1\phi_i - 4G_2\phi_j, \qquad i \neq j \in \{u,d\}.
+\end{equation}
+
+Segundo o Buballa, se utilizarmos $G_2 = 0$, estamos desligando o termo de 't Hooft, e temos
+\begin{equation}
+    M_i = m_i - 4G_1\phi_i,
+\end{equation}
+%
+o que implica em quarks desacoplados.
+
+No caso de escolhermos $G_1 = G_2 = G_S / 2$, temos para a equação do gap
+\begin{equation}
+    M_i = m_i - 2G_S(\phi_i + \phi_j)
+\end{equation}
+%
+e, para o potencial termodinâmico,
+\begin{align}
+    \Omega &= \sum_{f= u,d} \Omega_{M_f}(T, M_f) + G_S(\phi^2_u + \phi_d^2) + 2 G_S\phi_u\phi_d \\
+    &= \sum_{f= u,d} \Omega_{M_f}(T, M_f) + G_S(\phi_u + \phi_d)^2.
+\end{align}
+%
+Nesse caso, o Buballa diz que ``voltamos ao caso da lagrangiana NJL original'', mas não fica claro pra mim se isso inclui ou não o termo de 't Hooft. As equações desse último caso são as que concordam com as do caso NJL(V+P) do artigo do Renan com a Constança (para $G_V = 0$, pois o Buballa não tem esses termos).
+
+No artigo do Renan também há um termo que equivale ao 't Hooft, aquele proporcional a $G_D$ na lagrangiana dada pela equação (2), porém ele não diz se para o caso SU(2) ele é usado, ou qual é o valor de $G_D$. Acredito que ele é usado, pois as equações do Buballa não reproduzem o termo $G_S(\phi_u + \phi_d)^2$ se $G_2 = 0$, pois não é possível completar o quadrado.
+
+Dito tudo isso, o que eu implementei nos meus cálculos são exatamente essas duas expressões acima, mais o potencial químico renormalizado do caso NJL(V+P) do Renan (a equação para $\tilde{\mu}_i$ mostrada anteriomente). Acredito que a lagrangiana em SU(2) que devo adicionar ao artigo é dada por
+\begin{equation}
+    \mathscr{L} = \mathscr{L}_0 + \mathscr{L}_1 + \mathscr{L}_2 + \mathscr{L}_3,
+\end{equation}
+%
+onde
+\begin{equation}
+    \mathscr{L}_3 = G_V[(\bar{q}\gamma^\mu q)^2 + (\bar{q}\gamma_5\gamma^\mu q)^2]
+\end{equation}
+%
+e os demais termos são dos mesmos que os utilizados pelo Buballa. As expressões para a pressão e para a densidade de energia serão as mesmas que as do Renan (A23 e A24).
+
+Apesar de tudo, ao escolhermos $G_1 = G_2 = G_S/2$, estamos recuperando a lagrangiana original, então talvez possamos simplesmente escrever a própria lagrangiana original, mas conservando a equação do gap separada, e a equação do potencial termodinâmico com o quadrado da soma das densidades escalares de quarks \emph{up} e \emph{down}.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Lagrangiana NJL em SU(3)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -117,12 +194,12 @@ O modelo NJL não é capaz de descrever a energia de saturação para a matéria
 \label{Sec:Introducao_termos_lag_NJL}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-A simetria quiral é uma simetria importante da QCD\cite{Koch}. Como não sabemos resolver tal teoria, é comum que se utilizem teorias alternativas, como o Modelo de Walecka, com o intuito de se obter resultados que descrevam bem os dados experimentais. O modelo de Walecka consegue descrever bem os dados experimentais, mas não possui simetria quiral. O Modelo de Nambu--Jona-Lasinio, em contrapartida, possui simetria quiral, porém em sua versão original não é capaz de descrever características importantes da QCD, como a saturação da matéria nuclear. Porém, a adição de outros termos é possível:\cite{Buballa}
+A simetria quiral é uma simetria importante da QCD\parencite{Koch}. Como não sabemos resolver tal teoria, é comum que se utilizem teorias alternativas, como o Modelo de Walecka, com o intuito de se obter resultados que descrevam bem os dados experimentais. O modelo de Walecka consegue descrever bem os dados experimentais, mas não possui simetria quiral. O Modelo de Nambu--Jona-Lasinio, em contrapartida, possui simetria quiral, porém em sua versão original não é capaz de descrever características importantes da QCD, como a saturação da matéria nuclear. Porém, a adição de outros termos é possível:\parencite{Buballa}
 \begin{quote}
 After the reinterpretation of the NJL model as a quark model, many authors kept the original form of the Lagrangian Eq.~\eqref{Eq:LagOriginalNJL}, with $\psi$ now being a quark field with two flavor and three color degrees of freedom. However, this choice is not unique and we can write down many other chirally symmetric interaction terms.
 \end{quote}
 %
-Com a adição de um termo scalar-vector, é possível obter resultados adequados\cite{Koch}:
+Com a adição de um termo scalar-vector, é possível obter resultados adequados\parencite{Koch}:
 \begin{quote}
 	In recent years\footnote{Década de 80!} a lot of progress has been made in describing the nucleus as a relativistic system [1\footnote{Serot, Walecka; Advances in Nuclear Physics 16},2]. The success of this approach is mainly due to the interplay of a large vector and scalar potential, the cancelation of which leads to the comparatively weak nuclear potential. In most models these forces are mediated by the exchange of effective scalar- and vector mesons. In the mean field approximation several data are reproduced reasonably well [1].
 	However, most models assume an explicit mass for the nucleon and hence do not posses chiral symmetry. Since chirality is an important symmetry of the strong interaction [3], one would like to incorporate this symmetry into these models. This then changes the situation drastically. Although the saturation properties of infinite nuclear matter may be fitted [4,5], these models suffer from deficiencies and problems occur onde finite systems are considered [6]. It is hence an open problem to construct an effective, chirally invariant, relativistic field theory for the nuclear interactions.
@@ -131,7 +208,7 @@ Com a adição de um termo scalar-vector, é possível obter resultados adequado
 	[\dots] if we introduce an additional term in the lagrangian in order to change the density dependence of the binding energy, it should also influence the density dependence of the mass. A chirally invariant scalar-vector interaction term meets these requirements and [\dots] cures the binding problem.
 \end{quote}
 %
-De Lee\cite{japoneses}:
+De \textcite{japoneses}:
 \begin{quote}
 	When dealing with symmetric nuclear matter, it is necessary to reproduce the property of nuclear saturation, as the Walecka model [15] has succeeded in describing phenomenologically the saturation property o symmetric nuclear matter without chiral symmetry, in which the nucleon is treated as a fundamental particle, not as a composite one. In the original NJL model with chiral symmetry, however, if the nucleon field is treated not as a composite but as a fundamental fermion field, it is unable to reproduce the nuclear matter saturation property. Here, it has been observed that the nuclear saturation property is well reproduced by introducing scalar-vector and isoscalar-vector\footnote{Ambas com acoplamento $G_{sv}^i$ na lagrangiana dada pela Eq.~(2.1) do artigo.} eight-point interaction in the original NJL model [8], the nucleon then being a fundamental fermion. Thus, it is possible to consider an NJL-type model in which the nuclear saturation property is satisfied as a possible model for nuclear matter [16-18]. For this reason, in this paper, an NJL-type model for nuclear matter with rather reasonable nuclear saturation properties is adopted.
 	
@@ -145,7 +222,7 @@ De Lee\cite{japoneses}:
 \subsection{Lagrangiana do modelo eNJL em SU(2)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Sobre o modelo\cite{Pais}:
+Sobre o modelo\parencite{Pais}:
 \begin{quote}
 An advantage of these models is the fact that, since they satisfy chiral symmetry, the EoS is also valid at higher densities, as the ones present in the center of compact objects.
 
@@ -172,7 +249,7 @@ Outras informações relevantes (ainda do artigo):
 	\item ``The term in $G_{sv}$ accounts for the density dependence of the scalar coupling. For the nuclear matter, the NJL model leads to binding, but the binding energy per particle does no have a minimum except at a rather high density where the nucleon mass is small or vanishing. The introduction of the $G_{sv}$ coupling term is required to correct this.''
 	\item O termo proporcional a $G_\rho$ (isovetor-vetor) é incluido para descrever a matéria nuclear assimétrica (em isospin);
 	\item ``The terms $G_{v\rho}$ and $G_{s\rho}$ make the symmetry energy softer.''
-	\item Os valores dos parâmetros são dados na Tab.~\ref{Tab:Parametros_eNJL} (em Tsue~\cite{japoneses} há uma discussão de como obter parametrizações para o caso em que existem os parâmetros $G_s$, $G_v$, e $G_{sv}$).
+	\item Os valores dos parâmetros são dados na Tab.~\ref{Tab:Parametros_eNJL} (em \textcite{japoneses} há uma discussão de como obter parametrizações para o caso em que existem os parâmetros $G_s$, $G_v$, e $G_{sv}$).
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

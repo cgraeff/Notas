@@ -20,7 +20,7 @@ A determinação pode ser feita de três maneiras:\footnote{Pelo que entendi, pe
 			\varepsilon &= \mean{T_{00}} \\
 			p &= \frac{1}{3} \mean{T_{ii}}
 		\end{align}
-	\item Através da Lagrangiana\cite{Glendenning}, que é um método similar ao anterior:
+	\item Através da Lagrangiana\parencite{Glendenning}, que é um método similar ao anterior:
 		\begin{align}
 			\varepsilon &= -\mean{\mathcal{L}} + \mean{\bar{\psi}\gamma_0 k_0 \psi} \\
 			p &= \frac{1}{3} \mean{\bar{\psi}\gamma_i k_i \psi}
@@ -119,13 +119,13 @@ onde, como na Equação~\eqref{Eq:Energia_kin},
 	F_2(m, p) = \frac{1}{8}\Big((2p^3 - 3M_i^2p)\sqrt{p^2 + M_i^2} + 3M_i^4\ln\frac{p + \sqrt{p^2 + M_i^2}}{M_i}\Big).
 \end{equation}
 %
-Isso se deve ao fato de que a densidade de energia pode ser calculada a partir do potencial termodinâmico através de mais que uma relação. Possivelmente essa esteja relacionada à derivada do potencial termodinâmico em relação à temperatura, ou ao inverso da temperatura. Ver Avancini~\cite{Avancini2004} e~\cite{Avancini2006}.
+Isso se deve ao fato de que a densidade de energia pode ser calculada a partir do potencial termodinâmico através de mais que uma relação. Possivelmente essa esteja relacionada à derivada do potencial termodinâmico em relação à temperatura, ou ao inverso da temperatura. Ver \parencite{Avancini2004} e~\parencite{Avancini2006}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Lagrangiana}
 %%%%%%%%%%%%%%%%%%%%%%%%
 
-As equações de estado são dadas através da lagrangiana através de\cite{Glendenning1983}:
+As equações de estado são dadas através da lagrangiana através de\parencite{Glendenning1983}:
 \begin{align}
 	\varepsilon &= -\mean{\mathcal{L}} + \mean{\bar\psi\gamma_0k_0\psi} \\
 	p &= \mean{\mathcal{L}} + \frac{1}{3} \mean{\bar\psi\vec{\gamma}\cdot\vec{k}\psi}.
@@ -135,7 +135,7 @@ As equações de estado são dadas através da lagrangiana através de\cite{Glen
 \subsection{Potencial termodinâmico}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Sair da lagrangiana e obter a expressão para o potencial termodinâmico.\cite{Asakawa1989}.
+Sair da lagrangiana e obter a expressão para o potencial termodinâmico.\parencite{Asakawa1989}.
 \begin{align}
 	\omega(T, \mu) &= -\frac{T}{V} \ln\mathcal{Z} \\
 	&= -\frac{T}{V} \ln\Tr\exp\left(-\frac{1}{T} \int d^3 x(\mathcal{H} - \mu q^\dagger q)\right). \label{Eq:Pot_term_from_Hamiltonian}
@@ -155,7 +155,7 @@ Isso precisa constar nessa seção:
 \section{Fase de quarks: NJL, SU(2)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-De Buballa\cite{Buballa}\footnote{As variáveis foram alteradas para refletir a notação utilizada neste texto.}:
+De \textcite{Buballa}\footnote{As variáveis foram alteradas para refletir a notação utilizada neste texto.}:
 \begin{quote}
 	[\dots] apart from constant (i.e., field independent) terms, which give trivial contributions to the r.h.s. of Eq.~[\eqref{Eq:Pot_term_from_Hamiltonian}], the problem is equivalent to a system o non-interacting particles with mass $m$ at chemical potential $\mu_R$. Hence, the mean-field thermodynamic potencial takes the form
 	\begin{equation}\label{Eq:Pot_Termo_Temp_Finita}
@@ -188,7 +188,7 @@ A constante que aparece na definição do potencial não tem influência em nenh
 \subsection{Equações auto-consistentes para a massa e para o potencial químico renormalizado}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-De Buballa\cite{Buballa}:
+De \textcite{Buballa}:
 \begin{quote}
 	Until this point, the result for $\omega$ depends on $m$ and $\mu_R$, i.e., on our choice of\footnote{Isso ainda não sei o que é, nem está definido no texto ($n$ parece o número de quarks, $\phi$ deve estar ligado à densidade escalar). Deve aparecer ao obter o potencial termodinâmico.} $\phi$ and $n$. On the other hand, in a thermodynamically consistent treatment, $\phi$ and $n$ should follow from $\omega$ as
 	\begin{align}\label{Eq:Condicoes_phi_n}
@@ -245,7 +245,7 @@ Logo, substituindo a expressão acima na anterior,
 \subsection{Equações de estado}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-De Buballa~\cite{Buballa}:
+De \textcite{Buballa}:
 \begin{quote}
 	Having found a pair of solutions $m$ and $\mu_R$, other thermodynamic quantities can be obtained in the standard way. Since the system is uniform, pressure and energy density are given by
 	\begin{align}
@@ -453,7 +453,7 @@ Substituindo esse resultado nas Equações~\eqref{gap_mu_r} e~\eqref{gap_rho}, o
 \section{Equações para temperatura zero}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Para o limite de temperatura zero, temos\cite{Buballa1996}\footnote{Muito dessa seção é só uma particularização para temperatura zero. Como vamos discutir temperatura finita antes, a maioria dos conceitos tem que ser discutida antes, para $T \neq 0$, então vai ter que sair daqui para não ficar repetitivo.}:
+Para o limite de temperatura zero, temos \parencite{Buballa1996}\footnote{Muito dessa seção é só uma particularização para temperatura zero. Como vamos discutir temperatura finita antes, a maioria dos conceitos tem que ser discutida antes, para $T \neq 0$, então vai ter que sair daqui para não ficar repetitivo.}:
 \begin{quote}
 Expanding $\bar{\psi}\psi$ and $\bar{\psi}\gamma^\mu\psi$ about their thermal expectation values we can derive the mean field thermodynamic potential at temperature $T$ and chemical potential $\mu$ [11]. We restrict ourselves to the Hartree approximation. Furthermore in this paper we only consider $T=0$ and $\mu \geqslant 0$. The result for the thermodynamic potential is
 \begin{equation}\label{Eq:Def_pot_termo}
@@ -519,7 +519,7 @@ onde ``[\dots] for a given $\mu$ these formulas have to be evaluated for the val
 \label{Sec:M_vac}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Para calcular as grandezas em que estamos interessados ($p$, $\varepsilon$), precisamos calcular $\tilde{\omega}$. Para calcular tal grandeza, precisamos calcular o valor de $m_{\rm{vac}}$, Eq.~\eqref{Eq:Def_omega_tilde}. Esse valor é dado de forma que\cite{Buballa1996}
+Para calcular as grandezas em que estamos interessados ($p$, $\varepsilon$), precisamos calcular $\tilde{\omega}$. Para calcular tal grandeza, precisamos calcular o valor de $m_{\rm{vac}}$, Eq.~\eqref{Eq:Def_omega_tilde}. Esse valor é dado de forma que \parencite{Buballa1996}
 \begin{quote}
 	$m_{\rm{vac}}$ is the dynamical mass which minimizes the thermodynamic potential of the vacuum.
 \end{quote}
@@ -737,22 +737,239 @@ O potencial termodinâmico no vácuo ($\omega_{\rm{MF}}(0; m_{\rm{vac}}, 0)$) n�
 \section{Fase de Hádrons: eNJL, SU(2), temperatura finita}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\textbf{Isso não deveria estar aqui, deveria? Me parece que isso está perdido aqui.}
-{\it
-De uma forma geral, podemos escolher variar $\rho_B$ ou $\mu$ ao resolver o problema numericamente. Basicamente o que temos é uma solução de um sistema para um valor específico de densidade ou de potencial químico (não estamos calculando uma função da densidade, por exemplo, mas sim resolvendo o sistema para um valor específico de densidade). Como $\mu$ e $\rho$ estão ligados através das equações
-\begin{subequations}
-\begin{equation}\label{Eqs:sist_m_mu_t_finito}
-	\mu_R = \mu - 4 n_f n_c G_V \int\frac{d^3}{(2\pi)^3}(n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)
-\end{equation}
-%
-e
+A Lagrangiana para a fase de hádrons é dada por
 \begin{equation}
-	\rho_B = \frac{n(T,\mu_R)}{3} = 2 n_f n_c \int\frac{d^3}{(2\pi)^3}(n_p(T, \mu_R) - \bar{n}_p(T, \mu_R),
+\begin{split}
+\mathcal{L} &= \bar{\psi}(i\gamma^\mu\partial_\mu - m)\psi \\
+&\phantom{=~} + G_s[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2] \\
+&\phantom{=~} - G_v (\bar{\psi}\gamma^\mu\psi)^2 \\
+&\phantom{=~} - G_\rho[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
+&\phantom{=~} - G_{sv}[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2](\bar{\psi}\gamma^\mu\psi)^2 \\
+&\phantom{=~} - G_{v\rho} (\bar{\psi}\gamma^\mu\psi)^2[(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2+(\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2] \\
+&\phantom{=~} - G_{s\rho}[(\bar{\psi}\psi)^2 + (\bar{\psi}i\gamma_5\vec{\tau}\psi)^2][(\bar{\psi}\gamma^\mu\vec{\tau}\psi)^2 + (\bar{\psi}\gamma_5\gamma^\mu\vec{\tau}\psi)^2].
+\end{split}
 \end{equation}
-\end{subequations}
+
+Assumindo que os campos não variam muito em relação ao valor médio, podemos determinar a lagrangiana na \emph{aproximação de campo médio} tomando os termos $\bar{\psi}\Gamma\psi$ e os escrevendo como a soma do valor esperado mais uma flutuação (\cite[p.~100]{Moeller}; \cite{japoneses}; \cite{japoneses2}):
+\begin{equation}
+    \bar{\psi}\Gamma\psi = \mean{\bar{\psi}\Gamma\psi} + \delta,
+\end{equation}
 %
-já que estão ligados individualmente a $\mu_R$, podemos escolher um dos dois como variável e calcular o outro\footnote{Isso assume que ambos estão ligados de maneira única. Em Buballa (2005) -- p. 235, após a Eq. 2.56 -- diz que a função é estritamente crescente, o que garante isso.}. No cálculo do potencial termodinâmico, uma das variáveis pode ser então eliminada. Em geral se escolhe $\mu$ para ser variado, pelo que tenho percebido\footnote{Mas como comecei variando $\rho_B$, vou insistir. De qualquer forma, pelo menos para $T = 0$ é mais fácil.}.
-}
+onde $\Gamma$ representa um produto de matrizes\footnote{Note que todos os termos podem ser escritos como $\bar{\psi}\Gamma\psi$, exceto o primeiro, que representa o termo cinético.} no espaço de Dirac, de cor, e de sabor, $\mean{~}$ representa o valor esperado\footnote{Assumimos que o valor esperado é uma constante tanto no tempo, quanto no espaço (caso estático e homogêneo).} e $\delta$ representa a flutuação em relação ao valor esperado. Assim, podemos determinar $(\bar{\psi}\Gamma\psi)^2$ através de
+\begin{align}
+    (\bar{\psi}\Gamma\psi)^2 &= \mean{\bar{\psi}\Gamma\psi}^2 + 2 \mean{\bar{\psi}\Gamma\psi}\delta + \mathcal{O}(\delta^2) \\
+    &= \mean{\bar{\psi}\Gamma\psi}^2 + 2 \mean{\bar{\psi}\Gamma\psi}[\bar{\psi}\Gamma\psi - \mean{\bar{\psi}\Gamma\psi}] + \mathcal{O}(\delta^2) \\
+    &= 2 \mean{\bar{\psi}\Gamma\psi}(\bar{\psi}\Gamma\psi) - \mean{\bar{\psi}\Gamma\psi}^2 + \mathcal{O}(\delta^2).
+\end{align}
+%
+Desprezando os termos quadráticos na flutuação e considerando que somente os termos $\mean{\bar{\psi}\psi}$, $\mean{\bar{\psi}\gamma^\mu\psi}$, e $\mean{\bar{\psi}\gamma^\mu\tau^a\psi}$ sejam não nulos (\cite{Buballa}; \cite{Moeller}; \cite{japoneses}; \cite{japoneses2}), podemos escrever\footnote{\bf O último dos três não tem nas referências, acredito que seja não nulo, afinal não teria como surgir $\rho_3$ se não fosse por esse termo. Acredito que a forma esteja correta após tomar a aproximação de campo médio, mas não tenho certeza. Uma questão é a de que $(\bar\psi\gamma^\mu\vec{\tau}\psi))^2 = (\bar\psi\gamma^\mu\tau^a\psi))(\bar\psi\gamma_\mu\tau_a\psi))$, até onde sei. Não sei dizer o que acontece com os outros termos de $\tau$, e por que o ``projetor de isospin'' $\tau_3$ não aparece ao quadrado. Ou talvez não seja isso, pois pode ser que o espaço que ele atue não funcione bem assim. \textbf{Verificar}.}
+\begin{align}
+    (\bar\psi\psi)^2 &= 2 \mean{\bar\psi\psi}(\bar\psi\psi) - \mean{\bar\psi\psi}^2 \\
+    (\bar\psi\gamma^\mu\psi)^2 &= 2\mean{\bar\psi\gamma^0\psi}(\bar\psi\gamma^0\psi)-\mean{\bar\psi\gamma^0\psi}^2 \\
+    (\bar\psi\gamma^\mu\vec{\tau}\psi))^2 &= 2\mean{\bar\psi\gamma^0\tau^3\psi}(\bar\psi\gamma^0\tau^3\psi) - \mean{\bar\psi\gamma^0\tau^3\psi}^2,
+\end{align}
+%
+onde $\tau^3 = + 1$ para prótons e $\tau^3 = -1$ para nêutrons. Usando esses resultados, obtemos
+\begin{equation}
+\begin{split}
+\mathcal{L}_{\rm{MF}} &= \bar{\psi}(i\gamma^\mu\partial_\mu - m)\psi \\
+&\phantom{=~} + G_s [2\mean{\bar\psi\psi}(\bar\psi\psi) - \mean{\bar\psi\psi}^2] \\
+&\phantom{=~} - G_v [2\mean{\bar\psi\gamma^0\psi}(\bar\psi\gamma^0\psi) - \mean{\bar\psi\gamma^0\psi}^2] \\
+&\phantom{=~} - G_\rho[2\mean{\bar\psi\gamma^0\tau^3\psi}(\bar\psi\gamma^0\tau^3\psi) - \mean{\bar\psi\gamma^0\tau^3\psi}^2] \\
+&\phantom{=~} - G_{sv}[2\mean{\bar\psi\psi}(\bar\psi\psi) - \mean{\bar\psi\psi}^2]\\
+&\phantom{=~ - 2 G_{sv}} \times [2\mean{\bar\psi\gamma^0\psi}(\bar\psi\gamma^0\psi) - \mean{\bar\psi\gamma^0\psi}^2] \\
+&\phantom{=~} - G_{v\rho} [2\mean{\bar\psi\gamma^0\psi}(\bar\psi\gamma^0\psi) - \mean{\bar\psi\gamma^0\psi}^2] \\
+&\phantom{=~ - 2 G_{v\rho}} \times [2\mean{\bar\psi\gamma^0\tau^3\psi}(\bar\psi\gamma^0\tau^3\psi) - \mean{\bar\psi\gamma^0\tau^3\psi}^2] \\
+&\phantom{=~} - G_{s\rho}[2\mean{\bar\psi\psi}(\bar\psi\psi) - \mean{\bar\psi\psi}^2]\\
+&\phantom{=~ - 2 G_{s\rho}} \times [2\mean{\bar\psi\gamma^0\tau^3\psi}(\bar\psi\gamma^0\tau^3\psi) - \mean{\bar\psi\gamma^0\tau^3\psi}^2].
+\end{split}
+\end{equation}
+%
+Se adotarmos a notação
+\begin{align}
+    \phi &= \mean{\bar\psi\psi} \\
+    \rho &= \mean{\bar\psi\gamma^0\psi} \\
+    \rho_3 &= \mean{\bar\psi\gamma^0\tau^3\psi},
+\end{align}
+%
+obtemos
+\begin{equation}
+\begin{split}
+\mathcal{L}_{\rm{MF}} &= \bar{\psi}(i\gamma^\mu\partial_\mu - m)\psi \\
+&\phantom{=~} + G_s [2\phi(\bar\psi\psi) - \phi^2] \\
+&\phantom{=~} - G_v [2\rho(\bar\psi\gamma^0\psi) - \rho^2] \\
+&\phantom{=~} - G_\rho[2\rho_3(\bar\psi\gamma^0\tau^3\psi) - \rho_3^2] \\
+&\phantom{=~} - G_{sv}[2\phi(\bar\psi\psi) - \phi^2] [2\rho(\bar\psi\gamma^0\psi) - \rho^2] \\
+&\phantom{=~} - G_{v\rho} [2\rho(\bar\psi\gamma^0\psi) - \rho^2] [2\rho_3(\bar\psi\gamma^0\tau^3\psi) - \rho_3^2] \\
+&\phantom{=~} - G_{s\rho}[2\phi(\bar\psi\psi) - \phi^2] [2\rho_3(\bar\psi\gamma^0\tau^3\psi) - \rho_3^2].
+\end{split}
+\end{equation}
+%
+Multiplicando os termos obtemos
+\begin{equation}
+\begin{split}
+\mathcal{L}_{\rm{MF}} =& \bar{\psi}(i\gamma^\mu\partial_\mu - m)\psi \\
+& + 2 G_s \phi (\bar\psi\psi) - G_s\phi^2 \\
+& - 2G_v\rho(\bar\psi\gamma^0\psi) + G_v\rho^2 \\
+& - 2G_\rho\rho_3(\bar\psi\gamma^0\tau^3\psi) + G_{\rho}\rho_3^2 \\
+& - 4G_{sv}\phi\rho(\bar\psi\psi)(\bar\psi\gamma^0\psi) + 2G_{sv}\phi\rho^2(\bar\psi\psi) \\
+&\qquad + 2G_{sv}\rho\phi^2(\bar\psi\gamma^0\psi) - G_{sv}\phi^2\rho^2 \\
+& - 4G_{v\rho}\rho\rho_3(\bar\psi\gamma^0\psi)(\bar\psi\gamma^0\tau^3\psi) + 2G_{v\rho}\rho \rho_3^2 (\bar\psi\gamma^0\psi) \\
+& \qquad + 2G_{v\rho}\rho_3\rho^2(\bar\psi\gamma^0\tau^3\psi) - G_{v\rho}\rho^2\rho_3^2 \\
+& -4G_{s\rho} \phi\rho_3(\bar\psi\psi)(\bar\psi\gamma^0\tau^3\psi) + 2G_{s\rho}\phi\rho_3^2(\bar\psi\psi) \\
+&\qquad + 2G_{s\rho}\rho_3\phi^2(\bar\psi\gamma^0\tau^3\psi) - G_{s\rho}\psi^2\rho_3^2,
+\end{split}
+\end{equation}
+%
+que podem ser reorganizados como
+\begin{equation}
+\begin{split}
+\mathcal{L}_{\rm{MF}} =& \bar{\psi}(i\gamma^\mu\partial_\mu - [m - 2 G_s \phi - 2G_{sv}\phi\rho^2 - 2G_{s\rho}\phi\rho_3^2])\psi \\
+& + \bar\psi\gamma^0 [- 2G_v\rho - 2G_\rho\rho_3\tau^3 + 2G_{sv}\rho\phi^2 \\
+&\phantom{+  \bar\psi\gamma^0 [}+ 2G_{v\rho}\rho \rho_3^2 + 2G_{v\rho}\rho_3\rho^2\tau^3 + 2G_{s\rho}\rho_3\phi^2\tau^3 ]\psi \\
+& - 4G_{sv}\phi\rho(\bar\psi\psi)(\bar\psi\gamma^0\psi) \\
+& - 4G_{v\rho}\rho\rho_3(\bar\psi\gamma^0\psi)(\bar\psi\gamma^0\tau^3\psi) \\
+& - 4G_{s\rho} \phi\rho_3(\bar\psi\psi)(\bar\psi\gamma^0\tau^3\psi) \\
+& - G_s\phi^2 + G_v\rho^2 + G_{\rho}\rho_3^2 - G_{sv}\phi^2\rho^2- G_{v\rho}\rho^2\rho_3^2 - G_{s\rho}\psi^2\rho_3^2.
+\end{split}
+\end{equation}
+%
+Vamos definir\footnote[][-5cm]{A ideia é fazer como \cite{japoneses}. Note que $G_{sv}$ está com o sinal trocado em relação a essa referência. Os termos também têm sinais diferentes daqueles em \cite{Pais}.}\footnote[][-3cm]{$\tilde\mu$ ainda não tem a cara de potencial químico que eu espero. Além disso, não estou muito seguro de como fazer essa definição virar duas, uma pra prótons e outra pra nêutrons.}
+\begin{align}
+    M &= [m - 2 G_s \phi - 2G_{sv}\phi\rho^2 - 2G_{s\rho}\phi\rho_3^2] \\
+    \tilde\mu &= - 2G_v\rho - 2G_\rho\rho_3\tau^3 + 2G_{sv}\rho\phi^2 \nonumber \\
+    &\phantom{=~}+ 2G_{v\rho}\rho \rho_3^2 + 2G_{v\rho}\rho_3\rho^2\tau^3 + 2G_{s\rho}\rho_3\phi^2\tau^3
+\end{align}
+
+\textrm{Aparentemente}\footnote[][-1cm]{Se eu assumir isso, consigo mais termos proporcionais a $G_{sv} \phi^2\rho^2$. Em \cite{japoneses} em $\mathcal{L}_{\rm{MF}}$ temos $3G_{sv} \phi^2\rho^2$ e não consigo ver de onde poderia vir essa constante além de uma soma. Ainda assim existem diferenças nos sinais, por isso não consigo reproduzir o ``3''. Realmente não sei como proceder com esses termos.} os termos com produtos $(\bar\psi\Gamma\psi)(\bar\psi\Gamma\psi)$ devem ser escritos utilizando
+\begin{align}
+    (\bar\psi\psi) &\to \mean{\bar\psi\psi} \equiv \phi \\
+    (\bar\psi\gamma^0\psi) &\to \mean{\bar\psi\gamma^0\psi} \equiv \rho \\
+    (\bar\psi\gamma^0\tau^3\psi) &\to \mean{\bar\psi\gamma^0\tau^3\psi} \equiv \rho_3,
+\end{align}
+%
+o que resulta em
+\begin{align}
+    4G_{sv}\phi\rho(\bar\psi\psi)(\bar\psi\gamma^0\psi) &= 4G_{sv}\phi^2\rho^2\\
+    4G_{v\rho}\rho\rho_3(\bar\psi\gamma^0\psi)(\bar\psi\gamma^0\tau^3\psi) &= 4G_{v\rho} \rho^2\rho_3^2 \\
+    4G_{s\rho} \phi\rho_3(\bar\psi\psi)(\bar\psi\gamma^0\tau^3\psi) &= 4G_{s\rho}\phi^2\rho_3^2.
+\end{align}
+%
+Reescrevendo a lagrangiana obtemos
+\begin{equation}
+\mathcal{L}_{\rm{MF}} = \bar{\psi}(i\gamma^\mu\partial_\mu - M)\psi + \bar\psi\gamma^0 \tilde\mu \psi + C,
+\end{equation}
+%
+onde
+\begin{equation}
+    C = - G_s\phi^2 + G_v\rho^2 + G_{\rho}\rho_3^2 - 5G_{sv}\phi^2\rho^2 - 5G_{v\rho}\rho^2\rho_3^2 - 5 G_{s\rho}\psi^2\rho_3^2.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Cálculo da hamiltoniana na aproximação de campo médio}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Temos que\footnote{Note que podemos calcular $\mathcal{H}$ e depois tomar a aproximação de campo médio, ou o contrário, o resultado é o mesmo.}
+\begin{equation}
+    \mathcal{H} = \sum_n\pi_n\dot{\psi}_n - \mathcal{L},
+\end{equation}
+%
+onde $\dot{\psi}_n$ é a derivada parcial em relação ao tempo da $n$-ésima coordenada generalizada\footnote{Ou seja, $\dot\psi_n \equiv \partial_0\psi_n$.} e
+\begin{equation}
+    \pi_n = \frac{\partial\mathcal{L}}{\partial(\dot{\psi}_n)}
+\end{equation}
+%
+é o momento conjugado a $\psi_n$.
+
+Considerando que temos somente um campo (o campo $\psi$ dos nucleons), só temos um momento conjugado:\footnote{Mostramos somente o primeiro termo pois as derivadas parciais em relação a $\dot\psi$ são zero para os demais termos.}
+\begin{align}
+    \pi &= \frac{\partial\mathcal{L}_{\rm{MF}}}{\partial(\partial_0\psi)} \\
+    &= \frac{\partial}{\partial(\partial_0\psi)}\left[\bar\psi(i\gamma^\mu\partial_\mu)\psi+\dots \right].
+\end{align}
+%
+Logo:
+\begin{equation}
+    \pi = i \bar\psi\gamma^0.
+\end{equation}
+%
+Calculando a hamiltoniana na aproximação de campo médio temos:
+\begin{align}
+    \mathcal{H}_{\rm{MF}} &= i\bar\psi\gamma^0\partial_0\psi - [i\bar\psi\gamma^\mu\psi + \dots] \\
+    &= i\bar\psi\gamma^0\partial_0\psi - [i\bar\psi\gamma^0\partial_0\psi + i\bar\psi\vec{\gamma}\cdot\vec{\nabla}\psi + \dots \\
+    &=-\bar\psi\vec{\gamma}\cdot\vec{\nabla}\psi + \dots,
+\end{align}
+%
+o que resulta em
+\begin{equation}
+\mathcal{H}_{\rm{MF}} = -\bar\psi(\vec{\gamma}\cdot\vec{\nabla} + M)\psi - \bar\psi\gamma^0 \tilde\mu \psi - C.
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Cálculo do potencial termodinâmico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+O potencial termodinâmico pode ser calculado através de\footnote{Preciso de uma referência aqui.}\footnote{Aqui é a primeira vez que separo próton e nêutron. Me parece estranho, acho que essa separação deveria ter surgido antes.}
+\begin{equation}
+    \omega = \mean{\mathcal{H}_{\rm{MF}}} - (\mu_p \rho_p + \mu_n\rho_n) - T\mean{s}.
+\end{equation}
+%
+Os termos acima são dados por:\footnote{Usar o que que tenha que ser usado para que sejam reproduzidos os resultados de \cite{Pais}.}\footnote{Estou usando as definições de \cite{japoneses2}. Note que as definições de $n_{+}$, $n_{-}$, e $\rho_s$ diferem daquelas de \cite{Buballa}. Ainda temos uma diferença em $\rho$, pois em \cite{japoneses2} é feita a substituição $n_{-} \to n_{-} - 1$ para eliminar a contribuição dos estados ocupados de energia negativa.}\footnote{Quem é o potencial químico que aparece em $n_{\pm}$? Note que ele é fundamental para que possamos definir as densidades escalar e bariônica. Considerando que em \cite{Pais} $\rho = \rho_p + \rho_n$ e $\rho_s = \rho_s^p + \rho_s^n$, devemos ter que escrever tudo separadamente, usar em $n_{\pm}$ o potencial químico da vez e no final somar os resultados para próton e nêutron.}
+\begin{align}
+    \mean{\mathcal{H}_{\rm{MF}}} &= \varepsilon_{\rm{kin}} + m \rho_s - G_s \rho_s^2 + g_v\rho^2 \nonumber \\
+    &\phantom{=}~ + G_{sv}\rho_s^2\rho^2 + G_\rho\rho_3^2 + G_{s\rho}\rho^2\rho_3^2 + G_{s\rho}\rho_s^2\rho_2^2 \\
+    \rho &= \mean{\bar\psi\gamma^0\psi} \nonumber \\
+    &= 2n_fn_c\int\frac{d^3p}{(2\pi)^3} (n_{+} + n_{-} - 1) \\
+    \rho_s &= \mean{\bar\psi\psi} \nonumber \\
+    &= 2n_fn_c\int\frac{d^3p}{(2\pi)^3} \frac{M}{\sqrt{p^2 + M^2}} (n_{+} - n_{-})\\
+    \varepsilon_{\rm{kin}} &= \mean{\bar\psi(\vec{\gamma}\cdot\vec{p})\psi} \nonumber \\
+    &= 2n_fn_c\int\frac{d^3p}{(2\pi)^3} \frac{p^2}{\sqrt{p^2 + M^2}} (n_{+} - n_{-})\\
+    \mean{s} &= -2n_fn_c \int \frac{d^3p}{(2\pi)^3} [ n_{+}\ln n_{+} + (1 - n_{+})\ln(1-n_{+}) \nonumber \\
+    &\phantom{=-2n_fn_c \int \frac{d^3p}{(2\pi)^3} [}+ n_{-}\ln n_{-} + (1- n_{-})\ln(1-n_{-})] \\
+    n_{\pm} &= \left[\exp\left(\frac{\pm\sqrt{p^2+M^2} - \mu^r}{T}\right) + 1\right]^{-1}
+\end{align}
+%
+Aparentemente a expressão para $\varepsilon_{\rm{kin}}$ é calculada a partir da pressão (veja as equações 3.75 e 3.75 do Advances in Nuclear Physics 16), uma vez que $\varepsilon = -p + Ts + \mu\rho$. O integrando da expressão mostrada aqui difere em relação ao da expressão 2.50 de \cite{Buballa} para valores pequenos de momento, mas pode ser que isso fique certo para $\tilde\omega$.
+
+Nas expressões acima, temos ainda $M$ e $\tilde\mu_i$. Tais variáveis são dadas pela equação do gap
+\begin{equation}
+    M = m - 2G_s\rho_s + 2G_{sv}\rho_s\rho^2 + 2 G_{s\rho}\rho_s\rho_3^2
+\end{equation}
+%
+e pelos potenciais químicos\footnote[][-3cm]{As expressões são de \cite{Pais}, porém eu estou chamando de $\tilde\mu_i = E_{p_F}^i = \sqrt{M^2 + (p_F^i)^2}$. Veja que pode haver uma diferença de sinal entre essas expressões e a Eq. (2.6) de \cite{japoneses}. Deve estar relacionado às diferentes definições das equações, alguns textos usam $n_p$ e $\bar{n}_p$ (\cite{Buballa}), outros usam $n_+$ e $n_-$. Note que $n_p = n_+$, mas $n_- = 1 - \bar{n}_p$.}
+\begin{align}
+    \tilde\mu_p &= \mu_p + 2G_v\rho + 2G_{sv}\rho\rho_s^2 + 2 G_\rho\rho_3 \nonumber \\
+    &\phantom{= \mu_p} + 2G_{v\rho}\rho_3^2\rho + 2G_{v\rho}\rho^2 \rho_3 + 2G_{s\rho}\rho_3\rho_s^2  \\
+    \tilde\mu_n &= \mu_n + 2G_v\rho + 2G_{sv}\rho\rho_s^2 - 2 G_\rho\rho_3 \nonumber \\
+    &\phantom{=\mu_n} + 2G_{v\rho}\rho_3^2\rho - 2G_{v\rho}\rho^2 \rho_3 - 2G_{s\rho}\rho_3\rho_s^2.
+\end{align}
+%
+Tais equações formam um sistema acoplado de equações auto consistentes. No caso de existir mais que uma solução para tal sistema, a solução real é aquela que produz o menor valor do potencial termodinâmico $\omega$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Consistência termodinâmica}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Calcular as derivadas do potencial termodinâmico e obter as equações auto consistentes. Sei que temos que derivar em relação a $M$ para obter a equação do gap, mas e para obter as equações para $\tilde\mu_p$ e $\tilde\mu_n$? Pelo \cite{Buballa}, devemos derivar em relação a $\tilde\mu_p$ e $\tilde\mu_n$, acredito que devemos separar todas as densidades em contribuição de próton e de nêutron antes de derivar.}
+
+
+
+
+%\textbf{Isso não deveria estar aqui, deveria? Me parece que isso está perdido aqui.}
+%{\it
+%De uma forma geral, podemos escolher variar $\rho_B$ ou $\mu$ ao resolver o problema numericamente. Basicamente o que temos é uma solução de um sistema para um valor específico de densidade ou de potencial químico (não estamos calculando uma função da densidade, por exemplo, mas sim resolvendo o sistema para um valor específico de densidade). Como $\mu$ e $\rho$ estão ligados através das equações
+%\begin{subequations}
+%\begin{equation}\label{Eqs:sist_m_mu_t_finito}
+%	\mu_R = \mu - 4 n_f n_c G_V \int\frac{d^3}{(2\pi)^3}(n_p(T, \mu_R) - \bar{n}_p(T, \mu_R)
+%\end{equation}
+%%
+%e
+%\begin{equation}
+%	\rho_B = \frac{n(T,\mu_R)}{3} = 2 n_f n_c \int\frac{d^3}{(2\pi)^3}(n_p(T, \mu_R) - \bar{n}_p(T, \mu_R),
+%\end{equation}
+%\end{subequations}
+%%
+%já que estão ligados individualmente a $\mu_R$, podemos escolher um dos dois como variável e calcular o outro\footnote{Isso assume que ambos estão ligados de maneira única. Em Buballa (2005) -- p. 235, após a Eq. 2.56 -- diz que a função é estritamente crescente, o que garante isso.}. No cálculo do potencial termodinâmico, uma das variáveis pode ser então eliminada. Em geral se escolhe $\mu$ para ser variado, pelo que tenho percebido\footnote{Mas como comecei variando $\rho_B$, vou insistir. De qualquer forma, pelo menos para $T = 0$ é mais fácil.}.
+%}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fase de hádrons: eNJL, SU(2), temperatura zero} 
@@ -768,7 +985,7 @@ já que estão ligados individualmente a $\mu_R$, podemos escolher um dos dois c
 \textbf{Rever essa seção, simplificar depois que tivermos a seção para temperatura finita pronta. Integrar as seções subsequentes}
 %%%%%%%%%%%
 
-A partir da lagrangiana \eqref{Eq:Lagrangiana_eNLJ_Pais}, é possível determinar  o potencial termodinâmico\footnote{Potencial Grand-canônico, ou potencial de Landau.} por unidade de volume, dado por (em Tsue~\cite{japoneses}, o potencial é \emph{definido} como $\omega = \langle\langle \mathcal{H}^{MF}\rangle\rangle - \mu\langle\langle\mathcal{N}\rangle\rangle - \frac{1}{\beta}\langle\langle\mathcal{S}\rangle\rangle$\footnote{Os termos $\langle\langle \cdot \rangle\rangle$ são a Hamiltoniana de campo médio, a densidade bariônica, e algo que pode ser a entropia (eu acho). Isso tem que sair de alguma coisa da termodinâmica, tipo $\omega (T, m) = (T/V) \ln Z$, como poderia ser \emph{definido}?}, o que se traduz em uma expressão similar a essa que segue)
+A partir da lagrangiana \eqref{Eq:Lagrangiana_eNLJ_Pais}, é possível determinar  o potencial termodinâmico\footnote{Potencial Grand-canônico, ou potencial de Landau.} por unidade de volume, dado por (em \textcite{japoneses}, o potencial é \emph{definido} como $\omega = \langle\langle \mathcal{H}^{MF}\rangle\rangle - \mu\langle\langle\mathcal{N}\rangle\rangle - \frac{1}{\beta}\langle\langle\mathcal{S}\rangle\rangle$\footnote{Os termos $\langle\langle \cdot \rangle\rangle$ são a Hamiltoniana de campo médio, a densidade bariônica, e algo que pode ser a entropia (eu acho). Isso tem que sair de alguma coisa da termodinâmica, tipo $\omega (T, m) = (T/V) \ln Z$, como poderia ser \emph{definido}?}, o que se traduz em uma expressão similar a essa que segue)
 \begin{equation}\label{Eq:potencial_termodinamico}
 \begin{split}
 	\omega(\mu) =&~ \varepsilon_{\rm{kin}} + m\rho_s - G_s\rho_s^2 + G_v\rho^2 + G_{sv}\rho_s^2\rho^2 + G_\rho\rho_3^2 \\
@@ -796,7 +1013,7 @@ onde
 	\item $\mu_p$ e $\mu_n$ representam os potenciais químicos de próton e nêutron, respectivamente.
 \end{itemize}
 
-O termo cinético na expressão acima pode ser calculado através de (primeiro termo da Eq. (1) em \cite{PRC_68_035804_2003}, o resto é energia potencial; Indicação de onde isso sai é dada em Tsue~\cite{japoneses}.)\footnote{Degenerescência: O 2 se refere às duas possibilidades de spin; Podemos ter um $N_f$ que representa o número de sabores.}
+O termo cinético na expressão acima pode ser calculado através de (primeiro termo da Eq. (1) em \textcite{PRC_68_035804_2003}, o resto é energia potencial; Indicação de onde isso sai é dada em \textcite{japoneses}.)\footnote{Degenerescência: O 2 se refere às duas possibilidades de spin; Podemos ter um $N_f$ que representa o número de sabores.}
 \begin{align}
 	\varepsilon_{\rm{kin}} &= \langle\bar{\psi}(\vec{\gamma}\cdot\vec{p})\psi\rangle \\
 	&= 2 N_c\sum_i \int \frac{d^3p}{(2\pi)^3}\frac{p^2 + m_i M_i}{E_i}(n_{i-}-n_{i+})\theta(\Lambda^2 - p^2),
@@ -809,7 +1026,7 @@ onde
 	\item $\theta$ é a função degrau, $\Lambda$ é o \emph{cutoff};
 	\item $n_{i\pm}$ são as funções de distribuição de Fermi para estados de energia positiva e negativa (respectivamente), dados por
 	\begin{equation}
-		n_{i\pm} = \frac{1}{1 + \exp(\pm[\beta(E_i\mp\mu_i)])}
+		n_{i\pm} = \frac{1}{1 + \exp(\pm[\beta(E_i-\mu_i^r)])}
 	\end{equation}
 	%
 	onde $i = p, n$ (no nosso caso, no artigo é $u, d, s$) e $\beta = T^{-1}$
@@ -818,7 +1035,7 @@ onde
 	\item $m_i$ são as massas constituintes -- nuas, \emph{bare} --.
 \end{itemize}
 
-Se tomarmos $T \to 0$, temos que $n_{i-} \to 1$ e $n_{i+} \to 0$\footnote{Depende do sinal de $E - \mu$. Aparementemente isso dá $\theta(\mu-E)$}; Além disso, se o integrando só depende do módulo de $\vec{p}$, então (Glendenning\cite{Glendenning}, p. 92)
+Se tomarmos $T \to 0$, temos que $n_{i-} \to 1$ e $n_{i+} \to 0$\footnote{Depende do sinal de $E - \mu$. Aparementemente isso dá $\theta(\mu-E)$}; Além disso, se o integrando só depende do módulo de $\vec{p}$, então [\parencite{Glendenning}, p. 92]
 \begin{equation}\label{Eq:Int_d3p_to_dp}
 	\int\frac{d^3p}{(2\pi)^3} \to \frac{1}{2\pi^2}\int p^2dp.
 \end{equation}
@@ -834,7 +1051,7 @@ Tomando o caso $m_i \to 0$\footnote{No prog. \texttt{eos\_enjl1-dens-assym- clea
 	\varepsilon_{\rm{kin}} = \frac{N_c}{\pi^2}\sum_i \Big[\underbrace{\frac{1}{8}\Big((2p^3 - 3M_i^2p)\sqrt{p^2 + M_i^2} + 3M_i^4\ln\frac{p + \sqrt{p^2 + M_i^2}}{M_i}\Big)}_{F_2(m,p)}\Big]_0^\Lambda
 \end{equation}
 
-A densidade escalar $\rho_s$ é dada por (a origem é indicada em Tsue~\cite{japoneses})
+A densidade escalar $\rho_s$ é dada por (a origem é indicada em \textcite{japoneses})
 \begin{equation}\label{Eq:Dens_Escalar}
 	\rho_s^i = \frac{M}{\pi^2}[F_0(M, p_F^i) - F_0(M, \Lambda)], \quad i = p, n,
 \end{equation}
@@ -1024,7 +1241,7 @@ sendo que isso é feito variando-se a fração de prótons $y_p$.
 \section{Apêndice}
 %%%%%%%%%%%%%%%%%%
 
-Integrais utilizadas nas expressões para temperatura zero: (Glendenning\cite{Glendenning} p. 94\footnote{Na Ref. o primeiro termo da segunda expressão aparece sem o $k$ multiplicando, o que dimensionalmente está incorreto.})
+Integrais utilizadas nas expressões para temperatura zero: [\parencite{Glendenning} p. 94]\footnote{Na Ref. o primeiro termo da segunda expressão aparece sem o $k$ multiplicando, o que dimensionalmente está incorreto.})
 \begin{align}
 	\int \frac{k^4}{\sqrt{k^2 + m^2}} dk &= \frac{1}{4}\left[k^3\epsilon - \frac{3}{2} m^2k\epsilon + \frac{3}{2}m^4\ln\frac{\epsilon + k}{m} \right] \label{Eq:Integ_momento_quarta}\\
 	\int \frac{k^2}{\sqrt{k^2 + m^2}} dk &= \frac{1}{2}\left[k\epsilon - m^2\ln\frac{\epsilon + k}{m}\right] \label{Eq:Integ_momento_quad} \\
